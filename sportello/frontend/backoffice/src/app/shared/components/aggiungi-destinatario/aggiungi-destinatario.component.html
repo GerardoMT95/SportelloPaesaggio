@@ -1,0 +1,129 @@
+<div class="row" style="padding-bottom: .4em;">
+  <div class="col-6">
+    <p-button icon="fa fa-address-book" (click)="collapsed = !collapsed">
+    </p-button>
+  </div>
+  <div class="col-6">
+    <div style="text-align: right;" [hidden]="collapsed">
+      <p-selectButton [options]="addressBookTypes" [(ngModel)]="selected" (onChange)="reset()"></p-selectButton>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selected !== 'new'" style="margin-top: .4em;" [hidden]="collapsed">
+  <div class="text-left clearfix w100">
+    <hr class="divisore">
+    <div class="text-center">
+      {{selected === 'ist' ? ('rubrica.rubIst'|translate) : ('rubrica.rubEnte'|translate)}} <span class="dett"></span>
+    </div>
+  </div>
+  <form [formGroup]="formRicerca">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <label for="nome">Denominazione</label>
+        <input type="text" formControlName="nome" class="form-control" />
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <label for="nome">Pec/email</label>
+        <input type="text" formControlName="email" class="form-control" />
+      </div>
+      <div class="col-md-4 col-sm-12" style="margin-top: auto; margin-bottom: .3em;">
+        <button type="button" (click)="ricerca()" tooltipPosition="top"
+          pTooltip="{{'generic.ricerca'|translate}}" class="bttn btn btn-primary">
+          {{'generic.ricerca'|translate}}
+        </button>
+        <button type="button" (click)="resetRicerca()" tooltipPosition="top"
+          pTooltip="{{'generic.annulla'|translate}}" class="bttn btn btn-primary">
+          {{'generic.annulla'|translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="selected === 'ist'" style="margin-top: 1.2em;">
+    <app-tabella-indirizzi *ngIf="rubricaIstituzionale" [addresses]="rubricaIstituzionale" [editable]="false" 
+      [deletable]="false" [page]="cacheIstituzionale.page" [selectable]="true" [totalItems]="totalItemsIstituzionale"
+      [disableSelectButton]="inEditing" (onSelect)="addElement($event)" (onPaging)="paginazioneEvent($event)">
+    </app-tabella-indirizzi>
+  </div>
+  <div *ngIf="selected === 'ente'" style="margin-top: 1.2em;">
+    <app-tabella-indirizzi *ngIf="rubricaEnte" [addresses]="rubricaEnte" [totalItems]="totaleItemsEnte"
+      [editable]="isAdmin" [deletable]="isAdmin" (onSelect)="addElement($event)" [page]="cacheEnte.page"
+      [disableEditButton]="inEditing" [disableSelectButton]="inEditing" [disableDeleteButton]="inEditing"
+      (onRemove)="deleteAddress($event)" (onEdit)="modAddress($event)" (onPaging)="paginazioneEvent($event)">
+    </app-tabella-indirizzi>
+  </div>
+</div>
+<div *ngIf="selected === 'new'" style="margin-top: .4em;" [hidden]="collapsed">
+  <div class="text-left clearfix w100">
+    <hr class="divisore">
+    <div class="text-center">
+      {{'rubrica.nuovo'|translate}} <span class="dett"></span>
+    </div>
+  </div>
+  <form [formGroup]="formInserimento">
+    <div class="row">
+      <div class="col-sm-12" [ngClass]="{'col-md-6': isAdmin, 'col-md-4': !isAdmin}">
+        <label for="nome">Denominazione</label>
+        <input type="text" formControlName="nome" class="form-control"
+          [ngClass]="{'is-invalid': validate && formInserimento.controls.nome.errors}" />
+        <div class="invalid-feedback" *ngIf="validate && formInserimento.controls.nome.errors">
+          {{'generic.required'|translate}}
+        </div>
+      </div>
+      <div class="col-sm-12" [ngClass]="{'col-md-6': isAdmin, 'col-md-4': !isAdmin}">
+        <label for="nome">Pec/email</label>
+        <input type="text" formControlName="email" class="form-control"
+          [ngClass]="{'is-invalid': validate && formInserimento.controls.email.errors}" />
+        <div class="invalid-feedback" *ngIf="validate && formInserimento.controls.email.errors">
+          <ng-container *ngIf="formInserimento.controls.email.errors.required; else patternError">
+            {{'generic.required'|translate}}
+          </ng-container>
+          <ng-template #patternError>
+            {{'rubrica.invalidEmail'|translate}}
+          </ng-template>
+        </div>
+      </div>
+      <div *ngIf="!isAdmin" class="col-md-4 col-sm-12"
+        style="margin-top: auto; margin-bottom: .3em;">
+        <p-selectButton [options]="pec_mail" formControlName="pec"></p-selectButton>
+      </div>
+    </div>
+    <div *ngIf="isAdmin === true" class="row" style="margin-top: .7em;">
+      <div class="col-6">
+        <p-selectButton [options]="pec_mail" formControlName="pec"></p-selectButton>
+      </div>
+      <div class="col-6">
+        <p-checkbox [label]="'rubrica.add'|translate" [formControl]="formInserimento.controls['inRubrica']" [binary]="true"></p-checkbox>
+        <div class="invalid-feedback" style="opacity: 0;" *ngIf="validate && formInserimento.invalid">
+          errore
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: .8em;">
+      <div class="col-12" style="text-align: center;">
+        <button type="button" (click)="addNewElement()" tooltipPosition="top" 
+          pTooltip="{{'generic.aggiungi'|translate}}" class="bttn btn btn-primary">
+          {{'generic.aggiungi'|translate}}
+        </button>
+        <button type="button" (click)="reset()" tooltipPosition="top"
+          pTooltip="{{'generic.annulla'|translate}}" class="bttn btn btn-primary">
+          {{'generic.annulla'|translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div style="margin-top: 1.5em; margin-bottom: .6em;">
+  <div class="text-left clearfix w100">
+    <hr class="divisore">
+    <div class="text-center">
+      {{fieldName|translate}} 
+      <span class="dett"></span>
+    </div>
+
+  </div>
+  <app-tabella-indirizzi [header]="indirizziAssociatiHeader" [selectableType]="true" 
+    [addresses]="addresses" [paginator]="false" [editable]="false" [deletable]="true"
+    [selectable]="false"  (onRemove)="removeElement($event)" (changeType)="changeElement($event)">
+  </app-tabella-indirizzi>
+</div>

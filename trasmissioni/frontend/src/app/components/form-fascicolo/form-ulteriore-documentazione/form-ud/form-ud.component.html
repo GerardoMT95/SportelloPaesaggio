@@ -1,0 +1,68 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-md-12">
+      <label for="titolo">{{'documentazione.titoloDocumento'|translate}}*</label>
+      <input class="form-control" formControlName="titolo"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.titolo.errors }"
+        maxlength="{{const.MAX_LEN_TITOLO_DOCUMENTO}}" />
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.titolo.errors">{{'generic.required'|translate}}</span>
+    </div>
+    <div class="col-md-12">
+      <label for="descrizione">{{'documentazione.descrizioneDocumento'|translate}}*</label>
+      <textarea class="form-control" rows="8" formControlName="descrizione"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.descrizione.errors }"
+        maxlength="{{const.MAX_LEN_DESCRIZIONE_DOCUMENTO}}">
+        </textarea>
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.descrizione.errors">{{'generic.required'|translate}}</span>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 1em;">
+    <div class="col-md-12">
+      <label for="allegaFile">{{'documentazione.allegaFile'|translate}}*</label>
+      <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="allegaFile($event)"
+        [showCancelButton]="false" cancelLabel="Annulla" [auto]="true" [showUploadButton]="false">
+      </p-fileUpload>
+      <div class="tableContainerCustom">
+        <p-table [value]="form.controls.allegato.value != null ? [form.controls.allegato.value] : null"
+          [autoLayout]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Tipo File</th>
+              <th>Nome file</th>
+              <th>Data ultima modifica</th>
+              <th style="width: 6em;"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-file>
+            <tr>
+              <td>Ulteriore documentazione</td>
+              <td>{{file.name}}</td>
+              <td>{{file.lastModified|date: 'dd/MM/yyyy'}}</td>
+              <td><button class="bttn btn btn-danger bttn-table" (click)="svuotaAllegato()">
+                  <fa-icon icon="trash"></fa-icon>
+                </button></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="4">
+                Nessun file inserito
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <span class="invalid-feedback" *ngIf="inviato && form.controls.allegato.errors">
+        {{'generic.required'|translate}}
+      </span>
+    </div>
+  </div>
+</form>
+<div class="row" style="padding-top: 2em;">
+  <div class="col-md-12 text-center">
+    <button class="bttn btn btn-primary" (click)="onSubmit()">Aggiungi</button>
+    <button class="bttn btn btn-danger" (click)="onCanceled()">Indietro</button>
+  </div>
+</div>

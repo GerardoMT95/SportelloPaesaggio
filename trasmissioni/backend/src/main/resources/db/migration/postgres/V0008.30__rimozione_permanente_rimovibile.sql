@@ -1,0 +1,1 @@
+DELETE FROM procedimento_qualificazioni where date_end is null and id_tipi_qualificazioni=227;

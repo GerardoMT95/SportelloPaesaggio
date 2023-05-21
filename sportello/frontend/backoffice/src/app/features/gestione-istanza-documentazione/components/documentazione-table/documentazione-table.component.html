@@ -1,0 +1,60 @@
+<div class="mb-4">
+  <p-table *ngIf="tableData.length > 0" #tt [columns]="tableHeader" [value]="tableData" [responsive]="true"
+    [paginator]="true" [rows]="5" [autoLayout]="true" class="mb-2" [rowsPerPageOptions]="[5, 10, 25]">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th [ngStyle]="{ width: col.width ? col.width + '%' : '' }" *ngFor="let col of columns"
+          [pSortableColumn]="col.field" [ngSwitch]="col.field" [pSortableColumnDisabled]="col.field === 'displayButon'">
+          {{ col.header | translate }}
+          <p-sortIcon *ngIf="col.field !== 'displayButton'" [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+      <tr *ngIf="tableData.length > 0">
+        <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate">
+          <ng-container *ngIf="col.field === 'stato' && col.header === ''"> </ng-container>
+          <ng-container *ngIf="
+              col.field !== 'displayButton' && col.field !== 'tipoProcedimento' && col.header !== '' && col.field !== 'allegati' && col.field !== 'notificaA' && col.field !== 'visualizzabiliDa' && col.field !== 'data'
+            ">
+            {{ rowData[col.field] }}
+          </ng-container>
+
+          <ng-container *ngIf="col.field === 'notificaA'">
+            <ul class="pl-3">
+              <ng-container *ngFor="let item of rowData.notificaA">
+                <li>{{item}} </li>
+              </ng-container>
+            </ul>
+          </ng-container>
+
+          <ng-container *ngIf="col.field === 'visualizzabiliDa'">
+            <ul class="pl-3">
+              <ng-container *ngFor="let item of rowData.visualizzabiliDa">
+                <!--<li>{{'ULTERIORE_DOCUMENTAZIONE.CODICI_TIPO_ENTE.'+item|translate}} </li>-->
+                <li>{{item}} </li>
+              </ng-container>
+            </ul>
+          </ng-container>
+          <ng-container *ngIf="col.field === 'data'">
+            {{rowData.data | date: "dd/MM/yyyy"}}
+          </ng-container>
+
+          <ng-container>
+            <div class="align-buttons text-center">
+              <button
+                *ngIf="col.field == 'displayButton' && ((currentUser.nome + ' ' + currentUser.cognome) !== rowData['inseritoDa'] || !rowData.bozza)"
+                data-toggle="tooltip" data-placement="top" class="bttn-table bttn btn-success" type="button" delay="500"
+                (click)="download(rowData.id, rowData.nome)">
+                <em class="fa fa-download " aria-hidden="true"></em>
+              </button>
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div *ngIf="tableData.length === 0">
+  <app-no-data [title]="'NO_DATA_FOUND' | translate"></app-no-data>
+</div>

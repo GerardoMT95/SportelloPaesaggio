@@ -1,0 +1,22 @@
+[
+    {
+        "id": 3,
+        "denominazione": "xxxxxxxxxx",
+        "mail": "xxx@gmail.com"
+    },
+    {
+        "id": 4,
+        "denominazione": "yyyyyyyyyy",
+        "mail": "yyy@gmail.com"
+    },
+    {
+        "id": 5,
+        "denominazione": "zzzzzzzzzz",
+        "mail": "zzz@gmail.com"
+    },
+    {
+        "id": 6,
+        "denominazione": "wwwwwwwwww",
+        "mail": "www@gmail.com"
+    }
+]

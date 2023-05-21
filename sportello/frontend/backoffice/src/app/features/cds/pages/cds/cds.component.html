@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="ml-3 mr-3" *ngIf="list">
+        <div class="col-md-12 text-right pb20">
+            <button class="btn btn-primary bttn" *ngIf="enableInsert && !disable" (click)="nuovaConferenza()">
+                {{'CDS.BUTTON.NUOVA_CONFERENZA' | translate}}
+                <fa-icon icon="plus"></fa-icon>
+            </button>
+        </div>
+        <p-table 
+        [columns]="tableHeaders" 
+        [value]="items" 
+        class="mb-2" 
+        >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of tableHeaders">{{ col | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+          <tr *ngIf="items.length > 0">
+            <td>{{rowData.tipo}}</td>
+            <td>{{rowData.attivita}}</td>
+            <td>{{rowData.azione}}</td>
+            <td>{{(rowData.completed ? 'generic.si' : 'generic.no') | translate}}</td>
+            <td>{{rowData.idCds}}</td>
+            <td class="text-center">
+                <button class="btn bttn bttn-table btn-success" (click)="detail(rowData)"
+                *ngIf="rowData.completed"
+                >
+                    <fa-icon icon="eye"></fa-icon>
+                </button>
+                <button class="btn bttn bttn-table btn-primary" (click)="detail(rowData)"
+                  *ngIf="!rowData.completed && !disable"
+                >
+                <!-- *ngIf="!rowData.completed && !disable && (fascicolo && fascicolo.rup)" -->
+                    <fa-icon icon="edit"></fa-icon>
+                </button>
+                <button class="btn bttn-table bttn btn-primary" (click)="goToConference(rowData)"
+                *ngIf="rowData.idCds"
+                pTooltip="{{'CDS.BUTTON.GO_TO'|translate}}"
+                >
+                  <fa-icon icon="arrow-right"></fa-icon>
+                </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr class="text-center no-items-columns">
+            <td [attr.colspan]="columns.length">
+              {{'generic.norows' | translate}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div *ngIf="!list">        
+        <app-cds-edit
+        [idPratica]="id"
+        [idCds]="idCds"
+        [fascicolo]="fascicolo"
+        [comitato]="false"
+        (salva)="salva($event)"
+        (avvia)="avvia($event)"
+        (back)="backToList()"
+        ></app-cds-edit>
+    </div>
+    <div *ngIf="list && (hasCds && cdsDocuments && cdsDocuments.length && tableHeadersCds && tableHeadersCds.length)">
+      <app-section-header [title]="'CDS.LABEL.DOCUMENTAZIONE' | translate | titlecase"></app-section-header>
+      <div class="tableContainerCustom">
+      <p-table [value]="cdsDocuments" class="mb-2" autoLayout="true" [columns]="tableHeadersCds">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" class="longText">
+              {{ col.header }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-i="rowIndex" let-columns="columns">
+          <tr class="small-row">
+            <td *ngFor="let col of columns">
+              <ng-container *ngIf="col.field == 'azioni'">
+                  <button class="btn bttn bttn-table bttn-success" (click)="downloadCds(rowData)"
+                  pTooltip="{{'generic.download' | translate}}"
+                  >
+                      <fa-icon icon="download"></fa-icon>
+                  </button>
+              </ng-container>
+              <ng-container *ngIf="col.field !== 'azioni'">
+                {{ rowData[col.field] }}
+              </ng-container>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <tr *ngIf="!cdsDocuments || cdsDocuments.length === 0" class="no-items-columns">
+            <td [attr.colspan]="tableHeadersCds.length" class="text-center">
+              {{"TABLE.NO_DATA" | translate}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+</div>

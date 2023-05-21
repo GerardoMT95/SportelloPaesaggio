@@ -1,0 +1,90 @@
+<app-section-header [title]="'COMMISSIONE_LOCALE.DETTAGLIO'|translate"></app-section-header>
+<div *ngIf="form" [formGroup]="form">
+    <div class="row">
+        <div class="col-12">
+            <app-multiselect-field formControlName="organizzazioniAssociate" [options]="entiOptions" optionLabel="description"
+                [filter]="true" placeholder="-- Seleziona enti associati a questa commissione --" [label]="'COMMISSIONE_LOCALE.ENTI'|translate"
+                [validation]="validation" [errors]="form.controls.organizzazioniAssociate.errors"></app-multiselect-field>
+        </div>
+        <div class="col-12">
+            <app-text-field formControlName="denominazione" [label]="'COMMISSIONE_LOCALE.THEAD.NAME'|translate"
+                [validation]="validation" [errors]="form.controls.denominazione.errors"></app-text-field>
+        </div>
+        <div class="col-12">
+            <div class="">
+                <div class="form-group">
+                    <label>{{ 'COMMISSIONE_LOCALE.THEAD.SIMPLE-VALIDITY'|translate }}</label>
+                    <div class="dflex double-input">
+                        <div class="input-group col">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">{{'search.simple-from'|translate}}</div>
+                            </div>
+                            <p-calendar [yearNavigator]="true" [yearRange]="yearRangeStart" dateFormat="dd/mm/yy" class="form-control nop"
+                                formControlName="dataCreazione" [locale]="IT" inputStyleClass="form-control" showButtonBar="true" [minDate]="dateLimit.minStart"
+                                [maxDate]="dateLimit.maxStart" [ngClass]="{'is-invalid': validation && form.controls.dataCreazione.errors }" (onSelect)="evaluateLimitDate()">
+                            </p-calendar>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <fa-icon icon="calendar"></fa-icon>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group col">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">{{'search.simple-to'|translate}}</div>
+                            </div>
+                                <p-calendar [yearNavigator]="true" [yearRange]="yearRangeEnd" dateFormat="dd/mm/yy" class="form-control nop"
+                                    formControlName="dataTermine" [locale]="IT" inputStyleClass="form-control" showButtonBar="true" [minDate]="dateLimit.minEnd"
+                                    [maxDate]="dateLimit.maxEnd" [ngClass]="{'is-invalid': validation && form.controls.dataTermine.errors }" (onSelect)="evaluateLimitDate()">
+                                </p-calendar>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <fa-icon icon="calendar"></fa-icon>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <app-input-error [errors]="form.controls.dataTermine.errors" [validation]="validation">
+                        </app-input-error> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <app-input-error [errors]="form.controls.dataCreazione.errors" [validation]="validation">
+                            </app-input-error>
+                        </div>
+                        <div class="col-6">
+                            <app-input-error [errors]="form.controls.dataTermine.errors" [validation]="validation">
+                            </app-input-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center" style="margin-top: 3em;">
+        <button class="bttn btn btn-primary" (click)="submitCom()" >{{'generic.salva'|translate}}</button>
+        <button class="bttn btn btn-primary" (click)="annullaCom()">{{'generic.annulla'|translate}}</button>
+        <button class="bttn btn btn-primary" (click)="chiudiCom()" >{{'generic.chiudi'|translate}}</button>
+    </div>
+</div>
+<div *ngIf="commissione" style="margin-top: 5em;">
+    <app-section-header [title]="'COMMISSIONE_LOCALE.THEAD.MEMBERS'|translate"></app-section-header>
+    <div class="row">
+        <div class="col-md-10 col-xsm-12">
+           <!--  <app-select-field [(ngModel)]="utenteSelezionato" [options]="userOptions" [filter]="true"></app-select-field> -->
+            <p-dropdown [(ngModel)]="utenteSelezionato" class="dflex" [showClear]="true" [options]="userOptions"
+                [autoWidth]="false" placeholder="-- Seleziona il funzionario --" appendTo="body" optionLabel="description"
+                [ngClass]="{'is-invalid': invalidUser }">
+            </p-dropdown>
+            <app-input-error  [errorMessages]="customErrorMessages" [errors]="{'duplicate': invalidUser}" 
+                [validation]="true"></app-input-error>
+        </div>
+        <div class="col-md-2 col-xsm-12">
+            <button class="btn btn-primary" [disabled]="invalidUser || !utenteSelezionato" 
+            (click)="aggiungiUtente()">{{'generic.aggiungi'|translate}}</button>
+        </div>
+    </div>
+    {{usersContainer|json}}
+    <app-generic-table [header]="userTableHeader" [items]="usersContainer" [paginator]="false" 
+        [disableEditButton]="true" [disableSelectButton]="true" [disableDeleteButton]="true" 
+        (onRemove)="removeUser($event)"></app-generic-table>
+</div>

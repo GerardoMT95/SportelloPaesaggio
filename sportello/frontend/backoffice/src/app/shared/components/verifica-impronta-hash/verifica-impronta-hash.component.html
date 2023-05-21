@@ -1,0 +1,72 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <app-section-header
+      [title]="'VERIFY_HASH.TITLE' | translate | uppercase"
+    ></app-section-header>
+    <div class="container-fluid">
+      <label class="mt-4 font-weight-bold">
+        {{ "VERIFY_HASH.FILE_PRAGRAPH" | translate | uppercase }}
+      </label>
+      <app-file-upload
+        (onChoose)="onSelect($event)"
+        (onAllega)="onAllega()"
+        (onRemoveFileChoose)="onRemoveFileFromUpload($event)"
+        [invalidFileTypeMessageDetail]="
+          'VERIFY_HASH.TIPO_FILE_NON_VALIDO_DETTAGLIO' | translate
+        "
+        [showCancelButton]="true"
+        #fileUpload
+        [multiple]="true"
+      ></app-file-upload>
+    </div>
+
+    <!--<app-document-table
+      [tableHeaders]="documentTableHeaders"
+      [tableData]="tableData"
+      [disabled]="true"
+      [hashGeneration]="true"
+      (emitDeletion)="onRemoveFileFromTable($event)"
+    ></app-document-table>-->
+    <!--<app-table-no-filter (deleteEmitter)="onRemoveFileFromTable($event)" 
+        [disableButton]="false" 
+        [attachmentsPerFileType]="tableData"
+        [tableHeadersAttachment]="documentTableHeaders"
+        [colonnaStatus]="false"
+        [downloadEnable]="false"
+        >
+      </app-table-no-filter>-->
+
+      <app-table-no-filter 
+            [readonly]="false" 
+            [enableDelete]="true" 
+            [downloadEnable]="false" 
+            [headers]="documentTableHeaders" 
+            [files]="tableData" 
+            [disableFilteredType]="true"
+            [confirmDelete]="true"
+            (onTableDelete)="onRemoveFileFromTable($event)"
+            ></app-table-no-filter>
+
+    <div class="mt-5 text-center inner-pulsantiera">
+      <button
+        type="button"
+        [disabled]="!tableData.length"
+        class="bttn btn btn-primary"
+        (click)="generateHashCode()"
+      >
+        {{ "VERIFY_HASH.GENERATE_HASH" | translate }}
+      </button>
+
+      <button type="button" class="bttn btn btn-primary" (click)="deleteAll()">
+        {{ "generic.reset" | translate }}
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="goBack()">
+        {{ "generic.indietro" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

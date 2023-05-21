@@ -1,0 +1,109 @@
+<div class="row noml nomr">
+  <div class="col-md-12">
+    <div class="primeng-datatable-container my-2">
+      <div *ngIf="hasPagamenti">
+      <form [formGroup]="formInputPag" 
+            *ngIf="formInputPag as fGrRich">
+        <div class="row">
+          <div class="col-md-3" style="font-size: 15px;">
+            <div class="form-group">
+              <label>{{'PAGO_PA.AMOUNT'|translate}}</label>
+              <div class="input-group">
+                <input class="form-control" 
+                type="number" 
+                formControlName="importo" [placeholder]="'0'"
+                  [ngClass]="{'is-invalid': accendiValidazione && formInputPag.get('importo').errors }">
+                <div class="input-group-append">
+                  <span class="input-group-text">€</span>
+                </div>
+              </div>
+              <app-input-error [errors]="formInputPag.get('importo').errors " [validation]="accendiValidazione">
+              </app-input-error>
+            </div>
+          </div>
+          <div class="col-md-3">
+              <app-date-picker-field 
+                formControlName="dataScadenza"
+                [minDate]="const.TODAY"
+                [errors]="formInputPag.get('importo').errors"
+                [validation]="accendiValidazione"
+                label="{{'PAGO_PA.EXPIRATION_DATE' | translate}}*">
+              </app-date-picker-field> 
+          </div>
+          </div>
+        <div class="row">
+          <div class="col-md-3 offset-md-2">
+            <button data-placement="top" type="submit"
+                  class="bttn btn btn-primary rounded mx-1 mt-1" tooltipPosition="left"
+                  placement="left" delay="500" style="font-size: 12px;" 
+                  [disabled]="infoPagamento|| disabled" (click)="avviaPagamento()">
+                  {{'PAGO_PA.GENERATE_PAYMENT' | translate}}
+            </button>
+          </div>
+          <div class="col-md-2 offset-md-5" *ngIf="infoPagamento && pagato==false  && !disabled">
+            <button data-placement="top" type="button"
+                  class="bttn btn btn-primary rounded mx-1 mt-1" tooltipPosition="left"
+                  placement="left" delay="500" style="font-size: 12px;" (click)="annullaPagamento()">
+                  {{'PAGO_PA.CANCEL_PAYMENT' | translate}}
+            </button>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div *ngIf="infoPagamento">
+        <br>
+        <div *ngIf="pagato">
+          <div class="row">
+            <div class="col-md-12">
+              <p style="color: green; font-size: 25px;">{{'PAGO_PA.PAYMENT_COMPLETED' | translate}}</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col" style="font-size: 18px;">
+            {{'PAGO_PA.PAYMENT_AMOUNT' | translate}} <strong>{{infoPagamento.importoPagamento}}</strong>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col" style="font-size: 18px;">
+            {{'PAGO_PA.CAUSAL_PAYMENT' | translate}} <strong>{{infoPagamento.causale}}</strong>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-12" style="font-size: 12px;">
+            {{'PAGO_PA.PAYMENT_PSP' | translate}}  
+          </div>
+        </div>
+        <br>
+        <div class="row" style="font-size: 16px; text-decoration: underline;">
+          <div class="col">
+            <a [href]="infoPagamento.urlPdf">{{'PAGO_PA.PAYMENT_WARNING' | translate}}</a>
+          </div>
+        </div>
+        <br><br>
+        <div class="row" style="font-size: 12px;">
+          <div class="col-md-12">
+            {{'PAGO_PA.PAYMENT_BY_MYPAY' | translate}}
+          </div>
+        </div>
+        <br>
+        <div class="row" style="font-size: 16px; text-decoration: underline;">
+          <div class="col-md-12">
+            <a [href]="infoPagamento.urlMyPay">{{'PAGO_PA.PAYMENT_MYPAY' | translate}}</a>
+          </div>
+        </div>
+        <div *ngIf="pagato">
+          <br><br>
+          <div class="row" style="font-size: 16px; text-decoration: underline;">
+            <div class="col-md-12">
+              <a [routerLink]="null" routerLinkActive="router-link-active"  (click)="downloadRicevuta()">{{'PAGO_PA.DOWNLOAD_RECEIPT' | translate}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>/opt/log/${microservice}.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>/opt/log/${microservice}.%d{yyyy-MM-dd}.%i.log.gz</FileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>5MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [${microservice}] [%X{TOKEN_ID}] [%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n</pattern>
+    </encoder>
+  </appender>
+  <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+    <queueSize>262144</queueSize>
+    <includeCallerData>true</includeCallerData>
+    <appender-ref ref="FILE" />
+  </appender>
+  <root>
+    <level value="INFO" />
+    <appender-ref ref="ASYNC_FILE" />
+  </root>
+</configuration>

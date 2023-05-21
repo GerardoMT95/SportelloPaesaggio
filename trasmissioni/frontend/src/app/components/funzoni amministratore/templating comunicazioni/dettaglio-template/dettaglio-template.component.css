@@ -1,0 +1,17 @@
+@media screen and (max-width: 650px) 
+{
+    .sezione-destinatario
+    {
+        padding-bottom: 14em;
+    }
+
+    .inner-pulsantiera
+    {
+        display: grid;
+    }
+
+    .inner-pulsantiera button
+    {
+        margin-top: 1em;
+    }
+}

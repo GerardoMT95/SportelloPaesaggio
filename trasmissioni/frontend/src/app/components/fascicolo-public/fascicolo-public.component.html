@@ -1,0 +1,22 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div>
+      <app-search-accordion [isPublic]="true" 
+      [schemaRicerca]="schemaRicerca" [searchOpenInit]="searchOpenInit"
+      (searchChange)="searchFascicoli($event)"></app-search-accordion>
+    </div>
+    <div class="mt-3">
+      <div class="mb-4">
+        <app-data-table [tableData]="fascicoli" [cols]="cols" 
+        (updateDataChange)="orderByAndPaging($event)"
+        [initPageAndRows]="{ page: filters.page, rows: filters.limit }"
+          (actionChange)="azioniRiga($event)" [isPublic]="true" (exportEmitter)="export($event)"
+          [showDetailButton]="showDetailButton">
+        </app-data-table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<ngb-accordion #dettAccordion="ngbAccordion" class="dettaglio-f" [activeIds]="activeIds">
+  <ngb-panel id="dettaglio">
+    <ng-template ngbPanelTitle class="text-left intestazione ">
+      <div style="display: inline-flex;">
+        <span>{{isMedium ? ('fascicolo.dettFascicolo'|translate) : ''}} <strong>{{codice}}</strong></span>
+        <div class="dflex stato-fascicolo">
+          <div class="stato" [ngClass]="stato|lowercase"
+            [ngStyle]="{'background-color':getColor(stato)}">
+            {{'statoFascicolo.'+ getStatusLabel(stato)|translate}} 
+          </div>
+        </div>
+      </div>
+      
+      <fa-icon *ngIf="dettAccordion.isExpanded('dettaglio')" icon="angle-double-up"></fa-icon>
+      <fa-icon *ngIf="!dettAccordion.isExpanded('dettaglio')" icon="angle-double-down"></fa-icon>
+    </ng-template>
+    <ng-template *ngIf="data" ngbPanelContent>
+      <div class="row noml nomr">
+        <div class="col-md-4">
+          <ng-container *ngIf=" descrTipoProcedimento$ | async as descrTipoProcedimento">
+            <label>{{'fascicolo.tipoProcedimento'|translate}}</label>
+            <div>{{descrTipoProcedimento}}</div>
+          </ng-container>
+        </div>
+        <div class="col-md-2">
+          <ng-container>
+            <label>{{'fascicolo.numeroProtocollo'|translate}}</label>
+            <div >{{protocolloFiltered(data.protocollo)}}</div>
+          </ng-container>
+        </div>
+        <div class="col-md-4">
+          <label>{{'fascicolo.enteCompetente'|translate}}</label>
+          <div>{{data.ente}}</div>
+        </div>
+        <div class="col-md-2">
+          <label>{{'operatore.table.richiedente'|translate}}</label>
+          <ng-container *ngIf="data && (data.richiedenteNome || data.richiedenteCognome)">
+            <div>{{(data.richiedenteNome?data.richiedenteNome:'') + ' ' + data.richiedenteCognome}}</div>
+          </ng-container>
+        </div>
+      </div>
+      <br/>
+
+      <div class="row noml nomr">
+        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">         
+          <label>{{'fascicolo.comuni'|translate}}</label>
+          <div *ngFor="let comune of comuni">{{comune}}</div> 
+        <div class="col-md-2"></div> 
+      </div>
+      </div>
+
+      <div class="full-width mbnegative30 container-timeline">
+        <div class="rangeAnni">
+          <p class="inline nop nom">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{data.dataCreazione | date:('generic.dateFormat'|translate)}}</span>
+              <span class="label">
+                <span [innerHTML]="'fascicolo.dataCreazione'|translate"></span>
+              </span>
+            </span>
+          </p>
+          <p class="inline nop nom" *ngIf="data.dataTrasmissione">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{data.dataTrasmissione | date:('generic.dateFormat'|translate)}}</span>
+              <span class="label">
+                <span [innerHTML]="'fascicolo.dataTrasmissione'|translate"></span>
+              </span>
+            </span>
+          </p>
+          <p class="inline nop nom" *ngIf="data.dataCampionamento">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{data.dataCampionamento | date:('generic.dateFormat'|translate)}}</span>
+              <span class="label">
+                <span [innerHTML]="'fascicolo.dataProvvedimento'|translate"></span>
+              </span>
+            </span>
+          </p>
+          <p class="inline nop nom" *ngIf="data.dataVerifica">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{data.dataVerifica | date:('generic.dateFormat'|translate)}}</span>
+              <span class="label">
+                <span [innerHTML]="'fascicolo.dataVerifica'|translate"></span>
+              </span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

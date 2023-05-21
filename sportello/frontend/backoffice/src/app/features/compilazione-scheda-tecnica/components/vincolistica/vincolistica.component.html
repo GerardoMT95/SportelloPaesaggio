@@ -1,0 +1,64 @@
+<form [formGroup]="mainForm.controls['vincolistica']" *ngIf="mainForm.controls['vincolistica'] as fgVinc">
+  <div class="pt-4 pb-3 ml-3 mr-3">
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab
+        header="{{ 'CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE' | translate | uppercase }}"
+        [selected]="true"
+      >
+        <div class="row" (click)="settaValidators()">
+          <div class="col-d-6 ml-3 mt-3">
+            <app-radio-field
+              [label]="'CONSTRAINTS_TAB.PROTECTION_INFORMATION_RADIO_LABEL' | translate"
+              [radioLabel]="'NO'"
+              [radioValue]="false"
+              [name]="'sottopostoATutela'"
+              formControlName="sottopostoATutela"
+            ></app-radio-field>
+            <app-radio-field
+              [label]=""
+              [radioLabel]="'SI'"
+              [radioValue]="true"
+              [name]="'sottopostoATutela'"
+              formControlName="sottopostoATutela"
+              [validation]="validation"
+              [errors]="fgVinc.get('sottopostoATutela').errors"
+            ></app-radio-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="showSpecificaVincolo">
+          <div class="col-md-12 ml-4 d-block">
+            <app-multiselect-field
+              [label]="'CONSTRAINTS_TAB.CONSTRAINT_LABEL' | translate"
+              formControlName="specificaVincolo"
+              [name]="'specificaVincolo'"
+              [options]="casella.vincolistica"
+              [dropdown]="false"
+              [validation]="validation"
+              [errors]="fgVinc.get('specificaVincolo').errors"
+            >
+            </app-multiselect-field>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab
+        header="{{ 'CONSTRAINTS_TAB.OTHER_CONSTRAINT_ACORDION_TITLE' | translate | uppercase }}"
+        [selected]="true"
+      >
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <app-textarea-field
+              [label]="'CONSTRAINTS_TAB.CONSTRAINT_LABEL' | translate"
+              [rows]="5"
+              id="altriVincoli"
+              name="altriVincoli"
+              formControlName="altriVincolo"
+              [maxlength]="4000"
+            ></app-textarea-field>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</form>

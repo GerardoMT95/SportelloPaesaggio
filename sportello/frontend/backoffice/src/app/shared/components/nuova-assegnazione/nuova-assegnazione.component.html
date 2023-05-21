@@ -1,0 +1,64 @@
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{ width: '60%' }"
+    [contentStyle]="{'min-height':'12em'}"(onHide)="chiudi()" [blockScroll]="true">
+    <p-header>{{ 'fascicolo.codiceFascicolo' | translate }}: {{codicePratica}}</p-header>
+    <form [formGroup]="formAssign" >
+        <div class="row" style="max-width: 100%!important; padding-top: 1.2em;" *ngIf="rup && rup.length>0">
+            <div class="col-lg-2 col-md-3 col-sm12">
+                <label for="usernameRup">{{'fascicolo.rup'|translate}}</label>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-12">
+                <p-dropdown class="dflex" formControlName="usernameRup" [showClear]="true" 
+                    [options]="rup"
+                    [autoWidth]="false" placeholder="-- Seleziona il rup --" appendTo="body"
+                    [ngClass]="{'is-invalid': submitted && formAssign.controls.usernameRup.errors }">
+                    <ng-template let-item pTemplate="selectedItem">
+                        <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                    </ng-template>
+                    <ng-template let-user pTemplate="item">
+                        <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                    </ng-template>
+                </p-dropdown>
+                <div *ngIf="submitted && formAssign.controls.usernameRup.errors" class="invalid-feedback">
+                    <div *ngIf="formAssign.controls.usernameRup.errors.required">
+                        {{'generic.required'|translate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="max-width: 100%!important; padding-top: 1.2em;">
+            <div class="col-lg-2 col-md-3 col-sm12">
+                <label for="usernameFunzionario">{{'fascicolo.assegnazione.funzionario'|translate}}</label>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-12">
+                <p-dropdown class="dflex" formControlName="usernameFunzionario" [showClear]="true" 
+                [options]="funzionari"
+                    [autoWidth]="false" placeholder="-- Seleziona il funzionario --" appendTo="body"
+                    [ngClass]="{'is-invalid': submitted && formAssign.controls.usernameFunzionario.errors }">
+                    <ng-template let-item pTemplate="selectedItem">
+                        <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                    </ng-template>
+                    <ng-template let-user pTemplate="item">
+                        <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                    </ng-template>
+                </p-dropdown>
+                <div *ngIf="submitted && formAssign.controls.usernameFunzionario.errors" class="invalid-feedback">
+                    <div *ngIf="formAssign.controls.usernameFunzionario.errors.required">
+                        {{'generic.required'|translate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-row-reverse">
+                <button class="dialog-button" type="button" pButton (click)="salva()"
+                    label="{{ 'generic.salva' | translate }}"></button>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button class="dialog-button" type="button" pButton (click)="chiudi()"
+                    label="{{ 'generic.chiudi' | translate }}"></button>
+            </div>
+        </div>
+    </p-footer>
+</p-dialog>

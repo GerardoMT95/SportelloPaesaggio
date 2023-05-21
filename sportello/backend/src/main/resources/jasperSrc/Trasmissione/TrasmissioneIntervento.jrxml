@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final utlizzo versione della libreria JasperReports6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<!-- 2020-10-29T17:09:31 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DocumentoDiTrasmissione" pageWidth="440" pageHeight="842" columnWidth="440" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a7faadea-4645-4c73-8882-3e0722c662e7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="CaratterizzazioneIntervento" uuid="8d3510e2-0f31-4744-bbe8-79dcf46d431f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+		<field name="text" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="QualificazioneIntervento" uuid="1713754d-0531-486e-bc36-ce4b2f712787">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="text" class="java.lang.String"/>
+		<field name="subtext" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="StringWrapper" uuid="84293f18-696e-4237-a7fe-0bb2c07ec606">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="caratterizzazioneIntervento" class="java.util.List"/>
+	<field name="qualificazioneIntervento" class="java.util.List"/>
+	<field name="tipoProcedimento" class="java.lang.Integer"/>
+	<field name="oggettoIntervento" class="java.lang.String"/>
+	<field name="descrizioneIntervento" class="java.lang.String"/>
+	<field name="tipologiaDiIntervento" class="java.lang.String"/>
+	<field name="durata" class="java.lang.String"/>
+	<field name="tipologiaDiInterventoCon" class="java.lang.String"/>
+	<field name="tipologiaDiInterventoArticoli" class="java.lang.String"/>
+	<field name="tipologiaDiInterventoDataApprovazione" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="64" splitType="Prevent">
+			<staticText>
+				<reportElement x="0" y="0" width="440" height="20" uuid="aa463aa5-68dd-47a2-9310-88f0c88c43a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oggetto dell'intervento]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="20" y="25" width="420" height="20" uuid="408f6c5e-d956-407e-87ae-759354a0c2cc"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{oggettoIntervento}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="126">
+			<staticText>
+				<reportElement x="0" y="0" width="440" height="20" uuid="4e6598c2-e050-40c3-a744-bfe943ecd8fd"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione sintetica dell'intervento e delle caratteristiche dell'opera(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="55" width="420" height="54" forecolor="#969696" uuid="d7b04b71-7e5f-4d47-9f7a-2e9639975ecf"/>
+				<textElement>
+					<font fontName="CustomArial" size="9"/>
+				</textElement>
+				<text><![CDATA[(1) dimensioni, materiali, colore, finiture, modalità di messa in opera, ecc – In caso sia necessario è possibile allegare apposito elaborato contenente fotoinserimenti del progetto comprendenti un adeguato intorno dell'area di intervento desunto dal rapporto di intervisibilità esistente, al fine di valutarne il corretto inserimento]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="20" y="25" width="420" height="20" uuid="92cc3570-d44e-4a9d-976a-e1470bb7818d"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descrizioneIntervento}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="125">
+			<staticText>
+				<reportElement x="0" y="0" width="440" height="20" uuid="64f6dbff-f74b-4a42-b11c-b63f4b8af9cb"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipologia di intervento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="25" width="420" height="20" uuid="8611cb20-641c-47c1-aea5-373f941da684"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Le opere in progetto rientrano nella seguente tipologia di intervento(2):]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="20" y="45" width="420" height="20" uuid="d371be27-e538-442f-b800-477e164a1464"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipologiaDiIntervento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="75" width="420" height="30" forecolor="#8F8C8C" uuid="179e0938-72d4-417d-99ed-bb6729fa3498"/>
+				<textElement>
+					<font fontName="CustomArial" size="9"/>
+				</textElement>
+				<text><![CDATA[(2) nel caso in cui le opere in progetto siano riconducibili a più tipologie di intervento,
+è stata indicata quella di maggiore impatto.]]></text>
+			</staticText>
+		</band>
+		<band height="80">
+			<printWhenExpression><![CDATA[$F{tipologiaDiInterventoArticoli}!=null && $F{tipologiaDiInterventoArticoli}.length()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="20" y="0" width="110" height="20" isRemoveLineWhenBlank="true" uuid="ee933199-fd81-4dac-be88-53edccbee304">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoArticoli}!=null && $F{tipologiaDiInterventoArticoli}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[In particolare agli artt.]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement x="130" y="0" width="310" height="20" isRemoveLineWhenBlank="true" uuid="950117a6-cf26-4b65-af0f-19ca9016fe3b">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoArticoli}!=null && $F{tipologiaDiInterventoArticoli}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipologiaDiInterventoArticoli}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="20" width="220" height="20" isRemoveLineWhenBlank="true" uuid="aa608ce3-44fc-4070-b19a-92a8b67620f1">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoDataApprovazione}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[del provvedimento edilizio approvato in data]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="240" y="20" width="200" height="20" isRemoveLineWhenBlank="true" uuid="10a121fa-939b-4aa8-ba04-29c1b783cf0a">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoDataApprovazione}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipologiaDiInterventoDataApprovazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="40" width="30" height="20" isRemoveLineWhenBlank="true" uuid="1f4fb1e8-524e-4f99-9f02-f43ee51e7ae8">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoCon}!=null && $F{tipologiaDiInterventoCon}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[con]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement x="50" y="40" width="390" height="20" isRemoveLineWhenBlank="true" uuid="35cdbd33-b3cd-4808-a1b9-718aa61394f8">
+					<printWhenExpression><![CDATA[$F{tipologiaDiInterventoCon}!=null && $F{tipologiaDiInterventoCon}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipologiaDiInterventoCon}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="85" splitType="Prevent">
+			<staticText>
+				<reportElement x="0" y="0" width="440" height="20" uuid="f9fdf98e-6402-4f76-9424-6f4761f72e7d"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Caratterizzazione dell'intervento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="25" width="420" height="20" uuid="0a88aef6-cf31-4d3d-85f1-f8978133df51"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[L'intervento riguarda:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="40" y="45" width="400" height="20" uuid="ba0ec1ac-00c6-4362-be11-515fb1358321"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CaratterizzazioneIntervento" uuid="e127cb67-dc0e-4c68-b655-b7afcdd821e1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{caratterizzazioneIntervento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="400">
+						<textField textAdjust="StretchHeight">
+							<reportElement x="0" y="0" width="400" height="20" uuid="4eea473c-5709-4c94-968b-0f1bf1defb62"/>
+							<textElement>
+								<font fontName="CustomArial"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{value} + " - " + $F{text}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="60">
+			<staticText>
+				<reportElement x="20" y="0" width="420" height="20" uuid="6f8325d5-3968-4f04-88b9-8fc500f6a65b"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Le opere / interventi in progetto sono a carattere:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="40" y="20" width="400" height="20" uuid="0cbecb94-5e26-42a0-b64f-45c89f414e10"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{durata} == "P" ? "permanente" : "temporaneo"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="121" splitType="Prevent">
+			<textField>
+				<reportElement x="20" y="20" width="420" height="20" uuid="97f85d84-fddd-478e-856f-b83bda9db601"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoProcedimento} == 1 ? "Gli interventi e/o opere di progetto sono qualificabili, ai sensi del DPCM 12/12/2005, come:" : (
+	$F{tipoProcedimento} == 2 ? "Tipologia dell'opera e/o dell'intervento ai sensi degli artt 3 e del DPR 31/2017" : (
+		$F{tipoProcedimento} == 3 ? "L'intervento ricade tra le seguenti categorie di cui al c. 4 dell' art. 167 D. Lgs 42/2004:" : "Le opere/interventi in progetto:"
+	)
+)]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="40" y="40" width="400" height="70" uuid="c4595b64-e336-4402-9628-b4b7536f0746"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="QualificazioneIntervento" uuid="7844c6c3-fcdb-42da-a88b-7b0e343e5923">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{qualificazioneIntervento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="70" width="400">
+						<textField textAdjust="StretchHeight">
+							<reportElement x="0" y="0" width="400" height="30" uuid="6125855b-61f0-4bfe-b04c-736215857dda"/>
+							<textElement>
+								<font fontName="CustomArial"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+						</textField>
+						<componentElement>
+							<reportElement x="10" y="30" width="390" height="40" uuid="a326b85b-c961-42c9-b59c-41a49713419a"/>
+							<jr:list printOrder="Vertical">
+								<datasetRun subDataset="StringWrapper" uuid="8812ceef-44b9-41ab-9e0b-986f1ee0af85">
+									<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{subtext})]]></dataSourceExpression>
+								</datasetRun>
+								<jr:listContents height="40" width="390">
+									<textField textAdjust="StretchHeight">
+										<reportElement x="0" y="0" width="390" height="40" uuid="1418e270-777b-4bc4-9fa3-8a32faba32c4"/>
+										<textElement>
+											<font fontName="CustomArial"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+									</textField>
+								</jr:listContents>
+							</jr:list>
+						</componentElement>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="0" width="440" height="20" uuid="a132b81f-6106-4a93-9150-9d1944a256bd"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qualificazione intervento]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

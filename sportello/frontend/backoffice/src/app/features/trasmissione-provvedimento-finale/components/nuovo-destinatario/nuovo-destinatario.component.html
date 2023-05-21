@@ -1,0 +1,28 @@
+<app-section-header [title]="'nuovo destinatario' | uppercase">
+</app-section-header>
+
+<form [formGroup]="form">
+    <div style="display: inline-block; width: 25%;">
+        <label for="">Denominazione</label>
+        <br>
+        <input type="text" pInputText formControlName="denominazione"
+            style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+    </div>
+    <div style="display: inline-block; margin-left: 20px; width: 25%;">
+        <label for="">Indirizzo Pec/Peo</label>
+        <br>
+        <input type="text" pInputText formControlName="mail"
+            style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+    </div>
+
+    <div style="display: inline-block; position: relative; left: 100px;">
+        <app-checkbox-field checkboxLabel="Salva nella rubrica dell'Ente" [isSingle]="true" formControlName="salvaInRubricaEnte"
+            name="checkboxSalvataggioInRubricaEnte" id="checkboxSalvataggioInRubricaEnte">
+        </app-checkbox-field>
+    </div>
+
+    <div style="display: block; width: 50%; text-align: center; margin: 40px 0;">
+        <button pButton type="button" label="Aggiungi" (click)="aggiungi()" style="margin-right: 20px;"></button>
+        <button pButton type="button" label="Annulla" icon="pi pi-times" (click)="annulla()"></button>
+    </div>
+</form>

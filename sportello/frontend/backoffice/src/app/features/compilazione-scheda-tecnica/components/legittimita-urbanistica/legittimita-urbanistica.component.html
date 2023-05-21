@@ -1,0 +1,206 @@
+<form [formGroup]="mainForm.controls['legittimita']" *ngIf="mainForm.controls['legittimita'] as fgLgt">
+  <div class="pt-4 pb-3 ml-3 mr-3">
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'URBAN_LEGITIMACY_TAB.URBAN_LEGITIMACY_TITLE' | translate | uppercase }}"
+        [selected]="true">
+        <div class="row">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaUrbanistica" [name]="'tipoLegittimitaUrbanistica'"
+              [label]="'URBAN_LEGITIMACY_TAB.URBAN_RADIO_TITLE' | translate"
+              [radioLabel]="urbanLegitimacyRadio[0].label" [radioValue]="1"></app-radio-field>
+            <div class="ml-4" *ngIf="showFormControl('legittimitaUrbanstica', 'tipoLegittimitaUrbanistica', 1)">
+              <app-text-field formControlName="legittimitaUrbanstica" [name]="'legittimitaUrbanstica'"
+                [prepend]="('URBAN_LEGITIMACY_TAB.MOTIVATION' | translate | uppercase) + '*'" [id]="'motivazione'"
+                [validation]="validation"
+                [errors]="fgLgt.get('legittimitaUrbanstica').errors">
+              </app-text-field>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 mb-3"></div>
+        <div class="row">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaUrbanistica" [name]="'tipoLegittimitaUrbanistica'"
+              [radioLabel]="urbanLegitimacyRadio[1].label" [radioValue]="2" [validation]="validation"
+              [errors]="fgLgt.get('tipoLegittimitaUrbanistica').errors"></app-radio-field>
+            <div class="ml-4" *ngIf="showFormControl('legittimitaInfo', 'tipoLegittimitaUrbanistica', 2)">
+              <app-building-table [tableHeaders]="buildingTableHeaders" [currentDate]="currentDate"
+                [tableData]="this.fascicolo?.schedaTecnica?.legittimita?.legittimitaInfo"
+                [form]="mainForm.get('legittimita')" [formArrayName]="'legittimitaInfo'"
+                [disabled]="this.fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA'"></app-building-table>
+              <div *ngIf="mainForm.controls.valida.value && fgLgt.get('legittimitaInfo').errors"
+                style="color: #dc3545; font-size: 13px;">Campo obbligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'URBAN_LEGITIMACY_TAB.LANDSCAPE_LEGITIMACY_TITLE' | translate | uppercase }}"
+        [selected]="true">
+        <div class="row" (click)="spegniValidators()">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaPaesaggistica" [name]="'tipoLegittimitaPaesaggistica'"
+              [label]="'URBAN_LEGITIMACY_TAB.URBAN_RADIO_TITLE' | translate" [radioLabel]="urbanLandscapeRadio[0].label"
+              [radioValue]="1" class="mt-1"></app-radio-field>
+            <div class="ml-4"
+              *ngIf="showFormControl('dettaglioLegittimitaPaesaggistica', 'tipoLegittimitaPaesaggistica', 1)">
+              <ng-container formGroupName="dettaglioLegittimitaPaesaggistica">
+                <div class="row d-flex ml-4">
+                  <div class="col">
+                    <app-text-field formControlName="tipologiaVincolo" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.CONSTRAINT_TYPE' | translate | uppercase) + '*'
+                    " [validation]="validation"
+                      [errors]="fgLgt.get('dettaglioLegittimitaPaesaggistica')['controls'].tipologiaVincolo.errors">
+                    </app-text-field>
+                  </div>
+                  <div class="col">
+                    <app-date-picker-field formControlName="dataIntervento" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.DATE_INTERVENTION' | translate | uppercase) + '*'
+                    " [validation]="validation"
+                      [errors]="fgLgt.get('dettaglioLegittimitaPaesaggistica')['controls'].dataIntervento.errors">
+                    </app-date-picker-field>
+                  </div>
+
+                  <div class="col">
+                    <app-date-picker-field formControlName="dataImposizioneVincolo" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.DATE_ENFORCEMENT_CONSTRAINT' | translate | uppercase) +
+                      '*'
+                    " [validation]="validation"
+                      [errors]="fgLgt.get('dettaglioLegittimitaPaesaggistica')['controls'].dataImposizioneVincolo.errors">
+                    </app-date-picker-field>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <app-radio-field formControlName="tipoLegittimitaPaesaggistica" [name]="'tipoLegittimitaPaesaggistica'"
+              [radioLabel]="urbanLandscapeRadio[1].label" [radioValue]="2" [validation]="validation"
+              [errors]="fgLgt.get('dettaglioLegittimitaPaesaggistica') &&
+                        fgLgt.get('dettaglioLegittimitaPaesaggistica').get('tipoLegittimitaPaesaggistica') &&
+                        fgLgt.get('dettaglioLegittimitaPaesaggistica').get('tipoLegittimitaPaesaggistica').errors"></app-radio-field>
+
+            <!--<div class="ml-4" *ngIf="showFormControl('autorizzatoPaesaggisticamenteInfo', 'tipoLegittimitaPaesaggistica', 2)">-->
+              <div class="ml-4" [hidden]="!showFormControl('autorizzatoPaesaggisticamenteInfo', 'tipoLegittimitaPaesaggistica', 2)">
+              <app-building-table 
+                [tableHeaders]="buildingTableHeaders" 
+                [tableData]="this.fascicolo?.schedaTecnica?.legittimita?.autorizzatoPaesaggisticamenteInfo"
+                [form]="mainForm.get('legittimita')" 
+                [nomeTabella]="'leggittimita'"
+                [formArrayName]="'autorizzatoPaesaggisticamenteInfo'"
+                [disabled]="this.fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA'"
+                [submitted]="validation">
+              </app-building-table>
+              <div
+                *ngIf="mainForm.controls.valida.value && fgLgt.get('dettaglioLegittimitaPaesaggistica')['controls'].autorizzatoPaesaggisticamenteInfo.errors"
+                style="color: #dc3545; font-size: 13px;">
+                Campo obbligatorio
+              </div>
+            </div>
+
+          </div>
+      </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</form>
+<!--<form [formGroup]="mainForm.controls['legittimita']">
+  <div class="pt-4 pb-3 ml-3 mr-3">
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'URBAN_LEGITIMACY_TAB.URBAN_LEGITIMACY_TITLE' | translate | uppercase }}"
+        [selected]="true">
+        <div class="row">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaUrbanistica" [name]="'tipoLegittimitaUrbanistica'"
+              [label]="'URBAN_LEGITIMACY_TAB.URBAN_RADIO_TITLE' | translate"
+              [radioLabel]="urbanLegitimacyRadio[0].label" [radioValue]="1"></app-radio-field>
+            <div class="ml-4" *ngIf="showFormControl('legittimitaUrbanstica', 'tipoLegittimitaUrbanistica', 1)">
+              <app-text-field formControlName="legittimitaUrbanstica" [name]="'legittimitaUrbanstica'"
+                [prepend]="('URBAN_LEGITIMACY_TAB.MOTIVATION' | translate | uppercase) + '*'" [id]="'motivazione'"
+                [validation]="validation"
+                [errors]="mainForm.controls.legittimita.controls.legittimitaUrbanstica.errors">
+              </app-text-field>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 mb-3"></div>
+        <div class="row">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaUrbanistica" [name]="'tipoLegittimitaUrbanistica'"
+              [radioLabel]="urbanLegitimacyRadio[1].label" [radioValue]="2" [validation]="validation"
+              [errors]="mainForm.controls.legittimita.controls.tipoLegittimitaUrbanistica.errors"></app-radio-field>
+            <div class="ml-4" *ngIf="showFormControl('legittimitaInfo', 'tipoLegittimitaUrbanistica', 2)">
+              <app-building-table [tableHeaders]="buildingTableHeaders"
+                [tableData]="this.fascicolo?.schedaTecnica?.legittimita?.legittimitaInfo"
+                [form]="mainForm.get('legittimita')" [formArrayName]="'legittimitaInfo'"></app-building-table>
+              <div *ngIf="mainForm.controls.valida.value && mainForm.controls.legittimita.controls.legittimitaInfo.errors"
+                style="color: #dc3545; font-size: 13px;">Campo obbligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'URBAN_LEGITIMACY_TAB.LANDSCAPE_LEGITIMACY_TITLE' | translate | uppercase }}"
+        [selected]="true">
+        <div class="row" (click)="spegniValidators()">
+          <div class="col">
+            <app-radio-field formControlName="tipoLegittimitaPaesaggistica" [name]="'tipoLegittimitaPaesaggistica'"
+              [label]="'URBAN_LEGITIMACY_TAB.URBAN_RADIO_TITLE' | translate" [radioLabel]="urbanLandscapeRadio[0].label"
+              [radioValue]="1" class="mt-1"></app-radio-field>
+            <div class="ml-4"
+              *ngIf="showFormControl('dettaglioLegittimitaPaesaggistica', 'tipoLegittimitaPaesaggistica', 1)">
+              <ng-container formGroupName="dettaglioLegittimitaPaesaggistica">
+                <div class="row d-flex ml-4">
+                  <div class="col">
+                    <app-text-field formControlName="tipologiaVincolo" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.CONSTRAINT_TYPE' | translate | uppercase) + '*'
+                    " [validation]="validation"
+                      [errors]="mainForm.controls.legittimita.controls.dettaglioLegittimitaPaesaggistica.controls.tipologiaVincolo.errors">
+                    </app-text-field>
+                  </div>
+                  <div class="col">
+                    <app-date-picker-field formControlName="dataIntervento" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.DATE_INTERVENTION' | translate | uppercase) + '*'
+                    " [validation]="validation"
+                      [errors]="mainForm.controls.legittimita.controls.dettaglioLegittimitaPaesaggistica.controls.dataIntervento.errors">
+                    </app-date-picker-field>
+                  </div>
+
+                  <div class="col">
+                    <app-date-picker-field formControlName="dataImposizioneVincolo" [prepend]="
+                      ('URBAN_LEGITIMACY_TAB.DATE_ENFORCEMENT_CONSTRAINT' | translate | uppercase) +
+                      '*'
+                    " [validation]="validation"
+                      [errors]="mainForm.controls.legittimita.controls.dettaglioLegittimitaPaesaggistica.controls.dataImposizioneVincolo.errors">
+                    </app-date-picker-field>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <app-radio-field formControlName="tipoLegittimitaPaesaggistica" [name]="'tipoLegittimitaPaesaggistica'"
+              [radioLabel]="urbanLandscapeRadio[1].label" [radioValue]="2" [validation]="validation"
+              [errors]="mainForm.controls.legittimita.controls.tipoLegittimitaPaesaggistica.errors"></app-radio-field>
+
+            <div class="ml-4"
+              *ngIf="showFormControl('autorizzatoPaesaggisticamenteInfo', 'tipoLegittimitaPaesaggistica', 2)">
+              <app-building-table [tableHeaders]="buildingTableHeaders"
+                [tableData]="this.fascicolo?.schedaTecnica?.legittimita?.autorizzatoPaesaggisticamenteInfo"
+                [form]="mainForm.get('legittimita')" [formArrayName]="'autorizzatoPaesaggisticamenteInfo'">
+              </app-building-table>
+              <div
+                *ngIf="mainForm.controls.valida.value && mainForm.controls.legittimita.controls.autorizzatoPaesaggisticamenteInfo.errors"
+                style="color: #dc3545; font-size: 13px;">
+                Campo obbligatorio
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</form>-->

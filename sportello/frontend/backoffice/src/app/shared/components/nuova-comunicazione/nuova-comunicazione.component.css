@@ -1,0 +1,22 @@
+.green-button 
+{
+    border: 3px solid transparent;
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    background-color: #28a745;
+}
+
+@media screen and (max-width: 650px) 
+{
+    .pulsantiera-com
+    {
+        display: grid;
+    }
+
+    .pulsantiera-com p-button
+    {
+        margin-top: 1em;
+    }
+}

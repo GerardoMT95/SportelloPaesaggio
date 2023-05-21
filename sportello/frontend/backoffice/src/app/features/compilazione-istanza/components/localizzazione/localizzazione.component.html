@@ -1,0 +1,423 @@
+<!-- <app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" 
+  [content]="alertData.content"
+  [labelChiudi]="alertData.labelAlertChiudi"
+  [labelOk]="alertData.labelAlertOk"
+  [title]="alertData.title"></app-alert> -->
+<!--dialog in caso di piu' particelle nella ricerca-->  
+<p-dialog [(visible)]="visibleFormSezione" styleClass="info" [modal]="true" [draggable]="false" [width]="300" [resizable]="false">
+  <p-header>{{'LOCALIZZAZIONE.SELEZIONA_SEZIONE_TITLE'|translate}}</p-header>
+    <div class="row nom">
+      <div class="col-auto nop">
+        <div class="icon">
+          <fa-icon icon="info"></fa-icon>
+        </div>
+      </div>
+      <div  #sceltaSezioneIn class="col-md" >{{'LOCALIZZAZIONE.SELEZIONA_SEZIONE'|translate}}<br> 
+        <div *ngFor="let item of sceltaSezione">
+          <label ><input type="radio" name="sceltaSezioneIn" value="{{item.attributes.sezione}}"> {{item.attributes.sezione}}</label>  
+        </div>
+        <div *ngIf="checkPartSel==false && sendPartSel==true" class="invalid-feedback">
+          <div>{{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button type="button" class="bttn btn btn-primary" (click)="addParticelleSelected(sceltaSezioneIn)">{{'generic.prosegui'|translate}}</button>
+      <button type="button" class="bttn btn btn-primary" (click)="visibleFormSezione=false">{{'generic.chiudi'|translate}}</button>
+    </p-footer>
+</p-dialog>
+<!--dialog in caso di piu' particelle nella ricerca-->    
+<!--<div class="container-fluid" [formGroup]="localizzazioneForm">-->
+<div class="container-fluid" *ngIf="loaded">
+<!--nuova sezione-->
+  <div class="">
+    <!--form selezione comune-->
+    <div [formGroup]="formSelezioneComune" class="mb-2" *ngIf="!disable">
+      <div class="form-inline col-md-12">
+        <div class="">
+          <app-select-field formControlName="comune" [label]="
+            ('LOCALIZZAZIONE.SEL_COMUNE' | translate | uppercase) + ''
+          " id="comuneId" name="comuneId" [options]="mockComuniSelezionabili" [disabled]="disable"></app-select-field>
+        </div>
+        <div class="ml-2">
+          <button type="button" class="bttn btn btn-primary" (click)="addComune()"
+            [disabled]="!attivaAggiungi||disable">
+            <fa-icon icon="plus"></fa-icon>&nbsp;{{ 'generic.aggiungi' | translate | uppercase }}
+          </button>
+        </div>
+        <!--<div class="ml-2">
+          <button type="button" class="bttn btn btn-primary" (click)="onLocalizza()">
+            {{hasMap?('LOCALIZZAZIONE.CHIUDI_MAPPA'|translate):('LOCALIZZAZIONE.LOCALIZZA_SU_MAPPA'|translate)}}
+          </button>
+        </div>-->
+      </div>
+    </div>
+    <!--end form selezione comune-->
+    <!--form selezione tipoSelezioneLocalizzazione-->
+    <div class=" row noml nomr" *ngIf="!disable">
+      <div class="col-md-12">
+        <p>{{'LOCALIZZAZIONE.tipoSelezioneLocalizzazione'|translate}}
+          <!--tooltip-->
+          <fa-icon icon="info-circle" (mouseenter)="op1.toggle($event)" (mouseleave)="op1.toggle($event)"></fa-icon>
+          <!--<i class="fa fa-info-circle info-icon" ></i>-->
+          <p-overlayPanel #op1 [appendTo]="'body'" [style]="{'max-width':'600px'}">
+            <ul>
+              <li *ngFor="let item of tipiSelezioneLocalizzazione">
+                <b>{{item.label}}</b>:&nbsp;{{'LOCALIZZAZIONE.'+item.value+'_info'|translate}}</li>
+            </ul>
+          </p-overlayPanel>
+          <!--end tooltip-->
+        </p>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <div class="col-md-12 pb-2">
+        <p-selectButton [options]="tipiSelezioneLocalizzazione" 
+        [disabled]="disable || localizzazioneComuni.length<=0"
+          [formControl]="localizzazioneForm.parent.get('tipoSelezioneLocalizzazione')"
+          (onOptionClick)="clickSelezione($event)">
+        </p-selectButton>
+        <div *ngIf="validation && localizzazioneForm.parent.get('tipoSelezioneLocalizzazione').errors"
+          class="invalid-feedback">
+          <div *ngIf="localizzazioneForm.parent.get('tipoSelezioneLocalizzazione').errors.required">
+            Campo obbligatorio
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-0 mb-2" *ngIf="localizzazioneComuni.length>0">
+      <ng-container *ngTemplateOutlet="esrimap"></ng-container>
+    </div>
+    <!--end tipo selezione localizzazione-->
+    <!--form di input particella-->
+    <div class="col mb-2" [formGroup]="formInserimentoParticella" *ngIf="!disable" 
+      [hidden]="tipoSelezioneLocalizzazione!='PTC'||localizzazioneComuni.length<=0" >
+    <p-panel [header]="('LOCALIZZAZIONE.AGGIUNGI_PARTICELLA'|translate)" >
+      <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="comuneIntervento">{{'LOCALIZZAZIONE.COMUNE'|translate}}</label>
+          <p-dropdown [placeholder]="'generic.selezionaunavoce' | translate" 
+          id="comuneIntervento" 
+          [options]="mockComuniSelezionati"
+          [autoWidth]="false" [style]="{ width: '100%' }" formControlName="comuneIntervento" 
+          [showClear]="true" [disabled]="disable" >
+          </p-dropdown>
+          <!--<app-select-field formControlName="comuneIntervento" [label]="
+          ('LOCALIZZAZIONE.COMUNE' | translate | uppercase) + ''"
+           id="comuneIntervento" name="comuneIntervento" 
+           [optionLabel]="'label'"
+          [options]="mockComuniSelezionati" [disabled]="disable"></app-select-field>-->
+            <div *ngIf="submitted_area && formInserimentoParticella.controls.comuneIntervento.errors" class="invalid-feedback">
+              <div *ngIf="formInserimentoParticella.controls.comuneIntervento.errors.required">{{'generic.required'|translate}}</div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="sezioneIntervento">{{'LOCALIZZAZIONE.SEZ'|translate}}</label>
+          <input [disableControl]="disable" 
+          formControlName="sezioneIntervento" class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="foglioIntervento">{{'LOCALIZZAZIONE.FOG'|translate}}*</label>
+          <input [disableControl]="disable" formControlName="foglioIntervento" class="form-control" type="text" />
+          <div *ngIf="submitted_area && formInserimentoParticella.controls.foglioIntervento.errors!=null" class="invalid-feedback">
+            <div *ngIf="formInserimentoParticella.controls.foglioIntervento.errors.required">{{'generic.required'|translate}}</div>
+            <div *ngIf="formInserimentoParticella.controls.foglioIntervento.errors.pattern">{{'generic.badFormat'|translate}}</div>
+            <div *ngIf="formInserimentoParticella.controls.foglioIntervento.errors.maxlength!=null">Il numero massimo di cifre è 5</div>
+          </div>
+  
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="particellaIntervento">{{'LOCALIZZAZIONE.PART'|translate}}*</label>
+          <input [disableControl]="disable" formControlName="particellaIntervento" class="form-control" type="text" />
+          <div *ngIf="submitted_area && formInserimentoParticella.controls.particellaIntervento.errors!=null" class="invalid-feedback">
+            <div *ngIf="formInserimentoParticella.controls.particellaIntervento.errors.required">{{'generic.required'|translate}}</div>
+            <div *ngIf="formInserimentoParticella.controls.particellaIntervento.errors.pattern">{{'generic.badFormat'|translate}}</div>
+            <div *ngIf="formInserimentoParticella.controls.particellaIntervento.errors.maxlength">Il numero massimo di cifre è 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="particellaIntervento">{{'LOCALIZZAZIONE.NOTE'|translate}}</label>
+          <textarea [disableControl]="disable" formControlName="noteIntervento" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto" style="width: 140px;">
+        <div class="form-group">
+          <label for="aa"></label>
+          <div class="">
+            <button type="button" class="bttn btn btn-primary" (click)="addParticellaManuale()" [disabled]="disable">
+              {{'LOCALIZZAZIONE.AGGIUNGI_PARTICELLA'|translate}}
+              <fa-icon icon="plus"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </p-panel>
+  </div>
+    <!--form di input particella-->
+    
+    <p-accordion *ngIf="true" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up"
+      (onOpen)="apertoAccordion($event)" (onClose)="chiusoAccordion($event)" [multiple]="false">
+      <p-accordionTab *ngFor="let form of  localizzazioneComuni.controls; 
+      let i = index" [formGroup]="form"
+        [selected]="false">
+        <p-header>
+          <span>{{ form.get('comune').value? 'LOCALIZZAZIONE [' + form.get('comune').value + ']':'' | translate }}</span>
+          &nbsp;&nbsp;<span class="badge"  *ngIf="validation && form.errors">!!!!</span>
+        </p-header>
+        <div class="row">
+          <div class="col-md-6">
+            <app-checkbox-field formControlName="strade" [isSingle]="true"
+              [checkboxLabel]="('LOCALIZZAZIONE.AREA_STRADALE' | translate)"
+              [tooltip]="('LOCALIZZAZIONE.VALIDAZIONE_STRADE'|translate)" [disabled]="disable"></app-checkbox-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <app-text-field formControlName="indirizzo" [label]="'LOCALIZZAZIONE.VIA' | translate | uppercase"
+              [disabled]="disable" [validation]="validation" [errors]="filtraErrori(form.errors,'stradeRequired')">
+            </app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="numCivico" [label]="'LOCALIZZAZIONE.NUMERO' | translate | uppercase"
+              [disabled]="disable" [validation]="validation" [errors]="filtraErrori(form.errors,'stradeRequired')">
+            </app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="siglaProvincia"
+              [label]="'LOCALIZZAZIONE.PROVINCIA' | translate | uppercase" [maxlength]="2" [disabled]="disable"
+              [validation]="validation" [errors]="form.get('siglaProvincia').errors"></app-text-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <app-text-field formControlName="piano" [label]="'LOCALIZZAZIONE.PIANO' | translate | uppercase"
+              [disabled]="disable">
+            </app-text-field>
+          </div>
+          <div class="col-md-4">
+            <app-text-field formControlName="interno" [label]="'LOCALIZZAZIONE.INTERNO' | translate | uppercase"
+              [disabled]="disable">
+            </app-text-field>
+          </div>
+          <div class="col-md-3">
+            <app-date-picker-field formControlName="dataRiferimentoCatastale" [label]="
+            ('LOCALIZZAZIONE.DATA_RIF_CATASTALE' | translate | uppercase) + ''
+          " [disabled]="disable"
+          [maxDate]="const.TODAY"></app-date-picker-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <app-text-field formControlName="destUsoAtt"
+              [label]="'LOCALIZZAZIONE.DEST_USO_ESIST' | translate | uppercase" [disabled]="disable"></app-text-field>
+          </div>
+          <div class="col-md-6">
+            <app-text-field formControlName="destUsoProg"
+              [label]="'LOCALIZZAZIONE.DEST_USO_PROG' | translate | uppercase" [disabled]="disable"></app-text-field>
+          </div>
+        </div>
+        <div class="row">
+          <app-tabella-particelle
+          [codiceCatastaleComune]="getCatastaleByComuneId(fascicolo.istanza.localizzazione.localizzazioneComuni[i]?.comuneId)"
+          [disable]="disable"
+          [formComune]="form"
+          [tipoSelezioneLocalizzazione]="tipoSelezioneLocalizzazione"
+          (deleteAllParticelle)="askDeleteAllParticelle($event)"
+          (deleteParticella)="onDeleteParticella($event)"
+          (zoomParticella)="zoomMap($event)"
+          class="col-md-12 mb-2"
+          ></app-tabella-particelle>
+          <!--<app-building-table [tableData]="this.fascicolo.localizzazione?.localizzazioneComuni[i]?.particelle"
+            [tableHeaders]="locationTableHeaders" [form]="form" [formArrayName]="'particelle'"
+            [nomeTabella]="'particelle_'+this.fascicolo.localizzazione?.localizzazioneComuni[i]?.comuneId"
+            [rimuoviAncheUltimaItem]="true" [disabled]="disable" [submitted]="submitted"
+            [formValidator]="[validatoreParticellaForm]"></app-building-table>-->
+        </div>
+        <div class="row">
+          <app-input-error class="col"
+          [errors]="filtraErrori(form.errors,'infoLocalizzazioneRequired')"
+          [validation]="validation && !form.valid ">
+        </app-input-error>
+        </div>
+        <p-panel [header]="'LOCALIZZAZIONE.ULTERIORI-INFORMAZIONI' | translate">
+          <div class="" formGroupName="ulterioriInformazioni">
+            <p-panel [header]="'LOCALIZZAZIONE.BP-PARCHIE-RISERVE' | translate">
+              <!--<p class="font-weight-bold">{{'LOCALIZZAZIONE.BP-PARCHIE-RISERVE' | translate}}</p>-->
+              <!--<ng-container *ngFor="let option of (dropdowns['bpParchiERiserve'] | async)">-->
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('bpParchiEReserveOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value"
+                      [formControl]="form.get('ulterioriInformazioni').get('bpParchiEReserve')"
+                      [label]="option.description" [class]="'dflex'" [disabled]="disable">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('bpParchiEReserveOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_PARCHI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+            <p-panel [header]="'LOCALIZZAZIONE.UCP-PAESAGGIO-RURALE' | translate">
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('ucpPaesaggioRuraleOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value"
+                      [formControl]="form.get('ulterioriInformazioni').get('ucpPaesaggioRurale')"
+                      [label]="option.description" [class]="'dflex'" [disabled]="disable">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('ucpPaesaggioRuraleOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_PAESAGGI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+            <p-panel [header]="'LOCALIZZAZIONE.BP-IMMOBILIE' | translate">
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('bpImmobileAreePubblicoOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value"
+                      [formControl]="form.get('ulterioriInformazioni').get('bpImmobileAreePubblico')"
+                      [label]="option.description" [class]="'dflex'" [disabled]="disable">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('bpImmobileAreePubblicoOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_IMMOBILI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+          </div>
+        </p-panel>
+        <div class="text-center mt-3 mb-1" *ngIf="!disable">
+          <button type="button" class="bttn btn btn-primary" (click)="eliminaComune(i)"  [disabled]="disable">
+            {{ 'LOCALIZZAZIONE.ELIMINA_COMUNE' | translate }}</button>
+        </div>
+        
+      </p-accordionTab>
+    </p-accordion>
+
+  </div>
+  
+  <!--shapefile-->
+  <ng-container *ngIf="tipoSelezioneLocalizzazione=='SHPF'">
+  <!--upload shapefile-->
+  <!--<div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.localizzazioneSection.datiVettoriali' | translate}}
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <label class="text-center">{{'generic.trascinaFile'|translate}}</label>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="onAddRowFileShape($event)"
+        [showCancelButton]="false" cancelLabel="Annulla" multiple="multiple" [auto]="true" [showUploadButton]="false"
+        accept=".zip" [disabled]="disable">
+      </p-fileUpload>
+    </div>
+  </div>-->
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'LOCALIZZAZIONE.DATI-VETTORIALI' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="tableContainerCustom">
+      <p-table [value]="allegatiShape" [columns]="colonneFile">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em;"></th>
+            <th class="uppercase" *ngFor="let col of columns">
+              {{col.header| translate}}
+            </th>
+            <th class="uppercase" style="width: 9em">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+          <tr>
+            <td>{{index+1}}</td>
+            <td>{{rowData.nome}}</td>
+            <td>{{rowData.data | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
+            <td>{{'LOCALIZZAZIONE.LOCALIZZAZIONE' | translate}}</td>
+            <td style="word-break: break-all;">{{rowData.checksum}}</td>
+            <td>
+              <button type="button" (click)="download(rowData)" placement="top" container="body"
+                ngbTooltip="{{'generic.download'|translate}}" class="btn-download">
+                <!--<fa-icon icon="download"></fa-icon>-->
+                <em class="fa fa-download" aria-hidden="true"></em>
+              </button>
+              <button *ngIf="!disable" type="button" (click)="delete(rowData)" placement="top" container="body"
+                ngbTooltip="{{'generic.elimina'|translate}}" class="btn-close">
+                <!--<fa-icon icon="trash"></fa-icon>-->
+                <em class="fa fa-trash" aria-hidden="true"></em>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 2">
+              <span style="text-align: center">{{'generic.norows' | translate}}</span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+</ng-container>
+  <ng-template #esrimap>
+    <app-esri-map *ngIf="hasMap" [user]="user" 
+    [praticaId]="fascicolo.id"
+    [hasEditor]="hasEditor && !disable"
+    [externalQuery]="query" 
+    [isDettaglio]="disable" (result)="result($event)" 
+    (closeMap)="closeMap($event)"
+    (refresh)="ricaricaMappa($event)" 
+    [tipoSelezioneLocalizzazione]="tipoSelezioneLocalizzazione"
+    [aggiornaMappa]="aggiornaMappa"
+    [geometryZoom]="geometryZoom"
+    (deleteShape)="rimuoviOidParticella($event)"
+    [callbackOnEditsComplete]="applyEditsCompleteCallback()"
+    [listaAllegati]="allegatiShape"
+    (aggiuntoShapeFile)="aggiuntoShapeFile($event)">
+  </app-esri-map>
+
+    <!--<app-esri-map *ngIf="hasMap" [user]="user" [idPiano]="fascicolo.id" [hasEditor]="!disable && hasEditor"
+      [externalQuery]="query" (refresh)="ricaricaMappa($event)" (result)="result($event)" (closeMap)="closeMap($event)">
+    </app-esri-map>-->
+    <div class="col">
+    <button type="button" class="bttn btn btn-primary" (click)="onLocalizza()"
+      *ngIf="(tipoSelezioneLocalizzazione=='SHPF'||tipoSelezioneLocalizzazione=='SHPD'||tipoSelezioneLocalizzazione=='PTC') && !hasMap">
+      {{'LOCALIZZAZIONE.apriMappa'|translate}}&nbsp;<fa-icon icon="map-marker-alt"></fa-icon>
+    </button>
+    </div>
+  </ng-template>
+
+</div>

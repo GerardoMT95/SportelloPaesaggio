@@ -1,0 +1,182 @@
+<div class="pt-4 pb-3 ml-3 mr-3 mt-4" *ngIf="proprietarioEsclusivo();else altriTitolariDiv">
+  <p>{{"OTHER_OWNER_TAB.PROP_ESCLUSIVO" | translate}}</p>
+</div>
+<ng-template #altriTitolariDiv>
+  <div class="pt-4 pb-3 ml-3 mr-3 mt-4">
+    <p-accordion *ngFor="let form of altriTitolariFormArr.controls; let i = index" [formGroup]="form"
+      expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab
+        header="{{ form.get('cognome').value? 'SCHEDA TITOLARE [' + form.get('cognome').value + ']':'OTHER_OWNER_TITLE' | translate }}"
+        [selected]="true">
+        <div class="row">
+          <!-- fare riferimento alla codifica :
+              1    proprietario/comproprietario 
+              2    nudo proprietario 
+              3    usufruttario 
+              9    altro (specificare) -->
+          <div class="col-md-4">
+            <app-select-field formControlName="titolaritaInQualitaDi"
+              [label]="'OTHER_OWNER_TAB.OWNER_TYPE' | translate | uppercase" id="titolarita" name="titolarita"
+              [options]="titolaritaInQualitaDiAltroTit" [validation]="validation"
+              [errors]="form['controls'].titolaritaInQualitaDi.errors"></app-select-field>
+          </div>
+          <div class="col-md-6">
+            <app-text-field *ngIf="showFormControl('descrizioneAltro', 'titolaritaInQualitaDi', form)"
+              formControlName="descrizioneAltro" [label]="
+              ('OTHER_OWNER_TAB.DESCRIPTION' | translate | uppercase) + '*'
+            " id="descrizione" name="descrizione" [validation]="validation"
+              [errors]="form['controls'].descrizioneAltro.errors"></app-text-field>
+          </div>
+        </div>
+
+        <app-section-header [title]="'OTHER_OWNER_TAB.OWNER_DATA' | translate"></app-section-header>
+
+        <div class="row">
+          <div class="col-md-4">
+            <app-text-field formControlName="cognome"
+              [label]="('OTHER_OWNER_TAB.LASTNAME' | translate | uppercase) + '*'" id="cognome" name="cognome"
+              [validation]="validation" [errors]="form['controls'].cognome.errors"></app-text-field>
+          </div>
+          <div class="col-md-4">
+            <app-text-field formControlName="nome" [label]="('OTHER_OWNER_TAB.NAME' | translate | uppercase) + '*'"
+              id="nomr" name="nome" [validation]="validation" [errors]="form['controls'].nome.errors">
+            </app-text-field>
+          </div>
+          <div class="col-md-4">
+            <app-text-field formControlName="codiceFiscale"
+              [label]="('OTHER_OWNER_TAB.TAX_CODE' | translate | uppercase) + '*'" id="codiceFiscale"
+              name="codiceFiscale" [validation]="validation" [errors]="form['controls'].codiceFiscale.errors">
+            </app-text-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 d-flex flex-row justify-content-between">
+            <app-radio-field formControlName="sesso" class="flex-fill" [radioLabel]="genders[0]"
+              [label]="('REQUESTER_TAB.SEX' | translate | uppercase) + '*'" [radioValue]="genders[0]" name="gender"
+              class="mr-5 mt-1" [validation]="validation" [errors]="form['controls'].sesso.errors"></app-radio-field>
+            <app-radio-field formControlName="sesso" class="flex-fill" [radioLabel]="genders[1]" [label]="'&nbsp;'"
+              [radioValue]="genders[1]" name="gender" class="mr-5 mt-1"></app-radio-field>
+          </div>
+          <div class="col-md-4">
+            <app-date-picker-field formControlName="natoIl" [label]="
+              ('OTHER_OWNER_TAB.DATE_OF_BIRTH' | translate | uppercase) + '*'
+            " [validation]="validation" [errors]="form['controls'].natoIl.errors"></app-date-picker-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-stato-citta-prov-field [formGroupSet]="form" [nazionalita]="'natoStato'" [provincia]="'natoProvincia'"
+              [comune]="'natoComune'" [comuneEstero]="'natoCitta'"
+              [label]="('OTHER_OWNER_TAB.BIRTH_PLACE' | translate | uppercase) + '*'" [submitted]="validation">
+            </app-stato-citta-prov-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-stato-citta-prov-field [formGroupSet]="form.get('residenteIn')" [nazionalita]="'stato'"
+              [provincia]="'provincia'" [comune]="'comune'" [comuneEstero]="'citta'"
+              [label]="('OTHER_OWNER_TAB.LOCATION_RESIDENCE' | translate | uppercase) + '*'" [submitted]="validation">
+            </app-stato-citta-prov-field>
+          </div>
+        </div>
+        <div class="row" formGroupName="residenteIn">
+          <div class="col">
+            <app-text-field formControlName="via" [label]="('OTHER_OWNER_TAB.EMAIL' | translate | uppercase) + '*'"
+               id="via" name="via" [validation]="validation"
+              [errors]="form['controls'].residenteIn.controls.via.errors"></app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="n" [label]="'&nbsp;'" [prepend]="'OTHER_OWNER_TAB.N' | translate" id="n"
+              name="n" [validation]="validation" [errors]="form['controls'].residenteIn.controls.n.errors">
+            </app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="cap" [label]="'&nbsp;'"
+              [prepend]="'OTHER_OWNER_TAB.CAP' | translate | uppercase" id="cap" [maxlength]="5" name="cap"
+              [validation]="validation" [errors]="form['controls'].residenteIn.controls.cap.errors"></app-text-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <app-text-field formControlName="recapitoTelefonico" [label]="
+              ('OTHER_OWNER_TAB.PHONE_NUMBER' | translate | uppercase) + '*'
+            " id="phoneNumber" name="phoneNumber" [validation]="validation"
+              [errors]="form['controls'].recapitoTelefonico.errors"></app-text-field>
+          </div>
+          <div class="col-md-6">
+            <app-text-field formControlName="pec" [label]="('OTHER_OWNER_TAB.PEC' | translate | uppercase) + '*'"
+              id="pec" name="pec" [validation]="validation" [errors]="form['controls'].pec.errors">
+            </app-text-field>
+          </div>
+        </div>
+
+        <app-ente-ditta-dati [formGroupSet]="form" [nelCaso]="'nelCaso'" [inQualitaDi]="'inQualitaDi'"
+          [descAltroDitta]="'descAltroDitta'" [societa]="'societa'" [partitaIva]="'partitaIva'"
+          [societaCodiceFiscale]="'societaCodiceFiscale'" [validation]="validation"
+          [disable]="form.disabled"></app-ente-ditta-dati>
+
+        <app-section-header [title]="'OTHER_OWNER_TAB.DOCUMENT' | translate"></app-section-header>
+
+        <div class="row">
+          <div class="offset-md-4 col-md-4" formGroupName="documento">
+            <app-select-field formControlName="idTipo" [label]="
+              ('OTHER_OWNER_TAB.DOCUMENT_TYPE' | translate | uppercase) + '*'
+            " id="tipo" name="tipo" [options]="tipoDocumentoOptions" [validation]="validation"
+              [errors]="form['controls'].documento.controls.idTipo.errors"></app-select-field>
+          </div>
+        </div>
+
+        <div class="row" formGroupName="documento">
+          <div class="col-md-2">
+            <app-text-field formControlName="numero" [label]="
+              ('OTHER_OWNER_TAB.DOCUMENT_NUMBER' | translate | uppercase) + '*'
+            " id="numero" name="numero" [validation]="validation"
+              [errors]="form['controls'].documento.controls.numero.errors"></app-text-field>
+          </div>
+          <div class="col-md-3">
+            <app-date-picker-field formControlName="dataRilascio" [label]="
+              ('OTHER_OWNER_TAB.RELEASE_DATE' | translate | uppercase) + '*'
+            " [validation]="validation" [errors]="form['controls'].documento.controls.dataRilascio.errors"
+              [maxDate]="const.TODAY">
+            </app-date-picker-field>
+          </div>
+          <div class="col-md-4">
+            <app-text-field formControlName="enteRilascio" [label]="
+              ('OTHER_OWNER_TAB.RELEASE_AUTHORITY' | translate | uppercase) +
+              '*'
+            " id="autorita" name="autorita" [validation]="validation"
+              [errors]="form['controls'].documento.controls.enteRilascio.errors"></app-text-field>
+          </div>
+          <div class="col-md-3">
+            <app-date-picker-field formControlName="dataScadenza" [label]="
+              ('OTHER_OWNER_TAB.EXPIRATION_DATE' | translate | uppercase) + '*'
+            " [validation]="validation" [errors]="form['controls'].documento.controls.dataScadenza.errors"
+              [minDate]="const.TODAY">
+            </app-date-picker-field>
+          </div>
+        </div>
+        <div>
+          <!--<app-document-table [fascicolo]="fascicolo" [tableHeaders]="documentTableHeaders" [tableData] = "tableData"></app-document-table>-->
+          <app-documento-riconoscimento-allegato [fascicolo]="fascicolo" [praticaId]="this.fascicolo.id"
+            [referenteId]="form.get('id').value" (emitTableData)="validazioneTabella($event, i)">
+          </app-documento-riconoscimento-allegato>
+          <div *ngIf="validation && form['controls'].esisteDocumento.errors" style="color: #dc3545; font-size: 13px;">
+            Campo obbligatorio
+          </div>
+        </div>
+        <!-- <div class="text-center mt-3 mb-1">
+          <button type="button" class="bttn btn btn-primary"
+            (click)="elimina(i)">{{ 'BUTTONS.DELETE_OWNER_BUTTON' | translate }}</button>
+        </div> -->
+      </p-accordionTab>
+    </p-accordion>
+
+    <!-- <div class="ml-1 mt-3">
+      <button type="button" class="bttn btn btn-primary" (click)="addOtherOwner()">
+        <fa-icon icon="plus"></fa-icon>&nbsp;{{ 'BUTTONS.ADD_OWNER' | translate | uppercase }}
+      </button>
+    </div> -->
+  </div>
+</ng-template>

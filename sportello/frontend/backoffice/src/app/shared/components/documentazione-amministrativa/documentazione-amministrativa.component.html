@@ -1,0 +1,49 @@
+<!--<form [formGroup]="mainForm.controls['documentazioneAmministrativa']">
+</form>-->
+    <div class="pt-1 pb-3 ml-3 mr-3">
+        <ng-container *ngIf="!idIntegrazione">
+            <app-section-header [title]="'SEZIONI.PAGAMENTI' | translate"></app-section-header>
+            <app-pagamenti-mypay-mod3 [hasPagamenti]="hasPagamenti"  
+            [disabled]="true" 
+            [praticaId]="fascicolo.id"></app-pagamenti-mypay-mod3>
+         <!-- checkboxs esoneri -->
+        <form [formGroup]="mainForm">    
+        <div class="row">
+          <div class="col-md-12">
+              <app-checkbox-field formControlName="esoneroOneri" [isSingle]="true"
+              [checkboxLabel]="sportelloConfig.esoneroOneriLabel" [validation]="false"
+              [disableControl]="true"
+              ></app-checkbox-field>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <app-checkbox-field formControlName="esoneroBollo" [isSingle]="true"
+                [checkboxLabel]="sportelloConfig.esoneroBolloLabel" [validation]="false"
+                [disableControl]="true"
+                ></app-checkbox-field>
+            </div>
+            </div>
+        </form>
+        <!-- checkbox esoneri -->   
+        </ng-container>
+        <app-section-header [title]="'SEZIONI.ALLEGATI_1' | translate"></app-section-header>
+        <div class="row">
+            <div class="col-md-12">
+                <app-document-table [fascicolo]="fascicolo" (emitDeletion)="deletePaymentAttachment($event)"
+                    [tableData]="filesA" 
+                    [tableHeaders]="documentTableHeaders" (fileUpload)="uploadFileFromTable($event)" 
+                    (emitDownload)="scaricaDocumento($event)"
+                    [disabled]="true"></app-document-table>
+            </div>
+        </div>
+        <app-section-header [title]="'SEZIONI.ALLEGATI_2' | translate"></app-section-header>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <app-document-table [fascicolo]="fascicolo" (emitDeletion)="deleteAttachment($event)"
+                    [tableData]="filesB" [tableHeaders]="documentTableHeaders" (fileUpload)="uploadFileFromTable($event)"
+                    (emitDownload)="scaricaDocumento($event)"
+                    [disabled]="true"></app-document-table>
+            </div>
+        </div>
+    </div>

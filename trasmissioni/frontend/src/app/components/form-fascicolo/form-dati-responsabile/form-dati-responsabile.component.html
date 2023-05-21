@@ -1,0 +1,253 @@
+<form [formGroup]="form.get('responsabile')">
+
+  <div class="row noml nomr">
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+
+        <label for="nome">{{'fascicolo.responsabile.labelNome'|translate}}*</label>
+        <input type="text" formControlName="nome" [disableControl]="disableAndNotEditable" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].nome.errors }"
+          [maxlength]="const.MAX_LEN_NOME">
+          <div *ngIf="submitted && form['controls'].responsabile['controls'].nome.errors" class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].nome.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="cognome">{{'fascicolo.responsabile.labelCognome'|translate}} *</label>
+        <input type="text" formControlName="cognome" [disableControl]="disableAndNotEditable" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].cognome.errors }"
+          [maxlength]="const.MAX_LEN_COGNOME">
+          <div *ngIf="submitted && form['controls'].responsabile['controls'].cognome.errors" class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].cognome.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="qualita">{{'fascicolo.responsabile.labelQualita'|translate}}</label>
+        <input type="text" formControlName="inQualitaDi" [maxlength]="const.MAX_LEN_RUOLO_DITTA" class="form-control" [disableControl]="disableAndNotEditable">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="servizio">{{'fascicolo.responsabile.labelTipoServizio'|translate}}</label>
+        <input type="text" formControlName="servizioSettoreUfficio" [maxlength]="const.MAX_LEN_DESCRIZIONE_DITTA" [disableControl]="disableAndNotEditable"
+          class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="pec">{{'fascicolo.responsabile.labelPec'|translate}} *</label>
+        <input type="text" formControlName="pec" [disableControl]="disableAndNotEditable" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].pec.errors }"
+          [maxlength]="const.MAX_LEN_EMAIL_PEC" >
+          <div *ngIf="submitted && form['controls'].responsabile['controls'].pec.errors" class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].pec.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="posta">{{'fascicolo.responsabile.labelPostaElettronica'|translate}}</label>
+        <input type="text" formControlName="mail" [disableControl]="disableAndNotEditable" class="form-control" [maxlength]="const.MAX_LEN_EMAIL_PEC" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+    <div class="col-md-6 col-sm-12 ">
+      <div class="form-group">
+        <label for="recapitoTelefonico">{{'fascicolo.responsabile.labelTelefono'|translate}}</label>
+        <input type="text" formControlName="telefono" [maxlength]="const.MAX_LEN_TELEFONO" [disableControl]="disableAndNotEditable" class="form-control"
+          pInputText>
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+    <div class="row noml nomr journal-content-article">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          Documento Riconoscimento Allegato
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+
+    <div class="col-md-4 col-sm-12 ">
+      <div class="form-group">
+        <label for="tipo">{{'fascicolo.responsabile.labelTipo'|translate}} *</label>
+        <p-dropdown class="dflex" formControlName="riconoscimentoTipo" [options]="tipoAutoComplete"
+          [disableControl]="disableAndNotEditable" [autoWidth]="false" placeholder="Seleziona una voce"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].riconoscimentoTipo.errors }">
+        </p-dropdown>
+        <div *ngIf="submitted && form['controls'].responsabile['controls'].riconoscimentoTipo.errors"
+          class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].riconoscimentoTipo.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 ">
+      <div class="form-group">
+        <label for="numero">{{'fascicolo.responsabile.labelNumero'|translate}} *</label>
+        <input type="text" formControlName="riconoscimentoNumero" class="form-control"
+          [disableControl]="disableAndNotEditable"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].riconoscimentoNumero.errors }"
+          [maxlength]="const.MAX_LEN_NUMERO_INTERNO_ENTE" >
+        <div *ngIf="submitted && form['controls'].responsabile['controls'].riconoscimentoNumero.errors"
+          class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].riconoscimentoNumero.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 ">
+      <div class="form-group">
+        <label for="rilasciato">{{'fascicolo.responsabile.labelRilasciato'|translate}} *</label>
+        <div class="input-group">
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [disabled]="disableAndNotEditable"
+            dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+            formControlName="riconoscimentoDataRilascio" [locale]="it" showButtonBar="true"
+            yearRange="1900:{{NOW_YEAR}}" inputStyleClass="form-control" [maxDate]="maxDataRilascio"
+            [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].riconoscimentoDataRilascio.errors }">
+          </p-calendar>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <fa-icon icon="calendar"></fa-icon>
+            </div>
+          </div>
+          <div *ngIf="submitted && dataRilascio.errors" class="invalid-feedback">
+            <ng-container *ngIf="dataRilascio.errors.required; else errorDate1">
+              {{'generic.required'|translate}}
+            </ng-container>
+            <ng-template #errorDate1>
+              Data rilascio documento riconoscimento non valida
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 col-sm-12 ">
+      <div class="form-group">
+        <label for="da">{{'fascicolo.responsabile.labelDa'|translate}} *</label>
+        <input type="text" formControlName="riconoscimentoRilasciatoDa" class="form-control"
+          [disableControl]="disableAndNotEditable"
+          [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].riconoscimentoRilasciatoDa.errors }"
+          [maxlength]="const.MAX_LEN_DESCRIZIONE_DITTA">
+        <div *ngIf="submitted && form['controls'].responsabile['controls'].riconoscimentoRilasciatoDa.errors"
+          class="invalid-feedback">
+          <div *ngIf="form['controls'].responsabile['controls'].riconoscimentoRilasciatoDa.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 ">
+      <div class="form-group">
+        <label for="scadenza">{{'fascicolo.responsabile.labelScadenza'|translate}}*</label>
+        <div class="input-group">
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [disabled]="disableAndNotEditable"
+            dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+            formControlName="riconoscimentoDataScadenza" [locale]="it" showButtonBar="true"
+            yearRange="{{const.NOW_YEAR}}:{{const.MAX_YEAR}}" inputStyleClass="form-control" [minDate]="minDataScadenza"
+            [ngClass]="{ 'is-invalid': submitted && form['controls'].responsabile['controls'].riconoscimentoDataScadenza.errors }">
+          </p-calendar>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <fa-icon icon="calendar"></fa-icon>
+            </div>
+          </div>
+          <!-- <div *ngIf="submitted && form['controls'].responsabile['controls'].riconoscimentoDataScadenza.errors"
+            class="invalid-feedback">
+            <div *ngIf="form['controls'].responsabile['controls'].riconoscimentoDataScadenza.errors.required">
+              {{'generic.required'|translate}}</div>
+          </div> -->
+          <div *ngIf="submitted && dataScadenza.errors" class="invalid-feedback">
+            <ng-container *ngIf="dataScadenza.errors.required; else errorDate2">
+              {{'generic.required'|translate}}
+            </ng-container>
+            <ng-template #errorDate2>
+              Data scadenza documento riconoscimento non valida
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row noml nomr">
+    <div class="row noml nomr journal-content-article">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          Allega Documento*
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+<div class="boxed" style="border: 1px solid grey; width: 90%; height: 100%; margin-left: 5%;padding-top: 2%;padding-bottom: 1%;">
+  <div class="row noml nomr">
+    <div class="col-md-12 ">
+      <div class="form-group">
+        <div class="row noml nomr" style="margin-left: 12% !important;">
+            <input type="text" pInputText placeholder="Seleziona file" disabled=true style="text-align:left;width: 80%;">
+            <button type="button" (click)="onSubmit()"
+            class="bttn btn btn-primary">Sfoglia...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="row noml nomr">
+    <div class="col-md-12 ">
+      <div class="form-group">
+        <div class="row noml nomr" style="margin-left: 43% !important;">
+          <button type="button" (click)="caricaDocumento($event)"
+          class="bttn btn btn-primary">Carica</button>
+          <button type="button" (click)="eliminaDocumento($event)"
+          class="bttn btn btn-primary">Annulla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+-->
+
+  <app-riconoscimento-allegato [dettaglioFascicolo]="dettaglioFascicolo" [disable]="disable"
+    (emitTableData)="validazioneTabella($event)">
+  </app-riconoscimento-allegato>
+
+  <div class="row noml nomr" style="margin-top: 3%;">
+    <div class="col-md-12 ">
+      <p><small>*Campo obbligatorio</small></p>
+    </div>
+  </div>
+
+
+
+
+</form>

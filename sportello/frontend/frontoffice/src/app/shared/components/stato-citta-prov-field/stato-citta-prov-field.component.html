@@ -1,0 +1,61 @@
+<!--component per gestire la terna stato provincia città con le autocomplete come su autocertificazione-->
+<!-- input dall'esterno: formGroup e nomi formControl: nazionalita comune provincia comuneEstero -->
+<div class="form-group ">
+  <label [for]="nazionalita">{{label}}</label>
+  <div class="input-group" [formGroup]="formGroupSet">
+    <div class="d-flex flex-nowrap ">
+      <div class="input-group-prepend ">
+        <div class="input-group-text">{{'OTHER_OWNER_TAB.COUNTRY'|translate}}</div>
+      </div>
+      <p-autoComplete [disableControl]="disable" class="form-control input-group-append flex3"
+        (onClear)="onClear(comune)" [minLength]="2" appendTo="body" [forceSelection]="true"
+        [formControlName]="nazionalita" field="description" [suggestions]="nazionalitaAutocomplete"
+        (onSelect)="setNazionalita($event,provincia,comune,comuneEstero)" (completeMethod)="searchNaz($event)"
+        [size]="25" [ngClass]="{'is-invalid': submitted && formGroupSet.get(nazionalita).errors }"></p-autoComplete>
+    </div>
+    <div class="d-flex flex-nowrap">
+      <div class="input-group-append " *ngIf="isItalia">
+        <div class="input-group-text nobr">{{'OTHER_OWNER_TAB.PROV'|translate}}</div>
+      </div>
+      <p-autoComplete [disableControl]="disable" *ngIf="isItalia" class="input-group-append form-control flex3"
+        (onClear)="onClear(comune)" [minLength]="2" appendTo="body" [forceSelection]="true"
+        [formControlName]="provincia" field="description" [suggestions]="provinciaAutocomplete"
+        (onSelect)="abilitaComune($event,comune)" (completeMethod)="searchProv($event)" [size]="20"
+        [ngClass]="{'is-invalid': submitted && formGroupSet.get(provincia).errors }"></p-autoComplete>
+    </div>
+    <div class="d-flex flex-nowrap">
+      <div class="input-group-append " *ngIf="isItalia">
+        <div class="input-group-text nobr">{{'OTHER_OWNER_TAB.COMUNE'|translate}}</div>
+      </div>
+      <p-autoComplete [disableControl]="disable" *ngIf="isItalia" class="input-group-append form-control flex3"
+        [minLength]="3" appendTo="body" [forceSelection]="true" [formControlName]="comune" field="description"
+        [suggestions]="comuneAutocomplete" (completeMethod)="search($event,provincia)" [size]="20"
+        [ngClass]="{'is-invalid': submitted && formGroupSet.get(comune).errors }"></p-autoComplete>
+    </div>
+    <div class="d-flex flex-nowrap">
+      <div class="input-group-append " *ngIf="!isItalia">
+        <div *ngIf="!isItalia" class="input-group-text nobr">{{'OTHER_OWNER_TAB.CITY'|translate}}</div>
+      </div>
+      <div class="input-group-append " *ngIf="!isItalia">
+        <input [disableControl]="disable" *ngIf="!isItalia" type="text" class="form-control "
+          [formControlName]="comuneEstero"
+          [ngClass]="{'is-invalid': submitted && formGroupSet.get(comuneEstero).errors }" />
+      </div>
+    </div>
+  </div>
+  <div class="invalid-feedback" *ngIf="attivaValidazione()">
+    <span *ngIf="formGroupSet.get(nazionalita).errors; else campiInvalidi">
+      <span>
+        {{'generic.allRequired' | translate}}
+      </span>  
+    </span>
+    <ng-template #campiInvalidi>
+      <span>
+        {{'generic.statoCittaProv' | translate}}
+      </span>
+    </ng-template>
+    
+    
+  </div>
+
+</div>

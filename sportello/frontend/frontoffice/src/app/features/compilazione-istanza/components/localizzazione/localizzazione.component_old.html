@@ -1,0 +1,189 @@
+<!--<div class="container-fluid" [formGroup]="localizazioneForm">
+  <div class="">
+    <div class="mt-0 mb-2" *ngIf="hasMap">
+      <ng-container *ngTemplateOutlet="esrimap"></ng-container>
+    </div>
+    <div [formGroup]="formSelezioneComune" class="mb-2">
+      <div class="form-inline col-md-12">
+        <div class="">
+          <app-select-field formControlName="comune" [label]="('LOCALIZZAZIONE.SEL_COMUNE' | translate | uppercase) + ''"
+           id="comuneId" name="comuneId" [options]="mockComuniSelezionabili"></app-select-field>
+        </div>
+        <div class="ml-2">
+          <button type="button" class="bttn btn btn-primary" (click)="addComune()" [disabled]="!attivaAggiungi">
+            <fa-icon icon="plus"></fa-icon>&nbsp;{{ 'BUTTONS.ADD_COMUNE' | translate | uppercase }}
+          </button>
+        </div>
+        <div class="ml-2">
+          <button type="button" class="bttn btn btn-primary" (click)="onLocalizza()">
+            {{hasMap?('LOCALIZZAZIONE.CHIUDI_MAPPA'|translate):('LOCALIZZAZIONE.LOCALIZZA_SU_MAPPA'|translate)}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up"
+      (onOpen)="apertoAccordion($event)" (onClose)="chiusoAccordion($event)" [multiple]="false">
+      <p-accordionTab *ngFor="let form of localizzazioneComuni.controls; 
+      let i = index" [formGroup]="form"
+        header="{{ form.get('comune').value? 'LOCALIZZAZIONE [' + form.get('comune').value + ']':'' | translate }}"
+        [selected]="false">
+        <div class="row">
+          <div class="col-md-6">
+            <app-checkbox-field formControlName="strade" [isSingle]="true"
+              [checkboxLabel]="('LOCALIZZAZIONE.AREA_STRADALE' | translate)"
+              [tooltip]="('LOCALIZZAZIONE.VALIDAZIONE_STRADE'|translate)" [disabled]="disable"></app-checkbox-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <app-text-field formControlName="indirizzo" [label]="'LOCALIZZAZIONE.VIA'|translate|uppercase"
+              [disabled]="disable" [validation]="validation" [errors]="form.errors">
+            </app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="numCivico" [label]="'LOCALIZZAZIONE.NUMERO'|translate|uppercase"
+              [disabled]="disable" [validation]="validation" [errors]="form.errors">
+            </app-text-field>
+          </div>
+          <div class="col-md-2">
+            <app-text-field formControlName="siglaProvincia" [maxlength]="2"
+              [label]="'LOCALIZZAZIONE.PROVINCIA'|translate|uppercase" [disabled]="disable"></app-text-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <app-text-field formControlName="piano" [label]="'LOCALIZZAZIONE.PIANO'|translate|uppercase"
+              [disabled]="disable">
+            </app-text-field>
+          </div>
+          <div class="col-md-4">
+            <app-text-field formControlName="interno" [label]="'LOCALIZZAZIONE.INTERNO'|translate|uppercase"
+              [disabled]="disable">
+            </app-text-field>
+          </div>
+          <div class="col-md-3">
+            <app-date-picker-field formControlName="dataRiferimentoCatastale" [disabled]="disable"
+              [label]="('LOCALIZZAZIONE.DATA_RIF_CATASTALE'|translate|uppercase) + '*'">
+            </app-date-picker-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <app-text-field formControlName="destUsoAtt" [disabled]="disable"
+              [label]="'LOCALIZZAZIONE.DEST_USO_ESIST'|translate|uppercase"></app-text-field>
+          </div>
+          <div class="col-md-6">
+            <app-text-field formControlName="destUsoProg" [disabled]="disable"
+              [label]="'LOCALIZZAZIONE.DEST_USO_PROG'|translate|uppercase"></app-text-field>
+          </div>
+        </div>
+        <div>
+          <app-building-table [tableData]="this.fascicolo.istanza?.localizzazione?.localizzazioneComuni[i]?.particelle"
+            [tableHeaders]="locationTableHeaders" [form]="form" [formArrayName]="'particelle'"
+            [nomeTabella]="'particelle_'+this.fascicolo.istanza?.localizzazione?.localizzazioneComuni[i]?.comuneId"
+            [rimuoviAncheUltimaItem]="true" [disabled]="disable" [submitted]="validation"
+            [formValidator]="[validatoreParticellaForm]"></app-building-table>
+        </div>
+        <p-panel [header]="'LOCALIZZAZIONE.ULTERIORI-INFORMAZIONI' | translate">
+          <div class="" formGroupName="ulterioriInformazioni">
+            <p-panel [header]="'LOCALIZZAZIONE.BP-PARCHIE-RISERVE' | translate">
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('bpParchiEReserveOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value" formControlName="bpParchiEReserve" [label]="option.description"
+                      [class]="'dflex'">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('bpParchiEReserveOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_PARCHI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+            <p-panel [header]="'LOCALIZZAZIONE.UCP-PAESAGGIO-RURALE' | translate">
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('ucpPaesaggioRuraleOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value" formControlName="ucpPaesaggioRurale" [label]="option.description"
+                      [class]="'dflex'">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('ucpPaesaggioRuraleOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_PAESAGGI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+            <p-panel [header]="'LOCALIZZAZIONE.BP-IMMOBILIE' | translate">
+              <ng-container
+                *ngFor="let option of (form.get('ulterioriInformazioni').get('bpImmobileAreePubblicoOptions').value)">
+                <div class="form-group" [class.checkbox]="true">
+                  <div class="checkbox-container">
+                    <p-checkbox [value]="option.value" formControlName="bpImmobileAreePubblico"
+                      [label]="option.description" [class]="'dflex'">
+                    </p-checkbox>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="(!hasOptions(form.get('ulterioriInformazioni').get('bpImmobileAreePubblicoOptions').value))">
+                <p>{{'LOCALIZZAZIONE.NO_IMMOBILI' | translate}}&nbsp;<strong>{{form.get('comune').value}}</strong></p>
+              </ng-container>
+            </p-panel>
+
+          </div>
+        </p-panel>
+        <div class="text-center mt-3 mb-1">
+          <button type="button" class="bttn btn btn-primary" (click)="eliminaComune(i)">
+            {{ 'LOCALIZZAZIONE.ELIMINA_COMUNE' | translate }}</button>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+
+  </div>
+  <app-section-header [title]="'LOCALIZZAZIONE.DATI-VETTORIALI' | translate"></app-section-header>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group upload-container d-flex justify-content-center">
+        <label for="allega-file"
+          class="mt-3 font-weight-bold">{{'TECHNICAL_DOCUMENTATION.ATTACH_FILE' | translate |uppercase}}</label>
+        <p-fileUpload id="allega-file" name="myfile" maxFileSize="99000000" customUpload="true" [auto]="true"
+          (uploadHandler)="onFileSelect($event)" [chooseLabel]="'BUTTONS.CHOOSE' | translate"></p-fileUpload>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 mb-4">
+    <app-document-table [fascicolo]="fascicolo" [tableHeaders]="locationSecondTableHeaders"
+      [tableData]="localizazioneForm.get('allegaShapeFile').value" (fileUpload)="uploadFileFromTable($event)"
+      (emitDeletion)="deleteAttachment($event)" 
+      (emitDownload)="downloadFileShape($event)"
+      [disabled]="fascicolo.attivitaDaEspletare !== 'COMPILA_DOMANDA'"></app-document-table>
+  </div>
+
+
+
+  <ng-template #esrimap>
+      <app-esri-map *ngIf="hasMap" [user]="user" 
+    [praticaId]="fascicolo.id"
+    [hasEditor]="hasEditor && !disable && fascicolo.attivitaDaEspletare == 'COMPILA_DOMANDA'"
+    [externalQuery]="query" 
+    [isDettaglio]="disable" (result)="result($event)" 
+    (closeMap)="closeMap($event)"
+    (refresh)="ricaricaMappa($event)" 
+    [tipoSelezioneLocalizzazione]="tipoSelezioneLocalizzazione"
+    [aggiornaMappa]="aggiornaMappa"
+    [geometryZoom]="geometryZoom"
+    (deleteShape)="rimuoviOidParticella($event)"
+    [callbackOnEditsComplete]="applyEditsCompleteCallback()"
+    [listaAllegati]="allegatiShape"
+    (aggiuntoShapeFile)="aggiuntoShapeFile($event)">
+  </app-esri-map>
+  </ng-template>
+
+</div>-->

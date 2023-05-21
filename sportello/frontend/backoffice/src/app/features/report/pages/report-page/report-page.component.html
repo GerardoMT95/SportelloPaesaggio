@@ -1,0 +1,21 @@
+<div class="container-fluid nop mtop50">
+    <div class="portlet-content-container">
+        <app-report-search (search)="search($event)"></app-report-search>
+        <br/>
+        <app-report-new [showNew]="showNew"
+        [reports]="reports"
+        [procedimenti]="procedimenti"
+        [formati]="formati"
+        (addReport)="addReport($event)"
+        (showNewEvent)="newReport($event)"
+        (hideNewEvent)="closeReport($event)"
+        ></app-report-new>
+        <br/>
+        <app-report-table [showDownload]="true"
+                        [totalRecords]="count"
+                        [list]="list"
+                        (pagination)="paging($event)"
+                        (download)="download($event)"
+        ></app-report-table>
+    </div>
+</div>

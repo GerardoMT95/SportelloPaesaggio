@@ -1,0 +1,72 @@
+  <div class="container-fluid  mtop50"  *ngIf="fascicolo"><div class="portlet-content-container">
+  <!-- UBACITI TIMELINE/DETAGLIO COMPONENT -->
+  <app-dettaglio-fascicolo [fascicolo]="fascicolo"></app-dettaglio-fascicolo>
+  <ul class="nav nav-tabs" *ngIf="!compilazione">
+    <li class="nav-item" *appTabEnabler="tabs.protocollazione">
+      <a class="nav-link" routerLinkActive="active" routerLink='istanza-protocollazione'>{{'fascicolo.form.tab-protocollazione' | translate}}</a>
+    </li>
+    <li class="nav-item" *appTabEnabler="tabs.presentata">
+      <a class="nav-link" routerLinkActive="active" routerLink="istanza-presentata">{{'fascicolo.form.tab-presentazione' | translate}}</a><!-- Istanza Presentata -->
+    </li>
+    <li class="nav-item" *appTabEnabler="tabs.localizzazione">
+      <a class="nav-link" routerLinkActive="active" routerLink="istanza-localizzazione">{{'fascicolo.form.tab-localizzazione' | translate}}</a><!-- Localizzazione -->
+    </li>
+    <ng-container *ngIf="suspendedOrArchived"> 
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-storico-stato">{{'fascicolo.form.tab-storico' | translate}}</a>
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.verbale">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-verbale">{{'fascicolo.form.tab-verbale' | translate}}</a><!-- Verbale comm. locale -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.relazioneEnte">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-relazione-ente">{{'fascicolo.form.tab-relazione' | translate}}</a><!-- Relazione Ente -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.parere">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-parere">{{'fascicolo.form.tab-parere' | translate}}</a><!-- Parere Soprintendenza -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.comunicazioni">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-comunicazioni">{{'fascicolo.form.tab-comunicazioni' | translate}}</a><!-- Comunicazioni -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.conferenzaServizi">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-conferenza">{{'fascicolo.form.tab-cds' | translate}}</a><!-- Conferenza dei Servizi -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.ulterioreDocumentazione">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-documentazione">{{'fascicolo.form.tab-ud' | translate}}</a><!-- Ulteriore Documentazione -->
+      </li>
+    </ng-container>
+    <ng-container *appTabEnabler="tabs.elaborazione">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="istanza-passa"> <!-- Passa a 'in lavorazione'/'in trasmissione' -->
+          {{ stato === statoEnum.PresaInCarica ? ('fascicolo.form.tab-lavora' | translate) : ('fascicolo.form.tab-trasmetti' | translate) }}
+        </a>
+      </li>
+    </ng-container>
+    <ng-container>
+      <li class="nav-item" *appTabEnabler="tabs.trasmissione">
+        <a class="nav-link" routerLinkActive="active" routerLink="trasmissione-provvedimento-finale">{{'fascicolo.form.tab-provvedimento' | translate}}</a><!-- Trasmissione Provvedimento finale -->
+      </li>
+    </ng-container>
+  </ul>
+  <div class="wrapper" style="margin-bottom: 3em;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>
+<div class="text-center inner-pulsantiera" *ngIf="!compilazione">
+  <button type="button" class="bttn btn btn-primary" (click)="back()">
+    {{'BUTTONS.BACK'|translate}}
+    <fa-icon icon="arrow-left"></fa-icon>
+  </button>
+</div>

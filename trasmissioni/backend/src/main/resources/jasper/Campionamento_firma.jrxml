@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final utlizzo versione della libreria JasperReports6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="firma" pageWidth="437" pageHeight="106" columnWidth="437" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41c28d48-b0cd-4b9a-9b2a-91478a28c094">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="titolo_dirigente" class="java.lang.String"/>
+	<field name="dirigente" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="105" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="0" width="436" height="104" uuid="6290c334-6d39-4240-886b-d97c2c4d34a0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="14" width="435" height="14" uuid="8804afe6-04bb-487d-b64f-61dad1b6258e">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="CustomTimes"/>
+					</textElement>
+					<text><![CDATA[        Restando a disposizione per ogni ulteriore chiarimento, si inviano cordiali saluti.]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="134" y="35" width="299" height="19" uuid="7b94eac3-1c57-45e9-8b26-b9bc3f0a0c19"/>
+					<textElement textAlignment="Center">
+						<font fontName="CustomTimes" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{titolo_dirigente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="74" width="435" height="30" uuid="e0fc58cb-f179-4255-9f73-b886661914ee">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="CustomTimes" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[         La firma autografa della dirigente è sostituita a mezzo stampa ai sensi dell'art. 3, comma 2 del d.lgs. 39/1993 e s.m.i.]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="244" y="55" width="141" height="18" uuid="eeeed6e1-ae15-4f36-9195-0fc4713dc147"/>
+					<textElement textAlignment="Center" markup="none">
+						<font fontName="CustomTimes" size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dirigente}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

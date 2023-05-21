@@ -1,0 +1,25 @@
+.align-button {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.align-right{
+  text-align: right;
+  font-weight: bold;
+}
+
+.marginRight6{
+  margin-right: 6px!important;
+}
+
+.marginLeft15{
+  margin-left: 15px!important;
+}
+
+@media screen and (max-width: 650px) 
+{
+    .pulsantiera-com p-button
+    {
+        margin-top: 1em;
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="CustomArial">
+		<normal><![CDATA[fonts/CustomArial/arial.ttf]]></normal>
+		<bold><![CDATA[fonts/CustomArial/arialbd.ttf]]></bold>
+		<italic><![CDATA[fonts/CustomArial/ariali.ttf]]></italic>
+		<bolditalic><![CDATA[fonts/CustomArial/arialbi.ttf]]></bolditalic>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

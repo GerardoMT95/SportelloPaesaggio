@@ -1,0 +1,223 @@
+<!--<p-accordion [activeIndex]="index" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+  <p-accordionTab header="{{'generic.ricerca'|translate}}">
+   <ng-container *ngTemplateOutlet="innerSearch"></ng-container>
+  </p-accordionTab>
+</p-accordion>-->
+<ngb-accordion #acc="ngbAccordion" class="ricerca full-width" [activeIds]="searchOpenInit?['ricerca']:[]">
+  <ngb-panel id="ricerca">
+    <ng-template ngbPanelTitle>
+      {{'generic.ricerca'|translate}}
+      <fa-icon *ngIf="acc.isExpanded('ricerca')" icon="angle-double-up"></fa-icon>
+      <fa-icon *ngIf="!acc.isExpanded('ricerca')" icon="angle-double-down"></fa-icon>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <ng-container *ngTemplateOutlet="innerSearch"></ng-container>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+<!--inner accordion-->
+<ng-template #innerSearch>
+<div class="new-plan-form">
+  <form (ngSubmit)="onSubmit()" *ngIf="searchForm" [formGroup]="searchForm" class="text-left" style="padding-top: 1.5em;">
+    <div class="row noml nomr">
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="codice">{{'search.codiceFascicolo'|translate}}</label>
+          <p-autoComplete class="form-control" (onClear)="onClearControl($event,'codice')" [minLength]="3"
+            appendTo="body" [forceSelection]="false" formControlName="codice"
+            [suggestions]="codiceFascicoloAutocomplete" (completeMethod)="searchCodiceFascicolo($event)"
+            [maxlength]="const.MAX_LEN_AUTOCOMPLETE_CODICE"
+            >
+          </p-autoComplete>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="intervento">{{'search.classIntervento'|translate}}</label>
+          <ng-container *ngIf="tipiIntervento$ | async as bodyList">
+            <p-dropdown class="dflex" [filter]=false [options]="bodyList" formControlName="tipologiaIntervento"
+              placeholder="seleziona una voce" [autoWidth]="false" [showClear]="true">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="tipoProcedimento">{{'search.tipoProcedimento'|translate}}</label>
+          <ng-container *ngIf="tipiProcedimento$ | async as tpList">
+            <p-dropdown class="dflex" [filter]=false [options]="tpList" formControlName="tipoProcedimento"
+              placeholder="seleziona una voce" [autoWidth]="false" [showClear]="true">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <div class="col-md-4 col-sm-12">
+        <!-- range date -->
+        <div class="form-group">
+          <label for="dataRilascioAutorizzazione">{{'search.dataProvvedimento'|translate}}</label>
+          <div class="dflex double-input">
+            <div class="input-group col">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{'search.simple-from'|translate}}</div>
+              </div>
+              <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:{{MAX_YEAR}}"
+                dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+                formControlName="dataRilascioAutorizzazioneDa" inputStyleClass="form-control" showButtonBar="true" [locale]="it">
+              </p-calendar>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <fa-icon icon="calendar"></fa-icon>
+                </div>
+              </div>
+            </div>
+            <div class="input-group col">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{'search.simple-to'|translate}}</div>
+              </div>
+              <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:{{MAX_YEAR}}"
+                dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+                formControlName="dataRilascioAutorizzazioneA" inputStyleClass="form-control" showButtonBar="true" [locale]="it">
+              </p-calendar>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <fa-icon icon="calendar"></fa-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fine data -->
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="ufficio">{{'search.comuneIntervento'|translate}}</label>
+          <p-autoComplete class="form-control" (onClear)="onClearControl($event,'comuneIntervento')" [minLength]="3"
+            appendTo="body" [forceSelection]="true" formControlName="comuneIntervento" field="label"
+            [suggestions]="comuneAutocomplete" (completeMethod)="searchComune($event,'')" 
+            [maxlength]="const.MAX_LEN_AUTOCOMPLETE_COMUNE"></p-autoComplete>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="esito">{{'search.esitoProvvedimento'|translate}}</label>
+          <ng-container *ngIf="esitiProvvedimento$ | async as eList">
+            <p-dropdown class="dflex" [options]="eList" formControlName="esito"
+              placeholder="seleziona una voce" [autoWidth]="false" [showClear]="true">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <!-- Questa riga per il momento è resa inesistente per gli utenti pubblici, tuttavia
+         l'admin può decidere di mostrare i campi stato registrazione ed esito verifica
+         all'utente pubblico. -->
+    <div class="row noml nomr">
+      <div *ngIf="!isPublic" class="col-sm-12" [ngClass]="{'col-md-4': !isPublic || (schemaRicerca.registrazione && schemaRicerca.verifica), 'col-md-6': isPublic && (schemaRicerca.registrazione != schemaRicerca.verifica)}">
+        <div class="form-group">
+          <label for="stato">{{'search.statoFascicolo'|translate}}</label>
+          <ng-container *ngIf="statiFascicolo$ | async as bodyList">
+            <p-dropdown class="dflex" id="stato" [options]="bodyList" [showClear]="true"
+              placeholder="seleziona una voce" formControlName="stato">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-sm-12" *ngIf="!isPublic || schemaRicerca.registrazione"
+        [ngClass]="{'col-md-4': !isPublic || schemaRicerca.verifica, 'col-md-6': isPublic && !schemaRicerca.verifica}">
+        <!--stato registrazione-->
+        <div class="form-group">
+          <label for="esito">{{'search.statoRegistrazione'|translate}}</label>
+          <ng-container *ngIf="statiRegistrazione$ | async as srBody">
+            <p-dropdown class="dflex" [options]="srBody" formControlName="statoRegistrazione"
+              placeholder="seleziona una voce" [autoWidth]="false" [showClear]="true">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-sm-12" *ngIf="!isPublic || schemaRicerca.verifica"
+        [ngClass]="{'col-md-4': !isPublic || schemaRicerca.registrazione, 'col-md-6': isPublic && !schemaRicerca.registrazione}">
+        <!--esito verifica-->
+        <div class="form-group">
+          <label for="esito">{{'search.esitoVerifica'|translate}}</label>
+          <ng-container *ngIf="esitiVerifica$ | async as evBody">
+            <p-dropdown class="dflex" [options]="evBody" formControlName="esitoVerifica"
+              placeholder="seleziona una voce" [autoWidth]="false" [showClear]="true">
+            </p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <!-- Ente -->
+    <div class="row noml nomr">
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="codice">{{'search.codiceInternoEnte'|translate}}</label>
+          <input type="text" class="form-control" formControlName="codiceInternoEnte" maxlength="{{const.MAX_LEN_CODICE_INTERNO_ENTE}}"/>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="codice">{{'search.numeroInternoEnte'|translate}}</label>
+          <input type="text" class="form-control" formControlName="numeroInternoEnte" maxlength="{{const.MAX_LEN_NUMERO_INTERNO_ENTE}}"/>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="codice">{{'search.protocollo'|translate}}</label>
+          <input type="text" class="form-control" formControlName="protocollo" maxlength="{{const.MAX_LEN_PROTOCOLLO_INTERNO_ENTE}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="dataprotocollo">{{'search.ggmmaaaa'|translate}}</label>
+          <div class="dflex double-input">
+            <div class="input-group col">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{'search.simple-from'|translate}}</div>
+              </div>
+              <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:{{MAX_YEAR}}"
+                dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+                formControlName="dataProtocolloDa" inputStyleClass="form-control" showButtonBar="true" [locale]="it">
+              </p-calendar>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <fa-icon icon="calendar"></fa-icon>
+                </div>
+              </div>
+            </div>
+            <div class="input-group col">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{'search.simple-to'|translate}}</div>
+              </div>
+              <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:{{MAX_YEAR}}"
+                dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+                formControlName="dataProtocolloA" inputStyleClass="form-control" showButtonBar="true" [locale]="it">
+              </p-calendar>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <fa-icon icon="calendar"></fa-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fine ente -->
+    <div class="ricercaPulsantieraContainer relative">
+      <div class="pulsantiera clearfix">
+        <button type="submit" class="bttn btn btn-primary">
+          {{'generic.ricerca'|translate}}<fa-icon icon="search"></fa-icon>
+        </button>
+        <button type="button" (click)="onReset()" class="bttn btn btn-primary">
+          {{'generic.annulla'|translate}}<fa-icon icon="times"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+</ng-template>

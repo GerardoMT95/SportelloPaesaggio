@@ -1,0 +1,46 @@
+.primary-button,
+.danger-button,
+.green-button {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+}
+
+.danger-button {
+  background-color: #DC3545;
+}
+.green-button {
+  background-color: #28A745;
+}
+.small-row {
+  height: 40px;
+}
+.text-center {
+  text-align: center;
+}
+.ui-table table {
+  table-layout: auto;
+}
+table .label.my-label {
+  border-radius: 50%;
+  padding: 5px 8px;
+}
+.label-success {
+  background-color: #5cb85c;
+}
+.label-fail {
+  background-color: #DC3545;
+}
+.fixed-width-row {
+  width: 11%;
+  min-width: 11%;
+}
+.blur-button{
+  opacity: 0.5;
+}
+// .not-unique:nth-child(n+2) {
+//   background-color: grey !important;
+// }

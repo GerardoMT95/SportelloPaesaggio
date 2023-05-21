@@ -1,0 +1,36 @@
+.table th:first-child{
+  border-top-left-radius: 6px;
+}
+.table th:last-child{
+  border-top-right-radius: 6px;
+}
+.btnClose{
+  border-radius: 50%;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  padding-bottom: 3px;
+  padding-right: 5px;
+  border: 0;
+  background-color: #d9534f;
+}
+.bttn{
+  padding: 7px 12px;
+  background-color: #007ad9;
+  color: white;
+  border-radius: 3px;
+  margin: 0 0 0 15px;
+  transition: background-color 0.2s;
+  border: 0px solid;
+}
+.align-buttons{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.1em;
+}
+.align-row-number{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.1em;
+
+}

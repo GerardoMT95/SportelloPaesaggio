@@ -1,0 +1,76 @@
+<div class="ml-3 mr-3">
+  <form class="text-left" [formGroup]="searchForm">
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field
+          [label]="'FASCIOLO_FIELDS.FILE_CODE' | translate | uppercase"
+          id="likeCodicePraticaAppptr"
+          name="likeCodicePraticaAppptr"
+          placeholder="{{ 'PLACEHOLDER.CODICE_FASCICOLO' | translate }}"
+          formControlName="likeCodicePraticaAppptr"
+        ></app-text-field>
+      </div>
+      <div class="col-md-6">
+        <app-select-field [label]="'FASCIOLO_FIELDS.ACTIVITIES_TO_BE_PERFORMED' | translate | uppercase"
+          id="attivitaDaEspletare" name="attivitaDaEspletare" [options]="activitiesToBePerformedList"
+          formControlName="attivitaDaEspletare">
+        </app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-select-field
+        [label]="
+        'FASCIOLO_FIELDS.PROCEDURE_TYPE' | translate
+        "
+        id="tipoProcedimento"
+        name="tipoProcedimento"
+        [options]="typeProcedimento"
+        formControlName="tipoProcedimento"
+      ></app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <div class="form-group">
+          <label for="oggetto">{{
+            "'FASCIOLO_FIELDS.OBJECT'" | translate | uppercase
+          }}</label>
+          <textarea
+            pInputTextarea
+            [rows]="3"
+            [cols]="30"
+            class="textarea-style"
+          ></textarea>
+        </div> -->
+        <app-textarea-field
+          [label]="'FASCIOLO_FIELDS.OBJECT' | translate | uppercase"
+          [rows]="3"
+          id="oggetto"
+          name="oggetto"
+          placeholder="{{ 'PLACEHOLDER.OGGETTO' | translate }}"
+          formControlName="oggetto"
+        ></app-textarea-field>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-12 align-button">
+        <button
+          class="mx-2 bttn btn btn-primary"
+          type="button"
+          (click)="onSubmit()"
+        >
+        {{ 'BUTTONS.SEARCH_BUTTON' | translate }}
+           <i class="fa fa-search ml-2"></i>
+        </button>
+        <button
+          class="mx-2 bttn btn btn-primary"
+          (click)="onClose()"
+        >
+        {{ 'BUTTONS.CANCEL_BUTTON' | translate }}
+          <i class="fa fa-close ml-2"></i>
+      </button>
+      </div>
+    </div>
+  </form>
+</div>

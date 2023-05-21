@@ -1,0 +1,1 @@
+ALTER TABLE comuni_competenza ALTER COLUMN cod_cat TYPE varchar(250);

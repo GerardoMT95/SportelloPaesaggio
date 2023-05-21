@@ -1,0 +1,155 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title" [modal]="false"></app-alert>
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-md-12">
+      <label for="titolo">{{'documentazione.titoloDocumento'|translate}}*</label>
+      <input class="form-control" formControlName="titolo"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.titolo.errors }" 
+        maxlength="{{const.MAX_LEN_TITOLO_DOCUMENTO}}" />
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.titolo.errors">{{'generic.required'|translate}}</span>
+    </div>
+    <div class="col-md-12">
+      <label for="descrizione">{{'documentazione.descrizioneDocumento'|translate}}*</label>
+      <textarea class="form-control" rows="8" formControlName="descrizione"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.descrizione.errors }"
+        maxlength="{{const.MAX_LEN_DESCRIZIONE_DOCUMENTO}}" >
+      </textarea>
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.descrizione.errors">{{'generic.required'|translate}}</span>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 1em;">
+    <div class="col-md-12">
+      <label for="allegaFile">{{'documentazione.allegaFile'|translate}}*</label>
+      <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="allegaFile($event)"
+        [showCancelButton]="false" cancelLabel="Annulla" [auto]="true" [showUploadButton]="false">
+      </p-fileUpload>
+      <div class="tableContainerCustom">
+        <p-table [value]="form.controls.allegato.value != null ? [form.controls.allegato.value] : null"
+          [autoLayout]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Tipo File</th>
+              <th>Nome file</th>
+              <th>Data ultima modifica</th>
+              <th style="width: 6em;"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-file>
+            <tr>
+              <td>Ulteriore documentazione</td>
+              <td>{{file.name}}</td>
+              <td>{{file.lastModified|date: 'dd/MM/yyyy'}}</td>
+              <td><button class="bttn btn btn-danger bttn-table" (click)="svuotaAllegato()">
+                  <fa-icon icon="trash"></fa-icon>
+                </button></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="4">
+                Nessun file inserito
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <span class="invalid-feedback" *ngIf="inviato && form.controls.allegato.errors">
+        {{'generic.required'|translate}}
+      </span>
+    </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'documentazione.condividi' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-12">
+          <label for="enti">{{'documentazione.visualizzatiDa'|translate}}</label>
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-12">
+          <p-multiSelect class="dflex" [options]="entiOptions$|async" formControlName="enti"
+            [ngClass]="{'is-invalid': inviato && form.controls.enti.errors}" defaultLabel="{{'generic.selezionavoci'|translate}}">
+          </p-multiSelect>
+          <span class="invalid-feedback" *ngIf="inviato && form.controls.enti.errors">{{'generic.required'|translate}}</span>
+        </div>
+      </div>
+     
+      <!-- Tabella per i destinatari fissi -->
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          {{'documentazione.destFissi'|translate}} <span class="dett"></span>
+        </div>
+      </div>
+      <app-tabella-indirizzi [addresses]="destinatariFissi" [paginator]="false"
+      [deletable]="false" [selectable]="false" [editable]="false">
+    </app-tabella-indirizzi>
+    <!-- Fine gestione destinatari fissi -->
+  
+
+      <div class="row" style="padding-top: 1.2em;">
+        <div class="col-md-12">
+          <label for="notificaA">{{'documentazione.notificaA'|translate}}*</label>
+          <div style="margin-top: 2em;">
+            <app-aggiunti-destinatario [addresses]="destinatari" (onChangeType)="cambiaTipologia($event)"
+              (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)">
+            </app-aggiunti-destinatario>
+            <div class="invalid-feedback" *ngIf="inviato && !destinatariValid">
+              <ng-container *ngIf="destinatari.length === 0; else patternError">
+                {{'generic.required'|translate}}
+              </ng-container>
+              <ng-template #patternError>
+                Deve esserci almeno un destinatario
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-2 col-md-4 col-sm-12">
+          <label for="notificaA">{{'documentazione.notificaA'|translate}}*</label>
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-12">
+          <div formArrayName="notifica" *ngFor="let control of formNotifica.controls; index as i" style="padding-bottom: 1.2em;">
+            <div [formGroupName]="i">
+              <div class="input-group" style="white-space:nowrap">
+                <input class="form-control" formControlName="email"
+                [ngClass]="{'is-invalid': inviato && control.controls.email.errors}"/>
+                <div class="input-group-append">
+                  <div class="input-group-text" style="background-color: #dc3545;cursor: pointer;" (click)="removeRow(i)">
+                    <fa-icon icon="times"  style="color: whitesmoke;"></fa-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="invalid-feedback" *ngIf="inviato && control.controls.email.errors">
+                <ng-container *ngIf="control.controls.email.errors.required; else patternError">
+                  {{'generic.required'|translate}}
+                </ng-container>
+                <ng-template #patternError>
+                  {{'documentazione.errors.invalidEmail'|translate}}
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!-- <div class="row col-12 text-center" style="padding-top: .8em; display: block;">
+        <button class="bttn btn btn-primary" (click)="addRow()">{{'documentazione.aggiungiMailPec'|translate}}</button>
+      </div> -->
+    </div>
+  </div>
+  <div class="row" style="padding-top: 2em;">
+    <div class="col-md-12 text-center">
+      <button class="bttn btn btn-primary" (click)="onSubmit()">Invia</button>
+      <button class="bttn btn btn-danger" (click)="onCanceled()">Annulla</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="portlet-content-container">
+  <app-nuova-assegnazione *ngIf="displayNewAssignment" 
+  [idPratica]="this.fascicoloAction.id" [display]="displayNewAssignment" 
+  [functionary]="funzionariOptions"
+  [rup]="rupOptions" 
+  [codicePratica]="this.fascicoloAction.codicePraticaAppptr" 
+  (onSave)="saveAssignment($event)" (onClose)="closeAssegnaFascicolo()">
+    </app-nuova-assegnazione>
+  <p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{ width: '60%' }"
+    [contentStyle]="{'min-height':'12em', 'overflow-x': 'hidden'}" (onHide)="data = null; display = false;" 
+    [blockScroll]="true">
+    <p-header>
+      <span>Gestione pratica - {{codicePratica}}</span>
+    </p-header>
+    <app-gestione-stato-pratica #gestioneStato *ngIf="display && data" 
+      [options]="optionsStato" disabledButtons="true" [validation]="validationRequest" 
+      [data]="data" (uploadDocument)="uploadForRequest($event)" (deleteDocument)="deleteForRequest($event)"
+      (download)="downloadForRequest($event)"></app-gestione-stato-pratica>
+    <p-footer>
+      <div class="d-flex justify-content-center">
+        <button  *ngIf="buttonLabel" type="button" class="bttn btn btn-primary" (click)="submitRequest(false)">
+          {{buttonLabel|translate}}
+          <fa-icon icon="arrow-right"></fa-icon>
+        </button>
+        <button  type="button" class="bttn btn btn-primary" (click)="submitRequest(true)">
+          {{'BUTTONS.SAVE_BUTTON'|translate}}
+          <fa-icon icon="save"></fa-icon>
+        </button>
+        <button  type="button" class="bttn btn btn-primary" (click)="data = null; display = false;">
+          {{'BUTTONS.CHIUDI_BUTTON'|translate}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+        <!--<p-button *ngIf="buttonLabel" [label]="buttonLabel | translate" (onClick)="submitRequest(false)"></p-button>-->
+        <!--<p-button label="Salva" (onClick)="submitRequest(true)"></p-button>-->
+        <!--<p-button label="Chiudi" (onClick)="data = null; display = false;"></p-button>-->
+      </div>
+    </p-footer>
+  </p-dialog>
+  <p-accordion [activeIndex]="index" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+    <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+      <app-form-search *ngIf="configuration" [configuration]="configuration" [nColumns]="3" (onSearch)="loadFascicolo($event)">
+      </app-form-search>
+    </p-accordionTab>
+  </p-accordion>
+  <br />
+  <app-legenda [counters]="counters"></app-legenda>
+  <br/>
+  <div class="row">
+    <div class="col">
+      <app-istanze-table [fascioloTableHeaders]="fascioloTableHeaders" [tableData]="fascicoloList" [totalRecords]="totalRecords"
+        (deleteChange)="delete($event)" (navigateChange)="navigateToDetails($event)" (contextSelection)="openRequestModal($event)"
+        (navigaAssegnaFascicolo)="navigaAssegnaFascicolo($event)"
+        (emitOtherAction)="doOtherActions($event)"
+         (paginationChange)="paging($event)"></app-istanze-table>
+    </div>
+  </div>
+</div>
+</div>

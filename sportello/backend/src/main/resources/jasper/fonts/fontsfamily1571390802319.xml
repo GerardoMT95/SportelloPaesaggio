@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="CustomArial">
+		<normal><![CDATA[jasper/fonts/CustomArial/arial.ttf]]></normal>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

@@ -1,0 +1,91 @@
+<!--come da trasmissioni-->
+<ngb-accordion
+  #dettAccordion="ngbAccordion"
+  class="dettaglio-f"
+  [activeIds]="activeIds"
+>
+  <ngb-panel id="dettaglio">
+    <ng-template ngbPanelTitle class="text-left intestazione">
+      <div>
+        {{ "DETTAGLIO-FASCICOLO.HEADER" | translate | titlecase }}
+        <strong> {{ fascicolo.codicePraticaAppptr }}</strong>
+      </div>
+
+      <div class="dflex stato-fascicolo">
+        <div
+          class="stato"
+          [ngClass]="fascicolo.attivitaDaEspletare | lowercase"
+          [ngStyle]="{ 'background-color': 'grey' }"
+        >
+          <!--qui forse ci sta il colore dello stato-->
+          {{ attivitaDaEspletareLabel }}
+        </div>
+      </div>
+      <fa-icon
+        *ngIf="dettAccordion.isExpanded('dettaglio')"
+        icon="angle-double-up"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="!dettAccordion.isExpanded('dettaglio')"
+        icon="angle-double-down"
+      ></fa-icon>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div class="row noml nomr">
+        <div class="col-md-4">
+          <ng-container *ngIf="tipoProcedimento">
+            <label>{{
+              "DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO" | translate
+            }}</label>
+            <div>{{ tipoProcedimento }}</div>
+          </ng-container>
+        </div>
+        <div class="col-md-4">
+          <label>{{ "DETTAGLIO-FASCICOLO.COMUNE" | translate }}</label>
+          <div>{{ getComuniIstanza() }}</div>
+        </div>
+        <div class="col-md-4">
+          <label>{{ "DETTAGLIO-FASCICOLO.RICHIEDENTE" | translate }}</label>
+          <ng-container>
+            <div>{{ getRichiedente() }}</div>
+          </ng-container>
+        </div>
+      </div>
+      <br />
+      <div class="full-width mbnegative30 container-timeline">
+        <div class="rangeAnni">
+          <p class="inline nop nom">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{
+                fascicolo.dataCreazione
+                  | date: ("generic.dateFormat" | translate)
+              }}</span>
+              <span class="label">
+                <span
+                  [innerHTML]="'DETTAGLIO-FASCICOLO.DATA-CREAZIONE' | translate"
+                ></span>
+              </span>
+            </span>
+          </p>
+          <p class="inline nop nom" *ngIf="fascicolo.dataPresentazione">
+            <span class="relative annoDa">
+              <span class="indicator"></span>
+              <span class="date">{{
+                fascicolo.dataPresentazione
+                  | date: ("generic.dateFormat" | translate)
+              }}</span>
+              <span class="label">
+                <span
+                  [innerHTML]="
+                    'DETTAGLIO-FASCICOLO.DATA-PRESENTAZIONE' | translate
+                  "
+                ></span>
+              </span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

@@ -1,0 +1,135 @@
+<app-alert [(visible)]="display" [type]="type" [hasConfirm]="hasConfirm" (action)="callback($event)" [content]="content"
+    [title]="title" [extraData]="extraData"></app-alert>
+
+
+<div class="container-fluid nop">
+    <div class="portlet-content-container">
+        <div class="col-md-12">
+            <div class="col-md-12" *ngIf="visualizzaTabella">
+                <form id="listaTariffeForm" [formGroup]="listaTariffeForm" class="text-left">
+                    <div class="tableContainer">
+                        <table class="table table-hover table-striped nomb">
+                            <th class="uppercase" style="height: 55px">{{'tariffe.edit.sogliaMinima'|translate}}
+                                <span class="badge pointer badge-primary p5 ng-star-inserted" data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    pTooltip="{{'Le soglie tra le varie righe devono essere consecutive'}}"
+                                    tooltipPosition="bottom">?</span>
+                            </th>
+                            <th class="uppercase">
+                                <div>{{'tariffe.edit.sogliaMassima'|translate}}</div>
+                            </th>
+                            <th class="uppercase" style="width: 150px">
+                                <div>{{'tariffe.edit.deleteEccedente'|translate}}</div>
+                            </th>
+                            <th class="uppercase">
+                                <div>{{'tariffe.edit.percentuale'|translate}}</div>
+                            </th>
+                            <th class="uppercase">
+                                <div>{{'tariffe.edit.cifraDaAggiungere'|translate}}</div>
+                            </th>
+                            <th class="uppercase">
+                                <div>{{'tariffe.edit.percentualeFinale'|translate}}</div>
+                            </th>
+                            <th style="width: 134px" class="text-center">
+                            </th>
+                            <tbody>
+                                <tr formArrayName="tariffe"
+                                    *ngFor="let item of formTariffe.controls; let i = index; let isLast = last; let isFirst = first;">
+                                    <ng-container [formGroupName]="i">
+                                        <td>
+                                            <input type="number" class="form-control" formControlName="sogliaMinima"
+                                                readonly="true"
+                                                [ngClass]="{'is-invalid': validaOn && formTariffe.at(i).get('sogliaMinima').errors}" />
+                                            <app-input-error [errors]="formTariffe.at(i).get('sogliaMinima').errors"
+                                                [validation]="validaOn"></app-input-error>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" formControlName="sogliaMassima"
+                                                [ngClass]="{'is-invalid': validaOn && formTariffe.at(i).get('sogliaMassima').errors}" />
+                                            <app-input-error [errors]="formTariffe.at(i).get('sogliaMassima').errors"
+                                                [validation]="validaOn"></app-input-error>
+                                        </td>
+                                        <td class="nowrap text-center">
+                                            <p-checkbox formControlName="deleteEccedente" [binary]="true">
+                                            </p-checkbox>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" formControlName="percentuale"
+                                                [ngClass]="{'is-invalid': validaOn && formTariffe.at(i).get('percentuale').errors}" />
+                                            <app-input-error [errors]="formTariffe.at(i).get('percentuale').errors"
+                                                [validation]="validaOn"></app-input-error>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control"
+                                                formControlName="cifraDaAggiungere"
+                                                [ngClass]="{'is-invalid': validaOn && formTariffe.at(i).get('cifraDaAggiungere').errors}" />
+                                            <app-input-error
+                                                [errors]="formTariffe.at(i).get('cifraDaAggiungere').errors"
+                                                [validation]="validaOn"></app-input-error>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control"
+                                                formControlName="percentualeFinale"
+                                                [ngClass]="{'is-invalid': validaOn && formTariffe.at(i).get('percentualeFinale').errors}" />
+                                            <app-input-error
+                                                [errors]="formTariffe.at(i).get('percentualeFinale').errors"
+                                                [validation]="validaOn"></app-input-error>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="bttn bttn-table btn btn-primary" type="button" *ngIf="isLast"
+                                                data-toggle="tooltip" data-placement="bottom"
+                                                pTooltip="{{'Aggiungi nuova riga'}}" (click)="aggiungiRiga(i)"
+                                                tooltipPosition="top">
+                                                <fa-icon icon="plus"></fa-icon>
+                                            </button>
+                                            <button class="bttn bttn-table btn btn-danger" type="button"
+                                                *ngIf="isLast && !isFirst" data-toggle="tooltip"
+                                                (click)="eliminaRiga(i)" data-placement="bottom"
+                                                pTooltip="{{'Elimina riga'}}" tooltipPosition="top">
+                                                <fa-icon icon="trash"></fa-icon>
+                                            </button>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center inner-pulsantiera">
+                        <div class="pulsantiera clearfix">
+                            <button type="button" (click)="salva()"
+                                class="bttn btn btn-primary">{{'generic.salva'|translate}}<fa-icon icon="save">
+                                </fa-icon></button>
+                            <button type="button" (click)="indietro()"
+                                class="bttn btn btn-primary">{{'generic.indietro'|translate}}<fa-icon icon="arrow-left">
+                                </fa-icon></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12"
+                *ngIf="visualizzaTabella && formTariffe && formTariffe.controls && formTariffe.controls.length">
+                <app-section-header [title]="'tariffe.anteprima.title' | translate"></app-section-header>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <label>{{'tariffe.anteprima.importo' | translate}}</label>
+                        <br />
+                        <input type="number" [step]="0.01" [min]="0" class="form-control" [(ngModel)]="importo"/>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <label>{{'tariffe.anteprima.onereIstruttorio' | translate}}</label>
+                        <br />
+                        {{onereIstruttorio|currency:'EUR':true}}
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                        <button class="btn bttn btn-primary" (click)="calcolaOnere()">
+                            {{'tariffe.anteprima.calcola' | translate}}
+                            <fa-icon icon="calculator"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

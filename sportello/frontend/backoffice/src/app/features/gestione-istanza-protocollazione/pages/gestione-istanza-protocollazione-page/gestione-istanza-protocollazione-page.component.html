@@ -1,0 +1,78 @@
+<!-- <div style="margin-top: 2em;">
+    <form [formGroup]="formPrt">
+        <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-12">
+                <label for="protocollo">{{'fascicolo.numeroProtocollo'|translate}}</label>
+            </div>
+            <div class="col-lg-9 col-md-10 col-sm-12">
+                <input class="form-control" formControlName="numeroProtocollo"
+                    [ngClass]="{'is-invalid': submitted && formPrt.controls.numeroProtocollo.errors }" />
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-lg-3 col-md-2 col-sm-12">
+                <label for="dataProtocollo">{{'URBAN-DESTINATION.DATA'|translate}}</label>
+            </div>
+            <div class="col-lg-9 col-md-10 col-sm-12">
+                <div class="input-group" style="width: 100%;">
+                    <p-calendar [monthNavigator]="true" [yearNavigator]="true" [maxDate]="NOW_DATE"
+                        dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="dflex form-control"
+                        formControlName="dataProtocollo" [locale]="it" showButtonBar="true"
+                        yearRange="1900:{{NOW_YEAR}}" inputStyleClass="form-control"
+                        [ngClass]="{'is-invalid': submitted && formPrt.controls.dataProtocollo.errors }">
+                    </p-calendar>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <em class="fa fa-calendar" aria-hidden="true"></em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-12 text-center">
+                <button type="button" class="bttn btn btn-primary" (click)="save()">
+                    {{'BUTTONS.SAVE_BUTTON'|translate}}
+                    <fa-icon icon="save"></fa-icon>
+                  </button>
+            </div>
+        </div>
+    </form>
+</div> -->
+<div class="d-flex" style="margin-top: 2em;">
+    <form [formGroup]="formPrt">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="protocollo">{{'fascicolo.numeroProtocollo'|translate}}</label>
+                <input class="form-control" formControlName="numeroProtocollo"
+                    [ngClass]="{'is-invalid': submitted && formPrt.controls.numeroProtocollo.errors }" />
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-md-12">
+                <label for="dataProtocollo">{{'URBAN-DESTINATION.DATA'|translate}}</label>
+                <div class="input-group" style="width: 100%;">
+                    <p-calendar [monthNavigator]="true" [yearNavigator]="true" [maxDate]="NOW_DATE"
+                        dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="dflex form-control"
+                        formControlName="dataProtocollo" [locale]="it" showButtonBar="true"
+                        yearRange="1900:{{NOW_YEAR}}" inputStyleClass="form-control"
+                        [ngClass]="{'is-invalid': submitted && formPrt.controls.dataProtocollo.errors }">
+                    </p-calendar>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <em class="fa fa-calendar" aria-hidden="true"></em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row mt-4" style="padding-top: 1em;">
+    <div class="col-12 text-center">
+        <button type="button" class="bttn btn btn-primary" (click)="save()">
+            {{'BUTTONS.SAVE_BUTTON'|translate}}
+            <fa-icon icon="save"></fa-icon>
+        </button>
+    </div>
+</div>

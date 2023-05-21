@@ -1,0 +1,2 @@
+ALTER TABLE presentazione_istanza.configurazioni_ente ALTER COLUMN protocollazione_password TYPE varchar(255) USING protocollazione_password::varchar;
+ALTER TABLE presentazione_istanza.configurazioni_ente ALTER COLUMN pec_password TYPE varchar(255) USING pec_password::varchar;

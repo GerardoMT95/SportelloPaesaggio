@@ -1,0 +1,65 @@
+<p-dialog [(visible)]="displayCom" [modal]="true" [responsive]="true" [style]="{ width: '65%' }"
+  [contentStyle]="{'min-height':'12em'}" (onHide)="displayCom = false" [blockScroll]="true">
+  <p-header>
+    {{comunicazione && comunicazione.corrispondenza ? ('RELAZIONE_ENTE.UPDATE_COM'|translate) : ('RELAZIONE_ENTE._COM'|translate)}}
+  </p-header>
+  <div class="width: 100%" style="overflow-x: hidden;max-width: 100%!important; ">
+    <app-nuova-comunicazione #nuovaCom *ngIf="displayCom && comunicazione"
+      [idComunicazione]="comunicazione.corrispondenza.id" [init]="comunicazione" [showPreviewButton]="false"
+      [showUploadSection]="true" [templates]="templates" [showButtonBar]="false" [requiredTipoComunicazione]="true"
+      (uploadFile)="uploadFileCom($event)" (deleteFile)="deleteFileCom($event)" (downloadFile)="download($event)">
+    </app-nuova-comunicazione>
+  </div>
+  <p-footer>
+    <div style="width: 100%; padding-top: .6em;" class="text-center">
+      <button type="button" class="bttn btn btn-primary" (click)="saveCom()">
+        {{'RELAZIONE_ENTE.BOZZA'|translate}}
+        <fa-icon icon="save"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="allegaSoprintendenza()">
+        {{'BUTTONS.SEND_MAIL'|translate}}
+        <fa-icon icon="paper-plane"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="displayCom = false">
+        {{'BUTTONS.CANCEL_BUTTON'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+    </div>
+  </p-footer>
+</p-dialog>
+<ng-container *ngIf="!showParereForm">
+  <app-allega-parere *ngIf="!parere" [disabled]="!canOperate" (allegaParere)="createAndNavigateToDetails()">
+  </app-allega-parere>
+  <app-table-no-filter *ngIf="parere" [readonly]="true" [files]="allegati" [headers]="tableHeaders"
+    [types]="documentTypeData" (onTableDownload)="download($event)">
+  </app-table-no-filter>
+</ng-container>
+<ng-container *ngIf="showParereForm && form">
+  <app-soprintendenza-dettaglio [form]="form" [validation]="validationActivate" (dettaglioEmitter)="updateDettaglio()">
+  </app-soprintendenza-dettaglio>
+  <app-allegati-form [files]="allegati" [types]="documentTypeData" (onUpload)="upload($event)" [header]="tableHeaders"
+    (onDownload)="download($event)" (onDelete)="delete($event)"></app-allegati-form>
+  <span class="invalid-feedback" *ngIf="validationAllegati && allegati.length < 1">
+    Parere MIBAC obbligatorio
+  </span>
+  <div class="d-flex justify-content-center pt-5 mb-5" *ngIf="canOperate">
+    <div class="button-group">
+      <button type="button" class="bttn btn btn-primary" (click)="save(true)">
+        {{'BUTTONS.SAVE_BUTTON'|translate}}
+        <fa-icon icon="save"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="annulla()">
+        {{'BUTTONS.CANCEL_BUTTON'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+      <button *ngIf="!isSoprintendenza" type="button" class="bttn btn btn-primary" (click)="allegaParere()">
+        {{'BUTTONS.ATTACH'|translate}}
+        <fa-icon icon="paperclip"></fa-icon>
+      </button>
+      <button *ngIf="isSoprintendenza" type="button" class="bttn btn btn-primary" (click)="openTransmit()">
+        {{'BUTTONS.TRANSMIT'|translate}}
+        <fa-icon icon="paper-plane"></fa-icon>
+      </button>
+    </div>
+  </div>
+</ng-container>

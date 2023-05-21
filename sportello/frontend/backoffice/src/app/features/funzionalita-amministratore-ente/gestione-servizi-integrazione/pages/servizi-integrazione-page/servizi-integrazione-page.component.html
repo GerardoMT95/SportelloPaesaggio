@@ -1,0 +1,117 @@
+<div class="container-fluid nop mtop50">
+    <div [formGroup]="form" style="margin-bottom: 5em">
+        <div class="row noml nomr journal-content-article">
+            <div class="text-left clearfix w100">
+                <hr class="divisore">
+                <div class="text-center">
+                    {{'FUNZIONI_ADMIN.SERVIZI_INTEGRAZIONE' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="row noml nomr">
+            <div class="bordered full-width mb2em">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.PROTOCOLLAZIONE'|translate}}:&nbsp;
+                    <p-toggleButton formControlName="sistemaProtocollazione"
+                        offLabel="{{'FUNZIONI_ADMIN.MANUALE'|translate}}" onLabel="{{'FUNZIONI_ADMIN.AUTO'|translate}}"
+                        (onChange)="toggleButton('sistemaProtocollazione')" [disabled]="isRegione"></p-toggleButton>
+                </div>
+                <div class="bordered-body" *ngIf="form.get('sistemaProtocollazione').value === true">
+                    <app-conf-details [form]="form" [conf]="getChildren('sistemaProtocollazione')"
+                        [validatiON]="validation"></app-conf-details>
+                </div>
+            </div>
+            <div class="bordered full-width mb2em">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.PAGAMENTO'|translate}}:&nbsp;
+                    <p-toggleButton formControlName="sistemaPagamento"
+                        offLabel="{{'FUNZIONI_ADMIN.NON-INTEGRATO'|translate}}"
+                        onLabel="{{'FUNZIONI_ADMIN.INTEGRATO'|translate}}"
+                        (onChange)="toggleButton('sistemaPagamento')">
+                    </p-toggleButton>
+                </div>
+                <div class="bordered-body" *ngIf="form.get('sistemaPagamento').value === true">
+                    <app-conf-details [form]="form" [conf]="getChildren('sistemaPagamento')" [validatiON]="validation">
+                    </app-conf-details>
+                </div>
+            </div>
+            <div class="bordered full-width mb2em">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.PEC'|translate}}:&nbsp;
+                    <p-toggleButton formControlName="sistemaPec" offLabel="{{'FUNZIONI_ADMIN.ESTERNO'|translate}}"
+                        onLabel="{{'FUNZIONI_ADMIN.INTERNO'|translate}}" (onChange)="toggleButton('sistemaPec')">
+                    </p-toggleButton>
+                </div>
+                <div class="bordered-body" *ngIf="form.get('sistemaPec').value === true">
+                    <app-conf-details [form]="form" [conf]="getChildren('sistemaPec')" [validatiON]="validation">
+                    </app-conf-details>
+                </div>
+            </div>
+            <div class="bordered full-width mb2em" *ngIf="isRegione">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.CAN_CREATE_CONFERENZA'|translate}}:&nbsp;
+                    <p-checkbox formControlName="canCreateConferenza" [binary]="true">
+                    </p-checkbox>
+                </div>
+            </div>
+            <div class="bordered full-width mb2em" *ngIf="isRegione || isED">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.MAIL_DEFAULT'|translate}}:&nbsp;
+                </div>
+                <div class="bordered-body" >
+                    <app-conf-details [form]="form" [conf]="getChildren('mailDefault')" [validatiON]="validation">
+                    </app-conf-details>
+                </div>
+            </div>
+            <div class="bordered full-width" style="margin-bottom: 5em">
+                <div class="bordered-title ">
+                    {{'FUNZIONI_ADMIN.STATO-AV'|translate}}:&nbsp;
+                    <p-triStateCheckbox formControlName="pubblicazioneStatoPratica"
+                        [label]="pubblicazioneState|translate">
+                    </p-triStateCheckbox>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isED" class="row noml nomr journal-content-article">
+            <div class="text-left clearfix w100">
+                <hr class="divisore">
+                <div class="text-center">
+                    {{'FUNZIONI_ADMIN.PRATICA_SEDUTA' | translate}}
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isED" class="row noml nomr tableContainerCustom" [formGroup]="form">
+            <p-table [value]="types">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th>
+                            {{'DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO'|translate|uppercase}}
+                        </th>
+                        <th style="width: 4em; text-align: center">
+                            <!-- EMPTY -->
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData>
+                    <tr>
+                        <td>
+                            {{rowData.description|translate}}
+                        </td>
+                        <td>
+                            <p-checkbox [formControl]="form['controls'].tipoPraticaSeduta" [value]="rowData.value">
+                            </p-checkbox>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div class="ricercaPulsantieraContainer relative text-center inner-pulsantiera"
+        style="border-bottom: 0px solid #bebebe">
+        <div class="pulsantiera clearfix">
+            <button class="btn bttn btn-primary" (click)="salva()">{{'generic.salva'|translate}}</button>
+            <button class="btn bttn btn-primary" (click)="indietro()">{{'generic.indietro'|translate}}</button>
+        </div>
+    </div>
+</div>

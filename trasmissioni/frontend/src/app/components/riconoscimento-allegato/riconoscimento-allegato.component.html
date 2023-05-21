@@ -1,0 +1,10 @@
+<app-delete-allegati-dialog [sezione]="sezione" (emitPlanAllegatiDeletion)="deleteAllegati($event)">
+</app-delete-allegati-dialog>
+<app-table-no-filter 
+[disableButton]="disable" [attachmentsPerFileType]="attachmentsPerFileType"
+[tableHeadersAttachment]="tableHeadersAttachment"
+(fileEmitter)="caricaDocumento($event)" 
+[filterFileToUploadFn]="fnCheckFileTypeSize"
+[idFascicolo]="dettaglioFascicolo.id"
+(deleteEmitter)="deleteFileFromTable($event)"
+(downloadEmitter)="download($event)"></app-table-no-filter>

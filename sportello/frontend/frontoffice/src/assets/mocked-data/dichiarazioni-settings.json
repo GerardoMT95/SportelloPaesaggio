@@ -1,0 +1,105 @@
+{
+  "settings": [
+    {
+      "typeProcedimento": 1,
+      "selectionType": "multiple",
+      "options": [
+        {
+          "value": "102",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_42_2004",          
+          "selectionType": "single"
+        },
+        {
+          "value": "103",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_STOP_LAVORI",          
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_AP_LEGG_ESEC_LAVORI",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_VALENZA_AP",
+          "selectionType": "single"
+        },
+        {
+          "value": "104",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_CONS_PRIVACY",
+          "selectionType": "single"
+        }
+      ]
+    },
+    {
+      "typeProcedimento": 2,
+      "selectionType": "multiple",
+      "options": [
+        {
+          "value": "103",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_STOP_LAVORI",          
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_AP_LEGG_ESEC_LAVORI",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_VALENZA_AP",
+          "selectionType": "single"
+        },
+        {
+          "value": "104",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_CONS_PRIVACY",
+          "selectionType": "single"
+        }
+      ]
+    },
+    {
+      "typeProcedimento": 3,
+      "selectionType": "multiple",
+      "options": [         
+        {
+          "value": "104",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_CONS_PRIVACY",
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_AP_LEGG_ESEC_LAVORI",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_VALENZA_AP",
+          "selectionType": "single"
+        }
+        
+      ]
+    },
+    {
+      "typeProcedimento": 4,
+      "selectionType": "multiple",
+      "options": [         
+        {
+          "value": "104",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_CONS_PRIVACY",
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_AP_LEGG_ESEC_LAVORI",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "DICHIARAZIONI_TAB.DICH_OBB_VALENZA_AP",
+          "selectionType": "single"
+        }
+        
+      ]
+    }
+  ]
+}

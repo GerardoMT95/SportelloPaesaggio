@@ -1,0 +1,35 @@
+<!-- <div class="d-flex justify-content-center pt-5">
+        <button *ngIf="!isDisabled" (click)="salva()" pButton type="submit" label="{{ 'REQUESTER_TAB.SAVE' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button *ngIf="!isDisabled" (click)="valida()" pButton label="{{ 'REQUESTER_TAB.VALID' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button *ngIf="!isDisabled" (click)="annulla()" pButton label="{{ 'REQUESTER_TAB.CANCEL' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button (click)="indietro()" pButton label="{{ 'REQUESTER_TAB.BACK' | translate | titlecase }} " class="btn-group mr-2"></button>
+</div>
+-->
+<div class="text-center inner-pulsantiera">
+        <button *ngIf="!isDisabled" (click)="salva()" type="submit"
+                class="bttn btn btn-primary">{{ 'REQUESTER_TAB.SAVE' | translate | titlecase }} 
+                <fa-icon icon="save"></fa-icon>
+        </button>
+        <div *ngIf="enableValida" style="display: inline-block; margin: 0 4px;">
+                &nbsp;
+                <button *ngIf="!isDisabled" (click)="valida()" type="button"
+                        class="bttn btn btn-primary">{{ (!labelValida ? 'REQUESTER_TAB.VALID' : labelValida) | translate | titlecase }}
+                        <fa-icon icon="check"></fa-icon>
+                </button>
+        </div>
+        <div *ngIf="enableAnnulla" style="display: inline-block; margin-right: 4px;">
+                &nbsp;
+                <button *ngIf="!isDisabled" (click)="annulla()" type="button"
+                        class="bttn btn btn-primary">{{ 'REQUESTER_TAB.CANCEL' | translate | titlecase }} 
+                        <fa-icon icon="times"></fa-icon>
+                </button>
+        </div>
+        <button *ngIf="enableSollevaIncarico" (click)="sollevaIncarico()" type="button" label="" class="bttn btn btn-primary">
+                {{ "REQUESTER_TAB.SOLLEVA_INCARICO" | translate | titlecase }}
+                <fa-icon icon="user"></fa-icon>
+        </button>
+        &nbsp;
+        <button (click)="indietro()" type="button" label=""
+                class="bttn btn btn-primary">{{ 'REQUESTER_TAB.BACK' | translate | titlecase }} <fa-icon
+                        icon="arrow-left"></fa-icon></button>
+</div>

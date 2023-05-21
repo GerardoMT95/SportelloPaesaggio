@@ -1,0 +1,72 @@
+<div *ngIf="form" [formGroup]="form" class="container-fluid">
+    <div class="row">
+        <ng-container *ngFor="let input of configuration">
+                <div class="col-6">
+                    <label for="{{input.formControlName}}">
+                        {{input.label|translate}}
+                        <app-tooltip *ngIf="input.tooltip" [message]="input.tooltip" [isHtml]="true"></app-tooltip>
+                    </label>
+                    <span [ngSwitch]="input.type">
+                        <p *ngSwitchCase="'checkbox'">
+                            <p-checkbox label="" [binary]="true" [formControl]="form.controls[input.formControlName]"
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></p-checkbox>
+                            <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                            </app-input-error>
+                        </p>
+                        <p *ngSwitchCase="'dropdown'">
+                            <p-dropdown [options]="input.options ? input.options : []" [formControlName]="input.formControlName" 
+                                placeholder="{{'FUNZIONI_ADMIN.DEFAULT-PROT'|translate}}" class="dflex" 
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}">  
+                            </p-dropdown>
+                            <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                            </app-input-error>
+                        </p>
+                        <p *ngSwitchCase="'number'">
+                            <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                            <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                            </app-input-error>
+                        </p>
+                        <p *ngSwitchCase="'date'">
+                            <app-date-picker-field [formControlName]="input.formControlName"
+                            [validation]="validation"
+                            [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></app-date-picker-field>
+                            <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                            </app-input-error>
+                        </p>
+                        <p *ngSwitchCase="'password'">
+                            <app-password-field [formControlName]="input.formControlName" 
+                             [disabled]="false" 
+                              [validation]="validation" [errors]="form.get(input.formControlName).errors" ></app-password-field>
+                        </p>
+                        <p *ngSwitchCase="'textarea'">
+                            <app-textarea-field [formControlName]="input.formControlName" 
+                             [disabled]="false" 
+                              [validation]="validation" [rows]="5"[errors]="form.get(input.formControlName).errors" 
+                              ></app-textarea-field>
+                        </p>
+                        <p *ngSwitchDefault>
+                            <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                            <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                            </app-input-error>
+                        </p>
+
+                    </span>
+                </div>
+            </ng-container>
+            <!-- <div class="row" *ngIf="input.type === 'category'">
+                <div class="col-12" style="font-weight: bold;">{{input.label|translate}}</div>
+                <div class="col-12" style="margin-top: .7em; margin-left: .8em;">
+                    <app-conf-details [form]="form" [conf]="input.children" [validatiON]="validation"></app-conf-details>
+                </div>
+            </div> -->
+        <!-- </div> -->
+    </div>
+    <div class="row" *ngFor="let category of categories">
+        <div class="col-12" style="font-weight: bold;">{{category.label|translate}}</div>
+        <div class="col-12" style="margin-top: .7em; margin-left: .8em;">
+            <app-conf-details [form]="form" [conf]="category.children" [validatiON]="validation"></app-conf-details>
+        </div>
+    </div>
+</div>

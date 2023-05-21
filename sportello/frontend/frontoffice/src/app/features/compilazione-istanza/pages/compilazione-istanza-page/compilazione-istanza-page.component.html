@@ -1,0 +1,117 @@
+<div class="container-fluid  mtop50"><div class="portlet-content-container">
+<div [formGroup]="mainForm" *ngIf="(loadedFascicolo|async) as caricato">
+  <p-tabView class="step" [(activeIndex)]="activeIndex">
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.REQUESTER_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['richiedente']">
+            <strong>{{numberOfErrorsOnthePage['richiedente']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-richiedente #apprichiedente [fascicolo]="fascicolo" 
+        [disabled]="fascicolo.validatoRichiedente || !fascicolo.currentUserOwner"
+        [ruoloPratica]="fascicolo.ruoloPratica"
+        [tipoDocumentoOptions]="tipoDocumentoOptions" 
+        [mainForm]="mainForm" 
+        [validation]="validationValue"
+        [tipoAziendaOptions]="tipoAziendaOptions">
+      </app-richiedente>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente && fascicolo.ruoloPratica == 'DE'"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA'] && this.fascicolo.ruoloPratica == 'ED'">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.DELEGATO'|translate}}</div>
+      </ng-template>
+      <app-delegato  [fascicolo]="fascicolo"
+      [delegato]="fascicolo.istanza.delegatoPratica" [mainForm]="mainForm" [soloLettura]="true"
+        [disabled]="true"></app-delegato>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.STATEMENT_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['dichiarazioni']">
+            <strong>{{numberOfErrorsOnthePage['dichiarazioni']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-dichiarazioni [fascicolo]="fascicolo" [titolaritaInQualitaDiOptions]="titolaritaInQualitaDi"
+        [disclaimer]="prelevaDisclaimer()" [validation]="validationValue" [mainForm]="mainForm"
+        (onUpload)="uploadFile($event)" (onDownload)="downloadFile($event)" (onDelete)="deleteFile()"
+        [files]="files"></app-dichiarazioni>
+    </p-tabPanel>
+    <!--altro-titolare-->
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.OTHER_OWNER_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['altriTitolari']">
+            <strong>{{numberOfErrorsOnthePage['altriTitolari']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-altro-titolare [fascicolo]="fascicolo"
+                        [titolaritaInQualitaDiAltroTit]="titolaritaInQualitaDiAltroTit"
+                        [tipoDocumentoOptions]="tipoDocumentoOptions" 
+                        [mainForm]="mainForm"
+                        [validation]="validationValue"
+                        [disabled]="toDisableEditFascicolo(fascicolo)"
+                        [tipoAziendaOptions]="tipoAziendaOptions"
+                        ></app-altro-titolare>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.LOCALIZATION_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['localizazione']">
+            <strong>{{numberOfErrorsOnthePage['localizazione']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <!--<app-localizzazione [fascicolo]="fascicolo" [mainForm]="mainForm" [validation]="validation" 
+        (onUploadFileShape)="uploadShapeFile($event)" (onDownloadFileShape)="downloadFile($event)" 
+        (onDeleteFileShape)="deleteFileShape($event)">
+      </app-localizzazione>-->
+      <app-localizzazione [fascicolo]="fascicolo" [mainForm]="mainForm" [validation]="validationValue"
+      [disable]="this.fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA' || !fascicolo.currentUserOwner" [sezioniCatastali]="sezioniCatastali">
+      </app-localizzazione>
+    </p-tabPanel>
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.TECHNICIAN_IN_CHARGE_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['tecnicoIncaricato']">
+            <strong>{{numberOfErrorsOnthePage['tecnicoIncaricato']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-tecnico-incaricato [fascicolo]="fascicolo" [tipoDocumentoOptions]="tipoDocumentoOptions"
+        [mainForm]="mainForm" [validation]="validationValue"></app-tecnico-incaricato>
+    </p-tabPanel>
+    <!--per adesso è spento... non dovrebbe servire-->
+    <p-tabPanel *ngIf="this.fascicolo.validatoRichiedente && false"
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.PRIVACY_TAB'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['privacyAccettata']">
+            <strong>{{numberOfErrorsOnthePage['privacyAccettata']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-privacy [fascicolo]="fascicolo" [mainForm]="mainForm"></app-privacy>
+    </p-tabPanel>
+  </p-tabView>
+
+</div>
+<div class="action-footer" *ngIf="(loadedFascicolo|async) as caricato">
+  <app-action-footer [isDisabled]="fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA' || !fascicolo.currentUserOwner" (salvaChange)="salva()" (annullaChange)="annula()"
+    (validaChange)="fascicolo.validatoRichiedente ? valida() : validaRichiedente()" [enableValida]="!fascicolo.validatoRichiedente || (fascicolo.attivitaDaEspletare==COMPILA_DOMANDA.toString() && subformBuilded)"
+    (indietroChange)="indietro()" [labelValida]="!fascicolo.validatoRichiedente ? 'REQUESTER_TAB.VALIDA_RICHIEDENTE' : null ">
+  </app-action-footer>
+</div>
+<app-validation-modal *ngIf="mostraDialog" [mostraDialog]="mostraDialog" [invalidFields]="invalidFields"
+  (closeDialog)="mostraDialog = false" (focusTab)="focusTab($event)"></app-validation-modal>
+</div>
+</div>  

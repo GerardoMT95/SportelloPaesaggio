@@ -1,0 +1,141 @@
+<div class="mb-4">
+  <app-rows-number-handler [itemsTotal]="totalRecords" [totalRecords]="totalRecords" (change)="changeRows($event)"
+    [page]="this.pageObj.page">
+  </app-rows-number-handler>
+  <p-table [columns]="fascioloTableHeaders" [value]="tableData" class="mb-2" [autoLayout]="true" selectionMode="single"
+    [(selection)]="selected" [totalRecords]="totalRecords" [lazyLoadOnInit]="false" [contextMenu]="cm" [responsive]="true"
+    contextMenuSelectionMode="joint" [lazy]="true" (onSort)="onSort($event)">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th
+          [ngStyle]="{ width: col.width ? col.width + (col.field === 'stato' || col.field === 'displayButton' ? 'em' : '%') : '' }"
+          *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field"
+          [pSortableColumnDisabled]="col.field === 'displayButton'||col.field=='statoAttivita'">
+          {{ col.header | translate }}
+          <p-sortIcon *ngIf="col.field !== 'displayButton'" [field]="col.field"></p-sortIcon>
+          <app-tooltip *ngIf="col.field === 'stato' && col.header != ''" [message]="'LEGENDA_ENDOSTATI'|translate" [isHtml]="true"></app-tooltip>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+      <tr *ngIf="tableData.length > 0" [pSelectableRow]="rowData" [pContextMenuRow]="rowData"
+        (contextmenu)="handleContextmenu(rowData)">
+        <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate">
+          <ng-container [ngSwitch]="col.field">
+            <ng-container *ngSwitchCase="'stato'">
+              <ng-container *ngIf="col.header === ''">
+                <app-circle *ngIf="rowData.attivitaDaEspletare"
+                  [backgroundColor]="processingStatus(rowData.attivitaDaEspletare).color"
+                  [status]="rowData.attivitaDaEspletare">
+                </app-circle>
+              </ng-container>
+              <ng-container *ngIf="col.header && col.header !== ''">
+                {{ processingStatus(rowData['attivitaDaEspletare']).label|translate}}<br>
+                <!-- qui dettaglio anche la vera attività da espletare mettendo le label dei 3 stati degli endoprocessi-->
+                <ul style="padding-left: 0.7em;">
+                  <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoSedutaCommissione.'+rowData['statoSedutaCommissione']|translate}}</li>
+                  <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoRelazioneEnte.'+rowData['statoRelazioneEnte']|translate}}</li>
+                  <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoParereSoprintendenza.'+rowData['statoParereSoprintendenza']|translate}}</li>
+                </ul>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'tipoProcedimento'">
+              {{ getTipoProcedimentoFromMetadata(rowData[col.field]) }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'user'">
+              {{ rowData['userId'] }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'comuniIntervento'">
+              <div>
+                <ul class="pl-3">
+                  <li *ngFor="let comune of getComuniIntervento(rowData)">{{comune}}</li>
+                </ul>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="'displayButton'">
+              <div class="align-buttons text-center">
+                <button *ngIf="showAssignButton(rowData)" data-toggle="tooltip" data-placement="top"
+                  class="btn btn-success" type="button" placement="left" delay="500"
+                  (click)="navigateForAssign(rowData['codicePraticaAppptr'])">
+                  <em class="fa fa-user" aria-hidden="true"></em>
+                </button>
+                <button *ngIf="showEyeButton(rowData)" data-toggle="tooltip" data-placement="top"
+                  class="btn btn-success" type="button" placement="left" delay="500"
+                  (click)="navigate(rowData['codicePraticaAppptr'])">
+                  <em class="fa fa-eye" aria-hidden="true"></em>
+                </button>
+                <button *ngIf="showEditButton(rowData)" data-toggle="tooltip" data-placement="top" type="button"
+                  class="bttn-table bttn btn-primary" tooltipPosition="left" placement="left" delay="500"
+                  (click)="navigate(rowData['codicePraticaAppptr'])">
+                  <em class="fa fa-pencil" aria-hidden="true"></em>
+                </button>
+                <ng-container *ngFor="let action of col.otherActions">
+                  <button *ngIf="action.fnEnabled(rowData,col)" data-toggle="tooltip" data-placement="top" type="button"
+                    [ngClass]="action.cssButton" tooltipPosition="left" placement="left" delay="500"
+                    (click)="otherAction(action.nameAction,rowData)">
+                    <em [ngClass]="action.btnIcon" aria-hidden="true"></em>
+                  </button>
+                </ng-container>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="'statoAttivita'">
+              {{ 'STATOATTIVITA.'+rowData[col.field]|translate }}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ rowData[col.field] }}
+            </ng-container>
+          </ng-container>
+          <!--<ng-container *ngIf="col.field === 'stato' && col.header === ''">
+            <app-circle *ngIf="rowData.attivitaDaEspletare" [backgroundColor]="processingStatus(rowData.attivitaDaEspletare).color" [status]="rowData.attivitaDaEspletare">
+            </app-circle>
+          </ng-container>-->
+          <!--<ng-container *ngIf="col.field !== 'attivitaDaEspletare' && col.field !== 'displayButton' && col.field !== 'tipoProcedimento' && col.header !== ''">
+            {{ rowData[col.field] }}
+          </ng-container>-->
+          <!--<ng-container *ngIf="col.field === 'tipoProcedimento'">
+            {{ getTipoProcedimentoFromMetadata(rowData[col.field]) }}
+          </ng-container>-->
+          <!--<ng-container *ngIf="col.field === 'stato' && col.header && col.header !== ''">
+            {{ processingStatus(rowData['attivitaDaEspletare']).label|translate}}
+          </ng-container>-->
+          <!--<ng-container *ngIf="col.field === 'displayButton'">
+            <div class="align-buttons text-center">
+              <button *ngIf="showAssignButton(rowData)" data-toggle="tooltip" data-placement="top"
+                class="btn btn-success" type="button" placement="left" delay="500" 
+                (click)="navigateForAssign(rowData['codicePraticaAppptr'])">
+                <em class="fa fa-user" aria-hidden="true"></em>
+              </button>
+              <button *ngIf="showEyeButton(rowData)" data-toggle="tooltip"
+                data-placement="top" class="btn btn-success" type="button" placement="left" delay="500"
+                (click)="navigate(rowData['codicePraticaAppptr'])">
+                <em class="fa fa-eye" aria-hidden="true"></em>
+              </button>
+              <button *ngIf="showEditButton(rowData)" data-toggle="tooltip"
+                data-placement="top" type="button" class="bttn-table bttn btn-primary" tooltipPosition="left" placement="left"
+                delay="500" (click)="navigate(rowData['codicePraticaAppptr'])">
+                <em class="fa fa-pencil" aria-hidden="true"></em>
+              </button>
+            </div>
+          </ng-container>-->
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">
+          <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+            [pageSize]="this.pageObj.limit" (pageChange)="changeRows({page: $event})" [(page)]="this.pageObj.page"
+            aria-label="Default pagination"></ngb-pagination>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">
+          <span style="text-align: center">{{'generic.norows' | translate}}</span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-contextMenu #cm [target]="target" [model]="items" appendTo="body"></p-contextMenu>
+</div>

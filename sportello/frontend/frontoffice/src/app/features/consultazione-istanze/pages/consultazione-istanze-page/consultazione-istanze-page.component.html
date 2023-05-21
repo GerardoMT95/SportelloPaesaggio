@@ -1,0 +1,31 @@
+<div class="container-fluid  mtop50">
+  <div class="portlet-content-container">
+
+    <p-accordion 
+    *ngIf="tipiProcedimento"
+    expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}" [selected]="false" >
+        <app-istanze-search (searchChange)="setFascicoloSearch($event)" 
+        [typeProcedimento]="tipiProcedimento"></app-istanze-search>
+      </p-accordionTab>
+    </p-accordion>
+    <div class="" *ngIf="fascicoloList">
+      <div class="" *ngIf="tipiProcedimento">
+        <app-istanze-table
+          [typeProcedimento]="tipiProcedimento"
+          [entiDelegati]="entiDelegati"
+          [fascioloTableHeaders]="fascioloTableHeaders"
+          [tableData]="listFascicolo"
+          [totalRecords]="totalRecords"
+          (deleteChange)="delete($event)"
+          (navigateChange)="navigateToDetails($event)"
+          (loadLazyChange)="loadLazy($event)"
+          [loading]="loading"
+          [(first)]="first"
+          [tableSearch]="fascicoloSearch"
+        ></app-istanze-table>
+      </div>
+    </div>
+
+  </div>
+</div> 

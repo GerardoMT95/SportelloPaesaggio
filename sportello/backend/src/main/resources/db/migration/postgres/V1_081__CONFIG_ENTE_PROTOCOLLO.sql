@@ -1,0 +1,7 @@
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_indirizzopostale varchar(1000) NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_indirizzotelematico varchar(1000) NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_aoo_denominazione varchar(1000) NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_denominazione varchar(1000) NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_tipoindirizzotelematico varchar(1000) NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_data_registrazione date NULL;
+ALTER TABLE presentazione_istanza.configurazioni_ente ADD protocollazione_numero_registrazione varchar(1000) NULL;

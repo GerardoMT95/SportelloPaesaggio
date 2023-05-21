@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        	<pattern>[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [%thread] [%X{TOKEN_ID}] [%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n</pattern>
+        </encoder>
+    </appender>
+   <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+           <queueSize>262144</queueSize>
+          <includeCallerData>true</includeCallerData>
+           <appender-ref ref="CONSOLE" />
+   </appender>
+   <root>
+       <level value="INFO" />
+       <appender-ref ref="ASYNC_CONSOLE" />
+   </root>
+</configuration>

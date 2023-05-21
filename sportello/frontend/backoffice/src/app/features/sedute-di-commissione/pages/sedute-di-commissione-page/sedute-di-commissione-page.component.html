@@ -1,0 +1,67 @@
+<div class="container-fluid" style="padding-top: 1.2em;">
+    <!-- Dialog per il dettaglio dei fascicoli collegati ad una seduta-->
+    <p-dialog [(visible)]="displayFascicoliDetails" [modal]="true" [responsive]="true" [style]="{ width: '70%' }"
+        [contentStyle]="{'min-height':'12em', 'overflow-x': 'hidden'}" (onHide)="chiudiDetailsFascicoli()" [blockScroll]="true">
+        <p-header *ngIf="displayFascicoliDetails">
+            <span *ngIf="!nomefile">
+                Seduta di commissione del {{seduta.dataSeduta | date: 'dd/MM/yyyy'}} ore
+                {{seduta.dataSeduta|date:'HH:mm'}}
+            </span>
+            <span *ngIf="nomefile">{{nomefile}}</span>
+        </p-header>
+        <app-riepilogo-fascicoli [fascicoli]="fascicoliDetails"> 
+        </app-riepilogo-fascicoli>
+        <p-footer>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex flex-row-reverse">
+                    <button class="dialog-button" type="button" pButton (click)="chiudiDetailsFascicoli()"
+                        label="{{ 'generic.chiudi' | translate }}"></button>
+                </div>
+            </div>
+        </p-footer>
+    </p-dialog>
+    <div *ngIf="displayAllegati" style="padding-top: .8em;">
+        <div class="row journal-content-article">
+            <div class="text-left clearfix w100">
+                <hr class="divisore">
+                <div class="text-center">
+                    {{seduta ? seduta.nomeSeduta : ''}} 
+                    <span class="dett"><!-- <b>{{dettaglio.codiceComunicazione}} </b> --></span>
+                </div>
+            </div>
+        </div>
+        <app-table-no-filter [disabled]="true" [readonly]="true" [types]="types" [files]="files" [headers]="headers"
+            (onTableDownload)="downloadFile($event)" (onTableCustomEvent)="showFascicolidetailsAllegato($event.file)">
+        </app-table-no-filter>
+        <div class="d-flex justify-content-center" style="margin-top: 1.2em;">
+            <div class="d-flex flex-row-reverse">
+                <button class="dialog-button" type="button" pButton (click)="chiudiDisplayAllegati()"
+                    label="{{ 'generic.indietro' | translate }}"></button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="display">
+        <app-nuova-seduta-commissione *ngIf="display" [fascicoli]="fascicoliList" [init]="seduta"
+            [disableButtons]="false" (onSave)="salvaSeduta($event)" (onCancel)="chiudiSedutaEdit()">
+        </app-nuova-seduta-commissione>
+    </div>
+    <div *ngIf="displayAllegaDocumenti">
+        <app-allega-documento-seduta *ngIf="displayAllegaDocumenti && seduta" [seduta]="seduta" [disableButtons]="false"
+            (uploadFile)="attachDocument($event)" (deleteFile)="deleteFile($event)" (downloadFile)="downloadFile($event)"
+            (showDetails)="showFascicolidetailsAllegato($event)" (complete)="callComplete()" (cancel)="chiudiAllegaDocumenti()">
+        </app-allega-documento-seduta>
+    </div>
+    <!-- Pagina vera e propria -->
+    <div *ngIf="!displayAllegaDocumenti && !display && !displayAllegati">
+        <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+            <p-accordionTab  header="{{ 'generic.ricerca' | translate }}">
+                <app-form-search [configuration]="configuration" [nColumns]="3" (onSearch)="search($event)" (onReset)="resetFilters()">
+                </app-form-search>
+            </p-accordionTab>
+        </p-accordion>
+        <app-tabella-sedute-commissioni [seduta]="sedute" [totalRecords]="totalRecords" 
+            [isRup]="isRup" (operationSelected)="eventResolver($event)" 
+            (onTableChange)="search($event)" (nuovaSeduta)="editSession()">
+        </app-tabella-sedute-commissioni>
+    </div>
+</div>

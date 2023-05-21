@@ -1,0 +1,10 @@
+.green-button 
+{
+    border: 3px solid transparent;
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    background-color: #28A745;
+}
+

@@ -1,0 +1,29 @@
+<div class="text-center">
+  <p-fileUpload
+    (onSelect)="onSelect($event)"
+    (onBeforeUpload)="onBeforeUpload()"
+    (onRemove)="onRemoveFileFromUpload($event)"
+    (onClear)="onCancel()" 
+    [multiple]="multiple"
+    [accept]="mimeTypeForScansioni"
+    [disabled]="disabled"
+    [showUploadButton]="showUploadButton"
+    [showCancelButton]="showCancelButton"
+    [chooseLabel]="chooseLabel | translate"
+    [uploadLabel]="'generic.carica' | translate"
+    [cancelLabel]="'generic.annulla' | translate"
+    [maxFileSize]="maxSize"
+    [invalidFileTypeMessageSummary]="'VERIFY_HASH.TIPO_FILE_NON_VALIDO_SUMMARY' | translate"
+    [invalidFileTypeMessageDetail]="invalidFileTypeMessageDetail"
+    [invalidFileSizeMessageSummary]="'VERIFY_HASH.DIMENSIONE_FILE_NON_VALIDA_SUMMARY' | translate"
+    [invalidFileSizeMessageDetail]="'VERIFY_HASH.DIMENSIONE_FILE_NON_VALIDA_DETTAGLIO' | translate"
+    [auto]="auto"
+    #fileUpload
+  >
+    <ng-template pTemplate="content">
+      <div *ngIf="!files.length" class="mb-2">
+        {{ "generic.trascinaFile" | translate | uppercase }}
+      </div>
+    </ng-template>
+  </p-fileUpload>
+</div>

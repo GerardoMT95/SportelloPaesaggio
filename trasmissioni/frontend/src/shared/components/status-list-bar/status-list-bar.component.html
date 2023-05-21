@@ -1,0 +1,6 @@
+<ul class="status-list">
+	<li *ngFor="let item of list; let i = index">
+		<span class="status-bar-count" [ngStyle]="{ 'background-color': getColor(item.label) }">{{ item.value }}</span>
+		<p class="status-bar-name">{{ 'statoFascicolo.'+ getName(item.label)|translate }}</p>
+	</li>
+</ul>

@@ -1,0 +1,54 @@
+<div class="portlet-content-container">
+	<div class="portlet-body">
+		<form [formGroup]="form">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						{{'abilitazione.saluto'|translate}} <b>{{userLogged.firstName}}
+							{{userLogged.lastName}}</b>.&nbsp;<br />
+						{{'abilitazione.avvisoMail'|translate}}
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group ">
+						<label for="email">{{'abilitazione.email'|translate}} *</label>
+						<input type="text" formControlName="mail" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && form.controls.mail.errors }" />
+					</div>
+					<div *ngIf="submitted && form.controls.mail.errors" class="invalid-feedback">
+						<div *ngIf="form.controls.mail.errors.required">{{'generic.required'|translate}}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group ">
+						<label for="email">{{'abilitazione.pec'|translate}} *</label>
+						<input type="text" formControlName="pec" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && form.controls.pec.errors }" />
+					</div>
+					<div *ngIf="submitted && form.controls.pec.errors" class="invalid-feedback">
+						<div *ngIf="form.controls.pec.errors.required">{{'generic.required'|translate}}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group ">
+						<label for="email">{{'abilitazione.telefono'|translate}} *</label>
+						<input type="text" formControlName="phoneNumber" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && form.controls.phoneNumber.errors }" />
+					</div>
+					<div *ngIf="submitted && form.controls.phoneNumber.errors" class="invalid-feedback">
+						<div *ngIf="form.controls.phoneNumber.errors.required">{{'generic.required'|translate}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center inner-pulsantiera">
+				<button type="button" (click)="cambiaMailPec()" class="bttn btn btn-primary">{{'BUTTONS.PROCEED' |
+					translate}}</button>
+			</div>
+		</form>
+	</div>
+</div>

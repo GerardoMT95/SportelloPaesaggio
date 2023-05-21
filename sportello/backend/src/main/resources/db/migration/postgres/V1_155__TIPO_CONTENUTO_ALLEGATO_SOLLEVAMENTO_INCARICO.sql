@@ -1,0 +1,2 @@
+insert into presentazione_istanza.tipo_contenuto (id, descrizione, descrizione_estesa, sezione, multiple) 
+values(1700, 'Allegato sollevamento incarico', 'Allegato sollevamento incarico', 'ALLEGATO_SOLLEVAMENTO_INCARICO', true);

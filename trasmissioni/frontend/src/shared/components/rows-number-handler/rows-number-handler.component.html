@@ -1,0 +1,27 @@
+<div class="dflex row" style="padding-top: 1.5em; padding-bottom: .8em;">
+  <div class="align-items-center" style="padding-left: 2.2em;" [ngClass]="{'col-12': !customElement, 'col-lg-6 col-md-6 col-sm-12': customElement}">
+    <div class="row">
+      <div class="col-auto nop">
+        <div class="input-group paginazione">
+          <div class="input-group-prepend">
+            <div class="input-group-text">{{'generic.elementiPerPagina'|translate}}</div>
+          </div>
+          <p-dropdown class="dflex max100 no-min-width" (onChange)="changeRows($event.value)" [(ngModel)]="rowsOnPage"
+            [options]="pages" [autoWidth]="false"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-auto" *ngIf="totalRecords > 0">
+        <p class="nom">
+          {{'generic.da'|translate}} &nbsp; {{((rowsOnPage * page) - rowsOnPage) + 1}}
+          {{'generic.a'|translate}}  &nbsp;
+                <span *ngIf="rowsOnPage * page < itemsTotal">{{rowsOnPage * page}}</span>
+          <span *ngIf="rowsOnPage * page >= itemsTotal">{{itemsTotal}}</span>
+          {{'generic.di'|translate}} {{itemsTotal}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <ng-container *ngTemplateOutlet="customElement">
+    </ng-container>
+  </div>
+</div>

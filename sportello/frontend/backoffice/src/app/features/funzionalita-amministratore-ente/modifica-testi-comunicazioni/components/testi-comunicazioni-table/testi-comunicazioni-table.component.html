@@ -1,0 +1,166 @@
+<!--<div class="mb-4" *ngIf="false">
+<p-table
+#tt
+[columns]="comunicazioniTableHeaders"
+[value]="tableData"
+[paginator]="true"
+[rows]="5"
+class="mb-2"
+[rowsPerPageOptions]="[5, 10, 25]"
+>
+<ng-template pTemplate="header" let-columns>
+  <tr>
+    <th
+      [ngStyle]="{ width: col.width ? col.width + '%' : '' }"
+      *ngFor="let col of columns"
+      [pSortableColumn]="col.field"
+      [ngSwitch]="col.field"
+      [pSortableColumnDisabled]="col.field === ''"
+
+    >
+      {{ col.header | translate }}
+      <p-sortIcon
+      *ngIf="col.field !== ''"
+        [field]="col.field"
+      ></p-sortIcon>
+    </th>
+  </tr>
+</ng-template>
+<ng-template
+  pTemplate="body"
+  let-rowData
+  let-index="rowIndex"
+  let-columns="columns"
+>
+  <tr *ngIf="tableData.length > 0">
+    <td
+      *ngFor="let col of columns; let i = index"
+      [attr.data-label]="columns[i].header | translate"
+    >
+    <ng-container *ngIf="col.field === 'oggetto'">
+      {{ rowData[col.field] | slice:0:100}}
+    </ng-container>
+    <ng-container *ngIf="col.field === 'testoTemplate'">
+      {{ rowData[col.field] | slice:0:100}}
+    </ng-container>
+      <ng-container *ngIf="col.field !== '' && col.field!=='oggetto' && col.field!=='testoTemplate'">
+        {{rowData[col.field]}}
+      </ng-container>
+      <ng-container *ngIf="col.field === ''">
+        <div class="text-right">
+          <button
+            data-toggle="tooltip"
+            data-placement="top"
+            type="button"
+            class="bttn-table bttn btn-primary"
+            tooltipPosition="left"
+            placement="left"
+            delay="500"
+            (click)="navigate(rowData['id'])"
+          >
+            <em class="fa fa-pencil" aria-hidden="true"></em>
+          </button>
+        </div>
+      </ng-container>
+    </td>
+  </tr>
+</ng-template>
+</p-table>
+<div class="mr-3 ml-3 mb-3 pt-4" *ngIf="tableData.length === 0">
+  <app-no-data [title]="'NO_DATA_FOUND' | translate"></app-no-data>
+</div>
+</div>-->
+<div class="container-fluid">
+  <!-- CONFIGURAZIONE TEMPLATE COMUNICAZIONI-->
+  <div class="portlet-content-container" [hidden]="dettaglio">
+    <app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+      [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+      [title]="alertData.title" [modal]="false"></app-alert>
+    <div class="mtop20">
+      <!-- accordion form di ricerca-->
+      <ngb-accordion #acc="ngbAccordion" class="ricerca full-width" *ngIf="!toggleInsert">
+        <ngb-panel id="ricerca">
+          <ng-template ngbPanelTitle>
+            {{'generic.ricerca'|translate}}
+            <fa-icon *ngIf="acc.isExpanded('ricerca')" icon="angle-double-up"></fa-icon>
+            <fa-icon *ngIf="!acc.isExpanded('ricerca')" icon="angle-double-down"></fa-icon>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="pl-3 pr-3">
+              <app-form-search [configuration]="configuration" [nColumns]="3" [initData]="initForm"
+                (onSearch)="ricerca($event)" (onReset)="resetRicerca($event)">
+              </app-form-search>
+            </div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <div class="">
+        <app-rows-number-handler [itemsTotal]="itemsTotal" [totalRecords]="totalRecords"
+          [customElement]="customElement" (change)="changeRows($event)" [page]="this.pageObj.page">
+          <ng-template #customElement>
+            <div *ngIf="cancellabile" class="float-right containerBtnAggiuntivi dflex align-items-center mt-3">
+              <div class="col text-right nop">
+                <button type="button" (click)="addTemplate()"
+                  class="btn bttn btn-primary">{{'templateComunicazioni.buttons.nuovo' | translate}}
+                  <fa-icon icon="plus"></fa-icon>
+                </button>
+              </div>
+            </div>
+          </ng-template>
+        </app-rows-number-handler>
+      </div>
+      <div class="row tableContainer tableContainerCustom mbottom20">
+        <p-table [value]="data" [lazy]="true" [responsive]="true">
+          <ng-template pTemplate="header" let-columns>
+            <tr style="background-color: gray!important;">
+              <th style="width: 24%">
+                {{'COMUNICATIONS_TEMPLATE.NAME' | translate}}
+              </th>
+              <th>
+                {{'COMUNICATIONS_TEMPLATE.DESCRIPTION' | translate}}
+              </th>
+              <th style="width: 100px"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData>
+            <tr>
+              <td>{{ rowData.nome }}</td>
+              <td>{{ rowData.descrizione }}</td>
+              <td class="nowrap text-center">
+                <div style="display:inline;" ngbTooltip="Modifica">
+                  <button class="bttn bttn-table btn btn-primary" (click)="openDettaglio(rowData)">
+                    <fa-icon icon="edit"></fa-icon>
+                  </button>
+                </div>
+                <div *ngIf="rowData.cancellabile" style="display:inline;" ngbTooltip="Elimina">
+                  <button class="bttn bttn-table btn btn-danger" (click)="deleteTemplate(rowData)">
+                    <fa-icon icon="trash"></fa-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="3">
+                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="footer" let-columns="columns">
+            <tr>
+              <td [attr.colspan]="3">
+                <ngb-pagination [collectionSize]="itemsTotal" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="this.pageObj.limit" (pageChange)="pageChangedAction($event)" [(page)]="this.pageObj.page"
+                  aria-label="Default pagination"></ngb-pagination>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+  <app-testi-comunicazioni-details *ngIf="dettaglio" [dettaglio]="dettaglio" (action)="onAction($event)"
+    (reset)="reset($event)"></app-testi-comunicazioni-details>
+
+</div>

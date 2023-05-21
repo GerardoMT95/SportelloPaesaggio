@@ -1,0 +1,30 @@
+<div class="container-fluid mb-5" [hidden]="disabled">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field
+          formControlName="ente"
+          [label]="'TRANSMISSION_FINAL_MEASURE_TAB.NAME' | translate | uppercase"
+          id="ente"
+          name="ente"
+        ></app-text-field>
+      </div>
+      <div class="col-md-6">
+        <app-text-field
+          formControlName="mailPec"
+          [label]="'TRANSMISSION_FINAL_MEASURE_TAB.PEC_ADDRESS' | translate | uppercase"
+          id="mailPec"
+          name="mailPec"
+        ></app-text-field>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-12 text-center mt-3">
+          <button type="button" class="bttn btn btn-primary" (click)="addDestianatario()">
+            {{'BUTTONS.ADD'|translate}}
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+      </div>
+  </form>
+</div>

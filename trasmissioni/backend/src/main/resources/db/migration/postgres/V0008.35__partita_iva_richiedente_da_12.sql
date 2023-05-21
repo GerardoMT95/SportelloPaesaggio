@@ -1,0 +1,1 @@
+ALTER TABLE richiedente ALTER COLUMN ditta_partita_iva TYPE varchar(12) USING ditta_partita_iva::varchar;

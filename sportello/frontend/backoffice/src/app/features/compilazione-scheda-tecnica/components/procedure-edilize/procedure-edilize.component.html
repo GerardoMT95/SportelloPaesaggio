@@ -1,0 +1,72 @@
+<form [formGroup]="mainForm.controls['procedureEdilizie']" *ngIf="mainForm.controls['procedureEdilizie'] as fgPe">
+  <div class="pt-4 pb-3 ml-3 mr-3">
+    <div class="row">
+      <div class="col-md-4">
+        <app-radio-field
+          [label]="'BUILDING_PROCEDURES_TAB.INTERVENTO_RADIO' | translate | uppercase"
+          [radioLabel]="buildingProceduresRadio[0].label"
+          [radioValue]="buildingProceduresRadio[0].value"
+          [name]="'tipoIntervento'"
+          formControlName="tipoIntervento"
+          class="mt-1"
+        ></app-radio-field>
+      </div>
+    </div>
+    <div class="row" *ngIf="showFormControl('motivazione', 'tipoIntervento', 1)">
+      <div class="col-md-6 ml-4">
+        <app-text-field
+          [prepend]="('URBAN_LEGITIMACY_TAB.MOTIVATION' | translate | uppercase) + '*'"
+          formControlName="motivazione"
+          [validation]="validation"
+          [errors]="fgPe.get('motivazione').errors"
+        ></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mt-5">
+        <app-radio-field
+          [radioLabel]="buildingProceduresRadio[1].label"
+          [radioValue]="buildingProceduresRadio[1].value"
+          [name]="'tipoIntervento'"
+          formControlName="tipoIntervento"
+          [validation]="validation"
+          [errors]="fgPe.get('tipoIntervento').errors"
+        ></app-radio-field>
+      </div>
+    </div>
+    <div class="row" *ngIf="showFormControl('tipoStato', 'tipoIntervento', 2)" (click)="mostraForm()">
+      <div class="col-md-4 d-flex align-items-center">
+        <app-multiselect-field
+          class="ml-4"
+          [dropdown]="false"
+          [options]="options"
+          [name]="'tipoStato'"
+          formControlName="tipoStato"
+          [validation]="validation"
+          [errors]="fgPe.get('tipoStato').errors"
+        ></app-multiselect-field>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <app-text-field formControlName="detagglio"
+            [validation]="validation"
+            [errors]="fgPe.get('detagglio').errors"></app-text-field>
+          </div>
+          <div class="col-md-4">
+            <app-date-picker-field formControlName="pressoData"
+            [validation]="validation"
+            [errors]="fgPe.get('pressoData').errors"></app-date-picker-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 ">
+            <app-date-picker-field formControlName="espressoData"
+            [validation]="validation"
+            [errors]="fgPe.get('espressoData').errors"></app-date-picker-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

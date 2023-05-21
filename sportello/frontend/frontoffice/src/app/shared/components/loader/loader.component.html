@@ -1,0 +1,10 @@
+<div class="op-loading">
+  <p [ngStyle]="{'margin': (isDownload ? '-55px 0 0 -225px' : '-35px 0 0 -125px')}">
+    <span class="loader"></span>
+    <span [innerHtml]="message | translate"></span>
+    <ng-container *ngIf="progress>=0">
+      <br> <br>
+      <p-progressBar mode="determinate" [value]="progress"></p-progressBar>
+    </ng-container>
+  </p>
+</div>

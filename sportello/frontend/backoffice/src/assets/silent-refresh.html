@@ -1,0 +1,27 @@
+<html>
+<body>
+    <script type="text/javascript">
+		var _characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		function generateRandomString(){
+			_s = "";
+			for(i = 0; i < 40 ; i++ ){
+				_random = parseInt(Math.random() * _characters.length);
+				_s +=  _characters.charAt(_random);
+			}
+			return _s;
+		}
+		if(location.hash && location.hash.length > 0){
+			window.opener.postMessage(location.hash, location.origin);
+			window.close();
+		}else
+			document.location.href = "https://puglialab.eng.it/oauth2/authorize" //environment url
+                                   + "?response_type=" + "id_token token" //environment responsetype
+                                   + "&client_id=" + "rD6djNpSSy4cBViNAcTkNdvkcNUa" //environment clientid"
+                                   + "&state=NnKGa7sktyWCu8ykt5WEUlVCBZT4DlICjcr2kFVz"
+                                   + "&redirect_uri=" + window.location
+                                   + "&scope=" + "openid profile" //environment scope
+                                   + "&nonce=" + generateRandomString() //nonce
+                                   ;
+    </script>
+</body>
+</html>

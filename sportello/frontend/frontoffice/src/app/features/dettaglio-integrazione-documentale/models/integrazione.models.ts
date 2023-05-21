@@ -1,0 +1,1 @@
+export type ActionEvent = "INDIETRO"|"PROSEGUI"|"COMPLETA"|"DOWNLOAD"|"TORNA_IN_BOZZA";

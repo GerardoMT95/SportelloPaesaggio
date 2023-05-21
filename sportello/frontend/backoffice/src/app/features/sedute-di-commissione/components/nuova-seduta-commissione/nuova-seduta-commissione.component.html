@@ -1,0 +1,57 @@
+<div *ngIf="form" class="container-fluid" style="padding-top: 1.2em;">
+    <form  [formGroup]="form">
+        <div class="row col-12">
+            <app-aggiungi-destinatario [addresses]="destinatari" titleAdresses="Notifica A" [collapsed]="true"
+                (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" 
+                (onRemove)="removeDestinatario($event)"></app-aggiungi-destinatario>
+        </div>
+        <div class="row" style="margin-top: .8em;">
+            <div class="col-12">
+                <app-text-field formControlName="nomeSeduta" [type]="'text'" label="Nome seduta"
+                    [errors]="form.controls.nomeSeduta.errors" [validation]="valida">
+                </app-text-field>
+            </div>
+        </div>
+        <div class="row" style="margin-top: .8em;">
+            <div class="col-12">
+                <app-date-picker-field formControlName="dataSeduta" label="Data seduta"
+                    [errors]="form.controls.dataSeduta.errors" [validation]="valida" [showTime]="true">
+                </app-date-picker-field>
+            </div>
+        </div>
+        <div class="row" style="margin-top: .8em;">
+            <div class="col-12">
+                <app-multiselect-field formControlName="pratiche" [options]="listFascicoli"  
+                    [filter]="true" placeholder="-- Seleziona fascicoli --" label="Pratiche da esaminare"
+                    [errors]="form.controls.pratiche.errors" [validation]="valida">
+                </app-multiselect-field>
+            </div>
+        </div>
+        <div class="row" style="margin-top: .8em;">
+            <div class="col-12">
+                <app-checkbox-field formControlName="pubblica" checkboxLabel="Pubblica convocazione seduta di commissione"
+                    [isSingle]="true" [binary]="true" 
+                    [errors]="form.controls.pubblica.errors" [validation]="valida"
+                    >
+                </app-checkbox-field>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="!disableButtons" class="row"style="margin-top: .8em; padding-bottom: .8em;">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="d-flex flex-row-reverse" style="margin-right: .5em;">
+                <button type="button" class="bttn btn btn-primary" (click)="salva()">
+                    {{form.controls.id.value ? 'Aggiorna convocazione' :'Invia convocazione'}}
+                    <fa-icon *ngIf="form.controls.id.value" icon="save"></fa-icon>
+                    <fa-icon *ngIf="!form.controls.id.value" icon="paper-plane"></fa-icon>
+                  </button>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button type="button" class="bttn btn btn-primary" (click)="chiudi()">
+                    {{'BACK_BUTTON'|translate}}
+                    <fa-icon icon="arrow-left"></fa-icon>
+                  </button>
+            </div>
+        </div>
+    </div>
+</div>

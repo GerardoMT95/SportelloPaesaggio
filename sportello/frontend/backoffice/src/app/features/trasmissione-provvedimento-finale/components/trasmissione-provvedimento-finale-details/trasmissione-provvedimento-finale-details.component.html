@@ -1,0 +1,35 @@
+<form [formGroup]="form" class="mt-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field [label]="('TRANSMISSION_FINAL_MEASURE_TAB.NUMBER_MEASURE' | translate | uppercase) + '*'"
+          [id]="'numeroProvvedimento'" [name]="'numeroProvvedimento'" formControlName="numeroProvvedimento"
+          [errors]="form.get('numeroProvvedimento').errors" [validation]="validation"></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-date-picker-field
+          [label]="('TRANSMISSION_FINAL_MEASURE_TAB.RELEASE_DATE_PERMISSION' | translate | uppercase) + '*'"
+          [id]="'dataRilascioAutorizzazione'" [name]="'dataRilascioAutorizzazione'" 
+          formControlName="dataRilascioAutorizzazione"
+          [maxDate]="const.TODAY"
+          [errors]="form.get('dataRilascioAutorizzazione').errors" [validation]="validation"></app-date-picker-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-select-field [label]="('TRANSMISSION_FINAL_MEASURE_TAB.OUTCOME' | translate | uppercase) + '*'"
+          [id]="'esito'" [name]="'esito'" [options]="esitoList" optionLabel="description" formControlName="esitoProvvedimento"
+          [errors]="form.get('esitoProvvedimento').errors" [validation]="validation"></app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field [label]="('TRANSMISSION_FINAL_MEASURE_TAB.RUP' | translate | uppercase) + '*'" [id]="'rup'"
+          [name]="'rup'" formControlName="rup" [errors]="form.get('rup').errors" [validation]="validation">
+        </app-text-field>
+      </div>
+    </div>
+  </div>
+</form>

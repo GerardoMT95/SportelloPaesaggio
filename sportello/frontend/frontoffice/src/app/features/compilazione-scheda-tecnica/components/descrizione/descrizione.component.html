@@ -1,0 +1,176 @@
+<form [formGroup]="mainForm.controls['descrizione']">
+  <div class="ml-3 mr-3">
+    <div class="row">
+      <div class="col-md-12">
+        <app-textarea-field
+          [label]="'DESCRIPTION_TAB.DESCRIPTION' | translate | uppercase"
+          tooltip="{{ 'DESCRIPTION_TAB.DIMENSION' | translate }}"
+          formControlName="descrizione"
+          maxlength="4000"
+        >
+        </app-textarea-field>
+      </div>
+    </div>
+    <p-accordion
+      expandIcon="fa fa-angle-double-down"
+      collapseIcon="fa fa-angle-double-up"
+    >
+      <p-accordionTab
+        header="{{
+          'DESCRIPTION_TAB.TYPE_OF_INTERVENTION_AND_COMPLIANCE_WITH_THE_EXISTING_BUILDING_DISCIPLINE'
+            | translate
+        }}"
+        [selected]="false"
+      >
+        <ng-container formGroupName="tipoIntervento">
+          <div class="row pt-3">
+            <div class="col">
+              <app-hierarchical-field
+                [options]="tipoInt"
+                formControlName="tipologiaDiIntervento"
+                [label]="
+                  ('DESCRIPTION_TAB.PROJECT_WORKS_RETURN_TO_THE_FOLLOWING_TYPE_OF_INTERVENTION'
+                    | translate) + '*'
+                "
+                [tooltip]="'DESCRIPTION_TAB.IN_CASE' | translate"
+                [validation]="validation"
+                [errors]="errorTipoInt"
+                (change)="updateValidity()"
+              >
+              </app-hierarchical-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <app-text-field
+                formControlName="inParticolareAgliArtt"
+                [maxlength]="1000"
+                [errors]="
+                  mergeError(
+                    tipoIntControls.inParticolareAgliArtt.errors,
+                    errorTipoIntervento
+                  )
+                "
+                [validation]="validation"
+                [label]="
+                  'DESCRIPTION_TAB.IN_PARTICULAR' | translate | lowercase
+                "
+              >
+              </app-text-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <app-date-picker-field
+                formControlName="dataApprovazione"
+                [errors]="
+                  mergeError(
+                    errorTipoIntervento,
+                    tipoIntControls.dataApprovazione.errors
+                  )
+                "
+                [maxDate]="currentDate"
+                [validation]="validation"
+                [label]="
+                  'DESCRIPTION_TAB.OF_THE_BUILDING' | translate | lowercase
+                "
+              >
+              </app-date-picker-field>
+            </div>
+            <div class="col-md-4">
+              <app-text-field
+                formControlName="con"
+                [errors]="
+                  mergeError(errorTipoIntervento, tipoIntControls.con.errors)
+                "
+                [validation]="validation"
+                [label]="'DESCRIPTION_TAB.CON' | translate | lowercase"
+                [maxlength]="1000"
+              >
+              </app-text-field>
+            </div>
+          </div>
+        </ng-container>
+      </p-accordionTab>
+    </p-accordion>
+    <br />
+    <p-accordion
+      expandIcon="fa fa-angle-double-down"
+      collapseIcon="fa fa-angle-double-up"
+    >
+      <p-accordionTab
+        header="{{
+          'DESCRIPTION_TAB.INTERVENTION_CHARACTERIZATION' | translate
+        }}"
+        [selected]="false"
+      >
+        <ng-container formGroupName="caratterizzazioneIntervento">
+          <div class="row">
+            <div class="col">
+              <app-hierarchical-field
+                [options]="carInt"
+                formControlName="caratterizzazione"
+                [label]="
+                  ('DESCRIPTION_TAB.THE_INTERVENTION_ABOUT' | translate) + '*'
+                "
+                [validation]="validation"
+                [errors]="errorCarInt"
+                (change)="updateValidity()"
+              >
+              </app-hierarchical-field>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-4">
+              <app-hierarchical-field
+                [options]="carIntTP"
+                formControlName="durata"
+                [label]="
+                  ('DESCRIPTION_TAB.THE_WORKS_INTERVENTIONS' | translate) + '*'
+                "
+                [validation]="validation"
+                [errors]="errorCarIntTP"
+                (change)="updateValidity()"
+              >
+              </app-hierarchical-field>
+            </div>
+          </div>
+        </ng-container>
+      </p-accordionTab>
+    </p-accordion>
+    <br />
+    <p-accordion
+      expandIcon="fa fa-angle-double-down"
+      collapseIcon="fa fa-angle-double-up"
+    >
+      <p-accordionTab
+        header="{{ 'DESCRIPTION_TAB.QUALIFICATION_INTERVENTION' | translate }}"
+        [selected]="false"
+      >
+        <div class="row">
+          <div class="col">
+            <app-hierarchical-field
+              [options]="qualificazioni"
+              [label]="labelQualificazione | translate"
+              formControlName="qualificazioneIntervento"
+              [validation]="validation"
+              [errors]="errorQual"
+              (change)="updateValidity()"
+            >
+            </app-hierarchical-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="tipoProcedimento == 1">
+          <div class="col">
+            <p style="font-size: small; font-style: italic">
+              {{ "DESCRIPTION_TAB.MEANS" | translate }}
+            </p>
+            <p style="font-size: small; font-style: italic">
+              {{ "DESCRIPTION_TAB.THEY_INCLUDE" | translate }}
+            </p>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</form>

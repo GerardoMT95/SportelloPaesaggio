@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportCaratterizzazioneIntervento" pageWidth="550" pageHeight="842" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4bcb639b-ec3b-4747-ae03-46f6df01e594">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DichiarazioneTecnicaAdapter"/>
+	<style name="FontCustomArial" isDefault="true" fontName="CustomArial"/>
+	<subDataset name="CaratterizzazioneIntervento" uuid="1f6e2959-a7a8-42a2-af8b-bf26e4c58a1c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="caratterizzazione" class="java.util.List"/>
+		<field name="durata" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ConfigOptionValue" uuid="8d3510e2-0f31-4744-bbe8-79dcf46d431f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+		<field name="text" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="descrizione" class="java.lang.String"/>
+	<field name="caratterizzazioneIntervento" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="10" y="20" width="520" height="50" uuid="abcd95e9-1d6b-439e-b024-b55b3c03ccdf"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CaratterizzazioneIntervento" uuid="0cb314e0-f531-48ef-a37b-c124adc130aa">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{caratterizzazioneIntervento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="520">
+						<componentElement>
+							<reportElement x="0" y="0" width="520" height="50" uuid="2facd3c0-1649-4c7c-9da0-f9164eaefce6"/>
+							<jr:list printOrder="Vertical">
+								<datasetRun subDataset="ConfigOptionValue" uuid="3123ceb6-ce44-4c2c-9cc3-0922fc145036">
+									<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{caratterizzazione})]]></dataSourceExpression>
+								</datasetRun>
+								<jr:listContents height="50" width="520">
+									<textField textAdjust="StretchHeight">
+										<reportElement x="0" y="0" width="520" height="20" uuid="0a1a3391-35d2-4a97-89db-5120aa68ac71"/>
+										<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+									</textField>
+									<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+										<reportElement x="0" y="20" width="520" height="30" isRemoveLineWhenBlank="true" uuid="3ad7ed03-b625-4485-afb3-c5bc2bd4d7fc"/>
+										<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+									</textField>
+								</jr:listContents>
+							</jr:list>
+						</componentElement>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="27153235-2eb7-4f19-be74-fe480386ca57"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[L'intervento riguarda]]></text>
+			</staticText>
+		</band>
+		<band height="40">
+			<staticText>
+				<reportElement x="10" y="0" width="230" height="20" uuid="660ce9a7-abf7-41da-bfba-23266ad14341"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[le opere / interventi in progetto sono a carattere]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="10" y="20" width="520" height="20" uuid="a041ba1b-2537-4b88-bff7-7eea8dbf2cc6"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="CaratterizzazioneIntervento" uuid="12acfc8e-8d68-4e4a-9602-c97abb315cf4">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{caratterizzazioneIntervento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="520">
+						<textField>
+							<reportElement x="0" y="0" width="520" height="20" uuid="98547500-be43-4b0e-8dbd-6febd1d6a471"/>
+							<textFieldExpression><![CDATA[new String($F{durata}).equals("P")  ? "permanente" : "temporaneo"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

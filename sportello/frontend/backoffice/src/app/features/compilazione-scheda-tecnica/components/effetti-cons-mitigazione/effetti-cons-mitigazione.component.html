@@ -1,0 +1,65 @@
+<form [formGroup]="mainForm.controls['effetiMitigazione']" *ngIf="mainForm.controls['effetiMitigazione'] as fgEff">
+<div class="pt-4 pb-3 ml-3 mr-3">
+  <app-section-header [title]="'SEZIONI.DESCRIPTION' | translate">
+  </app-section-header>
+  <div class="row">
+    <div class="col">
+      <app-editor-field
+        [label]="('MITIGATION_EFFECTS_TAB.DESCRIPTION_LABEL' | translate) + '*'"
+        [tooltip]="'MITIGATION_EFFECTS_TAB.DESCRIPTION_TOOLTIP' | translate"
+        formControlName = "descrizione" [name]="'descrizione'"
+        [validation]="validation"
+        [errors]="fgEff.get('descrizione').errors"
+      >
+      </app-editor-field>
+    </div>
+  </div>
+
+  <app-section-header [title]="'SEZIONI.EFFECTS' | translate">
+  </app-section-header>
+
+  <div class="row">
+    <div class="col">
+      <app-editor-field
+        [label]="('MITIGATION_EFFECTS_TAB.EFFECTS_LABEL' | translate) + '*'"
+        [tooltip]="'MITIGATION_EFFECTS_TAB.EFFECTS_TOOLTIP' | translate"
+        formControlName = "effeti" [name]="'effeti'"
+        [validation]="validation"
+        [errors]="fgEff.get('effeti').errors"
+      >
+      </app-editor-field>
+    </div>
+  </div>
+
+  <app-section-header [title]="'SEZIONI.MEASURES' | translate">
+  </app-section-header>
+
+  <div class="row">
+    <div class="col">
+      <app-editor-field
+        [label]="('MITIGATION_EFFECTS_TAB.MEASURES_LABEL' | translate) + '*'"
+        [tooltip]="'MITIGATION_EFFECTS_TAB.MEASURES_TOOLTIP' | translate"
+        formControlName = "misure" [name]="'misure'"
+        [validation]="validation"
+        [errors]="fgEff.get('misure').errors"
+      >
+      </app-editor-field>
+    </div>
+  </div>
+
+  <app-section-header [title]="'SEZIONI.PERCEPTUAL_CONTENT' | translate">
+  </app-section-header>
+
+  <div class="row">
+    <div class="col">
+        <app-editor-field
+        [label]="('MITIGATION_EFFECTS_TAB.PERCEPTUAL_CONTENT_LABEL' | translate) + '*'"
+        formControlName = "contenutiPercettivi" [name]="'contenutiPercettivi'"
+        [validation]="validation"
+        [errors]="fgEff.get('contenutiPercettivi').errors"
+      >
+      </app-editor-field>
+    </div>
+  </div>
+</div>
+</form>

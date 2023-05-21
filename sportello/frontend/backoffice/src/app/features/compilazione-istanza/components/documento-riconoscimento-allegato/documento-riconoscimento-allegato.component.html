@@ -1,0 +1,7 @@
+<app-document-table [fascicolo]="fascicolo" 
+  [tableHeaders]="documentTableHeaders" 
+  [tableData]="tableData"
+  (fileUpload)="caricaDocumento($event)" 
+  (emitDownload)="scaricaDocumento($event)"
+  (emitDeletion)="eliminaDocumento($event)"
+  [disabled]="true"></app-document-table>

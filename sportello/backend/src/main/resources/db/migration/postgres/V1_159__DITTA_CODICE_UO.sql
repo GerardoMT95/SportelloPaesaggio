@@ -1,0 +1,1 @@
+alter table presentazione_istanza.referenti add column ditta_codice_uo varchar(100);

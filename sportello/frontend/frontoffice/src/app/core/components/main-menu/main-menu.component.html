@@ -1,0 +1,38 @@
+<nav id="mainMenu">
+  <div class="inner-menu sidebar overflow-auto" [ngClass]="{ 'sidebar-show': !collapsed, 'sidebar-hide': collapsed }">
+    <div>
+      <button class="close-btn close" (click)="hideMenu()">
+          <i class="fa fa-angle-left"></i>
+      </button>
+    </div>
+    <p-menu
+            [style]="{ width: '100%' }"
+            [model]="primeNgMenu"
+            (click)="hideMenu()"
+    ></p-menu>
+    <!-- <div
+			style="width: 100%; transform: translateY(0px); opacity: 1;"
+			class="clearfix text-left ng-trigger ng-trigger-overlayAnimation ng-tns-c3-0 ui-menu ui-widget ui-widget-content ui-corner-all ng-animate-disabled"
+		>
+			<ul class="ng-tns-c3-0">
+        <li class="ui-submenu-header ui-widget-header ui-
+        corner-all ng-tns-c3-0 ng-star-inserted"></li>
+				<ng-container *ngIf="menuItems">
+					<li
+						*ngFor="let menu of menuItems[0].items"
+						class="ui-menuitem ui-widget ui-corner-all ng-tns-c3-0 ng-star-inserted"
+					>
+							<a
+								class="ui-menuitem-link ui-corner-all ng-star-inserted ui-state-active"
+								(click)="isCollapsed = !isCollapsed"
+								routerLink="{{ menu.routerLink }}"
+							>
+								<span class="ui-menuitem-icon {{ menu.icon }} ng-star-inserted"></span>
+								<span class="ui-menuitem-text">{{ menu.label }}</span>
+							</a>
+					</li>
+				</ng-container>
+			</ul>
+		</div> -->
+  </div>
+</nav>

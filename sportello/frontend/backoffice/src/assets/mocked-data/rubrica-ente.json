@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "denominazione": "Avvocato",
+        "mail": "vito.rossi@gmail.com"
+    },
+    {
+        "id": 2,
+        "denominazione": "Assetto del territorio",
+        "mail": "mario.bianchi@gmail.com"
+    }
+]

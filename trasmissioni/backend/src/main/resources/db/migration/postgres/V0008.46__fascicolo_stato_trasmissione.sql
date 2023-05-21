@@ -1,0 +1,1 @@
+ALTER TABLE fascicolo ADD COLUMN stato_trasmissione boolean NOT NULL DEFAULT false;    

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <ng-container *ngIf="emptyParere; else case2">
+    <p class="mt-3">
+      {{ 'SUPERINTENDENT_OPINION_TAB.MANAGER_ROLE_MESSAGE' | translate }}
+    </p>
+    <div class="mt-3">
+      <button type="button" class="bttn btn btn-primary" (click)="navigateToCreateOpinion()"
+        *ngIf="!isDisabled">
+          {{'SUPERINTENDENT_OPINION_TAB.CREATE_OPINION_BUTTON' | translate | uppercase}}
+          <fa-icon icon="paperclip"></fa-icon>
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #case2>
+    <ng-container *ngIf="parereNonPrevisto; else elseTemplate">
+      <p class="mt-3">
+        Parere non previsto per questa pratica
+      </p>
+    </ng-container>
+    <ng-template #elseTemplate>
+      {{label|translate}}
+    </ng-template>
+  </ng-template>
+</div>

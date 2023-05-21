@@ -1,0 +1,62 @@
+<form class="text-left" [formGroup]="searchForm">
+  <div class="row">
+    <div class="col-md-4">
+      <app-text-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.TITOLO_DOCUMENTO' | translate | uppercase"
+        id="titoloDocumento" name="titoloDocumento" formControlName="titoloDocumento"></app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.DESCRIZIONE_CONTENUTO' | translate | uppercase"
+        id="descrizioneContenuto" name="descrizioneContenuto" formControlName="descrizioneContenuto"></app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.DESTINATARI' | translate | uppercase"
+        id="destinatarioNotifica" name="destinatarioNotifica" formControlName="destinatarioNotifica"></app-text-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label> 
+        {{'ULTERIORE_DOCUMENTAZIONE.RICERCA.VISIBILE_A' | translate | uppercase}}
+      </label>
+      <p-dropdown class="dflex" 
+              [showClear]="true" 
+              [options]="meta"
+              appendTo="body" 
+              [autoWidth]="true"
+              [name]="'visibileA'"
+              [required]="false"
+              [placeholder]="('generic.selezionaunavoce'|translate)"
+              formControlName="visibileA">
+            </p-dropdown>
+      <!--<app-select-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.VISIBILE_A' | translate | uppercase" id="visibileA"
+        name="visibileA" [options]="meta" 
+        optionLabel="description" formControlName="visibileA"></app-select-field>-->
+    </div>
+    <div class="col-md-4">
+      <app-text-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.INSERITO_DA' | translate | uppercase" id="inseritoDa"
+        name="inseritoDa" formControlName="inseritoDa"></app-text-field>
+    </div>
+
+    <div class="col-md-2">
+      <app-date-picker-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.DATA_CONDIVISIONE_DA' | translate | uppercase"
+        id="dataCondivisioneDa" name="dataCondivisioneDa" formControlName="dataCondivisioneDa"></app-date-picker-field>
+    </div>
+    <div class="col-md-2">
+      <app-date-picker-field [label]="'ULTERIORE_DOCUMENTAZIONE.RICERCA.DATA_CONDIVISIONE_A' | translate | uppercase"
+        id="dataCondivisioneA" name="dataCondivisioneA" formControlName="dataCondivisioneA"></app-date-picker-field>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="row">
+      <button type="button" class="bttn btn btn-primary" (click)="onSubmit()">
+        {{'BUTTONS.SEARCH_BUTTON'|translate}}
+        <fa-icon icon="search"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="onClose()">
+        {{'BUTTONS.CANCEL_BUTTON'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+    </div>
+  </div>
+</form>

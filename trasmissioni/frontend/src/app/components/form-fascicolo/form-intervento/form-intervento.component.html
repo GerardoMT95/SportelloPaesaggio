@@ -1,0 +1,267 @@
+<div *ngIf="fascicoloFormIntervento && CONST.isAutpae()" [formGroup]="fascicoloFormIntervento" class="row">
+  <div class="col-md-12" *ngFor="let i of index1">
+    <div class="row noml nomr journal-content-article">
+      <div class="col-md-12 text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          {{labels[i] | translate}}
+        </div>
+      </div>
+      <div class="row noml nomr journal-content-article" style="padding-left: 2em;width: 100%;">
+        <div class="form-group col-md-12" style="width: 100%;" *ngFor="let key of index2.get(i)">
+          <label style="padding-bottom: 1.2em; font-weight: 500;">{{labels[key]|translate}}</label>
+          <div *ngFor="let elem of groups[i][key]" style="padding-left: .4em;">
+            <ng-container *ngIf="elem.stile === 'checkbox'; else radiobutton">
+              <div class="form-row" style="padding-top: .3em;">
+                <div [ngClass]="{'col-lg-5 col-md-7 col-sm-12':(elem.raggruppamento=='a'||elem.raggruppamento=='b'||elem.raggruppamento=='c'),
+                'col-md-12':!(elem.raggruppamento=='a'||elem.raggruppamento=='b'||elem.raggruppamento=='c')}" >
+                <table> 
+                  <tr>
+                    <td style="vertical-align: top;">
+                      <p-checkbox label="" labelStyleClass="labelLungaCheckBox" value="{{elem.id}}"
+                      [ngModel]="form[key].value" [formControl]="fascicoloFormIntervento['controls'][key]"
+                      [disabled]="disable || disabilitati.includes(elem.id.toString())"
+                      (onChange)="attivaInput(i, key, elem.zona)"
+                      
+                      [ngStyle]="{'padding-left': elem.dependesOn > 100 ? '1.2em' : '0em'}"
+                      [styleClass]="submitted && fascicoloFormIntervento.controls[key].errors ?'checkbox-invalida':''">
+                    </p-checkbox>
+                    </td>
+                    <td><label class="ml-2"  [innerHTML]="elem.label|safeHtml"></label></td>
+                  </tr>
+                </table>
+                
+              </div>
+                <!--[ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls[key].errors }"-->
+                <span *ngIf="elem.id === 6" class="col-lg-7 col-md-5 col-sm-12">
+                  <label style="font-weight: 500;">dettagliare</label>&nbsp;
+                  <input formControlName="interventoDettaglio" type="text" class="form-control"
+                    style="max-width: 70%!important; display: inline!important"
+                    [ngClass]="{ 'is-invalid': submitted && form['interventoDettaglio'].errors }" 
+                    [maxlength]="CONST.MAX_LEN_INTERVENTO_ALTRO" />
+                </span>
+                <div *ngIf="elem.id === 19" class="col-lg-7 col-md-5 col-sm-12">
+                  <label style="font-weight: 500;">specificare</label>&nbsp;
+                  <input formControlName="interventoSpecifica" type="text" class="form-control"
+                    style="max-width: 70%!important; display: inline!important"
+                    [ngClass]="{ 'is-invalid': submitted && form['interventoSpecifica'].errors }" 
+                    [maxlength]="CONST.MAX_LEN_INTERVENTO_ALTRO" />
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #radiobutton>
+              <p-radioButton name="{{key}}" [disabled]="disable || disabilitati.includes(elem.id)" value="{{elem.id}}"
+                label="{{elem.label}}" formControlName="{{key}}" (onClick)="attivaInput(i, key, elem.zona)"
+                [ngModel]="fascicoloFormIntervento['controls'][key].value"
+                [ngStyle]="{'padding-left': elem.dependesOn > 10 ? '2em' : '0em'}"
+                [ngClass]="{ 'is-invalid': submitted && form[key].errors }">
+              </p-radioButton>
+            </ng-template>
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && fascicoloFormIntervento.controls[key].errors">
+            Campo non compilato correttamente
+          </div>
+          <label *ngIf="legends[key]"
+            style="white-space: pre-line; padding-top: 1.5em; font-weight: 500; font-size: .8em; text-transform: lowercase;">{{legends[key]|translate}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--caso pareri-->
+<div *ngIf="CONST.isPareri()" [formGroup]="fascicoloFormIntervento">
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.interventoSection.caratterizzazioneIntervento' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="form-group col-12" style="width: 100%;">
+      <label style="padding-bottom: 1.2em; font-weight: 500;"></label>
+      <div *ngFor="let elem of groups[1]['a']" style="padding-left: .4em;">
+        <p-radioButton name="{{'a'}}" [disabled]="disable" value="{{elem.id}}" label="{{elem.label}}"
+          formControlName="{{'a'}}" (onClick)="attivaInput(1, 'a', elem.zona)"
+          [ngModel]="fascicoloFormIntervento['controls']['a'].value"
+          [ngStyle]="{'padding-left': elem.dependsOn > 10 ? '2em' : '0em'}"
+          [ngClass]="{ 'is-invalid': submitted && form['a'].errors }">
+        </p-radioButton>
+        <span *ngIf="elem.id === 172" class="col-lg-7 col-md-5 col-sm-12">
+          <label style="font-weight: 500;"></label>&nbsp;
+          <input formControlName="interventoDettaglio" type="text" class="form-control"
+            style="max-width: 70%!important; display: inline!important"
+            [maxlength]="CONST.MAX_LEN_INTERVENTO_ALTRO"
+            [ngClass]="{ 'is-invalid': submitted && form['interventoDettaglio'].errors }" />
+        </span>
+      </div>
+      <div class="invalid-feedback" *ngIf="submitted && fascicoloFormIntervento.controls['a'].errors">
+        Campo non compilato correttamente
+      </div>
+      <!--<label *ngIf="legends['a']"
+        style="white-space: pre-line; padding-top: 1.5em; font-weight: 500; font-size: .8em; text-transform: lowercase;">{{legends['a']|translate}}</label>-->
+    </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.interventoSection.estremiPiano' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col"><p>{{'fascicolo.deliberaInfo'|translate}}</p></div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4">
+      <div class="form-group ">
+        <label for="data">{{'fascicolo.sedutaDel'|translate}}</label>
+        <div class="input-group">
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+            dateFormat="{{'generic.dateFormatCalendar'|translate}}" [locale]="CONST.IT" 
+            [monthNavigator]="true"
+            [yearNavigator]="true" yearRange="1900:{{CONST.NOW_YEAR}}" class="form-control nop"
+            [maxDate]="CONST.NOW_DATE"
+            formControlName="dataDelibera" inputStyleClass="form-control" showButtonBar="true" [disabled]="disable"
+            [ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls.dataDelibera.errors }">
+          </p-calendar>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <fa-icon icon="calendar"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="submitted && fascicoloFormIntervento.controls.dataDelibera.errors" class="invalid-feedback">
+          {{'generic.invalidDate'|translate}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-offset-2">
+      <div class="form-group ">
+        <label for="deliberaNum">{{'fascicolo.deliberaNum'|translate}}</label>
+        <input type="text" formControlName="deliberaNum" class="form-control" [readonly]="disable" [maxlength]="CONST.MAX_LEN_DELIBERA_NUM"/>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8">
+    <div class="form-group">
+      <label for="oggettoDelibera">{{'fascicolo.oggettoDelibera'|translate}}</label>
+      <textarea class="form-control" rows="5" formControlName="oggettoDelibera" 
+      [readonly]="disable"
+      [maxLength]="CONST.MAX_LEN_DELIBERA_OGGETTO"
+        [ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls.oggettoDelibera.errors }"></textarea>
+      <div *ngIf="submitted && fascicoloFormIntervento.controls.oggettoDelibera.errors" class="invalid-feedback">
+        <div *ngIf="fascicoloFormIntervento.controls.oggettoDelibera.errors.maxlength">{{'generic.maxLengthTextarea'|translate}} {{CONST.MAX_LENGTH_TEXTAREA_1000}}</div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="infoDeliberePrecedenti">{{'fascicolo.infoPrecedenti'|translate}}</label>
+        <textarea class="form-control" rows="5" formControlName="infoDeliberePrecedenti" 
+        [readonly]="disable"
+        [maxLength]="CONST.MAX_LEN_DELIBERE_PRECEDENTI"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls.infoDeliberePrecedenti.errors }"></textarea>
+        <div *ngIf="submitted && fascicoloFormIntervento.controls.infoDeliberePrecedenti.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormIntervento.controls.infoDeliberePrecedenti.errors.maxlength">{{'generic.maxLengthTextarea'|translate}} {{CONST.MAX_LENGTH_TEXTAREA_1000}}</div>
+        </div>
+      </div>
+      </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.descrInterventoProp' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="descrizioneIntervento"></label>
+        <textarea class="form-control" rows="5" formControlName="descrizioneIntervento" 
+        [readonly]="disable"
+        [maxLength]="CONST.MAX_LEN_OGGETTO_INTERVENTO"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls.descrizioneIntervento.errors }"></textarea>
+        <div *ngIf="submitted && fascicoloFormIntervento.controls.descrizioneIntervento.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormIntervento.controls.descrizioneIntervento.errors.maxlength">{{'generic.maxLengthTextarea'|translate}} {{CONST.MAX_LENGTH_TEXTAREA_1000}}</div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+<!--caso putt-->
+<div *ngIf="fascicoloFormIntervento && CONST.isPutt()" [formGroup]="fascicoloFormIntervento" class="row">
+  <div class="col-md-12" *ngFor="let i of index1">
+    <div class="row noml nomr journal-content-article">
+      <div class="col-md-12 text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          {{labels[i] | translate}}
+        </div>
+      </div>
+      <div class="row noml nomr journal-content-article" style="padding-left: 2em;width: 100%;">
+        <ng-container *ngFor="let key of index2.get(i)">
+         <div *ngIf="key==='j'" class="noml nomr col-12 text-left clearfix w100">
+            <hr class="divisore">
+            <div class="text-center">
+              {{'fascicolo.interventoSection.qualificazioneIntervento'|translate}}
+            </div>
+        </div> 
+        <div class="form-group col-12" style="width: 100%;" >
+          <label style="padding-bottom: 1.2em; font-weight: 500;">{{labels[key]|translate}}</label>
+          <div *ngFor="let elem of groups[i][key]" style="padding-left: .4em;">
+            <ng-container *ngIf="elem.stile === 'checkbox'; else radiobutton">
+              <div class="form-row" style="padding-top: .3em;">
+                <p-checkbox label="{{elem.label}}" labelStyleClass="labelLungaCheckBox" value="{{elem.id}}"
+                  [ngModel]="form[key].value" [formControl]="fascicoloFormIntervento['controls'][key]"
+                  [disabled]="disable || disabilitati.includes(elem.id.toString())"
+                  (onChange)="attivaInput(i, key, elem.zona)"
+                  [ngClass]="{'col-lg-5 col-md-7 col-sm-12':(elem.raggruppamento=='a'||elem.raggruppamento=='b'||elem.raggruppamento=='c'),
+                              'col-md-12':!(elem.raggruppamento=='a'||elem.raggruppamento=='b'||elem.raggruppamento=='c')}"
+                  [ngStyle]="{'padding-left': elem.dependesOn > 100 ? '1.2em' : '0em'}"
+                  [styleClass]="submitted && fascicoloFormIntervento.controls[key].errors ?'checkbox-invalida':''">
+                </p-checkbox>
+                <!--[ngClass]="{ 'is-invalid': submitted && fascicoloFormIntervento.controls[key].errors }"-->
+                <span *ngIf="elem.id === 6" class="col-lg-7 col-md-5 col-sm-12">
+                  <label style="font-weight: 500;">dettagliare</label>&nbsp;
+                  <input formControlName="interventoDettaglio" type="text" class="form-control"
+                    style="max-width: 70%!important; display: inline!important"
+                    [ngClass]="{ 'is-invalid': submitted && form['interventoDettaglio'].errors }" 
+                    [maxlength]="CONST.MAX_LEN_INTERVENTO_ALTRO" />
+                </span>
+                <div *ngIf="elem.id === 19" class="col-lg-7 col-md-5 col-sm-12">
+                  <label style="font-weight: 500;">specificare</label>&nbsp;
+                  <input formControlName="interventoSpecifica" type="text" class="form-control"
+                    style="max-width: 70%!important; display: inline!important"
+                    [ngClass]="{ 'is-invalid': submitted && form['interventoSpecifica'].errors }" 
+                    [maxlength]="CONST.MAX_LEN_INTERVENTO_ALTRO" />
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #radiobutton>
+              <p-radioButton name="{{key}}" [disabled]="disable || disabilitati.includes(elem.id)" value="{{elem.id}}"
+                label="{{elem.label}}" formControlName="{{key}}" (onClick)="attivaInput(i, key, elem.zona)"
+                [ngModel]="fascicoloFormIntervento['controls'][key].value"
+                [ngStyle]="{'padding-left': elem.dependesOn > 10 ? '2em' : '0em'}"
+                [ngClass]="{ 'is-invalid': submitted && form[key].errors }">
+              </p-radioButton>
+            </ng-template>
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && fascicoloFormIntervento.controls[key].errors">
+            Campo non compilato correttamente
+          </div>
+          <label *ngIf="legends[key]"
+            style="white-space: pre-line; padding-top: 1.5em; font-weight: 500; font-size: .8em; text-transform: lowercase;">{{legends[key]|translate}}</label>
+        </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

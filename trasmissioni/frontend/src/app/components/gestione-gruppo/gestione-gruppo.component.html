@@ -1,0 +1,31 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<div class="row" style="margin: 10px;">
+  <div class="col-12">
+    <label for="tipologiaProcedimento">
+      <h6>Seleziona uno dei ruoli a te associati</h6>
+    </label>
+    <div>
+      <div class="ui-grid ui-grid-responsive ui-fluid">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-12">
+              <p-dropdown [autoWidth]="false" [options]="gruppiERuoliAssociati" [(ngModel)]="ruoloScelto" placeholder="Seleziona un ruolo" [group]="true">
+                <ng-template let-group pTemplate="group">
+                    <span >{{group.label}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ricercaPulsantieraContainer relative text-center inner-pulsantiera"
+  style="border-bottom: 0px solid #bebebe">
+  <div class="pulsantiera clearfix">
+    <button type="button" [disabled]="!ruoloScelto" (click)="scegliGruppo()" class="bttn btn btn-primary">
+      {{'generic.prosegui'|translate}}
+    </button>
+  </div>
+</div>

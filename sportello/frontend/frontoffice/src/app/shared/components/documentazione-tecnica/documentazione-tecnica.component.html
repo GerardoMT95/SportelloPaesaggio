@@ -1,0 +1,87 @@
+<!--<form [formGroup] = "mainForm.controls['documentazioneTecnica']">-->
+<div class="container-fluid">
+  <form [formGroup] = "formInserimento">
+    <div class="row" *ngIf="!disabledForm">
+      <div class="col-md-5">
+        <app-text-field formControlName="nomeContenuto" id="descrizione" name="descrizione"
+          [label]="('TECHNICAL_DOCUMENTATION.NOME_CONTENUTO' | translate | uppercase) + '*'" >
+        </app-text-field>
+      </div>
+    </div>
+  <div class="row" *ngIf="!disabledForm">
+    <div class="col-md-12">
+      <app-multiselect-field
+      [label]="'TECHNICAL_DOCUMENTATION.FILE_TYPE'"
+      formControlName="descrizione"
+      id="descrizione" name="descrizione"
+      [options]="getFileTypeSelect()"
+      [dropdown]="false"
+      style="margin-bottom: 0rem!important;"
+    >
+    </app-multiselect-field>    
+    </div>
+  </div>
+  <div class="row" *ngIf="!disabledForm">
+    <div class="col-md-12">
+      <div class="form-group">
+      <label for="fileUpload" class="mt-3 font-weight-bold">{{'TECHNICAL_DOCUMENTATION.ATTACH_FILE' | translate |uppercase}}</label>
+      <p-fileUpload #fileUpload
+      id="fileUpload" 
+      name="myfile"
+       customUpload="true"
+       [auto]="true" 
+       (uploadHandler)="doUpload($event)"
+       [chooseLabel] ="'BUTTONS.UPLOAD' | translate" 
+       [disabled]="!formInserimento.valid"
+       ></p-fileUpload>
+    </div>
+    </div>
+  </div>
+  
+</form>
+  <!--<app-select-field formControlName="descrizione" id="descrizione" name="descrizione"
+    [label]="'TECHNICAL_DOCUMENTATION.FILE_TYPE' | translate" 
+    [options] = "getFileTypeSelect()" 
+    (change) = "selectFileType()"
+  ></app-select-field>-->
+
+
+        
+              <form [formGroup] = "mainForm.controls['documentazioneTecnica']">
+              <div class="row mb-4">
+                    <div class="col-md-12 mt-3" 
+                      *ngIf="documentazioneTecnicaForm.get('grigliaAllegatiCaricati').value && 
+                             documentazioneTecnicaForm.get('grigliaAllegatiCaricati').value.length>0 ">
+                        <app-document-table 
+                        [fascicolo]="fascicolo" 
+                        (fileUpload) = "dummy($event)" 
+                        (emitDeletion) = "deleteAttachment($event)" 
+                        [tableHeaders] = "documentTableHeaders" 
+                        [tableData] = "documentazioneTecnicaForm.get('grigliaAllegatiCaricati').value"
+                        [enableUploadFromTable]="false"
+                        (emitDownload)="scaricaDocumento($event)"
+                        [disabled]="disabledForm"
+                        ></app-document-table>
+                    </div>
+              </div>
+              </form>
+
+  <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+        <p-accordionTab
+          header="{{ 'TECHNICAL_DOCUMENTATION.LIST_OF_ATTACHMENTS.HEADER' | translate }}"
+          [selected]="true"
+        >
+          <ng-container *ngFor="let contenuto of legendaTipiContenuto()">
+              <div [innerHTML]="contenuto.descrizioneEstesa|safeHtml"></div>
+          </ng-container>
+          <!--
+          <div *ngIf="fascicolo.tipoProcedimento === '1'" id="tipoDocumentoArt164" [innerHTML]="elencoAllegatiData.tipoProcedimentoArt164"></div>
+          <div *ngIf="fascicolo.tipoProcedimento === '2'" id="tipoDocumentoArt90" [innerHTML]="elencoAllegatiData.tipoProcedimentoArt90"></div>
+          <div *ngIf="fascicolo.tipoProcedimento === '3'" id="tipoDocumentoArt167" [innerHTML]="elencoAllegatiData.tipoProcedimentoArt167"></div>
+          <div *ngIf="fascicolo.tipoProcedimento === '4'" id="tipoDocumentoArt91" [innerHTML]="elencoAllegatiData.tipoProcedimentoArt91"></div>
+          -->
+        </p-accordionTab>
+        </p-accordion>
+
+</div>
+<!--</form>-->

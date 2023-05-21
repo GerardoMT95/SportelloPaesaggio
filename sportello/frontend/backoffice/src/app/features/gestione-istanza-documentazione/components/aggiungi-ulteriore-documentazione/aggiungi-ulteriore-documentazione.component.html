@@ -1,0 +1,113 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-12">
+      <label for="titoloDocumento">{{'ULTERIORE_DOCUMENTAZIONE.RICERCA.TITOLO_DOCUMENTO'|translate}}*</label>
+      <input class="form-control" formControlName="titoloDocumento" maxlength="255"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.titoloDocumento.errors }" />
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.titoloDocumento.errors">{{'generic.required'|translate}}</span>
+    </div>
+    <div class="col-12">
+      <label for="descrizioneContenuto">{{'ULTERIORE_DOCUMENTAZIONE.RICERCA.DESCRIZIONE_CONTENUTO'|translate}}*</label>
+      <textarea class="form-control" rows="8" formControlName="descrizioneContenuto"
+        [ngClass]="{ 'is-invalid': inviato && form.controls.descrizioneContenuto.errors }"></textarea>
+      <span class="invalid-feedback"
+        *ngIf="inviato && form.controls.descrizioneContenuto.errors">{{'generic.required'|translate}}</span>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 1em;">
+    <div class="col-12">
+      <div style="margin-bottom: 2em;">
+        <label for="allegaFile">{{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.ALLEGA_FILE'|translate}}*</label>
+        <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="allegaFile($event)" class="basicUpload"
+          [showCancelButton]="false" cancelLabel="Annulla" [auto]="true" [showUploadButton]="false">
+        </p-fileUpload>
+      </div>
+    </div>
+    <div class="col-12">
+      <p-table [value]="fileArray" [autoLayout]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Tipo File</th>
+            <th>Nome file</th>
+            <th>Data ultima modifica</th>
+            <!--<th>Impronta hash</th>-->
+            <th style="width: 6em;"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file>
+          <tr>
+            <td>Ulteriore documentazione</td>
+            <td>{{file.nome}}</td>
+            <td>{{file.lastModified|date: 'dd/MM/yyyy'}}</td>
+            <!--<td>{{file.checksum}}</td>-->
+            <td><button class="bttn btn btn-danger bttn-table" (click)="svuotaAllegato(file.id)">
+                <em class="fa fa-trash"></em>
+              </button></td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="4">
+              Nessun file inserito
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <span class="invalid-feedback"
+        *ngIf="inviato && fileArray.length === 0">{{'generic.required'|translate}}</span>
+    </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.CONDIVIDI' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-12">
+          <label for="visibileA">{{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.DOCUMENTI_VISUALIZZABILI_DA'|translate}}</label>
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-12">
+          <p-multiSelect class="dflex" [options]="entiOptions$|async" [(ngModel)]="selectedDefault" formControlName="visibileA"
+            [ngClass]="{'is-invalid': inviato && form.controls.visibileA.errors}" defaultLabel="{{'generic.selezionavoci'|translate}}">
+          </p-multiSelect>
+          <span class="invalid-feedback" *ngIf="inviato && form.controls.visibileA.errors">{{'generic.required'|translate}}</span>
+        </div>
+      </div>
+      <div class="row" style="padding-top: 1.2em;">
+        <div class="col-lg-2 col-md-4 col-sm-12">
+          <label for="notificaA">{{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.NOTIFICA_A'|translate}}*</label>
+        </div>
+        
+        
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <app-aggiungi-destinatario [addresses]="destinatari" titleAdresses="Destinatari" [collapsed]="true"
+            (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)">
+          </app-aggiungi-destinatario>
+          <div class="invalid-feedback" *ngIf="inviato && destinatari.length==0">
+            {{'generic.required'|translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 2em;">
+    <div class="col-12 text-center">
+      <button type="button" class="bttn btn btn-primary" (click)="onSubmit(false)">
+        {{'BUTTONS.SEND_MAIL'|translate}}
+        <fa-icon icon="paper-plane"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="onCanceled()">
+        {{'BUTTONS.CANCEL_BUTTON'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+    </div>
+  </div>
+</form>

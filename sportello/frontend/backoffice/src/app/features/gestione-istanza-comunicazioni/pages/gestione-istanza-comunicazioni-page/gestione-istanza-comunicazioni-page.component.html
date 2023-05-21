@@ -1,0 +1,70 @@
+<ng-container [ngSwitch]="statoComponent">
+  <div *ngSwitchCase="'RIEPILOGO'">
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+        <app-comunicazioni-ricerca (searchChange)="updateQuery($event)" (annullaSearch)="updateQuery()"
+          [currentUser]="currentUser"></app-comunicazioni-ricerca>
+      </p-accordionTab>
+    </p-accordion>
+    <div class="row clearfix mb-5 mt-5">
+      <div class="col-md-12 align-button pulsantiera-com">
+        <button *ngIf="abilitataRichiestaArchiviazione"
+          type="button" class="bttn btn btn-primary" (click)="richiediTemplate(true)">
+          {{'COMMUNICATIONS.NUOVA_RICHIESTA_ARCHIVIAZIONE' | translate | uppercase}}
+          <fa-icon icon="archive"></fa-icon>
+        </button>
+        <button *ngIf="abilitataRichiestaAttivazione"
+          type="button" class="bttn btn btn-primary" (click)="richiediTemplate(false)">
+          {{'COMMUNICATIONS.NUOVA_RICHIESTA_ATTIVAZIONE' | translate | uppercase}}
+          <fa-icon icon="plus"></fa-icon>
+        </button>
+        <button *ngIf="abilitataRichiestaIntegrazione"
+          type="button" class="bttn btn btn-primary" (click)="nuovaIntegrazione()">
+          {{'COMMUNICATIONS.NUOVA_RICHIESTA_INTEGRAZIONE' | translate | uppercase}}
+          <fa-icon icon="plus"></fa-icon>
+        </button>
+        <button *ngIf="!readOnly && visibilitaMailDefault"
+          type="button" class="bttn btn btn-primary" (click)="inviaComunicazioneTrue()">
+          {{'BUTTONS.NEW_DRAFT' | translate | uppercase}}
+          <fa-icon icon="plus"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <app-comunicazione-table [tableData]="comunicazioni" [tableSearch]="corrispondenzaSearch"
+      [tableHeader]="comunicazioniTableHeaders" [totalItems]="numeroTotaleOggetti"
+      [numeroOggettiRestituiti]="numeroOggettiRestituiti" [currentUser]="currentUser" 
+      (navigateChange)="azioni($event)"(pagingOrOrderBy)="updateQuery($event)">
+    </app-comunicazione-table>
+  </div>
+  <div *ngSwitchCase="'RICHIESTA'">
+    <app-nuova-comunicazione [isBozzaIntegrazione]="false" [hasProtocollo]="false" (sendData)="sendData($event, false)" 
+      (showPreview)="showPreview($event)" (uploadFile)="uploadFile($event)" (deleteFile)="deleteFile($event)" 
+      (downloadFile)="downloadFile($event)" (canceled)="chiusoDettaglio($event)" [showPreviewButton]="true" 
+      [idComunicazione]="idComunicazione" [init]="dettaglioCorrispondenzaDTO" [codiceFascicolo]="fascicolo.codicePraticaAppptr">
+    </app-nuova-comunicazione>
+  </div>
+  <div *ngSwitchCase="'COMP_RICH_INTEGR'">
+    <app-nuova-comunicazione [templates]="templatesIntegr" [isBozzaIntegrazione]="true"
+      [placeHolderSelezioneTemplate]="'-- Seleziona modello comunicazione --'" [requiredTipoComunicazione]="true"
+      [hasProtocollo]="data.hasProtocollazione" (sendData)="sendData($event,false)"
+      (sendDataWithProto)="sendData($event,true)" (showPreview)="showPreview($event)" (uploadFile)="uploadFile($event)"
+      (deleteFile)="deleteFile($event)" (downloadFile)="downloadFile($event)" (canceled)="chiusoDettaglio($event)"
+      [showPreviewButton]="true" [idComunicazione]="idComunicazione" [init]="dettaglioCorrispondenzaDTO"
+      [codiceFascicolo]="fascicolo.codicePraticaAppptr" [indirizziMailDefault]="indirizziMailDefault">
+    </app-nuova-comunicazione>
+  </div>
+  <div *ngSwitchCase="'COMPOSIZIONE'">
+    <app-nuova-comunicazione [templates]="templates"
+      [placeHolderSelezioneTemplate]="'-- Seleziona modello comunicazione --'" [requiredTipoComunicazione]="false"
+      [hasProtocollo]="!dettagliosenzaProtocollo && data.hasProtocollazione" (sendData)="sendData($event,false)"
+      (sendDataWithProto)="sendData($event,true)" (showPreview)="showPreview($event)" (uploadFile)="uploadFile($event)"
+      (deleteFile)="deleteFile($event)" (downloadFile)="downloadFile($event)" (canceled)="chiusoDettaglio($event)"
+      [showPreviewButton]="true" [idComunicazione]="idComunicazione" [init]="dettaglioCorrispondenzaDTO"
+      [codiceFascicolo]="fascicolo.codicePraticaAppptr" [indirizziMailDefault]="indirizziMailDefault">
+    </app-nuova-comunicazione>
+  </div>
+  <div *ngSwitchCase="'DETTAGLIO'">
+    <app-dettaglio-com [dettaglioComunicazione]="dettaglioOpened" (action)="chiusoDettaglioView($event)" >
+    </app-dettaglio-com>
+  </div>
+</ng-container>

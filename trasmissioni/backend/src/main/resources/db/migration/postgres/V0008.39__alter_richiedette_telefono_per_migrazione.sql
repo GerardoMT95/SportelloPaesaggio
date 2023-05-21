@@ -1,0 +1,1 @@
+ALTER TABLE richiedente ALTER COLUMN telefono TYPE varchar(60);    

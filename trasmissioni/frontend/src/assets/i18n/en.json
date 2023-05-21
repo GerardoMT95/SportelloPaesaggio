@@ -1,0 +1,980 @@
+{
+    "appTitlePublic_autpae": "Elenchi Autorizzazioni e Accertamenti di compatibilità paesaggistica rilasciati in vigenza del PPTR",
+    "appTitlePublic_pareri": "Elenchi Pareri di compatibilità paesaggistica rilasciati in vigenza del PPTR",
+    "appTitlePublic_putt": "Elenchi Autorizzazioni e Accertamenti di compatibilità paesaggistica rilasciati in vigenza del PUTT/p",
+    "appTitle_autpae": "Gestione telematica trasmissione autorizzazioni e accertamenti di compatibilità paesaggistica ai sensi del PPTR",
+    "appTitle_pareri": "Gestione telematica trasmissione pareri di compatibilità paesaggistica",
+    "appTitle_putt": "Gestione telematica trasmissione autorizzazioni e accertamenti di compatibilità paesaggistica ai sensi del PUTT/p",
+    "appTitle": "Gestione telematica trasmissione Autorizzazioni,Accertamenti e Pareri di compatibilità paesaggistica",
+    "ACCEDI_BUTTON": "Accedi",
+    "AGGIUNGI_BUTTON": "Aggiungi",
+    "ESCI_BUTTON": "Esci",
+    "ALERT_DIALOG_HEADER": "Informazioni",
+    "OVERSIZED_FILE_MESSAGE":"Il file supera le dimensioni ammesse",
+    "TABLE_DELETE_BUTTON": "Elimina",
+    "TABLE_DELETE_ALL_ROW_BUTTON": "Elimina tutte le righe",
+    "TABLE_CANCEL_BUTTON": "Annulla",
+    "TABLE_DOWNLOAD_BUTTON": "Scarica",
+    "TABLE_UPLOAD_BUTTON": "Caricare",
+    "TABLE_ATTACH_BUTTON":"Allega",
+    "ATTACHMENT_DELETE_BUTTON_MESSAGE": "Allegato eliminato con successo!",
+    "DELETE_PROMPT_BUTTON_MESSAGE": "Cancellazione irreversibile, proseguo?",
+    "OPERAZIONE_IRREVERSIBILE": "Operazione irreversibile",
+    "VALIDATION_MODAL_TITLE": "Campi non validi",
+    "CORRECTLY_UPLOAD_SHAPE": "File Shape caricato correttamente",
+    "EXPORT_TO":"esporta",
+    "headermenu": {
+        "gestioneProvvedimenti": "Gestione dei Provvedimenti",
+        "verificaImpronta": "Verifica impronta file",
+        "consultazionePubblicaProvvedimenti": "Consultazione pubblica dei Provvedimenti",
+        "cartografiaProvvedimenti": "Cartografia dei Provvedimenti",
+        "manuale": "Manuale",
+        "dettaglio": "Dettaglio Provvedimento",
+        "amministrazione": "Funzioni di amministrazione dell’applicazione",
+        "attivaz": "Attivazioni e configurazioni funzionalità",
+        "annullIstanza": "Annullamento istanza trasmessa",
+        "modIstanza": "Attivazione modifica istanza trasmessa",
+        "templCom": "Modifica template comunicazioni",
+        "rubricaEnti": "Modifica indirizzi degli enti",
+        "funzioniAmministrazione": "Funzioni amministratore",
+        "richiestaAbilitazione": "Richiesta abilitazione",
+        "templateDocumentazioni": "Modifica template documentazioni",
+        "assegnaFascicoloConfig": "Configurazione assegna fascicolo",
+        "assegnaFascicolo": "Assegna fascicolo",
+        "configuraProtocollo":"Configurazione protocollo",
+        "configuraTipiProcedimento":"Modifica validità tipi procedimento",
+        "confpec": "Configurazione PEC",
+        "organizzazioni": "Gestione organizzazioni",
+        "sbapemail": "Gestione destinatari soprintendenza",
+        "provemail": "Gestione destinatari province",
+        "comemail": "Gestione destinatari enti comunali",
+        "diogeneConfig":"Configurazione account diogene"
+    },
+    "abilitazione": {
+        "userName":"username",
+        "titleOrganizzazioneMancante":"Composizione messaggio all'amministratore applicazione",
+        "campoOrganizzazioneMancante":"Organizzazione mancante",
+        "organizzazioneMancante":"Nel caso in cui non dovesse essere presente l'organizzazione su cui vuoi abilitarti, clicca nel bottone qui sotto per inviare un messaggio all'amministratore dell'applicazione.",
+        "buttonOrganizzazioneMancante":"Componi e invia segnalazione",
+        "inviaSegnalazione":"Invia segnalazione",
+        "ilSottoscritto":"Il sottoscritto",
+        "breadcrumb": "Richiesta Abilitazione",
+        "datiRichiedente":"Dati richiedente",
+        "datiResponsabile":"Dati responsabile",
+        "saluto": "Ciao",
+        "nonRisultano":"Non risultano abilitazioni per l'applicazione, se è stata già effettuata attendere l'esito ed uscire dall'applicazione.",
+        "risultano":"Risulti essere già abilitato nei seguenti gruppi e ruoli:",
+        "compilare":"Compilare la seguente richiesta di abilitazione al fine di poter accedere alle funzioni per le istanze di autorizzazione/accertamento/pareri di compatibilità paesaggistica.",
+        "nome":"Nome",
+        "email":"Email",
+        "cognome":"Cognome",
+        "telefono":"Telefono",
+        "fax":"Fax",
+        "chiede":"chiede",
+        "autorizzazione":"l'abilitazione all'utilizzo dei servizi del SIT della Regione Puglia previsti per l'organizzazione ed il ruolo di seguito specificati",
+        "autorizzatoDa":"autorizzato da",
+        "organizzazione":"organizzazione",
+        "allegatoAutorizzazione":"Allegato autorizzazione",
+        "ruolo":"ruolo",
+        "inQualitaDi":"in qualita di",
+        "dichiarazioni":"Dichiarazioni",
+        "confirm": "Confermi richiesta di abilitazione?",
+        "confirmSegnalazione": "Confermi l'invio della segnalazione?",
+        "validationTitle": "Validazione",
+        "validationMessage": "Compilare i campi obbligatori",
+        "confirmTitle": "Conferma",
+        "esitoTitle": "Esito",
+        "esito": "Richiesta inviata con successo. L'abilitazione sarà attiva entro un'ora dall'accettazione da parte dell'amministratore.",
+        "esitoError": "Errore durante la richiesta di abilitazione, contattare l'amministratore.",
+        "provincia": "Provincia",
+        "comune": "Comune",
+        "ente": "Ente",
+        "confermi":"Confermi l'invio della richiesta di abilitazione?",
+        "button": "Richiedi Abilitazione",
+        "privacy":"Dichiara di aver letto l'informativa sulla privacy in calce alla pagina.",
+        "informativaPrivacyMancante":"Informativa privacy obbligatoria",
+        "informativaPrivacyAlert":"L'informativa privacy è mancante, impossibile procedere, contattare amministratore applicazione !!!",
+        "dichMendaci":"Dichiara di essere consapevole che in caso di dichiarazioni mendaci o contenenti dati non rispondenti a verità, è prevista l'applicazione delle sanzioni penali nonchè le altre sanzioni previste dall'art. 76 del DPR n. 445/2000"
+    },
+    "subMenu":
+    {
+        "intervalloScheduling": {
+            "name": "Intervallo di Schedulazione",
+            "link": "pippo"
+        },
+        "template": {
+            "name": "Template Comunicazioni",
+            "link": "pippo"
+        },
+        "indirizziEnti": {
+            "name": "Indirizzi Enti",
+            "link": "pippo"
+        }
+    }
+    ,"adminFascicolo":{
+        "dialogAnnulla":{
+            "title":"Attenzione OPERAZIONE IRREVERSIBILE",
+            "message":"Annullare il fascicolo selezionato?"
+        },
+        "dialogAnnullaEsito":{
+            "title":"Successo",
+            "message":"Fascicolo annullato con successo !!!"
+        },
+        "dialogModifica":{
+            "title":"Attenzione",
+            "message":"A"
+        },
+        "dialogModificaEsito":{
+            "title":"Attenzione",
+            "message":"A"
+        }
+    }
+    ,"search": {
+        "codiceFascicolo": "Codice Fascicolo",
+        "classIntervento": "Tipologia Intervento",
+        "tipoProcedimento": "Tipologia procedimento",
+        "dataProvvedimento": "Data Provvedimento",
+        "enteCompetente": "Ente Competente",
+        "comuneIntervento": "Comune Intervento",
+        "richiedente": "Richiedente",
+        "esitoProvvedimento": "Esito Provvedimento",
+        "statoFascicolo": "Stato Fascicolo",
+        "statoRegistrazione": "Stato registrazione",
+        "esitoVerifica": "Esito Verifica",
+        "simple-from": "Da",
+        "simple-to": "A",
+        "codiceInternoEnte": "Codice Interno Ente",
+        "numeroInternoEnte": "n.",
+        "protocollo": "Protocollo",
+        "ggmmaaaa": "del giorno",
+        "exportWarning":{
+            "title":"Esportazione dati",
+            "message":"Il set di record da esportare è limitato, vuoi esportare comunque ?"
+        }
+    },
+    "operatore": {
+        "table": {
+            "codice": "Codice Fascicolo",
+            "descrizione": "Descrizione",
+            "tipologiaIntervento": "Tipologia Procedimento",
+            "comune": "Comune",
+            "ufficio": "Ufficio",
+            "responsabileProcedimento": "Responsabile Procedimento",
+            "numeroProvvedimento": "Numero Provvedimento",
+            "dataProvvedimento": "Data Provvedimento",
+            "esitoProvvedimento": "Esito Provvedimento",
+            "stato": "Stato",
+            "statoRegistrazione": "Stato Registrazione",
+            "esitoVerifica": "Esito Verifica",
+            "richiedente": "Richiedente"
+        }
+    },
+    "template": {
+        "header": "Progetto Template",
+        "headerInfo": "Gestione telematica trasmissione autorizzazioni e accertamenti di compatibilità paesaggistica",
+        "welcome": "Benvenuto"
+    },
+    "dialog": {
+        "rinnova": "Scadenza Sessione",
+        "rinnovaMessage": "La tua sessione di lavoro sta per scadere, utilizza il pulsante rinnova per rinnovarla entro",
+        "rinnovaMessageTime": "secondi",
+        "errore": "Errore",
+        "warning": "Attenzione",
+        "operazioneOK":"Operazione effettuata con successo.",
+        "sessionescaduta": {
+            "title": "Inattività",
+            "content": "Sessione Scaduta per innattività",
+            "button": "Chiudi"
+        }
+    },
+    "error": {
+        "400": "Richiesta non formattata correttamente",
+        "401": "Utente non autenticato",
+        "403": "Utente non autorizzato",
+        "404": "Risorsa richiesta è inesistente",
+        "405": "Si è manifestato un errore durante l'elaborazione",
+        "415": "Formato della richiesta non supportato",
+        "500": "Errore durante l'elaborazione della richiesta",
+        "LOGOUT_ERROR": "Errore nella procedura di Logout",
+        "READ_WRITE_DATA_ERROR": "Errore durante l'elaborazione dei dati",
+        "DATA_NOT_FOUND": "Risorsa richiesta non trovata",
+        "READ_WRITE_FILE_ERROR": "Errore durante la lettura/scrittura del file",
+        "CONFIGURATION_ERROR": "Errore di configurazione",
+        "COMUNICATION_ERROR": "Errore di comunicazione",
+        "PARSER_ERROR": "Errore di formattazione dei dati",
+        "PERMISSION_ERROR": "Utente non ha i permessi per effettuare la richiesta",
+        "VALIDATION_ERROR": "Dati inviati non validi",
+        "MAIL_ERROR": "Errore di invio mail",
+        "WRONG_OPERATION_ERROR": "Operazione non possibile per lo stato attuale dei dati",
+        "REPORT_ERROR": "Errore durante la generazione del file pdf",
+        "AUTH_ERROR": "Utente non è autenticato",
+        "NOT_FOUND": "Richiesta non trovata"
+        ,"PRIVACY_ERROR":"Per poter continuare è necessario accettare l'informativa della privacy"
+        ,"GENERIC_ERROR": "Si è verificato un errore durante l'elaborazione"
+    },
+    "generic": {
+        "ripristina": "Ripristina",
+        "attenzione": "Attenzione",
+        "anteprima": "Anteprima",
+        "aggiungi": "Aggiungi",
+        "default": "Pagina di default",
+        "noAccessForUser": "Utente non può accedere al portale",
+        "wait": "Attendere per favore...",
+        "trascinaQui": "Oppure trascina in quest'area il file",
+        "trascinaFile": "Trascina in quest'area il file",
+        "fiscalCodeError": "Uno dei campi che compongono il codice fiscale è errato",
+        "fiscalCode": "Codice Fiscale non corretto",
+        "salva": "Salva",
+        "valida": "Valida",
+        "ok": "OK",
+        "da": "da",
+        "a": "a",
+        "cerca": "Cerca",
+        "conferma": "Conferma",
+        "errore": "Errore",
+        "chiudi": "Chiudi",
+        "annulla": "Annulla",
+        "ricerca": "Ricerca",
+        "reset": "Reset",
+        "modifica": "Modifica",
+        "dettagli": "Dettaglio",
+        "elimina": "Elimina",
+        "operazioneOk": "Operazione effettuata correttamente",
+        "vuoiEliminare": "Sicuro di eliminare",
+        "indietro": "Indietro",
+        "required": "Campo Obbligatorio",
+        "maxlength": "Lunghezza massima ammessa di {{requiredLength}}, attuale {{actualLength}}",
+        "minlength": "Lunghezza minima ammessa di {{requiredLength}}, attuale {{actualLength}}",
+        "maggiorenne": "Devi essere Maggiorenne",
+        "allRequired": "Tutti i campi sono obbligatori",
+        "carica": "Carica",
+        "scaricaAllegato": "Scarica allegato",
+        "trasmetti": "Trasmetti",
+        "prosegui": "Prosegui",
+        "selezionaunavoce": "Seleziona una voce",
+        "itemsSelezionati": " voci selezionate",
+        "norows": "Nessun dato disponibile",
+        "error": " Errore nella procedura, per favore riprova!",
+        "info": "Informazione",
+        "gotohome": "Torna alla home",
+        "dateFormat": "dd/MM/yyyy",
+        "dateFormatCalendar": "dd/mm/yy",
+        "badFormat": "Formato non corretto",
+        "onlyNumber": "Sono ammessi solo caratteri numerici",
+        "maxLengthTextarea": "Hai superato il limite massimo di caratteri:",
+        "rinnova": "Rinnova",
+        "badValuePec": "Pec non corretta",
+        "badValueEmail": "Email non corretta",
+        "badValuePiva": "Partita iva non corretta",
+        "loading": "Elaborazione in corso",
+        "paginazione": "Elementi per pagina",
+        "ordinamento": "clicca per ordinare",
+        "ordinamentoDesc": "clicca per ordinare in modo inverso",
+        "erroreRetrievalDati": "Errore nel recupero dei dati dal server!",
+        "aggiungiRiga": "Aggiungi riga",
+        "ENTI_UTENTE": "Enti Utente",
+        "RUOLI_UTENTE": "Ruoli Utente",
+        "VISUALIZZA_RUOLI": "Visualizza Ruoli",
+        "VISUALIZZA_ENTI": "Visualizza Enti",
+        "elementiPerPagina": "Elementi per pagina",
+        "selezionavoci": "Seleziona una o più voci",
+        "invalidDate": "Data non valida",
+        "preview": "Visualizza anteprima",
+        "di": "di",
+        "warn-lose-all": "Attenzione, potresti perdere tutte le informazioni inserite. Proseguire?",
+        "max-size":"dimensione massima",
+        "nomeDocumento": "Nome documento",
+        "si":"Si",
+        "pattern": "formato non valido",
+        "success": "Successo"
+    },
+    "fascicolo": {
+        "nuovo": "Nuovo Fascicolo",
+        "fascicolo": "Fascicolo",
+        "enteCompetente": "Ente competente",
+        "dettFascicolo": "Dettaglio Fascicolo",
+        "crea": "Crea Fascicolo",
+        "dataCreazione": "Data creazione",
+        "dataTrasmissione": "Data trasmissione",
+        "dataProvvedimento": "Data provvedimento",
+        "dataVerifica": "Data verifica",
+        "ufficio": "UFFICIO",
+        "tipoProcedimento": "Tipo Procedimento",
+        "numeroProtocollo": "Numero di Protocollo",
+        "comuni":"Comuni",
+        "inSanatoria": "Provvedimento richiesto in sanatoria",
+        "dataPresentazione": "Data di presentazione",
+        "oggettoIntervento": "Oggetto dell'intervento",
+        "codiceInternoEnte": "Codice Interno Ente",
+        "numeroInternoEnte": "n.",
+        "protocolloInternoEnte": "Protocollo",
+        "dataProtocolloInternoEnte": "del (gg/mm/aaaa)",
+        "note": "Note",
+        "esitoValidazioneNuovo": "Esito della validazione",
+        "fascicoloSalvatoPronto": "Il fascicolo è stato creato correttamente ed è pronto per la lavorazione.",
+        "codiceFascicoloE": "Il codice fascicolo è:",
+        "erroreCreazione": "Errore nella creazione del fascicolo",
+        "abbandonaModifiche": "Abbandona modifiche",
+        "sicuroAbbandonoInseriti": "Sicuro di tornare indietro PERDENDO tutti i dati inseriti?",
+        "sicuroAbbandonoModifiche": "Sicuro di tornare indietro PERDENDO tutti i dati inseriti dopo l'ultimo salvataggio?",
+        "deliberaInfo":"Deliberazione di adozione della Giunta Comunale/Consiglio Comunale ",
+        "sedutaDel":"seduta del",
+        "deliberaNum":"delibera numero",
+        "oggettoDelibera":"oggetto delibera",
+        "infoPrecedenti":"Informazioni relative ad eventuali precedenti delibere di adozione/approvazione dello strumento urbanistico esecutivo",
+        "datiRichiedente": "Dati del Richiedente",
+        "richiedente": {
+            "cognome": "Cognome",
+            "nome": "Nome",
+            "cf": "Codice Fiscale",
+            "sesso": "Sesso",
+            "m": "M",
+            "f": "F",
+            "natoIl": "Nato il",
+            "in": "In",
+            "nato_in": "Nato in",
+            "stato": "Stato",
+            "prov": "Provincia",
+            "comune": "Comune",
+            "citta": "Città",
+            "residenteIn": "Residente In",
+            "indirizzo": "Indirizzo",
+            "via": "Via",
+            "civico": "n.",
+            "cap": "C.A.P.",
+            "telefono": "Recapito Telefonico",
+            "email": "Email",
+            "pec": "PEC",
+            "titolareDitta": "Nel caso in cui il titolare sia una ditta o società o Ente, compilare anche la sezione seguente",
+            "inQualitaDi": "In qualità di",
+            "descAltro": "Descrizione Altro",
+            "dellaDitta": "della ditta / società / ente pubblico / associazione",
+            "cfDitta": "Codice fiscale",
+            "pivaDitta": "partita IVA",
+            "dati-responsabile": "Dati del responsabile comunale per l'istanza"
+        },
+        "responsabile":{
+            "labelNome": "Nome",
+            "labelCognome": "Cognome",
+            "labelQualita": "in qualità di",
+            "labelTipoServizio": "del Servizio/Settore/Ufficio",
+            "labelPec": "PEC",
+            "labelPostaElettronica": "Posta Elettronica",
+            "labelTelefono": "Recapito telefonico",
+            "labelTipo": "Tipo",
+            "labelNumero": "Numero",
+            "labelRilasciato": "Rilasciato il",
+            "labelDa": "Da",
+            "labelScadenza": "Scade il"
+        },
+        "intervento": "Descrizione intervento",
+        "descrIntervento": "Descrizione dell'intervento",
+        "descrInterventoProp": "Descrizione sintetica dell'intervento proposto",
+        "interventoSection": {
+            "titoloTipo": "Tipologia di intervento e conformità alla disciplina edilizia vigente",
+            "opereDiProgetto": "Le opere in progetto rientrano nella seguente tipologia di intervento (nel caso di più voci di interesse, indicare quella di maggior impatto):",
+            "caratterizzazioneIntervento": "Caratterizzazione dell'intervento",
+            "dettagliare": "Dettagliare",
+            "specificare": "Specificare...",
+            "riguarda": "L'intervento riguarda",
+            "carattere": "Ed è a carattere",
+            "carattereIntervento": "Ed è a carattere:",
+            "fraseQualificazione": "Le opere/interventi in progetto",
+            "fraseQualificazioneIntervento": "L'intervento:",
+            "fraseQualificazione139_2010": "Le opere rientrano tra gli interventi di lieve entità come definiti al DPR 139/2010, in quanto:",
+            "fraseQualificazione2005": "Gli interventi e/o opere di progetto sono qualificabili ai sensi del DPCM 12/12/2005, come:",
+            "fraseQualificazione42_2004": "L'intervento ricade tra le seguenti categorie di cui al c.4 dell'art. 167 D.Lgs 42/2004:",
+            "fraseQualificazione31_2017": "Tipologia dell'opera e/o dell'intervento si sensi degli artt 3 e 7 del Dpr 31/2017",
+            "legenda1": "(1) Si intendono ricompresi in questa categoria i sotto elencati interventi: complessi sportivi, parchi tematici; complessi residenziali, turistici, commerciali, direzionali e produttivi; campeggi e caravaning; impianto agro-forestali, agricoli, zootecnici e di acquacoltura con esclusione degli interventi di cui all'art. 149, comma 1, lett. c) del Codice; impianti per la produzione energetica, di termovalorizzazione, di stoccaggio; dighe, sbarramenti ed invasi; depositi di merci o di materiali; infrastrutturali portuali ed aeroportuali; discariche ed impianti di smaltimento dei rifiuti; attività minerarie di ricerca ed estrazione; attività di coltivazione di cave e torbiere;  attività di escavazione di materiale litoide dall'alveo dei fiumi.",
+            "legenda2": "(2) Si intendono ricompresi in questa categoria i sotto elencati interventi: opere ed infrastrutture stradali, ferroviarie- reti infrastrutturali; torri, tralicci e ripetitori per la telecomunicazione; impianti di risalita; interventi di sistemazione idrogeologica;sistemi di irrigazione agricola; interventi di urbanizzazione primaria.",
+            "legenda3": "(1) Si intendono ricompresi in questa categoria i sotto elencati interventi: complessi sportivi, parchi tematici; complessi residenziali, turistici, commerciali, direzionali e produttivi; campeggi e caravaning; impianto agro-forestali, agricoli, zootecnici e di acquacoltura con esclusione degli interventi di cui all'art. 149, comma 1, lett. c) del Codice; impianti per la produzione energetica, di termovalorizzazione, di stoccaggio; dighe, sbarramenti ed invasi; depositi di merci o di materiali; infrastrutturali portuali ed aeroportuali; discariche ed impianti di smaltimento dei rifiuti; attività minerarie di ricerca ed estrazione; attività di coltivazione di cave e torbiere;  attività di escavazione di materiale litoide dall'alveo dei fiumi.\n\n(2) Si intendono ricompresi in questa categoria i sotto elencati interventi: opere ed infrastrutture stradali, ferroviarie- reti infrastrutturali; torri, tralicci e ripetitori per la telecomunicazione; impianti di risalita; interventi di sistemazione idrogeologica;sistemi di irrigazione agricola; interventi di urbanizzazione primaria.",
+            "legenda4": "(1) Nel caso di più voci di interesse indicare quella di maggior impatto",
+            "qualificazioneIntervento": "Qualificazione dell'intervento",
+            "estremiPiano":"estremi delibera di adozione del piano urbanistico esecutivo"
+        },
+        "interventoSectionPutt": {
+            "opereDiProgetto":"Le opere in progetto rientrano nella seguente tipologia di intervento:",
+            "titoloTipo": "Tipologia dell' intervento",
+            "tipologiaIntervento": "Caratterizzazione dell'intervento",
+            "tipologiaProvvedimento":"Tipologia provvedimento",
+            "fraseTipologiaProvvedimento": "Il provvedimento è di tipo",
+            "qualificazioneSemplificata": "Le opere rientrano tra gli interventi di lieve entità in quanto"
+        },
+        "elencoAllegati": "Elenco Allegati",
+        "tipoFile": "Tipo file",
+        "tipoContenuto": "Tipo contenuto",
+        "allegaFile": "Allega file",
+        "selezionaFile": "Seleziona file",
+        "tableAllegati": {
+            "nomeFile": "Nome File",
+            "dataArrivo": "Data Arrivo",
+            "obbligatori": "Elaborato obbligatorio nei casi di interventi su patrimonio Edilizio Rurale, ovvero di manufatti aventi qualunque destinazione, edificato prima della Riforma Agraria e Fondiaria in Puglia ed in ogni caso realizzato prima del 1967, ove gli stessi ricadono nel BP - Immobili e aree di notevole interesse pubblico o negli UCP - Paesaggi Rurali",
+            "descrizione": "Descrizione",
+            "checksum": "Impronta hash(SHA256)"
+        },
+        "localizzazioneSection": {
+            "localizzazione": "Localizzazione",
+            "insLocalizzazione": "Inserimento Localizzazione",
+            "elimina-part-s": "Elimina particella",
+            "elimina-part-m": "Elimina tutte le particelle",
+            "datiVettoriali": "Dati vettoriali - Allega file",
+            "conferma-part-s": "Sei sicuro di voler cancellare la particella selezionata?",
+            "conferma-part-m": "Sei sicuro di voler cancellare tutte le particelle inserite?",
+            "table": {
+                "comune": "Comune",
+                "foglio": "Foglio",
+                "sezione": "Sez.",
+                "particella": "Particella",
+                "sub": "Sub"
+            },
+            "altreInfo": {
+                "titolo": "Altre informazioni relative ai fini procedimentali *",
+                "bpParchiRiserve": "BP - PARCHI E RISERVE",
+                "bpPaesaggioRurale": "UCP - PAESAGGIO RURALE",
+                "bpImmobiliAree": "BP - IMMOBILI E AREE DI NOTEVOLE INTERESSE PUBBLICO"
+            },
+            "apriMappa":"Apri mappa",
+            "tipoSelezioneLocalizzazione":"Selezionare la modalità di input della localizzazione:",
+            "PTC_info":"inserimento delle particelle a partire da selezione grafica su mappa o inserimento tabellare guidato (con controllo di esistenza della particella)",
+            "SHPF_info":"inserimento del file shape che riporta la geometria (all'interno della Puglia) e con sistema di riferimento UTM-33",
+            "SHPD_info":"inserimento tramite strumento di editing su mappa della zona interessata"
+        },
+        "provvedimentoSection": {
+            "provvedimento": "Provvedimento",
+            "insDatiProvv": "Inserimento dati provvedimento",
+            "numeroProvv": "Numero provvedimento",
+            "dataProvv": "Data rilascio provvedimento",
+            "esito": "Esito",
+            "rup": "RUP",
+            "allegatiObbligatori": "Allegati obbligatori",
+            "provvFinale": "Provvedimento Finale",
+            "parereMIBAC": "Parere MIBAC"
+        },
+        "allegatiSection": {
+            "titolo": "Allegati"
+        },
+        "mailCompose": {
+            "elencoDestinatari": "Elenco Destinatari",
+            "utDest": "Utenti a cui verrà notificato il provvedimento finale",
+            "ulterioriDestinatari": "Ulteriori Destinatari",
+            "denominazione": "Denominazione",
+            "pecPeo": "Indirizzo Pec/Peo",
+            "ente": "Ente",
+            "pecMail": "Pec/Mail",
+            "infoMessage": "Procedo con la trasmissione? Successivamente al completamento delle elaborazioni per la trasmissione la modifica al fascicolo sarà attivabile dal pannello: Richieste Modifica/Cancellazione !",
+            "titleDialog": "Trasmissione",
+            "visualizzaAnteprima": "Visualizza l'anteprima del pdf generato",
+            "validazioneOK": "Validazione effettuata con successo",
+            "validazioneMsg": "I dati risultano corretti ora puoi procedere con la definizione dei destinatari della comunicazione.",
+            "esitoTrasmTitle": "Esito della trasmissione",
+            "trasmissioneOK": "Trasmissione avviata correttamente. Seguirà PEC di conferma al completamento dell'elaborazione.",
+            "msgTrasmOk": "Al seguente link è disponibile il documento che attesta la ricezione delle informazioni immesse:",
+            "mailDupl": "Indirizzo già presente",
+            "ricevutaTrasmissione": "Ricevuta Trasmissione",
+            "attestatoRicezione": "Attestato di ricezione"
+        },
+        "corrispondenzaSection": {
+            "corrispondenza": "Corrispondenza",
+            "gestioneCom": "Gestione comunicazioni"
+        },
+        "esito": {
+            "esitoPanel": "Esito",
+            "titolo": "Esito Verifica",
+            "data": "Data Verifica",
+            "esito": "Esito Verifica",
+            "NEGATIVE":"negativo",
+            "POSITIVE":"positivo",
+            "POSITIVO": "Positivo",
+            "NEGATIVO": "Negativo",
+            "inviaCom": "Invia comunicazione e termina verifica",
+            "msgConferma": "Confermi l'invio della comunicazione?"
+        }
+    },
+    "dettaglioComunicazione": {
+        "add": "Nuova comunicazione",
+        "modify": "Modifica comunicazione",
+        "titolo": "Dettaglio Comunicazione",
+        "data": "Data Comunicazione",
+        "tipologia": "Tipologia",
+        "protocollo": "Nr. Protocollo",
+        "mittente": "Mittente",
+        "mailMittente": "Email Mittente",
+        "pecMittente": "Pec Mittente",
+        "onlyData": "Data",
+        "listaAllegati": "Allegati",
+        "isUrl": "linkato",
+        "listaDestinatari": "Destinatari",
+        "nomeAllegato": "Nome Allegato",
+        "dataRicezione": "Data ricezione",
+        "tipoDestinatario": "Tipo Destinatario",
+        "errore": "Errore",
+        "inviata": "Inviata",
+        "descrizioneErrore": "Descrizione Errore",
+        "eml": "EML",
+        "emlAccettazione": "EML Accettazione",
+        "ricevutaAcc": "Ricevuta Accettazione",
+        "datiCert": "Dati Cert",
+        "smime": "Smime",
+        "destinatario": "Destinatario",
+        "mailDestinatario": "Email Destinatario",
+        "invia": "Invia comunicazione",
+        "nuovaComunicazione": "Nuova comunicazione",
+        "testo": "Testo",
+        "oggetto": "Oggetto",
+        "t-delete": "Elimina bozza comunicazione",
+        "c-delete": "Sei sicuro di voler eliminare la bozza di comunicazione selezionata?"        
+    },
+    "correggereCampi": "Correggere le anomalie riscontrate per procedere con la trasmissione del fascicolo",
+    "statoFascicolo": {
+        "inLavorazione": "In Lavorazione",
+        "trasmesso": "Trasmesso",
+        "concluso": "Concluso",
+        "selezionato": "Selezionato",
+        "inModifica": "In Modifica",
+        "annullato": "Annullato",
+        "inCorso": "In corso"
+    },
+    "CAMPI_INVALIDI": "Correggere campi invalidi",
+    "NO_DATA_FOUND": "Nessun dato trovato",
+    "admin": {
+        "attCamp": "Attivazione Campionamento",
+        "attComunic": "Attivazione Pannello Comunicazioni",
+        "attOsserv": "Attivazione Pannello Osservazioni",
+        "campPubb": "Visualizza esito campionamento negli elenchi pubblici",
+        "attUltDoc": "Attivazione Pannello Gestione ulteriore documentazione",
+        "intCamp": "intervallo di tempo tra un campionamento e l'altro",
+        "intVer": "Intervallo di verifica",
+        "campSucc": "campionamento successivo:",
+        "percIst": "percentuale di istanze da selezionare",
+        "abilitatoPer": "Abilitato per:",
+        "notCamp": "Specificare quanti giorni prima del campionamento deve essere inviata una notifica",
+        "notVer": "Specificare quanti giorni prima della verifica deve essere inviata una notifica",
+        "area_pubblica": "Configurazione ricerca avanzata area pubblica",
+        "statoRegistrazione": "Abilita ricerca per stato registrazione in area pubblica",
+        "esitoVerifica": "Abilita ricerca per esito verifica in area pubblica"
+    },
+    "ruoli": {
+        "ap": "Operatore Ente",
+        "funz": "Funzionario Regionale",
+        "admin": "Amministratore",
+        "viewer": "Op.ente territ.interess."
+    },
+    "tipo_allegato": {
+        "ALTRI_PARERI": "Altri pareri acquisiti dall'Ente",
+        "ELABORATI": "Elaborati di progetto",
+        "ISTANZA": "Istanza",
+        "PARERE": "Parere/Verbale commissioni paesaggio",
+        "PREAVVISO": "Preavviso di diniego",
+        "PARERI_SCHEDA": "Scheda conoscitiva del manufatto e del contesto rurale (rif. Capitolo 2 dell'elaborato dei PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali) ",
+        "SCHEDA_PROGETTO": "Scheda di progetto (rif. Capitolo 3 dell'elaborato dei PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali)",
+        "VERBALE": "Verbale Conferenza Servizi",
+        "PROVVEDIMENTO_FINALE": "Provvedimento finale (Pubblico)",
+        "PARERE_MIBAC": "Parere Mibac (Pubblico)",
+        "PROVVEDIMENTO_FINALE_PRIVATO": "Provvedimento finale (Riservato)",
+        "PARERE_MIBAC_PRIVATO": "Parere Mibac (Riservato)",
+        "DOCUMENTO_RICONOSCIMENTO": "Documento Riconoscimento",
+        "INTEGRAZIONI": "Integrazioni documentali",
+        "ATTESTAZIONE_CONFORMITA":"Attestazione di conformità urbanistica o relativa asseverazione",
+        "RICHIESTA_SOPRINTENDENZA":"Richiesta parere soprintendenza, relazione tecnico illustrativa e proposta di provvedimento (Dlgs. 42/04 art. 146 C.7 d DPR 139/10 art. 4 C.6)",
+        "DOCUMENTAZIONE_FOTOGRAFICA":"Documentazione fotografica(se prodotta a parte da elaborati progettuali)",
+        "RETTIFICA_AUTORIZZAZIONE":"Rettifica autorizzazione paesaggistica",
+        "ALTRO":"Altro"
+    },
+    "tipo_allegato_putt": {
+        "ALTRI_PARERI": "Altri pareri acquisiti dall'Ente",
+        "ELABORATI": "Elaborati progettuali",
+        "ISTANZA": "Istanza di autorizzazione paesaggistica",
+        "PARERE": "Parere/Verbale commissioni paesaggio",
+        "PREAVVISO": "Preavviso di diniego autorizzazione paesaggistica",
+        "PARERI_SCHEDA": "Scheda conoscitiva del manufatto e del contesto rurale (rif. Capitolo 2 dell'elaborato dei PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali) ",
+        "SCHEDA_PROGETTO": "Scheda di progetto (rif. Capitolo 3 dell'elaborato dei PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali)",
+        "VERBALE": "Verbale Conferenza Servizi",
+        "PROVVEDIMENTO_FINALE": "Provvedimento finale (Pubblico)",
+        "PARERE_MIBAC": "Parere Mibac (Pubblico)",
+        "PROVVEDIMENTO_FINALE_PRIVATO": "Provvedimento finale (Riservato)",
+        "PARERE_MIBAC_PRIVATO": "Parere Mibac (Riservato)",
+        "DOCUMENTO_RICONOSCIMENTO": "Documento Riconoscimento",
+        "INTEGRAZIONI": "Integrazioni documentali",
+        "ATTESTAZIONE_CONFORMITA":"Attestazione di conformità urbanistica o relativa asseverazione",
+        "RICHIESTA_SOPRINTENDENZA":"Richiesta parere soprintendenza",
+        "PROPOSTA_PROVVEDIMENTO":"Relazione tecnico illustrativa e proposta di provvedimento (Dlgs. 42/04 art. 146 C.7 d DPR 139/10 art. 4 C.6)",
+        "DOCUMENTAZIONE_FOTOGRAFICA":"Documentazione fotografica(se prodotta a parte da elaborati progettuali)",
+        "RETTIFICA_AUTORIZZAZIONE":"Rettifica autorizzazione paesaggistica",
+        "COMUNICAZIONE_SOPRINTENDENZA_ESITO_NON_COMPLETATO":"Comunicazione Soprintendenza Esito Non Completato",
+        "ALTRO":"Altro"
+    },
+    "esri": {
+        "calcolaParticelle": "Calcola particelle",
+        "confermaArea": "Conferma area",
+        "elimina": "Elimina",
+        "forma": "Seleziona forma per ricerca particelle",
+        "punto": "Punto",
+        "rettangolo": "Rettangolo",
+        "poligono": "Poligono",
+        "layerWarning": "Il layer non è stato disegnato completamente"
+    },
+    "LOCALIZZAZIONE_INTERA_REGIONE": "L'estensione dell'intervento è a livello di regione.",
+    "LOCALIZZAZIONE": {
+        "SELEZIONA_SEZIONE_TITLE":"Seleziona sezione",
+        "SELEZIONA_SEZIONE":"Sono state trovate più sezioni per la particella inserita, scegli la sezione da inserire",
+        "LOCALIZZAZIONE":"Area intervento SHAPE FILE - UTM33",
+        "COMUNE": "Comune",
+        "SEZ": "Sezione",
+        "FOG": "Foglio",
+        "PART": "Particella",
+        "LIVELLO": "Livello",
+        "SUB": "Sub",
+        "NOTE": "Note",
+        "LOCALIZZA": "Localizza",
+        "SEL_COMUNE":"Aggiungi comune intervento",
+        "PROVINCIA":"provincia",
+        "VIA":"via/località",
+        "NUMERO":"numero",
+        "PIANO":"piano",
+        "INTERNO":"interno",
+        "SELEZIONARE_COMUNE":"Selezionare il comune su cui inserire le particelle, impossibile procedere.",
+        "VALIDAZIONE_STRADE":"I valori di Foglio, Particella e Sezione, quest'ultima ove esistente, sono obbligatori nel caso in cui non si sia indicato che \"i lavori riguardano l'area stradale\". ",
+        "DEST_USO_ESIST":"destinazione d'uso esistente",
+        "DEST_USO_PROG":"destinazione d'uso di progetto",
+        "DATA_RIF_CATASTALE":"data riferimento catastale",
+        "AREA_STRADALE":"I lavori riguardano l'area stradale",
+        "AGGIUNGI-RIGA": "Aggiungi Riga",
+        "AGGIUNGI_PARTICELLA": "Aggiungi",
+        "DATI-VETTORIALI": "DATI VETTORIALI",
+        "CARICA": "Carica",
+        "ALLEGA-SHAPE-FILE": "ALLEGA SHAPE FILE",
+        "DESCRIZIONE": "Descrizione",
+        "NOME-FILE": "Nome file",
+        "ULTERIORI-INFORMAZIONI": "Altre informazioni necessarie ai fini procedimentali",
+        "BP-PARCHIE-RISERVE": "Intervento ricade in BP - Parchi e riserve",
+        "BP-PARCHIE-RISERVE_putt": "Intervento ricade in Parchi e riserve",
+        "NO_PARCHI": "Nessun Parco o Riserva è presente per il ",
+        "UCP-PAESAGGIO-RURALE": "Intervento ricade in UCP - Paesaggi rurali",
+        "NO_PAESAGGI": "Nessun Paesaggio rurale è presente per il ",
+        "BP-IMMOBILIE": "Intervento ricade in BP - Immobili ed aree di notevole interesse pubblico",
+        "NO_IMMOBILI": "Nessun Immobile o area di notevole interesse pubblico è presente per il ",
+        "SALVA": "Salva",
+        "VALIDA": "Valida",
+        "ANNULLA": "Annulla",
+        "INDIETRO": "Indietro",
+        "CHIUDI_MAPPA": "Chiudi mappa",
+        "LOCALIZZA_SU_MAPPA": "Utilizza mappa",
+        "ELIMINA_COMUNE": "Elimina comune",
+        "dialog":{
+            "annComune":"Confermi l'annullamento dei dati dell'intervento nel comune?"
+        }
+      },
+    "rubrica":{
+        "rubIst": "Rubrica istituzionale",
+        "rubEnte": "Rubrica ente",
+        "destinatari": "Ulteriori destinatari",
+        "nuovo": "Nuovo destinatario",
+        "add": "Aggiungi in rubrica"
+    },
+    "documentazione": {
+        "destFissi": "Destinatari Fissi",
+        "tabHeader": "Ulteriore documentazione",
+        "titoloDocumento": "Titolo documento",
+        "descrizioneDocumento": "Descrizione documento",
+        "allegaFile": "Allega file",
+        "condividi": "Condividi",
+        "aggiungiMailPec": "Aggiungi Mail/Pec",
+        "notificaA": "Notifica a",
+        "visualizzatiDa": "Documento visualizzato da",
+        "errors": {
+            "invalidEmail": "Indirizzo email non valido"
+        }
+    },
+    "indirizziEnti": {
+        "label": {
+            "ricerca": "Ricerca",
+            "tipologia": "Tipologia Ente",
+            "denominazione": "Denominazione Ente",
+            "den": "Denominazione",
+            "tipo": "Tipologia",
+            "pec": "Pec",
+            "mail": "Mail",
+            "pec_mail": "Pec/Mail",
+            "isPec": "Tipologia indirizzo"
+        },
+        "errore": {
+            "required": "Campo Obbligatorio",
+            "email": "Campo non di tipo email"
+        },
+        "dialog": {
+            "esito": {
+                "title": "Esito Operazione",
+                "content": "Operazione eseguita con successo"
+            },
+            "salva": {
+                "title": "Conferma Operazione",
+                "content": "Sei sicuro di voler salvare le modifiche a pec e mail ?"
+            },
+            "back": {
+                "title": "Informazioni",
+                "content": "Sei ricuro di vole tornare alla pagina precedente? Tutte le modifiche andranno perse."
+            }
+        }
+    },
+    "templateDocumentazioni":{
+        "dialog": {
+            "esito": {
+                "title": "Esito Operazione",
+                "content": "Operazione eseguita con successo"
+            },
+            "info": {
+                "title": "Informazioni",
+                "content": "Campi parametrizzati per la configurazione del testo: <br> {OGGETTO}: oggetto dell’intervento <br> {ID_FASCICOLO}: identificativo pratica <br> {COMUNE}: la lista dei comuni separati da ,"
+            },
+            "salva": {
+                "title": "Conferma Opeazione",
+                "content": "Sei sicuro di voler salvare le modifiche al template?"
+            },
+            "invalid": {
+                "title": "Dati invalidi",
+                "content": "Controllare i campi invalidi"
+            },
+            "back": {
+                "title": "Informazioni",
+                "content": "Sei ricuro di vole tornare alla pagina precedente? Tutte le modifiche andranno perse."
+            }
+        }
+    },
+    "templateComunicazioni": {
+        "label": {
+            "nome": "Nome",
+            "descrizione": "Descrizione",
+            "testo": "Testo",
+            "oggetto": "Oggetto",
+            "destinatari": "Destinatari di default"
+        },
+        "dialog": {
+            "esito": {
+                "title": "Esito Operazione",
+                "content": "Operazione eseguita con successo"
+            },
+            "info": {
+                "title": "Informazioni",
+                "content": "Campi parametrizzati per la configurazione del testo: <br> {OGGETTO}: oggetto dell’intervento <br> {CODICE_FASCICOLO}: identificativo pratica <br> {COMUNE}: la lista dei comuni separati da ,"
+            },
+            "salva": {
+                "title": "Conferma Opeazione",
+                "content": "Sei sicuro di voler salvare le modifiche al template?"
+            },
+            "back": {
+                "title": "Informazioni",
+                "content": "Sei ricuro di vole tornare alla pagina precedente? Tutte le modifiche andranno perse."
+            }
+        },
+        "buttons":
+        {
+            "reset": "Resetta dati del template"
+        },
+        "error": {
+            "required": "Campo Obbligatorio",
+            "maxLength": "Hai superato il limite massimo di caratteri:"
+        }
+    },
+    "errors":{
+        "required":"Campo obbligatorio",
+        "email":"Email invalida",
+        "particellaRequired":"Campo particella obbligatorio per il livello selezionato",
+        "patternErrato":"Formato invalido",
+        "stradeRequired":"Campo obbligatorio per la selezione su strade",
+        "infoLocalizzazioneRequired":"Obbligatorio almeno una particella tranne nel caso in cui i lavori riguardano l'area stradale",
+        "allCheckedRequired":"Obbligatorio accettare tutte le dichiarazioni",
+        "combinazioneOrganizzazioneRuoloInvalida":"Il ruolo selezionato non è ammesso nell'organizzazione scelta",
+        "indirizzoRequired": "Campo obbligatorio per la selezione su strade",
+        "numCivicoRequired": "Campo obbligatorio per la selezione su strade",
+        "dateError": "Data non valida"
+    },
+    "AC": "Associazione comuni",
+    "CN": "Consorzio",
+    "CO": "Comune",
+    "E" : "Ente parco",
+    "ED": "Ente delegato",
+    "P" : "Provincia",
+    "R" : "Regione",
+    "SI": "Soprintendenza",
+    "SS": "Sito SIC",
+    "SZ": "Sito ZPS",
+    "UC": "Unione comuni",
+    "UR": "Regione (sezione lavori pubblici)",
+
+    "confpec":
+    {
+        "header": "Configurazione PEC",
+        "caspost": "Casella postale",
+        "confmainin": "Configurazione mail in ingresso",
+        "confmainout": "Configurazione mail in uscita",
+        "default": "Ripristina default"
+    }
+    
+,"manuale":{"header":"Clicca il seguente pulsante per effettuare download del manuale utente"
+        ,"download":"Download Manuale"
+        ,"downloadAdmin":"Download Manuale Amministratore"}
+,"tipoProcedimento":{
+    "label":{
+        "dataInizioValidita":"Data inizio validità"
+        ,"dataFineValidita":"Data fine validità"
+    }
+    ,"required":{
+        "dataInizioValidita":"Campo data inizio validità obbligatorio"
+        ,"dataFineValidita":"Campo data fine validità ovvligatorio"
+    }
+    ,"confirm":{
+        "content":"Confermi la modifica della configurazione?"
+        ,"title":"Conferma Operazione"
+    },
+    "esito":{
+        "content":"Operazione avvenuta con successo."
+        ,"title":"Esito Operazione"
+        ,"titleWarning":"Attenzione"
+    },
+    "reset":{
+        "content":"Confermi di voler resettare i campi ai valori di partenza?"
+        ,"title":"Conferma Operazione"
+    },
+    "errore":{
+        "required":"Campo Obbligatorio"
+        ,"inizioMinoreDiFine":"Attenzione! La data inizio validità deve essere antecedente alla data di fine validità."
+    }
+}
+,"protocollo":{
+            "label":{
+            "algoritmoImpronta":"Algoritmo Impronta"
+            ,"endpoint":"Url Servizio"
+            ,"amministrazione":"Codice Amministrazione"
+            ,"mittente":"Mittente"
+            ,"aoo":"Codice Aoo"
+            ,"registro":"Registro"
+            ,"utente":"Username"
+            ,"pwd":"Password"
+            ,"numeroRegistrazione":" Numero Registrazione"
+            ,"tipoIndirizzoTelematico":"Tipo Indirizzo Telematico"
+            ,"valoreIndirizzoTelematico":"Valore Indirizzo Telematico"
+            ,"indirizzoPostale":"Indirizzo Postale"
+            ,"denominazioneAOO":"Denominazione AOO"
+            ,"dataRegistrazione":"Data Registrazione"
+            ,"unitaOrganizzativa":"Unità organizzativa"
+            ,"amministrazioneDenominazione":"Nome Amministrazione"
+            ,"mittaoocodiceaoo":"Codice Aoo mittente"
+            },
+            "required":{
+                "algoritmoImpronta":"Algoritmo Impronta Obbligatorio"
+                ,"endpoint":"Url Servizio Obbligatorio"
+                ,"amministrazione":"Codice Amministrazione Obbligatorio"
+                ,"mittente":"Mittente Obbligatorio"
+                ,"aoo":"Codice Aoo Obbligatorio"
+                ,"registro":"Registro Obbligatorio"
+                ,"utente":"Username Obbligatorio"
+                ,"pwd":"Password Obbligatorio"
+                ,"numeroRegistrazione":" Numero Registrazione Obbligatorio"
+                ,"tipoIndirizzoTelematico":"Tipo Indirizzo Telematico Obbligatorio"
+                ,"valoreIndirizzoTelematico":"Valore Indirizzo Telematico Obbligatorio"
+                ,"indirizzoPostale":"Indirizzo Postale Obbligatorio"
+                ,"denominazioneAOO":"Denominazione AOO Obbligatorio"
+                ,"dataRegistrazione":"Data Registrazione Obbligatorio"
+                ,"unitaOrganizzativa":"Unità organizzativa  obbligatoria"
+                ,"amministrazioneDenominazione":"Nome Amministrazione obbligatoria"
+                ,"mittaoocodiceaoo":"Codice Aoo mittente obbligatoria"
+                },
+            "confirm":{
+                "content":"Operazione irreversibile, confermi la modifica della configurazione?"
+                ,"title":"Conferma Operazione"
+            },
+            "esito":{
+                "content":"Operazione avvenuta con successo."
+                ,"title":"Esito Operazione"
+            },
+            "reset":{
+                "content":"Confermi di voler resettare i campi ai valori di partenza?"
+                ,"title":"Conferma Operazione"
+            },
+            "errore":{
+                "required":"Campo Obbligatorio"
+            }
+        }
+        ,"privacy":{"testo":"Testo"
+            ,"reset":  {"title":"Conferma", "content": "Procedendo perderai tutte le modifiche. Continuare?"}
+            ,"confirm":{"title":"Conferma", "content": "Confermi la modifica del testo?"}
+            ,"ok":     {"title":"Esito", "content": "Testo privacy modificato"}
+            }                 
+        ,"privacyAccetta":{"testo": "Informativa della privacy"
+                ,"accetta": "Consenso all'informativa"
+                ,"titleConfirm":"Salvataggio"
+                ,"contentConfirm":"Continuando dichiari di aver visionato e accettato il testo della privacy. Continuare?"
+                ,"titleSuccess":"Esito"
+                ,"contentSuccess":"Salvataggio effettuato con successo"
+                ,"breadcrumb":"Privacy"
+            },
+        "DEST":
+        {
+            "SOPRINTENDENZA": "Destinatari soprintendenza",
+            "PROVINCIA": "Destinatari provincia",
+            "COMUNE": "Destinatari enti comunali",
+            "ENTE_COMUNALE": "Destinatari enti comunali"
+        },
+        "VERIFY_HASH": {
+            "TITLE": "Verifica hash documento",
+            "FILE_PRAGRAPH": "File di cui verificare il codice hash:",
+            "GENERATE_HASH": "Genera codice hash(SHA256)",
+            "TABLE_HEADER_HASH": "Codice hash(SHA256)",
+            "TIPO_FILE_NON_VALIDO_SUMMARY": "{0}: formato del file non valido.",
+            "TIPO_FILE_NON_VALIDO_DETTAGLIO": "I formati accettati sono: .pdf, .png, .jpg.",
+            "NUMERO_FILE_NON_VALIDO_SUMMARY": "Hai raggiunto il numero massimo di file.",
+            "NUMERO_FILE_NON_VALIDO_DETTAGLIO": "Numero massimo: {0}.",
+            "DIMENSIONE_FILE_NON_VALIDA_SUMMARY": "{0}: File troppo grande",
+            "DIMENSIONE_FILE_NON_VALIDA_DETTAGLIO": "La dimensione massima è {0}."
+          },
+          "richiestePostTrasmissione":{
+            "panel":"Richieste Modifica/Cancellazione",
+            "nuovaModifica":"Nuova richiesta Modifica",
+            "nuovaCancellazione":"Nuova richiesta Cancellazione",
+            "motivazione":"Motivazione",
+            "table":{
+                "dataCreazione":"Data creazione",
+                "motivazione":"Motivazione",
+                "tipo":"Tipo Richiesta",
+                "stato":"Stato"
+            }
+          },
+          "annotazioniInterne":{
+            "panel":"Annotazioni interne",
+            "nuovaAnnotazione":"Crea Annotazione",
+            "esito":"Esito controllo",
+            "note":"Note"
+          },
+          "configurazioneAssegnazione":{
+            "DISATTIVATA":{
+                "label":"DISATTIVATA",
+                "info":"Con questa opzione il filtro di visibilità pratiche ai funzionari delle organizzazioni di tipo SBAP o ETI non avrà effetto, pertanto tutti gli utenti con ruolo Funzionario vedranno le pratiche visibili all'organizzazione a cui appartengono, e non sarà necessaria l'assegnazione da parte del Dirigente/Amminstratore dell'organizzazione"
+            },
+            "MANUALE":{
+                "label":"ASSEGNAZIONE MANUALE"
+            },
+            "AUTOMATICA":{
+                "label":"ASSEGNAZIONE AUTOMATICA"
+            }
+          },
+    "diogene": {
+        "messaggioConfigurazione":"La configurazione è modificabile solo dall'applicazione AUTPAE!!",
+        "label": {
+            "gatewayUsername": "GATEWAY USERNAME",
+            "gatewayPassword": "GATEWAY PASSWORD",
+            "gatewayConsumerKey": "GATEWAY CONSUMER KEY",
+            "gatewayConsumerSecret": "GATEWAY CONSUMER SECRET",
+            "diogeneUsername": "DIOGENE USERNAME",
+            "diogenePassword": "DIOGENE PASSWORD",
+            "diogeneConsumerKey": "DIOGENE CONSUMER KEY",
+            "diogeneConsumerSecret": "DIOGENE CONSUMER SECRET",
+            "idTitolario": "ID TITOLARIO",
+            "idVoceTitolario": "ID VOCE TITOLARIO",
+            "idCartellaRoot": "ID CARTELLA ROOT",
+            "nomeCartellaRoot": "NOME CARTELLA ROOT",
+            "environment": "ENVIRONMENT",
+            "idAoo": "ID AOO",
+            "enabled": "ATTIVO"
+        }
+    }
+}

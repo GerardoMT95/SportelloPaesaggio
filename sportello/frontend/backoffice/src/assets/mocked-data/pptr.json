@@ -1,0 +1,351 @@
+{
+  "6.1": {
+    "name": "6.1-STRUTTURA IDRO-GEO-MORFOLOGIA",
+    "groups": {
+      "6.1.1": {
+        "name": "6.1.1-Componenti-geomorfologiche",
+        "art": "",
+        "definition": "art. 49",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 51 / art. 52",
+        "data": [
+          {
+            "value": "1",
+            "label": "UCP - Versanti",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 53"
+          },
+          {
+            "value": "2",
+            "label": "USP - Lame e gravine",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 54"
+          },
+          {
+            "value": "3",
+            "label": "USP - Doline",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 3)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          },
+          {
+            "value": "4",
+            "label": "UCP - Grotte (100m)",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 4)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 55"
+          },
+          {
+            "value": "5",
+            "label": "UCP - Geositi (100m)",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 50 - 5)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 56"
+          },
+          {
+            "value": "6",
+            "label": "UCP - Inghiottitoi (50m)",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 50 - 6)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 56"
+          },
+          {
+            "value": "7",
+            "label": "UCP - Cordoni dunari",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 50 - 7)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 56"
+          }
+        ]
+      },
+      "6.1.2": {
+        "name": "6.1.2 - Componenti idrologiche",
+        "art": "",
+        "definition": "art. 40",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 43 / art. 44",
+        "data": [
+          {
+            "value": "8",
+            "label": "BP - Territori costieri (300m)",
+            "art": "art. 142 co. 1, lett. a)",
+            "definition": "art. 41 - 1)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 45"
+          },
+          {
+            "value": "9",
+            "label": "BP - Territori contermini ai laghi (300m)",
+            "art": "art. 142, co. 1, lett. b)",
+            "definition": "art. 41 - 2)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 45"
+          },
+          {
+            "value": "10",
+            "label": "BP - Fiumi, torrenti,corsi d`acqua iscritti negli elenchi delle acque pubbliche(150m)",
+            "art": "art. 142, co. 1, lett. c)",
+            "definition": "art. 41 - 3)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 46"
+          },
+          {
+            "value": "11",
+            "label": "UCP - Reticolo idrografico di connessione dellaR.E.R.(100m)",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 42 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 47"
+          },
+          {
+            "value": "12",
+            "label": "UCP - Sorgenti (25m",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 42 - 2)",
+            "provisions": "Misure    di    salvaguardia  e utilizzazione",
+            "art1": "art. 48"
+          },
+          {
+            "value": "13",
+            "label": "UCP- Aree soggette a vincolo idrogeologico",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 42 - 3)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          }
+        ]
+      }
+    }
+  },
+  "6.2": {
+    "name": "6.2 - STRUTTURA ECOSISTEMICA - AMBIENTALE",
+    "groups": {
+      "6.2.1": {
+        "name": "6.2.1 - Componenti idrologiche",
+        "art": "",
+        "definition": "art. 57",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 60 / art. 61",
+        "data": [
+          {
+            "value": "14",
+            "label": "BP - Boschi",
+            "art": "art. 142 co. 1, lett. g)",
+            "definition": "art. 58 - 1)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 62"
+          },
+          {
+            "value": "15",
+            "label": "BP - Zone umide Ramscar Specificare: (*)",
+            "art": "art. 142, co. 1, lett. i)",
+            "definition": "art. 58 - 2)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 64"
+          },
+          {
+            "value": "16",
+            "label": "UCP - Aree umide Specificare: (*)",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 59 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 65"
+          },
+          {
+            "value": "17",
+            "label": "UCP - Prati e pascoli naturali",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 59 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 66"
+          },
+          {
+            "value": "18",
+            "label": "UCP - Formazioni arbustive in evoluzione naturale",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 59 - 3)",
+            "provisions": "Misure     di    salvaguardia e utilizzazione",
+            "art1": "art. 66"
+          },
+          {
+            "value": "19",
+            "label": "UCP - Aree di rispetto dei boschi (100m - 50m - 20m)",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 59 - 4)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 63"
+          }
+        ]
+      },
+      "6.2.2": {
+        "name": "6.2.2 - Componenti  delle  aree  protette  e  dei  siti naturalistici",
+        "art": "",
+        "definition": "art. 67",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 69 / art. 70",
+        "data": [
+          {
+            "value": "20",
+            "label": "BP - Parchi e riserve Nota:La definizione dei Parchi e riserve viene gestita nella sezione `Localizzazione dell`intervento`",
+            "art": "art. 142 co. 1, lett. f)",
+            "definition": "art. 68 - 1)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 71"
+          },
+          {
+            "value": "21",
+            "label": "UCP - Siti di rilevanza naturalistica",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 68 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 73"
+          },
+          {
+            "value": "22",
+            "label": "UCP  -  Aree  di  rispetto dei  parchi  e  delle riserve regionali (100m)",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 68 - 3)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 72"
+          }
+        ]
+      }
+    }
+  },
+  "6.3": {
+    "name": "6.3 - STRUTTURA ANTROPICA E STORICO-CULTURALE",
+    "groups": {
+      "6.3.1": {
+        "name": "6.3.1 - Componenti culturali e insediative",
+        "art": "",
+        "definition": "art. 57",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 60 / art. 61",
+        "data": [
+          {
+            "value": "23",
+            "label": "BP - Parchi e riserve Nota:La definizione dei Parchi e riserve viene gestita nella sezione `Localizzazione dell`intervento`",
+            "art": "art. 136",
+            "definition": "art. 75 - 1)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 79"
+          },
+          {
+            "value": "24",
+            "label": "BP - Zone gravate da usi civici",
+            "art": "art. 142, co. 1, lett. h)",
+            "definition": "art. 75 - 2)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          },
+          {
+            "value": "25",
+            "label": "BP - Zone di interesse archeologico",
+            "art": "art. 142, co. 1, lett. m)",
+            "definition": "art. 75 - 3)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 80"
+          },
+          {
+            "value": "26",
+            "label": "UCP - Città Consolidata",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 76 - 1)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          },
+          {
+            "value": "27",
+            "label": "UCP - Testimonianze della Stratificazione Insediativa: - segnalazioni architettoniche e segnalazioni archeologiche ",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 76 - 2)a",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 81 co. 2 e 3"
+          },
+          {
+            "value": "28",
+            "label": "UCP - Testimonianze della Stratificazione Insediativa: - aree appartenenti alla rete dei tratturi",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 76 - 2)b",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 81 co. 2 e 3"
+          },
+          {
+            "value": "29",
+            "label": "UCP - Testimonianze della Stratificazione Insediativa: - aree a rischio archeologico ",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 76 - 2)c",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 81 co. 3 ter"
+          },
+          {
+            "value": "30",
+            "label": "UCP  -  Area di  rispetto  delle componenti culturali  e insediative (100m - 30m)",
+            "art": "art. 143,co.1,lett. e)",
+            "definition": "art. 76 - 3)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 82"
+          },
+          {
+            "value": "31",
+            "label": "UCP - Paesaggi rurali Nota:La definizione dei UCP - Paesaggi rurali viene gestita nella sezione 'Localizzazione dell'intervento'",
+            "art": "art. 143,co.1, lett. e)",
+            "definition": "art. 76 - 4)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 83"
+          }
+        ]
+      },
+      "6.3.2": {
+        "name": "6.3.2 - Componenti dei valoripercettivi",
+        "art": "",
+        "definition": "art. 57",
+        "provisions": "Indirizzi / Direttive",
+        "art1": "art. 60 / art. 61",
+        "data": [
+          {
+            "value": "32",
+            "label": "UCP - Strade a valenza paesaggistica",
+            "art": "art. 143,co.1, lett. e)",
+            "definition": "art. 85 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazionei",
+            "art1": "art. 88"
+          },
+          {
+            "value": "33",
+            "label": "UCP - Strade panoramiche",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 85 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 88"
+          },
+          {
+            "value": "34",
+            "label": "UCP - Luoghi panoramici",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 85 - 3)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 88"
+          },
+          {
+            "value": "35",
+            "label": "UCP - Coni visuali",
+            "art": "art. 143, co.1,lett. e)",
+            "definition": "art. 85 - 4)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 88"
+          }
+        ]
+      }
+    }
+  }
+}

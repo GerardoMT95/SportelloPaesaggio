@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e5c8ab4-e925-4288-8f6b-324ab5aa7d25">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="IstanzaAdapter"/>
+	<style name="FontCustomArial" isDefault="true" isBlankWhenNull="true" fontName="CustomArial"/>
+	<subDataset name="JasperTecnicoIncaricatoDto" uuid="de985c91-1bb4-47cc-919d-da8b0c8aec37">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="sesso" class="java.lang.String"/>
+		<field name="natoIl" class="java.util.Date"/>
+		<field name="natoStato" class="java.lang.String"/>
+		<field name="natoProvincia" class="java.lang.String"/>
+		<field name="natoComune" class="java.lang.String"/>
+		<field name="natoCitta" class="java.lang.String"/>
+		<field name="iscritoAllOrdine" class="java.lang.String"/>
+		<field name="di" class="java.lang.String"/>
+		<field name="n" class="java.lang.String"/>
+		<field name="recapitoTelefonico" class="java.lang.String"/>
+		<field name="fax" class="java.lang.String"/>
+		<field name="cellulare" class="java.lang.String"/>
+		<field name="pec" class="java.lang.String"/>
+		<field name="residenteIn" class="java.util.List"/>
+		<field name="conStudioIn" class="java.util.List"/>
+		<field name="documento" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="Richiedente" uuid="bdc0c6df-ffac-408d-848c-22dc296192c2">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="sesso" class="java.lang.String"/>
+		<field name="natoIl" class="java.util.Date"/>
+		<field name="natoStato" class="java.lang.String"/>
+		<field name="natoProvincia" class="java.lang.String"/>
+		<field name="natoComune" class="java.lang.String"/>
+		<field name="natoCitta" class="java.lang.String"/>
+		<field name="residenteIn" class="java.util.List"/>
+		<field name="recapitoTelefonico" class="java.lang.String"/>
+		<field name="indirizzoEmail" class="java.lang.String"/>
+		<field name="pec" class="java.lang.String"/>
+		<field name="nelCaso" class="java.lang.Boolean"/>
+		<field name="inQualitaDi" class="java.lang.String"/>
+		<field name="descAltroDitta" class="java.lang.String"/>
+		<field name="societa" class="java.lang.String"/>
+		<field name="partitaIva" class="java.lang.String"/>
+		<field name="societaCodiceFiscale" class="java.lang.String"/>
+		<field name="documento" class="java.util.List"/>
+		<field name="dittaInQualitaDiDescr" class="java.lang.String"/>
+		<field name="codiceIpa" class="java.lang.String"/>
+		<field name="tipoAzienda" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="JasperAltroTitolare" uuid="bdc0c6df-ffac-408d-848c-22dc296192c3">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="sesso" class="java.lang.String"/>
+		<field name="natoIl" class="java.util.Date"/>
+		<field name="natoStato" class="java.lang.String"/>
+		<field name="natoProvincia" class="java.lang.String"/>
+		<field name="natoComune" class="java.lang.String"/>
+		<field name="natoCitta" class="java.lang.String"/>
+		<field name="residenteIn" class="java.util.List"/>
+		<field name="recapitoTelefonico" class="java.lang.String"/>
+		<field name="indirizzoEmail" class="java.lang.String"/>
+		<field name="pec" class="java.lang.String"/>
+		<field name="nelCaso" class="java.lang.Boolean"/>
+		<field name="inQualitaDi" class="java.lang.Integer"/>
+		<field name="descAltroDitta" class="java.lang.String"/>
+		<field name="societa" class="java.lang.String"/>
+		<field name="partitaIva" class="java.lang.String"/>
+		<field name="societaCodiceFiscale" class="java.lang.String"/>
+		<field name="titolaritaInQualitaDi" class="java.lang.String"/>
+		<field name="descrizioneAltro" class="java.lang.String"/>
+		<field name="documento" class="java.util.List"/>
+		<field name="dittaInQualitaDiDescr" class="java.lang.String"/>
+		<field name="codiceIpa" class="java.lang.String"/>
+		<field name="tipoAzienda" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Localizzazione" uuid="13a3b897-dd3c-4be4-a5ad-147e73f45b2c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="comune" class="java.lang.String"/>
+		<field name="sigla" class="java.lang.String"/>
+		<field name="indirizzo" class="java.lang.String"/>
+		<field name="numCivico" class="java.lang.String"/>
+		<field name="piano" class="java.lang.String"/>
+		<field name="interno" class="java.lang.String"/>
+		<field name="destUsoAtt" class="java.lang.String"/>
+		<field name="destUsoProg" class="java.lang.String"/>
+		<field name="dataRiferimentoCatastale" class="java.util.Date"/>
+		<field name="particelle" class="java.util.List"/>
+		<field name="ulterioriInformazioni" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="IndirizzoCompleto" uuid="dffb2d9e-0d71-4dbf-99e4-8136b796ffac">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="stato" class="java.lang.String"/>
+		<field name="citta" class="java.lang.String"/>
+		<field name="comune" class="java.lang.String"/>
+		<field name="provincia" class="java.lang.String"/>
+		<field name="via" class="java.lang.String"/>
+		<field name="n" class="java.lang.String"/>
+		<field name="cap" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Particelle" uuid="82c90a26-0350-412c-aed0-d06ae660ed87">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="livello" class="java.lang.String"/>
+		<field name="sezione" class="java.lang.String"/>
+		<field name="foglio" class="java.lang.String"/>
+		<field name="particella" class="java.lang.String"/>
+		<field name="sub" class="java.lang.String"/>
+		<field name="codCat" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="UlterioriInformazioni" uuid="b694862d-a750-41de-b4c0-7b852e7ba8fc">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="bpParchiEReserve" class="java.util.List"/>
+		<field name="ucpPaesaggioRurale" class="java.util.List"/>
+		<field name="bpImmobileAreePubblico" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="JasperDocumentoReferente" uuid="062aa4d3-e5ae-4159-ac3f-71fdf73e5788">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipoDocumento" class="java.lang.String"/>
+		<field name="numero" class="java.lang.String"/>
+		<field name="dataRilascio" class="java.util.Date"/>
+		<field name="enteRilascio" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="StringWrapper" uuid="84293f18-696e-4237-a7fe-0bb2c07ec606">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="JasperDichiarazioniDto" uuid="f694c469-3349-4606-b23d-4b8c2994de22">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="titolarita" class="java.lang.Integer"/>
+		<field name="immobile" class="java.lang.String"/>
+		<field name="tipoProcedimento" class="java.lang.Integer"/>
+		<field name="disclaimer" class="java.util.List"/>
+		<field name="titoloAltroSpec" class="java.lang.String"/>
+		<field name="titoloRappSpec" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="JasperDichiarazioneArticoli" uuid="b01271d7-3e74-4291-98af-e95ef6e356f3">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="art136" class="java.lang.Boolean"/>
+		<field name="art136a" class="java.lang.Boolean"/>
+		<field name="art136b" class="java.lang.Boolean"/>
+		<field name="art136c" class="java.lang.Boolean"/>
+		<field name="art136d" class="java.lang.Boolean"/>
+		<field name="art142" class="java.lang.Boolean"/>
+		<field name="territoriCostieri" class="java.lang.Boolean"/>
+		<field name="territoriContermini" class="java.lang.Boolean"/>
+		<field name="fiumiTorrenti" class="java.lang.Boolean"/>
+		<field name="parchiRiserve" class="java.lang.Boolean"/>
+		<field name="boschi" class="java.lang.Boolean"/>
+		<field name="usiCivici" class="java.lang.Boolean"/>
+		<field name="zoneUmide" class="java.lang.Boolean"/>
+		<field name="inData" class="java.util.Date"/>
+		<field name="interesseArcheologico" class="java.lang.Boolean"/>
+		<field name="numero" class="java.lang.String"/>
+		<field name="da" class="java.lang.String"/>
+		<field name="inCasoDiVariante" class="java.lang.Boolean"/>
+		<field name="art134" class="java.lang.Boolean"/>
+	</subDataset>
+	<subDataset name="IntegerWrapper" uuid="0bec3748-ee6c-4332-893b-5fcc3e565ba0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codiceFascicolo" class="java.lang.String"/>
+	<field name="tipoProcedimento" class="java.lang.Integer"/>
+	<field name="oggettoIntervento" class="java.lang.String"/>
+	<field name="tecnicoIncaricato" class="java.util.List"/>
+	<field name="localizzazione" class="java.util.List"/>
+	<field name="richiedente" class="java.util.List"/>
+	<field name="dichiarazioni" class="java.util.List"/>
+	<field name="altriTitolari" class="java.util.List"/>
+	<field name="dichiarazioniArticoli" class="java.util.List"/>
+	<field name="documentazioneAmministrativa" class="java.util.List"/>
+	<field name="testoPrivacyHtml" class="java.lang.String"/>
+	<field name="clausoleEsoneri" class="java.util.List"/>
+	<field name="listTipoProcedimento" class="java.util.List"/>
+	<field name="delegato" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="90">
+			<image>
+				<reportElement x="0" y="0" width="220" height="80" uuid="0f3a416b-9305-48b5-9b3c-5f86af318602"/>
+				<imageExpression><![CDATA["jasper/pptr.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="440" y="40" width="100" height="30" uuid="c74a1090-d69c-4e80-8712-770a9b027b75"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFascicolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="40" width="90" height="30" uuid="7d96fc1a-9330-4cc4-86fd-2022ee3cb833"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Codice Fascicolo:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="40">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="1" y="0" width="550" height="30" uuid="a951fd32-6d2f-4655-9ed3-853895a32ffe">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listTipoProcedimento})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/subreportIstanzaPratica.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="40">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="1" y="0" width="550" height="30" uuid="b7eed7b5-5c12-4123-b74d-1558dacc8140">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{richiedente})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/ReportRichiedente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="40">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="1" y="0" width="550" height="34" uuid="8e35d736-ed7c-410a-8b90-0d3aa490b04a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{delegato} != null && !$F{delegato}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{delegato})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/subreportDelegato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="215">
+			<printWhenExpression><![CDATA[$F{dichiarazioni} != null && !$F{dichiarazioni}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="550" height="205" uuid="cccd37c9-3319-4b7f-8d8b-33fb91aa7404">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{dichiarazioni} != null && !$F{dichiarazioni}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{dichiarazioni})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/ReportDichiarazioni.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="30" width="551" height="67" uuid="5ba5e694-862a-4b35-9dcb-67423a98f5fe"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="10" width="140" height="20" uuid="47bd631c-c828-4484-b109-9fbd2d67f127"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[c) oggetto dell'intervento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="35" width="130" height="15" uuid="f2113cdd-3c06-448e-82c3-8d8224d59158"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Per l'intervento di:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="ElementGroupHeight" x="10" y="50" width="535" height="40" uuid="2c59f1a4-e166-4f6e-8ae8-debac790ae71"/>
+				<textFieldExpression><![CDATA[$F{oggettoIntervento}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="29">
+			<staticText>
+				<reportElement x="227" y="0" width="100" height="20" uuid="8f3f19a3-0049-407d-810a-481a094e66fd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMUNICA CHE]]></text>
+			</staticText>
+		</band>
+		<band height="173">
+			<printWhenExpression><![CDATA[$F{localizzazione} != null && !$F{localizzazione}.isEmpty()]]></printWhenExpression>
+			<componentElement>
+				<reportElement x="0" y="20" width="550" height="150" uuid="9ac04ec2-42c1-4986-8a86-409c918a447a"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Localizzazione" uuid="cc1a6f6f-f5cd-45c1-aa98-8f8f5320720d">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{localizzazione})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="160" width="550">
+						<rectangle>
+							<reportElement x="0" y="0" width="550" height="150" uuid="de850407-459b-4a80-82da-1884b0befffb"/>
+						</rectangle>
+						<staticText>
+							<reportElement x="0" y="0" width="220" height="19" uuid="451be880-58a7-4e44-b6c2-1e01ed16afe2"/>
+							<box topPadding="2" leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[L'intervento interessa l'area o l'immobile sito in ]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="220" y="0" width="210" height="19" forecolor="#11D448" uuid="a47cf377-8c19-43d1-9e7b-790b9a39113b"/>
+							<box topPadding="2"/>
+							<textElement>
+								<font size="11" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{comune}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="440" y="0" width="30" height="19" uuid="18c79711-c857-4325-87d9-c12fec73fd14">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box topPadding="2"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[prov]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="470" y="0" width="60" height="20" uuid="7bc6fd5b-fa2a-47f3-9661-d9cd567cfd96"/>
+							<box topPadding="2"/>
+							<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="30" width="70" height="19" uuid="b23ce5cc-dc78-4415-aec1-9bcae621d9ae"/>
+							<box topPadding="0" leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[in via/località]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="70" y="30" width="410" height="19" uuid="ea838c8b-e5c5-4db2-9271-11ce9dec6348"/>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="60" width="20" height="19" uuid="63b7369a-2c9a-497a-a5ed-d228397d05d4"/>
+							<box topPadding="0" leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[n]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="145" y="60" width="35" height="19" uuid="ab40a91f-e03c-4062-9fe1-7f5ad0f7d3f4">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box topPadding="0" leftPadding="0"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[piano]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="20" y="60" width="60" height="19" uuid="a46a0ea7-af47-4f6a-828a-93d6ae11d6ea"/>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{numCivico}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="180" y="60" width="150" height="19" uuid="c9ce6ca2-7bc3-4879-bdd0-5c4a1e7ac9ac"/>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{piano}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="372" y="60" width="148" height="19" uuid="91e38095-1faa-422d-ae02-37b7134127d1"/>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{interno}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="337" y="60" width="35" height="19" uuid="e3e6afe0-0e68-4f06-a8cd-d176505c82e1">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box topPadding="0" leftPadding="0"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[interno]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="90" width="472" height="14" uuid="9ce449a9-7e81-4854-95b6-a89c23f50bdd"/>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[I cui riferimenti catastali sono specificati nell'allegata dichiarazione tecnica]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="110" width="180" height="14" uuid="5d027382-dc8e-4afc-b0b1-ebfb9cdf30e8"/>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[avente destinazione d'uso esistente:]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="130" width="70" height="14" uuid="e641dbcd-0a24-47d5-8f84-15b1fed94d87"/>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[e di progetto:]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="191" y="110" width="329" height="14" uuid="f56b4ee6-d04f-47e6-8a60-7501ab9dd334"/>
+							<textFieldExpression><![CDATA[$F{destUsoAtt}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="80" y="130" width="440" height="14" uuid="3b3bb1d4-054f-4aa8-a72a-b13b7f97f726"/>
+							<textFieldExpression><![CDATA[$F{destUsoProg}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="0" width="140" height="20" uuid="dd56057b-e8a0-433f-a79e-dbd4cbc85a55"/>
+				<box topPadding="2" leftPadding="4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[d) Localizzazione]]></text>
+			</staticText>
+		</band>
+		<band height="314">
+			<printWhenExpression><![CDATA[$F{tecnicoIncaricato} != null && !$F{tecnicoIncaricato}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement x="1" y="0" width="550" height="314" isRemoveLineWhenBlank="true" uuid="5450ffe9-78d9-4885-a213-1c5de286d51c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{tecnicoIncaricato} != null && !$F{tecnicoIncaricato}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{tecnicoIncaricato})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/TecnicoIncaricatoIstanza.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="364">
+			<printWhenExpression><![CDATA[$F{altriTitolari} != null && !$F{altriTitolari}.isEmpty()]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="3" width="140" height="20" uuid="ddf2dd8e-b3d1-435d-bf3f-877f063dd0ed">
+					<printWhenExpression><![CDATA[$F{altriTitolari}.isEmpty() == false]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="2" leftPadding="4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[f) Altri richiedenti]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="23" width="550" height="327" uuid="030c79b7-4cdf-4f70-9adc-cd5fe773a0db">
+					<printWhenExpression><![CDATA[$F{altriTitolari} != null && !$F{altriTitolari}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="JasperAltroTitolare" uuid="19ae2458-d666-45e8-a0aa-e9d0369ca7b5">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{altriTitolari})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="327" width="550">
+						<rectangle>
+							<reportElement x="0" y="0" width="550" height="320" uuid="180e7147-776b-4ddb-a03f-57b8843408c3"/>
+						</rectangle>
+						<staticText>
+							<reportElement x="0" y="10" width="55" height="13" uuid="e4c5eefe-9b50-4800-a9ac-ef924fd30614">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box topPadding="0" leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Cognome]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="230" y="10" width="35" height="13" uuid="75d37b95-dee4-4a0f-bb26-bbcffd247e5b">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Nome]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="30" width="75" height="13" uuid="da3b15d4-3e86-4ad0-841f-f1eec6f8b631">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Codice fiscale]]></text>
+						</staticText>
+						<componentElement>
+							<reportElement x="0" y="130" width="509" height="40" uuid="e4c82d0f-35ac-4c0a-858c-422b2c27dfe5"/>
+							<jr:list printOrder="Vertical">
+								<datasetRun subDataset="IndirizzoCompleto" uuid="f56201f8-6eb7-4248-8e44-04bcc44183b1">
+									<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{residenteIn})]]></dataSourceExpression>
+								</datasetRun>
+								<jr:listContents height="40" width="509">
+									<staticText>
+										<reportElement x="0" y="0" width="65" height="20" uuid="acbc2e1b-1a23-4db8-b287-64f97e85545c">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[residente in]]></text>
+									</staticText>
+									<textField isBlankWhenNull="true">
+										<reportElement x="75" y="0" width="90" height="20" uuid="1e649888-ecae-4d18-8a33-a92ebc53fa59"/>
+										<textFieldExpression><![CDATA[$F{comune} != null ? $F{comune}  : $F{citta}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="175" y="0" width="30" height="20" uuid="f328e9a5-fea2-464d-8456-d0f06d94f66b">
+											<property name="com.jaspersoft.studio.unit.x" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[Prov.]]></text>
+									</staticText>
+									<textField isBlankWhenNull="true">
+										<reportElement x="220" y="0" width="110" height="20" uuid="f69ed40b-a434-4d61-ba46-b9b33a9726fa"/>
+										<textFieldExpression><![CDATA[$F{provincia}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="345" y="0" width="35" height="20" uuid="f7677450-3dd1-42e3-a2b7-80aa85dc88e3">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+											<property name="com.jaspersoft.studio.unit.x" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[Stato]]></text>
+									</staticText>
+									<textField isBlankWhenNull="true">
+										<reportElement x="390" y="0" width="90" height="20" uuid="c1a6612c-9f4e-450e-b285-d2126517c909"/>
+										<textFieldExpression><![CDATA[$F{stato}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="0" y="20" width="50" height="20" uuid="d63bb7ae-2c20-448a-b6d3-3b1c2a057015">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[Indirizzo]]></text>
+									</staticText>
+									<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+										<reportElement x="60" y="20" width="230" height="20" uuid="84e83d88-f07f-4345-a1a3-bfbd9f3d274c">
+											<property name="com.jaspersoft.studio.unit.x" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textFieldExpression><![CDATA[$F{via}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="310" y="20" width="15" height="20" uuid="647ef240-439b-42e9-b933-e118f5999cb2">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[n]]></text>
+									</staticText>
+									<textField isBlankWhenNull="true">
+										<reportElement x="335" y="20" width="40" height="20" uuid="6c67f5db-f64a-4c30-a13b-971b36699ddd"/>
+										<box leftPadding="4"/>
+										<textFieldExpression><![CDATA[$F{n}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="395" y="20" width="30" height="20" uuid="1579a312-08da-4b1a-84a8-c896107452de">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box leftPadding="4"/>
+										<textElement markup="styled">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[CAP]]></text>
+									</staticText>
+									<textField isBlankWhenNull="true">
+										<reportElement x="435" y="20" width="60" height="20" uuid="82004323-e0a3-4c74-8b46-c8b0420f7d87"/>
+										<box leftPadding="4"/>
+										<textFieldExpression><![CDATA[$F{cap}]]></textFieldExpression>
+									</textField>
+									<staticText>
+										<reportElement x="65" y="0" width="10" height="10" uuid="8f6b0d15-c413-4b93-860b-9be6c4a6166d"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(1)]]></text>
+									</staticText>
+									<staticText>
+										<reportElement x="210" y="0" width="10" height="10" uuid="09570453-ffba-4f4d-9196-60c65df641aa"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(1)]]></text>
+									</staticText>
+									<staticText>
+										<reportElement x="380" y="0" width="10" height="10" uuid="6c5171f5-8ce8-42ba-941a-eb4ea1fa9eee"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(1)]]></text>
+									</staticText>
+									<staticText>
+										<reportElement x="50" y="20" width="10" height="10" uuid="cbdec2d1-f0ca-49b5-87f4-eb8668082441"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(1)]]></text>
+									</staticText>
+									<staticText>
+										<reportElement x="325" y="20" width="10" height="10" uuid="f075b6c0-e589-40e6-aa3d-60f848a91a45"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(2)]]></text>
+									</staticText>
+									<staticText>
+										<reportElement x="425" y="20" width="10" height="10" uuid="0384266a-3af1-4a89-9a64-dc08178a05fe"/>
+										<textElement>
+											<font size="6"/>
+										</textElement>
+										<text><![CDATA[(2)]]></text>
+									</staticText>
+								</jr:listContents>
+							</jr:list>
+						</componentElement>
+						<staticText>
+							<reportElement x="0" y="90" width="39" height="13" uuid="a67bc195-5972-4c7f-9a26-4e5de17009c7">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[nato a]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="180" y="90" width="30" height="13" uuid="78dd0157-6aeb-4c12-83b6-8aeeaa3524f6">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Prov.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="350" y="90" width="30" height="13" uuid="e1e90dbe-ff93-41c8-8729-cd98e46aa2b5">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<box leftPadding="0"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Stato]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="110" width="39" height="13" uuid="98c01bbc-aa9e-416b-9c56-f9246ff56bd2">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[nato il]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="200" width="46" height="13" uuid="58d980cf-fccf-47b0-aab0-ee254b871057"/>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[telefono]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="179" width="120" height="13" uuid="174af857-434d-4399-b23e-0fdc782abe7f"/>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[PEC (domicilio digitale)]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="65" y="10" width="131" height="13" uuid="aa0f9c27-3dcb-4344-9846-c7039ac23ffd"/>
+							<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="275" y="10" width="130" height="13" uuid="ee494fa2-4650-479e-8234-305c6572a801"/>
+							<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="85" y="30" width="182" height="13" uuid="5049af8e-d101-46ef-831a-4b54fa5416dc"/>
+							<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="49" y="90" width="110" height="13" uuid="d7c8045d-cb7b-4fb2-8c1d-19a24c211e80">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{natoComune} != null ? $F{natoComune} : $F{natoCitta}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="220" y="89" width="110" height="13" isRemoveLineWhenBlank="true" uuid="5cced89b-6d6d-4d92-bedb-53bc95e02d1d"/>
+							<textFieldExpression><![CDATA[$F{natoProvincia}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="390" y="90" width="108" height="13" isRemoveLineWhenBlank="true" uuid="888d39b8-ef62-43a5-8244-45d58a161f37"/>
+							<textFieldExpression><![CDATA[$F{natoStato}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+							<reportElement x="49" y="110" width="110" height="13" isRemoveLineWhenBlank="true" uuid="6f1a2f47-2da2-4b62-8e03-58939e34067d">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{natoIl}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="56" y="200" width="108" height="13" uuid="5a5a22f2-19ff-4fca-9c1f-53e44b7de771">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{recapitoTelefonico}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="130" y="179" width="368" height="13" uuid="197b858a-439f-4047-9df0-dd94517e2ee7">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{pec}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="50" width="65" height="13" uuid="7beca5ab-c532-4314-8534-e53fceed9ad4">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[in qualita di]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="190" y="50" width="90" height="13" uuid="dfd1bac7-1b57-4bb7-81a5-6583c77634e8">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[della ditta/società]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="290" y="50" width="219" height="13" isRemoveLineWhenBlank="true" uuid="3ad82f9b-e60e-4952-8bff-990299c05629"/>
+							<textFieldExpression><![CDATA[$F{societa}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="75" y="50" width="98" height="13" uuid="9f674d56-d5de-4689-9ce7-d49386caf4fc"/>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{dittaInQualitaDiDescr}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="70" width="95" height="13" uuid="8ec11504-eb3f-4a47-9158-9d2ff1d0bff7">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[con codice fiscale]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="310" y="70" width="178" height="13" isRemoveLineWhenBlank="true" uuid="5327568e-b2ed-4e0a-b631-60817f0be7d9"/>
+							<textFieldExpression><![CDATA[$F{codiceIpa} != null && $F{codiceIpa}.length() > 0 ? $F{codiceIpa}  : $F{partitaIva}]]></textFieldExpression>
+						</textField>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="105" y="70" width="125" height="13" uuid="2b7fa7db-7330-4a6b-9f3f-d4cf44414f01">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<box leftPadding="3"/>
+							<textFieldExpression><![CDATA[$F{societaCodiceFiscale}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="0" y="219" width="65" height="13" uuid="cc7c7fbf-b560-4499-8a06-3da34188a325">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box leftPadding="4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[in qualità di]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+							<reportElement x="9" y="240" width="490" height="37" uuid="4ef0f30a-6c3d-4770-a138-afca68968934"/>
+							<textFieldExpression><![CDATA["- " + $F{titolaritaInQualitaDi}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="9" y="280" width="261" height="30" uuid="9922031e-02bd-4bbd-9e91-36f1e1b8fe0c"/>
+							<textElement>
+								<font size="7"/>
+							</textElement>
+							<text><![CDATA[(1) - campo obbligatorio
+(2) - da compilare solo nel caso in cui il titolare sia una ditta o una società]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="250" y="70" width="50" height="13" uuid="874de58b-3688-49fc-9612-3419be75f412">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{codiceIpa} != null && $F{codiceIpa}.length() > 0 ? "codice ipa" : "partita iva"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="55" y="10" width="10" height="10" uuid="5fed85b1-3374-4634-86bd-86bd3c04fc90"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="265" y="10" width="10" height="10" uuid="ca2e2977-f3e2-4f7b-920a-0e8864202a49"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="75" y="30" width="10" height="10" uuid="ad591382-d56b-4ee1-b999-6bfb7b2ee432"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="210" y="90" width="10" height="10" uuid="7a7e2c6f-4dd3-4bc9-bdea-5b9f3de1b77e"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="380" y="90" width="10" height="10" uuid="cd941184-2fd7-4965-8d63-be1444888476"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="39" y="90" width="10" height="10" uuid="256eff83-22c4-4901-9212-7c735b1d06cf"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="39" y="110" width="10" height="10" uuid="9aa2beb4-0028-4020-aac4-fc9d92805cfd"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="50" width="10" height="10" uuid="5a9cf016-2bc0-4346-8040-ae50fcd72a5e">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="280" y="50" width="10" height="10" uuid="3021e325-d9c7-456c-b1e5-05ded1088198"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="95" y="70" width="10" height="10" uuid="8a189c83-8031-4b78-b994-16bea28acbd6"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="300" y="70" width="10" height="10" uuid="eafa0152-b1e9-426c-becd-bb3d6796e181"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="219" width="10" height="10" uuid="4aaf7755-8899-48ab-920c-e6e4b8c15632">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(2)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="46" y="200" width="10" height="10" uuid="fc4fbb40-374f-4747-8dbb-71e62d73c14d"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="120" y="179" width="10" height="10" uuid="298f2902-9c4b-4a20-89b4-1698cb004c7b"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="642">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$F{dichiarazioniArticoli} != null && !$F{dichiarazioniArticoli}.isEmpty()]]></printWhenExpression>
+			<staticText>
+				<reportElement x="175" y="5" width="165" height="20" uuid="52d3dcf2-07d6-442b-ad6c-1fdf0d12a179">
+					<printWhenExpression><![CDATA[$F{dichiarazioniArticoli} != null && !$F{dichiarazioniArticoli}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A TAL FINE DICHIARA]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="25" width="550" height="600" uuid="f8c72a08-3a4f-4b4d-9b43-de3e6180e53c">
+					<printWhenExpression><![CDATA[$F{dichiarazioniArticoli} != null && !$F{dichiarazioniArticoli}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="JasperDichiarazioneArticoli" uuid="61051609-0649-47e3-bd60-5655d06bf879">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{dichiarazioniArticoli})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="600" width="550">
+						<rectangle>
+							<reportElement x="0" y="0" width="550" height="600" uuid="70fe37f1-90e9-49d7-8250-788b485e27ca"/>
+						</rectangle>
+						<staticText>
+							<reportElement x="5" y="5" width="535" height="30" uuid="7ee27270-09ac-4c4e-a4e2-eed5d6b55f4b"/>
+							<text><![CDATA[che l'intervento necessita di autorizzazione paesaggistica, ai sensi dell'articolo 146 del d.lgs. n. 42/2004 e s.m.i., in quanto lo stesso ricade in ambito assoggettato a tutela paesaggistica ai sensi:]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="25" y="45" width="15" height="15" uuid="6e99aa28-44eb-4846-b055-9edf67377b3b">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="30" y="47" width="15" height="15" uuid="9c921eee-91b8-4cbb-831c-d55da5700d3c">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+								<printWhenExpression><![CDATA[$F{art136}]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="45" y="44" width="150" height="17" uuid="e5bab2ab-1b88-4c31-9b76-e85d11617239"/>
+							<text><![CDATA[dell'art. 136, del d.lgs. n. 42/2004]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="65" width="15" height="15" uuid="a1b80681-407a-4751-8cc8-f67448ccb6ee">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="65" width="15" height="15" uuid="226de38b-b259-48ca-9e40-aeda3f41a431">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art136} == true && $F{art136a}== true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="65" width="50" height="17" uuid="09f06b48-db83-477c-b903-7ad5632f097a">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[c. 1, lett. a)]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="135" y="65" width="15" height="15" uuid="dd4f7925-f5c6-4cff-83ac-5c0c12e1827c">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="140" y="65" width="15" height="15" uuid="c2ffd819-fe03-4afb-a4c7-5ceac12d5fdb">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art136} == true && $F{art136b} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="155" y="65" width="50" height="17" uuid="ba1934eb-a0d5-4e3e-bba3-52fd37b75549">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[c. 1, lett. b)]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="235" y="65" width="15" height="15" uuid="da50096a-5a14-4044-b257-03114fdda8cc">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="240" y="65" width="15" height="15" uuid="4886a021-dd32-4285-b641-00db0850774e">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art136} == true && $F{art136c} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="255" y="65" width="50" height="17" uuid="6ea885ac-c361-4916-8e93-2a00cb60b603">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[c. 1, lett. c)]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="335" y="65" width="15" height="15" uuid="5e49bbf2-5cad-499a-899c-dbf4703b61fa">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="340" y="65" width="15" height="15" uuid="81935842-a654-480f-a30c-d054e657730f">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art136} == true && $F{art136d} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="355" y="65" width="50" height="17" uuid="1ba3e237-a18d-4de8-9caa-8120728ebf32">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[c. 1, lett. d)]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="25" y="96" width="15" height="15" uuid="543296f4-6881-4fcb-8f45-4ab1c72a8a1c">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="30" y="98" width="15" height="15" uuid="1d2017d8-1405-4595-95ed-51b7a658e2c6">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142}]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="45" y="95" width="205" height="17" uuid="f38c30bf-e661-42ac-a31f-86105ced946b"/>
+							<text><![CDATA[dell'art. 142, c. 1, del d.lgs. n. 42/2004]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="125" width="15" height="15" uuid="cb86ec39-2c6e-4ed9-a55d-bdfdd9462f6d">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="125" width="15" height="15" uuid="d3d16978-ffae-43b7-a804-fb2766362547">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{territoriCostieri} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="125" width="465" height="35" uuid="0abb5507-3da1-4be6-adfe-94398ce55b85">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-TERRITORI COSTIERI di cui all'art. 38.2.2.a delle NTA del PPTR lett. a) i territori costieri compresi in una fascia della profondità di 300 metri dalla linea di battigia, anche per i terreni elevati sul mare;]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="164" width="15" height="15" uuid="30aa093e-69cd-4dfc-b56c-f84a785b9e67">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="164" width="15" height="15" uuid="892dcfd0-09db-4591-9302-fd0905b71b37">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{territoriContermini} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="164" width="465" height="40" uuid="08fe4a11-c059-47cd-b200-b0e7ad68d0b5">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-TERRITORI CONTERMINI AI LAGHI di cui all'art. 38.2.2.b delle NTA del PPTR lett. b) i territori contermini ai laghi compresi in una fascia della profondità di 300 metri dalla linea di battigia, anche per i territori elevati sui laghi;]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="210" width="15" height="15" uuid="a62c7334-f3ae-48ef-bcce-9030eb12fd4c">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="210" width="15" height="15" uuid="92c24863-2cf9-4622-bec6-bb17b0937fcd">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{fiumiTorrenti} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="210" width="465" height="56" uuid="2a953d15-1385-4114-bc91-3089c5b9a131">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-FIUMI, TORRENTI, CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE di cui all'art. 38.2.2.c delle NTA del PPTR lett. c) i fiumi, i torrenti, i corsi d'acqua iscritti negli elenchi previsti dal testo unico delle disposizioni di legge sulle acque ed impianti elettrici, approvato con regio decreto 11 dicembre 1933, n. 1775, e le relative sponde o piedi degli argini per una fascia di 150 metri ciascuna]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="276" width="15" height="15" uuid="96ec1820-74ec-4d56-9656-4c01e280a3d5">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="276" width="15" height="15" uuid="99f91ed8-0c69-468e-8c54-977cf5221a23">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{parchiRiserve} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="276" width="465" height="30" uuid="c5db182a-a4cb-44bc-963c-510e4d8ef5c6">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-PARCHI E RISERVE di cui all'art. 38.2.2.f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonchè i territori di protezione esterna dei parchi;]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="316" width="15" height="15" uuid="2c0907a9-686d-4f43-9bec-3871776439d5">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="316" width="15" height="15" uuid="0296b8e3-42c6-4d54-bff5-a69da0985740">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{boschi} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="316" width="465" height="46" uuid="a9ca879a-f2b8-45b9-84f9-9b1c3b0936df">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-BOSCHI di cui all'art. 38.2.2.g delle NTA del PPTR lett. g) i territori coperti da foreste e da boschi, ancorchè percorsi o danneggiati dal fuoco, e quelli sottoposti a vincolo di rimboschimento, come definiti dall'articolo 2, commi 2 e 6, del decreto legislativo 18 maggio 2001, n. 227;
+]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="362" width="15" height="15" uuid="5932ac8b-c1b7-4b2e-bbbb-7538e534dbdd">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="362" width="15" height="15" uuid="1cdab8d9-afc6-4447-8384-c690511bddcd">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{usiCivici} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="362" width="465" height="30" uuid="841592fa-82e4-4922-b029-1225752e4e35">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-ZONE GRAVATE DA USI CIVICI di cui all'art. 38.2.2.h delle NTA del PPTR lett. h) le aree assegnate alle università agrarie e le zone gravate da usi civici;]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="402" width="15" height="15" uuid="eadc80e0-1a44-4e48-a78d-d79bc5556c59">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="402" width="15" height="15" uuid="8460f207-9022-4d2d-bbd9-5c55637d7ba3">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{zoneUmide} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="402" width="465" height="30" uuid="159db1fb-356d-4938-8e8e-7fad4b8c81af">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-ZONE UMIDE RAMSAR di cui all'art. 38.2.2.i delle NTA del PPTR lett. i) le zone umide incluse nell'elenco previsto dal d.P.R. 13 marzo 1976, n. 448;]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="45" y="442" width="15" height="15" uuid="9b5dda78-bd33-4b01-9adb-7c5a2d549189">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="50" y="442" width="15" height="15" uuid="6a273ec3-9ac1-4871-87ec-e61765db2d8f">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{art142} == true && $F{interesseArcheologico} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="442" width="465" height="30" uuid="7118c6ae-fa18-4b49-a00b-638dea519942">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<text><![CDATA[BP-ZONE DI INTERESSE ARCHEOLOGICO di cui all'art. 38.2.2.m delle NTA del PPTR lett. m) le zone di interesse archeologico.]]></text>
+						</staticText>
+						<rectangle>
+							<reportElement x="20" y="481" width="15" height="15" uuid="cbe6ba07-9556-4659-b765-14c16de750d0">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="25" y="483" width="15" height="15" uuid="88e9402f-8901-4a31-9243-4fc3c49d68f8">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+								<printWhenExpression><![CDATA[$F{art134} == true]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="40" y="480" width="205" height="17" uuid="33b89cad-a514-4806-8153-87b0f58befbd"/>
+							<text><![CDATA[dell' art. 134, c. 1, lett. c) del d.lgs. n. 42/2004]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="9" y="510" width="527" height="30" uuid="46b46046-b578-4091-a6d2-c949cb8d3b5c"/>
+							<text><![CDATA[e che le opere previste sono attribuite alla competenza di codesta Amministrazione ai sensi dell'art. 7 della legge regionale 20/2009.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="6" y="540" width="168" height="20" uuid="97feb5a4-fe69-4efa-8242-42d0163ac7b7"/>
+							<textElement>
+								<font isItalic="true"/>
+							</textElement>
+							<text><![CDATA[In caso di intervento di variante:]]></text>
+						</staticText>
+						<textField textAdjust="ScaleFont">
+							<reportElement x="6" y="558" width="533" height="41" uuid="32f81b8e-7c81-4179-b10e-90c2e62ad1d3"/>
+							<textFieldExpression><![CDATA["Il sottoscritto dichiara altresì che per precedenti interventi su tale immobile è stata rilasciata dall'Ente "+$F{da}+" l'autorizzazione paesaggistica n. "+$F{numero}+" in data "+new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{inData})+" della quale si produce copia."]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="60">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$F{documentazioneAmministrativa} != null && !$F{documentazioneAmministrativa}.isEmpty()]]></printWhenExpression>
+			<rectangle>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="550" height="20" uuid="a780515d-0ed5-4c66-af6f-7b4a3a931178">
+					<printWhenExpression><![CDATA[$F{documentazioneAmministrativa} != null && !$F{documentazioneAmministrativa}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="20" uuid="abb27d62-75da-468f-96e3-ae391178448a">
+					<printWhenExpression><![CDATA[$F{documentazioneAmministrativa} != null && !$F{documentazioneAmministrativa}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="3"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTAZIONE AMMINISTRATIVA ALLEGATA]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="25" uuid="9a49fb8e-6cb7-49bb-b32c-c9184be83444">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="StringWrapper" uuid="0e01ff1c-b5a4-4c4e-9ec4-387dfd745497">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documentazioneAmministrativa})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="25" width="550">
+						<rectangle>
+							<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="550" height="25" uuid="2c240d60-854e-4cd9-a224-cae368cc274f"/>
+						</rectangle>
+						<textField textAdjust="StretchHeight">
+							<reportElement stretchType="ContainerHeight" x="3" y="0" width="541" height="25" uuid="f9aad4ac-b400-4d73-87fb-67ac809a9ad9">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<box topPadding="2"/>
+							<textElement textAlignment="Left" markup="html"/>
+							<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="64" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="ContainerHeight" x="0" y="2" width="551" height="61" uuid="926874f5-7b5d-4683-a03f-91616ea8e26b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="175" y="5" width="165" height="15" uuid="ee36dec4-3b86-4824-91d3-464b573beabb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INOLTRE]]></text>
+			</staticText>
+			<subreport>
+				<reportElement stretchType="ContainerHeight" x="4" y="20" width="541" height="36" uuid="c71dd32f-ee00-407b-971d-66e06ffb048d"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{clausoleEsoneri})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/subreportClausole.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="120">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="20" y="10" width="100" height="18" uuid="9c9645d0-a532-4e0e-b038-3bb98a883137"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Data e luogo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="10" width="100" height="18" uuid="79135aeb-9b2a-4141-8361-f5bf5f445a8c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Il richiedente]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="53" width="250" height="1" uuid="6f094b8f-7352-4d24-b23e-43f15786d237">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="336" y="54" width="214" height="1" uuid="29fc8c36-4573-44e0-9b66-1df9200bdd25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+		<band height="212">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="1" y="1" width="550" height="203" uuid="f54441ed-0ee3-4758-bf81-fed9509cff0f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{testoPrivacyHtml}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="70">
+			<staticText>
+				<reportElement x="211" y="30" width="249" height="20" forecolor="#09752A" uuid="f04419cc-0117-49d2-91c5-d5b7d0af4d9d"/>
+				<text><![CDATA[pugliacon.regione.puglia.it]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="477" y="30" width="29" height="19" forecolor="#047A1B" uuid="ca365c5b-f468-4574-a840-262f966d6e4f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="484" y="54" width="71" height="15" uuid="bba20bb6-2adc-4eaa-bdf1-1d4ad5bd1ae3"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="507" y="30" width="48" height="19" forecolor="#047A1B" uuid="387096aa-adec-42d2-8d54-03e86facead7"/>
+				<textFieldExpression><![CDATA[" di " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

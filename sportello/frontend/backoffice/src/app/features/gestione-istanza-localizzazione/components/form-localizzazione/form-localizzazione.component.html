@@ -1,0 +1,238 @@
+<!-- <app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert> -->
+<div [formGroup]="fascicoloFormLocalizzazione">
+  <div class="row noml nomr">
+    <div class="col-md-12">
+      <!-- Scelta tipo localizzazione -->
+      <div class="table-margins pt-3 pb-2">
+        <p>Selezionare la modalità di input della localizzazione:</p>
+      </div>
+      <div class="table-margins mt-2 mb-2">
+        <p-selectButton [options]="tipiSelezioneLocalizzazione" formControlName="tipoSelezioneLocalizzazione" [disabled]="disable"
+          (onOptionClick)="clickSelezione($event)"></p-selectButton>
+      </div>
+      <div class="table-margins pt-4 pb-3" [hidden]="form['tipoSelezioneLocalizzazione'].value != 'R'">
+        <p>{{'LOCALIZZAZIONE.LOCALIZZAZIONE_INTERA_REGIONE'|translate}}</p>
+      </div>
+      <div class="table-margins pt-4 pb-3" [hidden]="form.tipoSelezioneLocalizzazione.value != 'P'">
+        <p-multiSelect class="dflex" [options]="provinciaEnteAutocomplete$|async" [filter]="true" [ngClass]="{'is-invalid': submitted && form.localizzazioneProvince.errors}"
+          formControlName="localizzazioneProvince" defaultLabel="{{'generic.selezionavoci'|translate}}" [disabled]="disable"></p-multiSelect>
+        <div *ngIf="submitted && form.localizzazioneProvince.errors" class="invalid-feedback">
+          <div *ngIf="form.localizzazioneProvince.errors.required">
+            {{'generic.required'|translate}}
+          </div>
+        </div>
+      </div>
+      <div class="table-margins pt-4 pb-3" [hidden]="form.tipoSelezioneLocalizzazione.value != 'CO'">
+        <p-multiSelect class="dflex" [options]="comuneEnteAutocomplete$|async" [filter]="true" [ngClass]="{'is-invalid': submitted && form.localizzazioneComuni.errors}"
+          formControlName="localizzazioneComuni" defaultLabel="{{'generic.selezionavoci'|translate}}" [disabled]="disable"></p-multiSelect>
+        <div *ngIf="submitted && form.localizzazioneComuni.errors" class="invalid-feedback">
+          <div *ngIf="form.localizzazioneComuni.errors.required">
+            {{'generic.required'|translate}}
+          </div>
+        </div>
+      </div>
+      <!-- griglia -->
+      <div class="table-margins pt-4 pb-3"
+        [hidden]="form.tipoSelezioneLocalizzazione.value != 'PTC'">
+        <app-esri-map *ngIf="hasMap" [user]="user" [codiceFascicolo]="codiceFascicolo" [hasEditor]="!disable && hasEditor"
+          [externalQuery]="query" (refresh)="ricaricaMappa($event)" (result)="result($event)"
+          (closeMap)="closeMap($event)">
+        </app-esri-map>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 40px"></th>
+                <th>{{'fascicolo.localizzazioneSection.table.comune'|translate}} *</th>
+                <th>{{'fascicolo.localizzazioneSection.table.sezione'|translate}}</th>
+                <th>{{'fascicolo.localizzazioneSection.table.foglio'|translate}} *</th>
+                <th>{{'fascicolo.localizzazioneSection.table.particella'|translate}} *</th>
+                <th>{{'fascicolo.localizzazioneSection.table.sub'|translate}}</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody *ngIf="form.particelle.controls">
+              <tr class="vmiddle riga" formArrayName="particelle"
+                *ngFor="let item of form.particelle.controls; let i = index;">
+                <td class="text-center">{{(i+1)}}</td>
+                <td [formGroupName]="i">
+                  <div *ngIf="form.particelle.controls[i].controls.ente.value!=null &&
+                    form.particelle.controls[i].controls.ente.value.label!=null"
+                    [hidden]="!form.particelle.controls[i].controls.ente.value!=''"
+                    class="disabled form-control">
+                    {{form.particelle.controls[i].controls.ente.value.label}}
+                    ({{form.particelle.controls[i].controls.codiceEnte.value}})</div>
+                  <p-dropdown class="dflex" [options]="comuneEnteAutocomplete$|async" [filter]="true"
+                    formControlName="ente" placeholder="{{'generic.selezionaunavoce'|translate}}"
+                    [autoWidth]="false" [showClear]="true">
+                  </p-dropdown>
+                  <div *ngIf="submitted && form.particelle.controls[i].controls.ente.errors"
+                    class="invalid-feedback">
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.ente.errors.required">
+                      {{'generic.required'|translate}}</div>
+                  </div>
+                </td>
+                <td [formGroupName]="i">
+                  <input [maxlength]="maxLengthInput" (blur)="checkDuplicato($event, i)" [disabled]="disable"
+                    formControlName="sezione" class="form-control" type="text"
+                    [ngClass]="{'is-invalid': submitted && form.particelle.controls[i].controls.sezione.errors }" />
+                  <div
+                    *ngIf="submitted && form.particelle.controls[i].controls.sezione.errors"
+                    class="invalid-feedback">
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.sezione.errors.required">
+                      {{'generic.required'|translate}}</div>
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.sezione.errors.pattern">
+                      {{'generic.onlyNumber'|translate}}</div>
+                  </div>
+                </td>
+                <td [formGroupName]="i">
+                  <input [maxlength]="maxLengthInput" (blur)="checkDuplicato($event, i)" [disabled]="disable"
+                    formControlName="foglio" class="form-control" type="text"
+                    [ngClass]="{'is-invalid': submitted && form.particelle.controls[i].controls.foglio.errors }" />
+                  <div
+                    *ngIf="submitted && form.particelle.controls[i].controls.foglio.errors"
+                    class="invalid-feedback">
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.foglio.errors.required">
+                      {{'generic.required'|translate}}</div>
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.foglio.errors.pattern">
+                      {{'generic.onlyNumber'|translate}}</div>
+                  </div>
+                </td>
+                <td [formGroupName]="i">
+                  <input [maxlength]="maxLengthInput" (blur)="checkDuplicato($event, i)" [disabled]="disable"
+                    formControlName="particella" class="form-control" type="text"
+                    [ngClass]="{'is-invalid': submitted && form.particelle.controls[i].controls.particella.errors }" />
+                  <div
+                    *ngIf="submitted && form.particelle.controls[i].controls.particella.errors"
+                    class="invalid-feedback">
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.particella.errors.required">
+                      {{'generic.required'|translate}}</div>
+                    <div
+                      *ngIf="form.particelle.controls[i].controls.particella.errors.pattern">
+                      {{'generic.onlyNumber'|translate}}</div>
+                  </div>
+                </td>
+                <td [formGroupName]="i">
+                  <input [maxlength]="maxLengthInput" [disabled]="disable" formControlName="sub"
+                    class="form-control" type="text" />
+                </td>
+                <td class="action">
+                  <button *ngIf="!hasMap&&i==0" type="button" class="bttn btn btn-primary" (click)="hasMap=true">
+                    <span class="sr-only">{{'generic.localizza'|translate}}</span>
+                    <!-- <fa-icon icon="map-marker-alt"></fa-icon> -->
+                    <em class="fa fa-angle-double-down"></em>
+                  </button>
+                  <button *ngIf="hasMap&&i==0" type="button" class="bttn btn btn-primary" (click)="hasMap=false">
+                    <span class="sr-only">{{'generic.chiudiMappa'|translate}}</span>
+                    <!-- <fa-icon icon="angle-double-down"></fa-icon> -->
+                    <em class="fa fa-angle-double-up"></em>
+                  </button>
+                  <button [disabled]="disable" type="button" class="bttn btn btn-danger" (click)="onDeleteRow(i)">
+                    <span class="sr-only">{{'generic.elimina'|translate}}</span>
+                    <!-- <fa-icon icon="times"></fa-icon> -->
+                    <em class="fa fa-times"></em>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="100%" class="text-center" style="padding-bottom: 1em;">
+                  <button [disabled]="disable" type="button" (click)="onAddRow()" class="bttn btn btn-primary" style="width: auto; border-radius: 5%;">
+                    {{'generic.aggiungiRiga'|translate}}
+                    <!-- <fa-icon icon="plus"></fa-icon> -->
+                    <em class="fa fa-plus"></em>
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        <div *ngIf="submitted && form.tipoSelezioneLocalizzazione.value === 'PTC' && form.particelle.controls.length == 0" class="invalid-feedback">
+          {{'generic.required'|translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.localizzazioneSection.datiVettoriali' | translate}}
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <label class="text-center">{{'generic.trascinaFile'|translate}}</label>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p-fileUpload class="basicUpload" chooseLabel="{{'generic.carica'|translate}}" (onSelect)="onAddRowFileShape($event)"
+        [showCancelButton]="false" cancelLabel="Annulla" multiple="multiple" [auto]="true" [showUploadButton]="false"
+        [disabled]="disable">
+      </p-fileUpload>
+    </div>
+  </div>
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.elencoAllegati' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-12">
+      <p-table [value]="allegatiShape" [columns]="colonneFile">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em;"></th>
+            <th class="uppercase" *ngFor="let col of columns">
+              {{col.header| translate}}
+            </th>
+            <th class="uppercase" style="width: 9em">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+          <tr>
+            <td>{{index+1}}</td>
+            <td>{{rowData.nome}}</td>
+            <td>{{rowData.dataCaricamento | date: 'dd-MM-yyyy'}}</td>
+            <td>{{rowData.tipo | translate}}</td>
+            <td>
+              <button type="button" (click)="download(rowData)" placement="top" container="body"
+                ngbTooltip="{{'generic.scaricaAllegato'|translate}}" class="bttn bttn-table btn btn-success">
+                <!-- <fa-icon icon="download"></fa-icon> -->
+                <em class="fa fa-download"></em>
+              </button>
+              <button type="button" (click)="delete(rowData)" placement="top" container="body"
+                ngbTooltip="{{'generic.elimina'|translate}}" class="bttn bttn-table btn btn-danger">
+                <!-- <fa-icon icon="trash"></fa-icon> -->
+                <em class="fa fa-trash"></em>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 2">
+              <span style="text-align: center">{{'generic.norows' | translate}}</span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <!--</p-fieldset>-->
+  <app-form-aree-parchi [fascicoloFormLocalizzazione]="fascicoloFormLocalizzazione" [submitted]="submitted"
+    [codiceFascicolo]="id" [disable]="disable" [id]="id" [cambioParticelle$]="cambioParticelle$">
+  </app-form-aree-parchi>
+</div>

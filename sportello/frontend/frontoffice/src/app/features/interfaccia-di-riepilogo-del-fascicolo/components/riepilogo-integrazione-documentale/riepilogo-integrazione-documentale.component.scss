@@ -1,0 +1,16 @@
+.primary-button,
+.danger-button,
+.green-button 
+{
+  border: 3px solid transparent;
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+}
+.primary-button{ background-color: #0062cc; }
+.danger-button { background-color: #DC3545; }
+.green-button { background-color: #28A745; }
+
+.w-12 { width: 12em!important; }

@@ -1,0 +1,33 @@
+
+.div-style{
+  background-color: #F3F3F3;
+  display: inline-block;
+  position: relative;
+  padding: 8px 15px;
+  color: #383838;
+  top: -38px;
+  left: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.label-style{
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.inline-text{
+  display: inline-block !important;
+}
+.padding-left{
+  padding-left: unset !important;
+}
+.padding-right{
+  padding-right: unset !important;
+}
+.font{
+  font-size: 16px !important;
+  font-weight: bold;
+}

@@ -1,0 +1,64 @@
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{ width: '65%' }"
+    [contentStyle]="{'min-height':'12em'}" (onHide)="chiudi()" [blockScroll]="true">
+  <p-header>
+    {{this.toEdit ? ('RELAZIONE_ENTE.NEW_COM'|translate) : ('RELAZIONE_ENTE.UPDATE_COM'|translate)}}
+  </p-header>
+  <div class="width: 100%" style="overflow-x: hidden;max-width: 100%!important; ">
+    <app-nuova-comunicazione *ngIf="display" #nuovaCom [idComunicazione]="idComunicazione" [init]="toEdit"
+      [showPreviewButton]="false" [showUploadSection]="false" 
+      [templates]="templates" [showButtonBar]="false"
+      [codiceFascicolo]="getCodiceFascicolo()"
+      [requiredTipoComunicazione]="true" [optionLab]="oLabel">
+    </app-nuova-comunicazione>
+  </div>
+  <p-footer>
+    <div style="width: 100%; padding-top: .6em;" class="text-center">
+      <button type="button" class="bttn btn btn-primary" (click)="sendCom(true)">
+        {{'RELAZIONE_ENTE.BOZZA'|translate}}
+        <fa-icon icon="save"></fa-icon>
+      </button>
+      <button *ngIf="hasProtocollazione" type="button" class="bttn btn btn-primary" (click)="sendCom(false, true)">
+        {{'RELAZIONE_ENTE.INVIA_CON_PROT'|translate}}
+        <fa-icon icon="paper-plane"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="sendCom(false, false)">
+        {{'RELAZIONE_ENTE.INVIA_SENZA_PROT'|translate}}
+        <fa-icon icon="paper-plane"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="display = false">
+        {{'generic.annulla'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+    </div>
+  </p-footer>
+</p-dialog>
+<ng-container *ngIf="!nonTrasmessa; else nontrasmessa">
+  <app-relazione-ente [form]="form" [trasmetti]="trasmetti"></app-relazione-ente>
+  <app-allegati-form [files]="files" [types]="documenTypeOptions" [disabled]="disabled" [readonly]="disabled"
+    (onUpload)="upload($event)" (onDownload)="download($event)" (onDelete)="delete($event)" [header]="headers">
+  </app-allegati-form>
+ 
+  <div class="text-center mt-5" *ngIf="!disabled">
+    <button type="button" class="bttn btn btn-primary" 
+    (click)="save()">{{'BUTTONS.SAVE_BUTTON'|translate}}
+    <fa-icon icon="save"></fa-icon>
+    </button>
+    <button type="button" class="bttn btn btn-primary" 
+    (click)="openComunicationsModal()">
+      {{'BUTTONS.TRANSMIT'|translate}}
+      <fa-icon icon="paper-plane"></fa-icon>
+    </button>
+    <button type="button" class="bttn btn btn-primary" 
+    (click)="annulla()">
+      {{'BUTTONS.CANCEL_BUTTON'|translate}}
+      <fa-icon icon="times"></fa-icon>
+    </button>
+  </div>
+</ng-container>
+<ng-template #nontrasmessa>
+  <!-- <p>Relazione non trasmessa dall'ente delegato</p> -->
+  <p class="mt-3">
+    {{ 'SUPERINTENDENT_OPINION_TAB.RELAZIONE_NON_ALLEGATO' | translate }}
+  </p>
+</ng-template>
+

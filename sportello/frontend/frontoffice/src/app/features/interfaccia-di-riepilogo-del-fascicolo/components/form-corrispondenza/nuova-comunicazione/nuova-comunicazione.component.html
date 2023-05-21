@@ -1,0 +1,202 @@
+<form *ngIf="comForm" [formGroup]="comForm" style="padding-top: 3em;">
+  <div *ngIf="templateComunicazione && templateComunicazione.length>0 && loaded" class="row" style="margin-bottom: .6em">
+    <div class="col-lg-2 col-md-4">
+      <label for="tc">Tipo comunicazione</label>
+    </div>
+    <div class="col-lg-8 col-md-6">
+      <p-dropdown class="dflex" (onChange)="cambioTemplate($event)" [showClear]="true" 
+        [options]="selectOptionsTemplate"
+        [placeholder]="placeHolderSelezioneTemplate" 
+        appendTo="body" 
+        [autoWidth]="false"
+        formControlName="codiceTemplate">
+      </p-dropdown>
+      <app-input-error [validation]="inviato" [errors]="comForm.controls.codiceTemplate.errors"></app-input-error>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <ng-container *ngIf="previstaProtocollazione"> 
+        <label >
+          {{'COMMUNICATIONS.PREVISTA_PROTOCOLLAZIONE'|translate}}
+        <app-tooltip [message]="'COMMUNICATIONS.INFO_PROTOCOLLAZIONE'|translate"></app-tooltip></label>
+      </ng-container>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-aggiungi-destinatario [addresses]="destinatari" titleAdresses="Destinatari" [collapsed]="true"
+        (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)">
+      </app-aggiungi-destinatario>
+      <div class="invalid-feedback" *ngIf="inviato && destinatari.length==0">
+        {{'generic.required'|translate}}
+      </div>
+    </div>
+    <!-- <div class="col-lg-2 col-md-4">
+      <label for="destinatari">A</label>
+    </div>
+    <div class="col-lg-10 col-md-8">
+      <app-aggiungi-destinatario [addresses]="comForm.controls.destinatari" titleAdresses="Destinatari" 
+        [collapsed]="true" (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" 
+        (onRemove)="removeDestinatario($event)"></app-aggiungi-destinatario>
+      <div class="invalid-feedback" *ngIf="inviato && control.controls.email.errors">
+        {{'generic.required'|translate}}
+      </div>
+      <div formArrayName="destinatari" *ngFor="let control of formArray.controls; index as i"
+        style="padding-bottom: 1.2em;">
+        <div [formGroupName]="i">
+          <div class="input-group" style="white-space:nowrap">
+            <input class="form-control" formControlName="email"
+              [ngClass]="{'is-invalid': inviato && control.controls.email.errors}" />
+            <div class="input-group-append">
+              <div class="input-group-text" style="background-color: #dc3545;cursor: pointer;" (click)="removeRow(i)">
+                <em class="fa fa-times" style="color: whitesmoke;"></em>
+              </div>
+            </div>
+          </div>
+          <div class="invalid-feedback" *ngIf="inviato && control.controls.email.errors">
+            <ng-container *ngIf="control.controls.email.errors.required; else patternError">
+              {{'generic.required'|translate}}
+            </ng-container>
+            <ng-template #patternError>
+              {{'generic.badValueEmail'|translate}}
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <!-- <div class="row col-12 text-center" style="padding-top: .6em; padding-bottom: 2em; display: block;">
+    <p-button label="Aggiungi" icon="fa fa-plus" class="mx-1" type="button" (click)="addRow()"></p-button>
+  </div> -->
+  <div class="row" style="padding-top: .8em;">
+    <!-- <div class="col-lg-2 col-md-4 col-sm-12"> -->
+    <div class="col-12">
+      <label for="oggetto">{{'COMMUNICATIONS.OBJECT'|translate}}</label>
+    </div>
+    <!-- <div class="col-lg-10 col-md-8"> -->
+    <div class="col-12">
+      <!-- <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Fascicolo APPPTR-{{codiceFascicolo}}</span>
+        </div>
+        <input class="form-control" formControlName="oggetto"
+          [ngClass]="{'is-invalid': inviato && comForm.controls.oggetto.errors}" />
+        <div class="invalid-feedback" *ngIf=" inviato && comForm.controls.oggetto.errors">
+          {{'generic.required'|translate}}
+        </div>
+      </div> -->
+      <app-text-field formControlName="oggetto" 
+      [prepend]="getPrefixOggetto()"
+        [errors]="comForm.controls.oggetto.errors" [validation]="inviato">
+      </app-text-field>
+    </div>
+  </div>
+  <div class="row" style="padding-top: .8em;">
+    <!-- <div class="col-lg-2 col-md-4 col-sm-12"> -->
+    <div class="col-12">
+      <label for="testo">{{'COMMUNICATIONS.TEXT'|translate}}</label>
+    </div>
+    <!-- <div class="col-lg-10 col-md-8"> -->
+    <div class="col-12">
+      <app-editor-field formControlName="testo"
+        [errors]="comForm.controls.testo.errors" [validation]="inviato">
+      </app-editor-field>
+      <!-- <p-editor formControlName="testo" [style]="{'height':'320px'}"
+        [ngClass]="{'is-invalid': inviato && comForm.controls.testo.errors}"></p-editor>
+      <div class="invalid-feedback" *ngIf=" inviato && comForm.controls.testo.errors">
+        {{'generic.required'|translate}}
+      </div> -->
+    </div>
+  </div>
+  <!-- Pulsante per la preview -->
+  <!--<div *ngIf="preview" class="row" style="margin-top: .7em;">
+    <div class="col-12 text-center">
+      <button data-toggle="tooltip" data-placement="top" title="" type="button" class="green-button"
+        data-original-title="Anteprima" pTooltip="{{ 'TABLE_DOWNLOAD_BUTTON' | translate }}" tooltipPosition="bottom"
+        (click)="downloadFile(rowData)">
+        <em class="fa fa-eye" aria-hidden="true"></em>
+      </button>
+    </div>
+  </div>-->
+  <!-- Allegati -->
+  <div *ngIf="uploadFile" class="row" style="padding-top: 1em;">
+    <div class="col-12">
+      <div style="margin-bottom: 2em;">
+        <label for="allegaFile">{{'ADMINISTRATIVE_DOCUMETATION_TAB.UPLOAD_FILE_LABEL'|translate}}</label>
+        <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="allegaFile($event)"
+          [showCancelButton]="false" cancelLabel="Annulla" [showUploadButton]="false" class="basicUpload">
+        </p-fileUpload>
+      </div>
+    </div>
+    <div class="col-12">
+      <p-table [value]="fileArray">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Tipo File</th>
+            <th>Nome file</th>
+            <th>Data caricamento</th>
+            <th>Impronta hash</th>
+            <th style="width: 10em;"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file let-i="rowIndex">
+          <tr>
+            <td>Ulteriore documentazione</td>
+            <td>{{file.nome}}</td>
+            <td>{{file.data|date:'dd/MM/yyyy'}}</td>
+            <td style="word-break: break-all;">{{file.checksum}}</td>
+            <td>
+              <button class="bttn btn btn-success bttn-table" *ngIf="file.id" (click)="download(file)">
+                <em class="fa fa-download"></em>
+              </button>
+              <button class="bttn btn btn-danger bttn-table" (click)="cancellaAllegato(file)">
+                <em class="fa fa-trash"></em>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="5">
+              Nessun file inserito
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="row" style="padding-top: .8em;" *ngIf="false">
+    <div class="col-lg-10 col-md-8">
+      <p-checkbox [formControl]="comForm.controls['riservata']" binary="false" label = "{{'COMMUNICATIONS.COMUNICAZIONE_INTERNA' | translate}}"></p-checkbox>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 2em;" *ngIf="showButtonBar">
+    <div class="col-12 text-center">
+      <button  (click)="sendData(true,false)" type="button"
+        class="bttn btn btn-primary">{{ 'Salva in bozza' | translate | titlecase }}
+      <fa-icon icon="check"></fa-icon>
+      </button>
+      <button *ngIf="hasProtocollo"  (click)="sendData(false,true)" type="button"
+      class="bttn btn btn-primary">{{ 'Invia con protocollo' | translate | titlecase }}
+      <fa-icon icon="check"></fa-icon>
+      </button>
+      <button (click)="sendData(false,false)" type="button"
+      class="bttn btn btn-primary">{{ 'Invia' | translate | titlecase }}
+      <fa-icon icon="check"></fa-icon>
+      </button>
+      <button (click)="cancel()" type="button"
+      class="bttn btn btn-primary">{{ 'Annulla' | translate | titlecase }}
+      <fa-icon icon="times"></fa-icon>
+      </button>
+      <button *ngIf="preview" (click)="showPreview()" type="button"
+      class="bttn btn btn-primary">{{ 'Anteprima' | translate | titlecase }}
+      <fa-icon icon="eye"></fa-icon>
+      </button>
+      <!--<p-button label="Salva in bozza" class="mx-1" type="button" (click)="sendData(true,false)"></p-button>-->
+      <!--<p-button *ngIf="hasProtocollo" label="Invia con protocollo" class="mx-1" type="button" (click)="sendData(false,true)"></p-button>-->
+      <!--<p-button label="Invia" class="mx-1" type="button" (click)="sendData(false,false)"></p-button>-->
+      <!--<p-button label="Annulla" class="mx-1" type="button" (click)="cancel()"></p-button>-->
+      <!--<p-button *ngIf="preview" label="Anteprima" class="mx-1" type="button" (click)="showPreview()"></p-button>-->
+    </div>
+  </div>
+</form>

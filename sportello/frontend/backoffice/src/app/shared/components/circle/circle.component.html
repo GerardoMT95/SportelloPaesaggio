@@ -1,0 +1,5 @@
+<button class="btn-shell" [style.background]="backgroundColor" [ngStyle]="color != null? {'color': color} : ''"
+[disabled]="false" pTooltip="{{(statusInput ? statusInput : 'STATI.'+status)|translate}}" 
+  tooltipPosition="right">
+  {{(labelInput ? labelInput : "") | uppercase}}
+</button>

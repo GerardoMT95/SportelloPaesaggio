@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final utlizzo versione della libreria JasperReports6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="footer_comunicazioni" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41c28d48-b0cd-4b9a-9b2a-91478a28c094">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="indirizzoRegione" class="java.lang.String"/>
+	<field name="pecRegione" class="java.lang.String"/>
+	<field name="telRegione" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="32" y="1" width="100" height="28" uuid="7e607da5-58a5-4df8-958b-bc6412d37c9a"/>
+				<textElement>
+					<font fontName="CustomTimes" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoRegione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="1" width="111" height="30" uuid="aa13d533-4b78-4e09-b87b-30b92208ba21"/>
+				<textElement>
+					<font fontName="CustomTimes" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telRegione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="1" width="194" height="30" uuid="16beb7c9-62f9-4374-b9f6-de1292d4fb6e"/>
+				<textElement>
+					<font fontName="CustomTimes" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pecRegione}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

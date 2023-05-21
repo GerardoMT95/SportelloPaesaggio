@@ -1,0 +1,87 @@
+<p-table [value]="data" class="table table-bordered">
+  <ng-template pTemplate="header">
+    <tr>
+      <th colspan="2"></th>
+      <th>D.Lgs. 42/2004</th>
+      <th colspan="3">{{ "PPTR_TAB.NORME" | translate }}</th>
+    </tr>
+    <tr>
+      <th colspan="2"></th>
+      <th>art.</th>
+      <th>{{ "PPTR_TAB.DEFINITION" | translate }}</th>
+      <th>{{ "PPTR_TAB.REGULATORY" | translate }}</th>
+      <th>art.</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr><th colspan="6">{{item.label}}</th></tr>
+    <tr *ngFor="let subgroup of item.childOptions">
+      <td colspan="6">
+        <p-table [value]="subgroup.childOptions" class="table table-bordered">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 3em;"></th>
+              <th style="width: 30%;">{{subgroup.label}}</th>
+              <th></th>
+              <th>{{subgroup.extraData.definizione}}</th>
+              <th>{{subgroup.extraData.disposizioni}}</th>
+              <th>{{subgroup.extraData.art2}}</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-option>
+            <tr>   
+              <ng-container *ngIf="option.hasChildren === true; else default">
+                <td></td>
+                <td colspan="5">{{option.label}}</td>
+              </ng-container>
+              <ng-template #default>
+                <td>
+                  <p-checkbox *ngIf="!option.hasChildren" [value]="option.value" [(ngModel)]="dummyValues"
+                    (onChange)="myChangeBindSelected()" [disabled]="disabled">
+                  </p-checkbox>
+                </td>
+                <td>
+                  {{option.label}}
+                  <div *ngIf="option.value === 'AREE_NOTEVOLE_INSTERESSE_PUBB'"><br/>Nota: <b>{{'PPTR_TAB.NOTA_1'|translate}}</b></div>
+                  <div *ngIf="option.value === 'PAES_RUR'"><br/>Nota: <b>{{'PPTR_TAB.NOTA_2'|translate}}</b></div>
+                  <div *ngIf="option.hasDescription === true">
+                    <br/>{{'PPTR_TAB.SPECIFICARE'|translate}}
+                    <app-text-field [(ngModel)]="dummyText[option.value]" [validation]="validation" 
+                      [errors]="getErrorForTextInput(option.value)" [disabled]="!checkSelection(option.value) || disabled"
+                      (change)="myChangeBindText(option.value)">
+                    </app-text-field>
+                  </div>
+                </td>
+                <td>{{option.extraData.art1}}</td>
+                <td>{{option.extraData.definizione}}</td>
+                <ng-container *ngIf="option.extraData.disposizioni === null && option.extraData.art2 === null; else elseTemplate">
+                  <td colspan="2">
+                    n.p. (si applicano solo indirizzi e direttive)
+                  </td>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <td>{{option.extraData.disposizioni}}</td>
+                  <td>{{option.extraData.art2}}</td>
+                </ng-template>
+              </ng-template>
+            </tr>
+            <ng-container *ngIf="option.hasChildren === true">
+                <tr *ngFor="let suboption of option.childOptions">
+                  <td>
+                    <p-checkbox [value]="suboption.value" [(ngModel)]="dummyValues"
+                      (onChange)="myChangeBindSelected()">
+                    </p-checkbox>
+                  </td>
+                  <td>-&nbsp;{{suboption.label}}</td>
+                  <td>{{suboption.extraData.art1}}</td>
+                  <td>{{suboption.extraData.definizione}}</td>
+                  <td>{{suboption.extraData.disposizioni}}</td>
+                  <td>{{suboption.extraData.art2}}</td>
+                </tr>
+            </ng-container>
+          </ng-template>
+        </p-table>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

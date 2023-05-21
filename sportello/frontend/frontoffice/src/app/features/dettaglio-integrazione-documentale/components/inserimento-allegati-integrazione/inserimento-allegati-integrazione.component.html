@@ -1,0 +1,36 @@
+<div class="pt-1 px-3 mb-3" *ngIf="tipiContenuto">
+  <p-tabView class="step" [(activeIndex)]="activeIndex">
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='IN_PREISTRUTTORIA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.ADMIN_DOCUMENTATIONS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneAmministrativa']">
+            <strong>{{numberOfErrorsOnthePage['documentazioneAmministrativa']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-documentazione-amministrativa [fascicolo]="fascicolo" 
+      [allegati]="allegati" [mainForm]="mainForm" [tipiContenuto]="tipiContenuto"
+      [idIntegrazione]="idIntegrazione" (actionComplete)="actionResolver($event)"
+      ></app-documentazione-amministrativa>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='IN_PREISTRUTTORIA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.TECH_DOCUMENTATIONS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneTecnica']">
+            <strong>{{numberOfErrorsOnthePage['documentazioneTecnica']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-documentazione-tecnica [fascicolo]="fascicolo" [allegati]="allegati" [mainForm]="mainForm" [tipiContenuto]="tipiContenuto"
+        [idIntegrazione]="idIntegrazione" (actionComplete)="actionResolver($event)"></app-documentazione-tecnica>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+<div class="action-footer text-center inner-pulsantiera">
+    <button (click)="emitAction('PROSEGUI')" [disabled]="allegatiVuoti" class="bttn btn btn-primary">Prosegui</button>
+    <button (click)="emitAction('INDIETRO')" class="bttn btn btn-primary">
+        Indietro<fa-icon icon="arrow-left"></fa-icon>
+    </button>
+</div>

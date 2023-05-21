@@ -1,0 +1,49 @@
+<div class="portlet-content-container">
+  <div class="portlet-body">
+    <app-generic-table 
+    *ngIf="showTable"
+    [items]="items" 
+    [totalItems]="items.length" 
+    [header]="intestazioneTabella"
+    [paginator]="false"
+    [rowsPerPage]="items.length"
+    [disableEditButton]="false" 
+    [disableSelectButton]="true" 
+    [sortButtons]="true"
+    [enableAddItem]="true"
+    (onUpEvent)="upItem($event)"
+    (onDownEvent)="downItem($event)"
+    (onRemove)="remove($event)"
+    (onEdit)="editItem($event)"
+    (onAddItem)="addItem()"
+    [rowsPerPage]=""></app-generic-table>
+   <app-disclaimer-detail *ngIf="!showTable" 
+          [arrayDichiarazioni]="items" 
+          [idProcedimento]="idTipoProcedimento" 
+          (indietroChange)="closeDettaglio()" 
+          [disclaimer]="dettaglioDichiarazione" 
+          [isAddDichiarazione]="isAddDichiarazione"
+          >
+        </app-disclaimer-detail>
+  </div>
+</div>
+<div *ngIf="showTable" class="text-center inner-pulsantiera">
+  <div style="display: inline-block; margin: 0 4px;">
+    <button type="button" class="bttn btn btn-primary" (click)="salvaDichiarazioni()">
+      {{ 'generic.salva' | translate }}
+      <fa-icon icon="save"></fa-icon>
+    </button>
+  </div>
+  <div style="display: inline-block; margin: 0 4px;">
+    <button type="button" class="bttn btn btn-primary" (click)="back()">
+      {{ 'generic.indietro' | translate }}
+      <fa-icon icon="arrow-left"></fa-icon>
+    </button>
+  </div>
+  <div style="display: inline-block; margin: 0 4px;">
+    <button type="button" class="bttn btn btn-primary" (click)="annullaModifiche()">
+      {{ 'generic.annulla' | translate }}
+      <fa-icon icon="undo"></fa-icon>
+    </button>
+  </div>
+</div>

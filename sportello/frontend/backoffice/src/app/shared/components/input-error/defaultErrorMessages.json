@@ -1,0 +1,6 @@
+{
+    "required": "errors.required",
+    "email": "errors.email",
+    "minlength": "errors.minlength",
+    "maxlength": "errors.maxlength"
+}

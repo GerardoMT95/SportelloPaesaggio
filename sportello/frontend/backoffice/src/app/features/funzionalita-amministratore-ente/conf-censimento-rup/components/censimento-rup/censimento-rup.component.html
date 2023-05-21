@@ -1,0 +1,43 @@
+<div class="container-fluid" [formGroup]="formInserimentoRup" *ngIf="(hasLoaded$ |async) as caricato">
+  <p-panel [header]="('rup.nuovoRup'|translate)">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="form-group">
+          <label for="rup">{{'rup.denominazione'|translate}}</label>
+          <p-dropdown [placeholder]="'generic.selezionaunavoce' | translate" id="rup" [options]="rups"
+            [autoWidth]="false" [style]="{ width: '100%' }" 
+            formControlName="rup" [showClear]="true" 
+            [disabled]="false">
+          </p-dropdown>
+          <app-input-error [errors]="formInserimentoRup.controls['rup'].errors" [validation]="validation">
+          </app-input-error> 
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <app-date-picker-field formControlName="dataScadenza" [label]="('rup.scadenza' | translate | titlecase) + '*'"
+            [validation]="validation" 
+            [errors]="formInserimentoRup.controls['dataScadenza'].errors" [minDate]="const.TODAY">
+          </app-date-picker-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto" style="width: 140px;">
+        <div class="form-group">
+          <label for="aa"></label>
+          <div class="">
+            <button type="button" class="bttn btn btn-primary" (click)="addRup()">
+              {{'generic.aggiungi'|translate}}
+              <fa-icon icon="plus"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-panel>
+  <app-generic-table [items]="items" [totalItems]="totalItems" [header]="intestazioneTabella"
+    (onPaging)="paginazioneEvent($event)" [disableEditButton]="true" 
+    [disableSelectButton]="true" (onRemove)="remove($event)"
+    [rowsPerPage]=""></app-generic-table>
+</div>

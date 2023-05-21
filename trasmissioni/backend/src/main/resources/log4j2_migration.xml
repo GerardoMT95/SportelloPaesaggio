@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [autpae_migration] [%X{TOKEN_ID}][%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+        </Console>
+       <RollingRandomAccessFile name="FILE_LOG"
+                 fileName="log/${sys:microservice}.log"
+              filePattern="log/${sys:microservice}.%d{yyyy-MM-dd}.%i.log.gz"
+         ignoreExceptions="false"
+           immediateFlush="false"
+         >
+                <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [${sys:microservice}] [%X{TOKEN_ID}] [%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+                <Policies>
+                    <OnStartupTriggeringPolicy />
+                    <SizeBasedTriggeringPolicy size="5 MB" />
+                    <TimeBasedTriggeringPolicy />
+                </Policies>
+                 <DefaultRolloverStrategy>
+                        <Delete basePath="/opt/log">
+                            <IfFileName glob="${sys:microservice}.*.log.gz" />
+                            <IfLastModified age="7d" />
+                        </Delete>
+                </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="FILE"
+                 fileName="logs/autpae_migration.log"
+              filePattern="logs/autpae_migration.%d{yyyy-MM-dd}.%i.log.gz"
+         ignoreExceptions="false"
+           immediateFlush="true"
+         >
+         <MarkerFilter marker="INFO_MIGRAZIONE" onMatch="ACCEPT" onMismatch="DENY" />
+                <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [autpae_migration] [%X{TOKEN_ID}] [%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+                <Policies>
+                    <OnStartupTriggeringPolicy />
+                    <SizeBasedTriggeringPolicy size="5 MB" />
+                    <TimeBasedTriggeringPolicy />
+                </Policies>
+                <!--
+                <DefaultRolloverStrategy max="5" />
+                 -->
+                 <DefaultRolloverStrategy>
+                        <Delete basePath="logs">
+                            <IfFileName glob="autpae_migration.*.log.gz" />
+                            <IfLastModified age="999d" />
+                        </Delete>
+                </DefaultRolloverStrategy>
+                </RollingRandomAccessFile>
+        
+    </Appenders>
+    <Loggers>
+        <Root level="info" additivity="false">
+            <AppenderRef ref="FILE_LOG" />
+            <AppenderRef ref="FILE" />
+        </Root>
+    </Loggers>
+</Configuration>

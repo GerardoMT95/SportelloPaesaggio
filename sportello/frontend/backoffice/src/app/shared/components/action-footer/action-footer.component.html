@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center pt-5">
+        <button *ngIf="!isDisabled" (click)="salva()" pButton type="submit" label="{{ 'REQUESTER_TAB.SAVE' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button *ngIf="!isDisabled && showValidButton" (click)="valida()" pButton label="{{ 'REQUESTER_TAB.VALID' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button *ngIf="!isDisabled && showResetButton" (click)="annulla()" pButton label="{{ 'REQUESTER_TAB.CANCEL' | translate | titlecase }} " class="btn-group mr-2"></button>
+        <button (click)="indietro()" pButton label="{{ 'REQUESTER_TAB.BACK' | translate | titlecase }} " class="btn-group mr-2"></button>
+</div>

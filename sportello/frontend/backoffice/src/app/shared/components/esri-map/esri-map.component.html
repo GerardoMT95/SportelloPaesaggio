@@ -1,0 +1,46 @@
+<!--{{externalQuery}}{{result}}{{hasEditor}}{{codiceFascicolo}}-->
+
+<!-- mettere alert giusto -->
+<!-- <app-alert [(visible)]="display" [type]="typ" [content]="content" (action)="callbackMappa($event)" [title]="title"></app-alert> -->
+
+<div class="mapLoader" *ngIf="!hasLoaded"><p><span class="loader"></span>Loading</p></div>
+<div class="error-container text-center" *ngIf="error!=''">
+    <em class="fa fa-exclamation-triangle" aria-hidden="true"></em>
+    {{error}}
+    <div class="text-center mtop20" *ngIf="error!=''">			
+        <button type="button" class="bttn btn btn-primary" (click)="ricarica()" >Ricarica<fa-icon icon="sync-alt"></fa-icon></button>
+    </div>
+</div>
+<div *ngIf="hasEditor && error == ''" [ngClass]="{'hidden': (error=='')}" #editorContainer id="editorContainer">
+    <div #editorDiv id="editorDiv"></div>
+    <div id="toolContainer">
+        <input [disabled]="!hasLoaded" class="bttn btn btn-dark" value="{{'esri.calcolaParticelle'|translate}}" type="button" #calcolaButton />
+        <div class="infoDiv">
+            <input [disabled]="!hasLoaded" class="bttn btn btn-dark" [ngClass]="{'hidden':!hasGraphic}" value="{{'esri.confermaArea'|translate}}" type="button" (click)="addPolygon();" />
+            <input [disabled]="!hasLoaded" class="bttn btn btn-dark" [ngClass]="{'hidden':!hasGraphic}" value="{{'esri.elimina'|translate}}" type="button" #cancellaButton />
+        </div>
+        <div class="infoDiv">
+            <div>{{'esri.forma'|translate}}</div>
+            <button [disabled]="!hasLoaded" class="esri-icon-blank-map-pin bttn btn btn-dark" (click)="draw('point')" type="button"><span class="sr-only">{{'esri.punto'|translate}}</span></button>
+            <button [disabled]="!hasLoaded" class="esri-icon-checkbox-unchecked bttn btn btn-dark" (click)="draw('extent')" type="button"><span class="sr-only">{{'esri.rettangolo'|translate}}</span></button>
+            <button [disabled]="!hasLoaded" class="esri-icon-polygon bttn btn btn-dark" (click)="draw('polygon')" type="button"><span class="sr-only">{{'esri.poligono'|translate}}</span></button>
+        </div>
+        <br/>
+    </div>
+</div>
+<div *ngIf="error == ''" id="baseMapList">
+    <div ngbDropdown placement="bottom-left" class="d-inline-block">
+        <button type="button" class="btn esri-icon-basemap" ngbDropdownToggle></button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button type="button" (click)="changeBaseMap(item, i)" class="btn-trasparent" *ngFor="let item of basemap; let i = index;">
+                <img [src]="item.thumbnail" />
+                {{item.name}}
+            </button>
+        </div>
+    </div>
+</div>
+<div class="closeMap">
+    <button type="button" class="btn esri-icon-close" (click)="close()"></button>
+</div>
+<div class="erroreLayer" placement="right" container="body" ngbTooltip="{{'esri.layerWarning'|translate}}"  *ngIf="errorLayer"><em class="fa fa-exclamation-triangle" aria-hidden="true"></em></div>
+<div *ngIf="error==''" #mapViewNode class="esri-view"></div>

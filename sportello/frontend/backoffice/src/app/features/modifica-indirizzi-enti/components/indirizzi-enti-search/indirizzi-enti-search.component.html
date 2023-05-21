@@ -1,0 +1,27 @@
+<div class="ml-3 mr-3">
+  <form class="text-left" [formGroup]="searchForm">
+    <div class="row">
+      <div class="col-md-6">
+        <app-select-field [label]="'INDIRIZZI_ENTI_FORM.TIPOLOGIA_ENTE' | translate | uppercase"
+         id="tipologia" name="tipologia" [options]="tipologiaEnteList" formControlName="tipologia"> <!-- [pdropdown]="true" -->
+        </app-select-field>
+      </div>
+      <div class="col-md-6">
+        <app-text-field [label]="'INDIRIZZI_ENTI_FORM.DENOMINAZIONE_ENTE' | translate | uppercase" id="denominazione"
+          name="denominazione" formControlName="denominazione"></app-text-field>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-12 text-center mt-3 mb-1">
+        <button type="button" class="bttn btn btn-primary" (click)="onSubmit()">
+          {{'BUTTONS.SEARCH_BUTTON'|translate}}
+          <fa-icon icon="search"></fa-icon>
+        </button>
+        <button type="button" class="bttn btn btn-primary" (click)="onClose()">
+          {{'BUTTONS.CANCEL_BUTTON'|translate}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

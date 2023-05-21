@@ -1,0 +1,104 @@
+<app-rows-number-handler *ngIf="paginator" [itemsTotal]="totalRecords" 
+  [totalRecords]="totalRecords" (change)="emitPagingEvent($event)">
+</app-rows-number-handler>
+<!-- <span>DEST:</span>{{addresses|json}} <br/> 
+<div *ngFor="let row of addresses">
+  {{row|json}}<br/>
+</div> -->
+<div class="tableContainerCustom">
+  <p-table [columns]="tableHeader" [value]="addresses" [responsive]="true" 
+    (onSort)="emitPagingEvent($event)">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header | translate}}
+        </th>
+        <th style="width: 10.5em;" *ngIf="!readonly">
+          <!-- EMPTY -->
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          <div *ngIf="col.field === 'pec';">
+            <ng-container *ngIf="clone && modifyIndex === rowIndex; else notEditablePec">
+              <p-selectButton [options]="pec_mail" [(ngModel)]="clone.pec">
+              </p-selectButton>
+            </ng-container>
+            <ng-template #notEditablePec>
+              {{rowData.pec ? "PEC" : "Email"}}
+            </ng-template>
+          </div>
+          <div *ngIf="col.field === 'tipo' && selectableType === true;">
+            <ng-container *ngIf="cloneTipo && modifyIndex === rowIndex; else readTipo">
+              <p-selectButton [options]="items" [(ngModel)]="cloneTipo"></p-selectButton>
+            </ng-container>
+            <ng-template #readTipo>
+              {{rowData.tipo}}
+            </ng-template>
+          </div>
+          <div *ngIf="col.field !== 'tipo' && col.field !== 'pec'">
+            <ng-container *ngIf="clone && modifyIndex === rowIndex; else notEditable">
+              <input class="form-control" [(ngModel)]="clone[col.field]"
+                [ngClass]="{'is-invalid': !validField(rowData, col.field)}" />
+            </ng-container>
+            <ng-template #notEditable>
+              <div style="word-wrap: break-word;">{{rowData[col.field]}}</div>
+            </ng-template>
+          </div>
+        </td>
+        <td style="text-align: center;" *ngIf="!readonly">
+          <button *ngIf="!cloneTipo && showEditButtons" [disabled]="inEditing" type="button"
+            tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}" (click)="startEditingType(rowData)"
+            class="bttn bttn-table btn btn-primary">
+            <fa-icon icon="pen"></fa-icon>
+          </button>
+          <button *ngIf="cloneTipo && rowIndex === modifyIndex && showEditButtons" type="button" (click)="onRowEditSave(rowData)"
+            tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}" class="bttn bttn-table btn btn-success">
+            <fa-icon icon="check"></fa-icon>
+          </button>
+
+          <button *ngIf="editable && !clone" [disabled]="inEditing || disableEditButton"
+            (click)="startEditingRow(rowData)" tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}"
+            class="bttn bttn-table btn btn-primary">
+            <fa-icon icon="edit"></fa-icon>
+          </button>
+          <button *ngIf="editable && clone && rowIndex === modifyIndex" type="button" (click)="emitEditEvent()" [disabled]="!validRow(clone)"
+            tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}" class="bttn bttn-table btn btn-success">
+            <fa-icon icon="check"></fa-icon>
+          </button>
+          <button *ngIf="editable && clone && rowIndex === modifyIndex" type="button" (click)="cancelEditingRow()"
+            tooltipPosition="top" pTooltip="{{'generic.annulla'|translate}}" class="bttn bttn-table btn btn-danger">
+            <fa-icon icon="times"></fa-icon>
+          </button>
+
+          <button *ngIf="deletable && !clone" [disabled]="inEditing || disableDeleteButton" (click)="emitRemoveEvent(rowData)"
+            tooltipPosition="top" pTooltip="{{'generic.elimina'|translate}}" class="bttn bttn-table btn btn-danger">
+            <fa-icon icon="trash"></fa-icon>
+          </button>
+          <button *ngIf="selectable && !clone" [disabled]="inEditing || disableSelectButton" (click)="emitSelectEvent(rowData)"
+            tooltipPosition="top" pTooltip="{{'generic.aggiungiRiga'|translate}}" class="bttn bttn-table btn btn-success">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="readonly ? columns.length : columns.length + 1">
+          {{'generic.norows'|translate}}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template *ngIf="paginator" pTemplate="footer" let-columns>
+      <tr>
+        <td [attr.colspan]="readonly ? columns.length : columns.length + 1">
+          <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+            [pageSize]="rows" (pageChange)="pageChangedAction($event)" [(page)]="page" aria-label="Default pagination">
+          </ngb-pagination>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

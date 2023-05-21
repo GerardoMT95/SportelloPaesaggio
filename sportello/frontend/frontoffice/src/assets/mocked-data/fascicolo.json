@@ -1,0 +1,2124 @@
+[
+  {
+    "codiceFascicolo": "APPPTR-109-2020",
+    "ente": "1",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "1",
+    "dataCreazione": "2019-12-10T15:45:49.175Z",
+    "attivitaDaEspletare": "Compila Domanda",
+    "schedaTecnica": {
+      "valida": false,
+      "descrizione": {
+        "descrizione": "",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 1,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "2016-11-15T23:00:00.000Z",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [
+            {
+              "value": 2,
+              "label": "DESCRIPTION_TAB.DEMOLITION"
+            },
+            {
+              "value": 3,
+              "label": "DESCRIPTION_TAB.NEW_INSTITUTIONS_IN_THE_URBAN_AREA"
+            }
+          ],
+          "interventiIn": 2
+        },
+        "qualificazioneIntervento1": 1,
+        "qualificazioneIntervent2": [
+          {
+            "value": 2,
+            "label": "DESCRIPTION_TAB.USE"
+          }
+        ],
+        "qualificazioneIntervento3": [
+          {
+            "value": 4,
+            "label": "DESCRIPTION_TAB.B4"
+          }
+        ],
+        "tipologiaDiInterventoDegliArtt3": [
+          {
+            "value": 3,
+            "label": "DESCRIPTION_TAB.B1"
+          }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 2,
+          "approvatoData": "2019-06-04T22:00:00.000Z",
+          "approvatoCon": "",
+          "deliberazioneApprovazione": "",
+          "destinazioneUrbanistica": "",
+          "ulterioriTutele": "",
+          "confermaCoerenza": true,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 1,
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "",
+          "dataIntervento": "2019-05-12T22:00:00.000Z",
+          "dataImposizioneVincolo": "2019-12-18T23:00:00.000Z"
+        },
+        "legittimitaUrbanstica": "",
+        "tipoLegittimitaPaesaggistica": 1
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 2,
+        "tipoStato": [
+          {
+            "value": 2,
+            "label": "BUILDING_PROCEDURES_TAB.URBAN_OPINION_CHECKBOX"
+          }
+        ],
+        "motivazione": "",
+        "pressoData": "2019-08-04T22:00:00.000Z",
+        "espressoData": "2019-12-13T23:00:00.000Z",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 3,
+        "contestoPaesaggInterv": 5,
+        "morfologiaConPaesag": 3
+      },
+      "effetiMitigazione": {
+        "descrizione": "",
+        "effeti": "",
+        "misure": "",
+        "contenutiPercettivi": ""
+      },
+      "eventualiProcedimenti": {
+        "contenzisoAtto": 1,
+        "descrizione": ""
+      },
+      "parreriEAtti": {
+        "parreriInfo": []
+      },
+      "pptr": {
+        "ambitoPaesaggistico": "",
+        "figura": "",
+        "art103": "",
+        "art142": "",
+        "descrizione": "",
+        "ulteririContestiPaesaggistici": []
+      },
+      "vincolistica": {
+        "sottopostoATutela": 1,
+        "specificaVincolo": true,
+        "altriVincolo": ""
+      },
+      "dichiara": {
+        "tipiDichiarazione": 1
+      }
+    },
+    "istanza": {
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "1",
+          "descrizioneAltro": "",
+          "nome": "Cristina",
+          "cognome": "Albero",
+          "codiceFiscale": "",
+          "sesso": "F",
+          "natoIl": "1995-11-16T23:00:00.000Z",
+          "natoStato": "Italia",
+          "natoCitta": "Firenza",
+          "residenteIn": {
+            "stato": "Cittadella Residence",
+            "citta": "Firenza",
+            "via": "G.La Pira",
+            "n": "21",
+            "cap": "50121"
+          },
+          "recapitoTelefonico": "+39 055/310967",
+          "indirizzoEmail": "",
+          "pec": "cmkspa@legalmail.it",
+          "nelCaso": false,
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "3",
+          "numero": "YA1230909",
+          "rilascitoIl": "",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": ""
+        }
+      ],
+      "richiedente": {
+        "nome": "Cristina",
+        "cognome": "Albero",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "F",
+        "natoIl": "1995-11-16T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Firenza",
+        "residenteIn": {
+          "stato": "Cittadella Residence",
+          "citta": "Firenze",
+          "via": "G.La Pira",
+          "n": "21",
+          "cap": "50121"
+        },
+        "recapitoTelefonico": "+39 055/310967",
+        "indirizzoEmail": "albero.cristina@gmail.com",
+        "pec": "cmkspa@legalmail.it",
+        "nelCaso": [],
+        "inQualitaDi": "",
+        "societa": "",
+        "partitaIva": "",
+        "societaCodiceFiscale": "",
+        "tipo": "3",
+        "numero": "YA1230909",
+        "rilascitoIl": "2005-02-13T23:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2022-04-23T22:00:00.000Z"
+      },
+      "dichiarazioni": {
+        "useDiAvereTitolo": true,
+        "diAvereTitolo": {
+          "diAvereTitoloType": "proprietario esclusivo",
+          "imobileInteresato": "S"
+        },
+        "interventaNecesitaArt146": [
+          {
+            "value": 136,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasDescription": false
+          }
+        ],
+        "art136Child": [],
+        "altreOpzioni": [
+          {
+            "value": "102",
+            "label": "che le opere/ interventi in progetto non rientrano nei casi di esclusione previsti ai sensi dell'art 149 del D.Lgs 42/2004",
+            "selectionType": "single"
+          },
+          {
+            "value": "103",
+            "label": "di astenersi dall'avviare i lavori fino a quando non no ha ottenuto la prescritta autorizzazione paesaggistica",
+            "selectionType": "single"
+          },
+          {
+            "value": "104",
+            "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo",
+            "selectionType": "single"
+          },
+          {
+            "value": "105",
+            "label": "di esere a conoscenza...",
+            "selectionType": "single"
+          },
+          {
+            "value": "106",
+            "label": "di esere informato che...",
+            "selectionType": "single"
+          }
+        ]
+      },
+      "localizazione": {
+        "localizazioniInfo": [
+          {
+            "comune": "ALBEROBELLO",
+            "section": "2",
+            "fog": "34",
+            "part": "2",
+            "sub": ""
+          },
+          {
+            "comune": "ALBEROBELLO",
+            "section": "3",
+            "fog": "43",
+            "part": "2",
+            "sub": ""
+          }
+        ],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": "Cristina",
+        "cognome": "Albero",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "F",
+        "natoIl": "",
+        "natoStato": "Italia",
+        "natoCitta": "Firenza",
+        "residenteIn": {
+          "stato": "Cittadella Residence",
+          "citta": "Firenza",
+          "via": "G.La Pira",
+          "n": "21",
+          "cap": "50121"
+        },
+        "conStudioIn": {
+          "stato": "",
+          "citta": "",
+          "via": "",
+          "n": "",
+          "cap": ""
+        },
+        "recapitoTelefonico": "+39 055/310967",
+        "indirizzoEmail": "",
+        "pec": "cmkspa@legalmail.it",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "36 339 7308986",
+        "tipo": "3",
+        "numero": "YA1230909",
+        "rilascitoIl": "",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": ""
+      },
+      "privacyAccettata": true
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-120-2020",
+    "ente": "2",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "2",
+    "dataCreazione": "2019-12-11T10:58:55.089Z",
+    "attivitaDaEspletare": "Compila Domanda",
+    "schedaTecnica": {
+      "valida": false,
+      "descrizione": {
+        "descrizione": "",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 4,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "2019-05-14T22:00:00.000Z",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [{ "value": 5, "label": "DESCRIPTION_TAB.INTERVENTIONS_ON" }],
+          "interventiIn": 1
+        },
+        "qualificazioneIntervento1": 1,
+        "qualificazioneIntervent2": [{ "value": 3, "label": "DESCRIPTION_TAB.COMMUNAL_WORKS" }],
+        "qualificazioneIntervento3": [
+          { "value": 1, "label": "DESCRIPTION_TAB.B1" },
+          { "value": 2, "label": "DESCRIPTION_TAB.B2" },
+          { "value": 3, "label": "DESCRIPTION_TAB.B3" },
+          { "value": 4, "label": "DESCRIPTION_TAB.B4" },
+          { "value": 5, "label": "DESCRIPTION_TAB.B5" },
+          { "value": 6, "label": "DESCRIPTION_TAB.B6" }
+        ],
+        "tipologiaDiInterventoDegliArtt3": [
+          { "value": 7, "label": "DESCRIPTION_TAB.B5" },
+          { "value": 8, "label": "DESCRIPTION_TAB.B6" },
+          { "value": 9, "label": "DESCRIPTION_TAB.B7" }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 1,
+          "approvatoData": "2019-06-09T22:00:00.000Z",
+          "approvatoCon": "",
+          "deliberazioneApprovazione": "",
+          "destinazioneUrbanistica": "",
+          "ulterioriTutele": "",
+          "confermaCoerenza": true,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 1,
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "",
+          "dataIntervento": "2019-02-13T23:00:00.000Z",
+          "dataImposizioneVincolo": "2019-12-24T23:00:00.000Z"
+        },
+        "legittimitaUrbanstica": "",
+        "tipoLegittimitaPaesaggistica": 1
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 1,
+        "tipoStato": [
+          { "value": 1, "label": "BUILDING_PROCEDURES_TAB.BUILDING_PROCEDURE_CHECKBOX" },
+          { "value": 2, "label": "BUILDING_PROCEDURES_TAB.URBAN_OPINION_CHECKBOX" }
+        ],
+        "motivazione": "",
+        "pressoData": "2020-05-19T22:00:00.000Z",
+        "espressoData": "2019-12-07T23:00:00.000Z",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 3,
+        "contestoPaesaggInterv": 3,
+        "morfologiaConPaesag": 2
+      },
+      "effetiMitigazione": {
+        "descrizione": "",
+        "effeti": "",
+        "misure": "",
+        "contenutiPercettivi": ""
+      },
+      "eventualiProcedimenti": { "contenzisoAtto": 2, "descrizione": "" },
+      "parreriEAtti": { "parreriInfo": [] },
+      "pptr": {
+        "ambitoPaesaggistico": "",
+        "figura": "",
+        "art103": true,
+        "art142": true,
+        "descrizione": "",
+        "ulteririContestiPaesaggistici": []
+      },
+      "vincolistica": { "sottopostoATutela": 2, "specificaVincolo": true, "altriVincolo": "" },
+      "dichiara": { "tipiDichiarazione": 1 }
+    },
+    "istanza": {
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "2",
+          "descrizioneAltro": "",
+          "nome": "Francesco",
+          "cognome": "Totti",
+          "codiceFiscale": "LBRCST80A41D508B",
+          "sesso": "M",
+          "natoIl": "",
+          "natoStato": "Italia",
+          "natoCitta": "Roma",
+          "residenteIn": {
+            "stato": "Italia",
+            "citta": "Roma",
+            "via": "Cavour",
+            "n": "47",
+            "cap": "00184"
+          },
+          "recapitoTelefonico": "+39 06 4891 3468",
+          "indirizzoEmail": "",
+          "pec": "",
+          "nelCaso": true,
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "3",
+          "numero": "Y601020",
+          "rilascitoIl": "",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": ""
+        }
+      ],
+      "richiedente": {
+        "nome": "Francesco",
+        "cognome": "Totti",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1976-09-26T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Roma",
+        "residenteIn": {
+          "stato": "Roman Residence",
+          "citta": "Rome",
+          "via": "Cavour ",
+          "n": "47",
+          "cap": "00184"
+        },
+        "recapitoTelefonico": "+39 06 4891 3468",
+        "indirizzoEmail": "romanresidenceinn@gmail.com",
+        "pec": "",
+        "nelCaso": "",
+        "inQualitaDi": "",
+        "societa": "",
+        "partitaIva": "",
+        "societaCodiceFiscale": "",
+        "tipo": "3",
+        "numero": "Y601020",
+        "rilascitoIl": "",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": ""
+      },
+      "dichiarazioni": {
+        "useDiAvereTitolo": true,
+        "diAvereTitolo": {
+          "diAvereTitoloType": "comproprietario",
+          "imobileInteresato": "N"
+        },
+        "interventaNecesitaArt146": [
+          {
+            "value": 142,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasChildren": true,
+            "childName": "art136Child:",
+            "childValues": [
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              }
+            ],
+            "childOptions": [
+              {
+                "value": "bp-territori-costiri",
+                "label": "BP-TERRITORI-COSTIRI di cui all'art. 38.2.2. a delle NTA del PPTR lett a) iterritori costieri compresi in una fascia della profondi di 300 metri dalla linea di battigia, anche per i territori elevanti sui mare;",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              }
+            ]
+          }
+        ],
+        "art136Child": [],
+        "altreOpzioni": [
+          {
+            "value": "112",
+            "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo*",
+            "selectionType": "single"
+          },
+          {
+            "value": "105",
+            "label": "di astenersi dall'avviare i lavori fino a quando non ha ottenuto la prescritta autorizzazione paesaggistica*",
+            "selectionType": "single"
+          },
+          {
+            "value": "111",
+            "label": "sulla conformita agli strumenti urbanistici adottati o approvati ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di riferimento vigenti*",
+            "selectionType": "single"
+          },
+          {
+            "value": "110",
+            "label": "di essere informato che l'autotizzazione paesaggistica non e atto che legittima l'escuzione dei lavori*",
+            "selectionType": "single"
+          }
+        ],
+        "useNelCasoDichiara": "false",
+        "nelCasoDichiara": { "numero": "", "da": "", "inData": "" }
+      },
+      "localizazione": {
+        "localizazioniInfo": [
+          { "comune": "ALBEROBELLO", "section": "2", "fog": "34", "part": "2", "sub": "" }
+        ],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": "Fancesco",
+        "cognome": "Totti",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "",
+        "natoStato": "Cavour ",
+        "natoCitta": "Roma",
+        "residenteIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "conStudioIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "recapitoTelefonico": "",
+        "indirizzoEmail": "",
+        "pec": "",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "",
+        "tipo": "3",
+        "numero": "Y601020",
+        "rilascitoIl": "",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": ""
+      },
+      "privacyAccettata": true
+    },
+    "allegati": {
+      "valida": false,
+      "documentazioneAmministrativa": {
+        "grigliaPagamentoAllegati": [
+          { "descrizione": "Ricevuta di pagamento oneri istruttori", "nome": "", "data": null }
+        ],
+        "descrizione": "5",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 2,
+            "descrizione": "Eventuali titoli edilizi già rilasciati",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 3,
+            "descrizione": "Eventuali provvedimenti paesaggistici già rilasciati",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 4,
+            "descrizione": "Eventuali atti di assenso già acquisiti",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 5,
+            "descrizione": "Atti relativi a eventuali procedimenti di contenzioso in atto",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 6,
+            "descrizione": "Eventuali pareri di natura paesaggistica ambientale",
+            "nome": "",
+            "data": null
+          }
+        ]
+      },
+      "documentazioneTecnica": {
+        "descrizione": "6",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)",
+            "nome": "",
+            "data": null
+          },
+          { "id": 2, "descrizione": "STRALCI ED ESTRATTI PPTR", "nome": "", "data": null },
+          {
+            "id": 3,
+            "descrizione": "DOCUMENTAZIONE FOTOGRAFICA DELLO STATO ATTUALE DELLO STATO ATTUALE",
+            "nome": "",
+            "data": null
+          },
+          { "id": 4, "descrizione": "ELABORATI GRAFICI STATO DI FATTO", "nome": "", "data": null },
+          { "id": 5, "descrizione": "ELABORATI GRAFICI DI PROGETTO", "nome": "", "data": null },
+          { "id": 6, "descrizione": "SIMULAZIONI", "nome": "", "data": null }
+        ]
+      }
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-122-2020",
+    "ente": "1",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "3",
+    "dataCreazione": "2019-12-11T13:42:54.318Z",
+    "attivitaDaEspletare": "Compila Domanda",
+    "schedaTecnica": {
+      "valida": false,
+      "descrizione": {
+        "descrizione": "",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 2,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "2018-10-14T22:00:00.000Z",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [
+            { "value": 7, "label": "DESCRIPTION_TAB.INTERVENTIONS_ON_INDUSTRIAL" }
+          ],
+          "interventiIn": 2
+        },
+        "qualificazioneIntervento1": 2,
+        "qualificazioneIntervent2": [
+          { "value": 1, "label": "DESCRIPTION_TAB.WORKS" },
+          { "value": 2, "label": "DESCRIPTION_TAB.USE" },
+          { "value": 3, "label": "DESCRIPTION_TAB.COMMUNAL_WORKS" }
+        ],
+        "qualificazioneIntervento3": [
+          { "value": 39, "label": "DESCRIPTION_TAB.B39" },
+          { "value": 40, "label": "DESCRIPTION_TAB.B40" },
+          { "value": 41, "label": "DESCRIPTION_TAB.B41" },
+          { "value": 42, "label": "DESCRIPTION_TAB.B42" }
+        ],
+        "tipologiaDiInterventoDegliArtt3": [
+          { "value": 4, "label": "DESCRIPTION_TAB.B2" },
+          { "value": 3, "label": "DESCRIPTION_TAB.B1" },
+          { "value": 1, "label": "DESCRIPTION_TAB.APPLICATIOM_FOR_RENEWAL" },
+          { "value": 2, "label": "DESCRIPTION_TAB.THE_WORKS_ARE_AMONG" }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 2,
+          "approvatoData": "2019-01-07T23:00:00.000Z",
+          "approvatoCon": "",
+          "deliberazioneApprovazione": "",
+          "destinazioneUrbanistica": "",
+          "ulterioriTutele": "",
+          "confermaCoerenza": true,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 2,
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "",
+          "dataIntervento": "2018-04-09T22:00:00.000Z",
+          "dataImposizioneVincolo": "2021-03-10T23:00:00.000Z"
+        },
+        "legittimitaUrbanstica": "",
+        "tipoLegittimitaPaesaggistica": 1
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 2,
+        "tipoStato": [
+          { "value": 1, "label": "BUILDING_PROCEDURES_TAB.BUILDING_PROCEDURE_CHECKBOX" },
+          { "value": 2, "label": "BUILDING_PROCEDURES_TAB.URBAN_OPINION_CHECKBOX" }
+        ],
+        "motivazione": "",
+        "pressoData": "2021-05-05T22:00:00.000Z",
+        "espressoData": "2018-04-22T22:00:00.000Z",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 3,
+        "contestoPaesaggInterv": 2,
+        "morfologiaConPaesag": 4
+      },
+      "effetiMitigazione": {
+        "descrizione": "",
+        "effeti": "",
+        "misure": "",
+        "contenutiPercettivi": ""
+      },
+      "eventualiProcedimenti": { "contenzisoAtto": 1, "descrizione": "" },
+      "parreriEAtti": { "parreriInfo": [] },
+      "pptr": {
+        "ambitoPaesaggistico": "",
+        "figura": "",
+        "art103": true,
+        "art142": true,
+        "descrizione": "",
+        "ulteririContestiPaesaggistici": []
+      },
+      "vincolistica": { "sottopostoATutela": 2, "specificaVincolo": true, "altriVincolo": "" },
+      "dichiara": { "tipiDichiarazione": 1 }
+    },
+    "istanza": {
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "",
+          "descrizioneAltro": "",
+          "nome": " Bonucci",
+          "cognome": "Leonardo",
+          "codiceFiscale": "LBRCST80A41D508B",
+          "sesso": "M",
+          "natoIl": "",
+          "natoStato": "Italia",
+          "natoCitta": "Viterbo",
+          "residenteIn": {
+            "stato": "Italia",
+            "citta": "Roma",
+            "via": "G.La Pira",
+            "n": "21",
+            "cap": ""
+          },
+          "recapitoTelefonico": "",
+          "indirizzoEmail": "",
+          "pec": "",
+          "nelCaso": "",
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "",
+          "numero": "JBY0989238",
+          "rilascitoIl": "",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": ""
+        },
+        {
+          "titolaritaInQualitaDi": "1",
+          "descrizioneAltro": "",
+          "nome": " Bonucci",
+          "cognome": "Leonardo",
+          "codiceFiscale": "LBRCST80A41D508B",
+          "sesso": "M",
+          "natoIl": "",
+          "natoStato": "Italia",
+          "natoCitta": "Roma",
+          "residenteIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+          "recapitoTelefonico": "",
+          "indirizzoEmail": "",
+          "pec": "",
+          "nelCaso": "",
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "1",
+          "numero": "JBY0989238",
+          "rilascitoIl": "",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": ""
+        }
+      ],
+      "richiedente": {
+        "nome": " Bonucci",
+        "cognome": "Leonardo",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1987-04-30T22:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Viterbo",
+        "residenteIn": {
+          "stato": "Cittadella Residence",
+          "citta": "Roma",
+          "via": "G.La Pira",
+          "n": "21",
+          "cap": "50121"
+        },
+        "recapitoTelefonico": "+39 055/310967",
+        "indirizzoEmail": "albero.cristina@gmail.com",
+        "pec": "cmkspa@legalmail.it",
+        "nelCaso": [null],
+        "inQualitaDi": "",
+        "societa": "",
+        "partitaIva": "",
+        "societaCodiceFiscale": "",
+        "tipo": "1",
+        "numero": "JBY0989238",
+        "rilascitoIl": "2018-05-13T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2021-05-11T22:00:00.000Z"
+      },
+      "dichiarazioni": {
+        "useDiAvereTitolo": true,
+        "diAvereTitolo": { "diAvereTitoloType": "comproprietario", "imobileInteresato": "" },
+        "interventaNecesitaArt146": [
+          {
+            "value": 136,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasDescription": false
+          },
+          {
+            "value": 142,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasChildren": true,
+            "childName": "art136Child:",
+            "childValues": [
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-territori-costiri",
+                "label": "BP-TERRITORI-COSTIRI di cui all'art. 38.2.2. a delle NTA del PPTR lett a) iterritori costieri compresi in una fascia della profondi di 300 metri dalla linea di battigia, anche per i territori elevanti sui mare;",
+                "hasDescription": false
+              }
+            ],
+            "childOptions": [
+              {
+                "value": "bp-territori-costiri",
+                "label": "BP-TERRITORI-COSTIRI di cui all'art. 38.2.2. a delle NTA del PPTR lett a) iterritori costieri compresi in una fascia della profondi di 300 metri dalla linea di battigia, anche per i territori elevanti sui mare;",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              }
+            ]
+          },
+          {
+            "value": 134,
+            "label": "dell'art. 134, c.1,lett c) del d.lgs. n. 42/2004",
+            "hasDescription": false
+          }
+        ],
+        "art136Child": [],
+        "altreOpzioni": [
+          {
+            "value": "104",
+            "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo",
+            "selectionType": "single"
+          },
+          {
+            "value": "107",
+            "label": "di esere a informato che l'autorizzazione paesaggistica non e atto che legittimita l'esecuzione dei lavori",
+            "selectionType": "single"
+          },
+          {
+            "value": "106",
+            "label": "di esere informato che l'autorizzazione paesaggistica ha valore esclusivamente per la valutazione ai fini della tutela paesaggistica e non sulla ceagli strumenti urbanistici adottati o approvarti, ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di referimento vigenti;",
+            "selectionType": "single"
+          }
+        ]
+      },
+      "localizazione": {
+        "localizazioniInfo": [
+          { "comune": "ALBEROBELLO", "section": "2", "fog": "43", "part": "2", "sub": "15" }
+        ],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": " Bonucci",
+        "cognome": "Leonardo",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "",
+        "natoStato": "G.La Pira",
+        "natoCitta": "Roma",
+        "residenteIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "conStudioIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "recapitoTelefonico": "",
+        "indirizzoEmail": "",
+        "pec": "",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "",
+        "tipo": "1",
+        "numero": "JBY0989238",
+        "rilascitoIl": "",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": ""
+      },
+      "privacyAccettata": true
+    },
+    "allegati": {
+      "valida": false,
+      "documentazioneAmministrativa": {
+        "grigliaPagamentoAllegati": [
+          { "descrizione": "Ricevuta di pagamento oneri istruttori", "nome": "", "data": null }
+        ],
+        "descrizione": "1",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "Attestazione conformità a prescrizioni urb/edil rilasciate da Comune- Asseverazioni art 23 DPR 380/01",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 2,
+            "descrizione": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 3,
+            "descrizione": "Eventuali titoli edilizi già rilasciati",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 4,
+            "descrizione": "Eventuali provvedimenti paesaggistici già rilasciati",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 5,
+            "descrizione": "Eventuali atti di assenso già acquisiti",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 6,
+            "descrizione": "Atti relativi a eventuali procedimenti di contenzioso in atto",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 7,
+            "descrizione": "Eventuali pareri di natura paesaggistica ambientale",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 8,
+            "descrizione": "Parere di conformità edilizia-urbanistica, se già acquisito",
+            "nome": "",
+            "data": null
+          }
+        ]
+      },
+      "documentazioneTecnica": {
+        "descrizione": "3",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)",
+            "nome": "",
+            "data": null
+          },
+          { "id": 2, "descrizione": "STRALCI ED ESTRATTI PPTR", "nome": "", "data": null },
+          { "id": 3, "descrizione": "DOCUMENTAZIONE FOTOGRAFICA", "nome": "", "data": null },
+          {
+            "id": 4,
+            "descrizione": "ELABORATI GRAFICI STATO DI FATTO PRECEDENTE ALL' ESECUZIONE DEGLI INTERVENTI OGGETTO DI ACCERTAMENTO",
+            "nome": "",
+            "data": null
+          },
+          {
+            "id": 5,
+            "descrizione": "ELABORATI GRAFICI STATO DI FATTO SUCCESSIVO ALL' ESECUZIONE DEGLI INTERVENTI OGGETTO DI ACCERTAMENTO",
+            "nome": "",
+            "data": null
+          },
+          { "id": 6, "descrizione": "SIMULAZIONI", "nome": "", "data": null },
+          {
+            "id": 7,
+            "descrizione": "DIMOSTRAZIONE AMMISSIBILITA' AD ACCETAMENTO DI COMPATIBILITA' PAESAGGISTICA",
+            "nome": "",
+            "data": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-209-2020",
+    "ente": "2",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "4",
+    "dataCreazione": "2019-12-11T14:17:12.650Z",
+    "attivitaDaEspletare": "Compila Domanda",
+    "schedaTecnica": {
+      "valida": false,
+      "descrizione": {
+        "descrizione": "",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 2,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "2020-05-14T22:00:00.000Z",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [{ "value": 12, "label": "DESCRIPTION_TAB.LAND_IMPROVEMENTS" }],
+          "interventiIn": 1
+        },
+        "qualificazioneIntervento1": 3,
+        "qualificazioneIntervent2": [
+          { "value": 1, "label": "DESCRIPTION_TAB.WORKS" },
+          { "value": 2, "label": "DESCRIPTION_TAB.USE" }
+        ],
+        "qualificazioneIntervento3": [
+          { "value": 1, "label": "DESCRIPTION_TAB.B1" },
+          { "value": 2, "label": "DESCRIPTION_TAB.B2" },
+          { "value": 3, "label": "DESCRIPTION_TAB.B3" },
+          { "value": 4, "label": "DESCRIPTION_TAB.B4" },
+          { "value": 5, "label": "DESCRIPTION_TAB.B5" }
+        ],
+        "tipologiaDiInterventoDegliArtt3": [
+          { "value": 6, "label": "DESCRIPTION_TAB.B4" },
+          { "value": 7, "label": "DESCRIPTION_TAB.B5" },
+          { "value": 9, "label": "DESCRIPTION_TAB.B7" },
+          { "value": 10, "label": "DESCRIPTION_TAB.B8" },
+          { "value": 11, "label": "DESCRIPTION_TAB.B9" },
+          { "value": 12, "label": "DESCRIPTION_TAB.B10" }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 2,
+          "approvatoData": "2019-05-05T22:00:00.000Z",
+          "approvatoCon": "",
+          "deliberazioneApprovazione": "",
+          "destinazioneUrbanistica": "",
+          "ulterioriTutele": "",
+          "confermaCoerenza": true,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 1,
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "vincoli olonomi integrabili",
+          "dataIntervento": "2018-05-06T22:00:00.000Z",
+          "dataImposizioneVincolo": ""
+        },
+        "legittimitaUrbanstica": "",
+        "tipoLegittimitaPaesaggistica": 1
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 2,
+        "tipoStato": [
+          { "value": 2, "label": "BUILDING_PROCEDURES_TAB.URBAN_OPINION_CHECKBOX" },
+          { "value": 1, "label": "BUILDING_PROCEDURES_TAB.BUILDING_PROCEDURE_CHECKBOX" }
+        ],
+        "motivazione": "",
+        "pressoData": "2020-12-08T23:00:00.000Z",
+        "espressoData": "2018-11-11T23:00:00.000Z",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 1,
+        "contestoPaesaggInterv": 7,
+        "morfologiaConPaesag": 4
+      },
+      "effetiMitigazione": {
+        "descrizione": "",
+        "effeti": "",
+        "misure": "",
+        "contenutiPercettivi": ""
+      },
+      "eventualiProcedimenti": { "contenzisoAtto": 1, "descrizione": "" },
+      "parreriEAtti": { "parreriInfo": [] },
+      "pptr": {
+        "ambitoPaesaggistico": "",
+        "figura": "",
+        "art103": true,
+        "art142": true,
+        "descrizione": "",
+        "ulteririContestiPaesaggistici": []
+      },
+      "vincolistica": { "sottopostoATutela": 2, "specificaVincolo": false, "altriVincolo": "" },
+      "dichiara": { "tipiDichiarazione": 1 }
+    },
+    "istanza": {
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "2",
+          "descrizioneAltro": "",
+          "nome": "Giorgio ",
+          "cognome": "Chiellini",
+          "codiceFiscale": "LBRCST80A41D508B",
+          "sesso": "M",
+          "natoIl": "",
+          "natoStato": "Italia",
+          "natoCitta": "Pisa",
+          "residenteIn": {
+            "stato": "Italia",
+            "citta": "Roma",
+            "via": "G.La Pira",
+            "n": "21",
+            "cap": "50121"
+          },
+          "recapitoTelefonico": "+39 055/310967",
+          "indirizzoEmail": "",
+          "pec": "",
+          "nelCaso": true,
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "1",
+          "numero": "YA1230909",
+          "rilascitoIl": "",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": ""
+        }
+      ],
+      "richiedente": {
+        "nome": "Giorgio ",
+        "cognome": "Chiellini",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "2019-12-13T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Pisa",
+        "residenteIn": {
+          "stato": "Cittadella Residence",
+          "citta": "Roma",
+          "via": "G.La Pira",
+          "n": "21",
+          "cap": "50121"
+        },
+        "recapitoTelefonico": "+39 055/310967",
+        "indirizzoEmail": "",
+        "pec": "cmkspa@legalmail.it",
+        "nelCaso": [null],
+        "inQualitaDi": "",
+        "societa": "",
+        "partitaIva": "",
+        "societaCodiceFiscale": "",
+        "tipo": "1",
+        "numero": "YA1230909",
+        "rilascitoIl": "2019-07-16T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2020-09-17T22:00:00.000Z"
+      },
+      "localizazione": {
+        "localizazioniInfo": [
+          { "comune": "ALBEROBELLO", "section": "7", "fog": "57", "part": "5", "sub": "11" }
+        ],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": "Giorgio ",
+        "cognome": "Chiellini",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "",
+        "natoStato": "G.La Pira",
+        "natoCitta": "Roma",
+        "residenteIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "conStudioIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+        "recapitoTelefonico": "",
+        "indirizzoEmail": "",
+        "pec": "",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "",
+        "tipo": "1",
+        "numero": "YA1230909",
+        "rilascitoIl": "",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": ""
+      },
+      "privacyAccettata": true
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-319-2020",
+    "ente": 1,
+    "oggeto": "Validation test",
+    "tipoProcedimento": "1",
+    "attivitaDaEspletare": "Compila Domanda",
+    "istanza": {
+      "richiedente": {
+        "cognome": "Brankovic",
+        "nome": "Katarina"
+      },
+      "valida": true
+    },
+    "schedaTecnica": {
+      "valida": true
+    },
+    "allegati": {
+      "valida": true
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-389-2020",
+    "ente": 1,
+    "oggeto": "Validation test 1",
+    "tipoProcedimento": "1",
+    "attivitaDaEspletare": "Compila Domanda",
+    "istanza": {
+      "richiedente": {
+        "cognome": "Brankovic",
+        "nome": "Katarina"
+      },
+      "valida": true
+    },
+    "schedaTecnica": {
+      "valida": true
+    },
+    "allegati": {
+      "valida": true
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-111-2020",
+    "ente": "2",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "2",
+    "dataCreazione": "2019-12-13T13:28:47.187Z",
+    "attivitaDaEspletare": "Compila Domanda",
+    "schedaTecnica": {
+      "valida": true,
+      "descrizione": {
+        "descrizione": "La presente relazione tecnica costituisce parte integrante del Progetto per l’intervento dimanutenzione straordinaria per i lavori di ripristino strutturale del calcestruzzo ammalorato dei portici dei loculi al cimitero comunale.\n",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 2,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [
+            { "value": 3, "label": "DESCRIPTION_TAB.NEW_INSTITUTIONS_IN_THE_URBAN_AREA" }
+          ],
+          "interventiIn": 2
+        },
+        "qualificazioneIntervento1": "",
+        "qualificazioneIntervent2": [],
+        "qualificazioneIntervento3": [],
+        "tipologiaDiInterventoDegliArtt3": [
+          { "value": 7, "label": "DESCRIPTION_TAB.B5" },
+          { "value": 10, "label": "DESCRIPTION_TAB.B8" },
+          { "value": 11, "label": "DESCRIPTION_TAB.B9" },
+          { "value": 12, "label": "DESCRIPTION_TAB.B10" },
+          { "value": 13, "label": "DESCRIPTION_TAB.B11" },
+          { "value": 15, "label": "DESCRIPTION_TAB.B13" },
+          { "value": 14, "label": "DESCRIPTION_TAB.B12" },
+          { "value": 23, "label": "DESCRIPTION_TAB.B21" },
+          { "value": 24, "label": "DESCRIPTION_TAB.B22" }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 2,
+          "approvatoData": "2019-08-11T22:00:00.000Z",
+          "approvatoCon": "A sostegno delle attività istituzionali degli Enti Locali, dell’attività dei professionisti e delle esigenze di conoscenza e trasparenza dei cittadini pugliesi, i diversi settori regionali che a vario titolo intervengono nel governo del territorio, ciascuno per gli ambiti e gli aspetti di specifica competenza, promuovono la diffusione di una base di conoscenza condivisa e certificata del territorio e delle sue dinamiche di trasformazione, indispensabile per garantire percorsi decisionali semplici ed efficaci, costruita in maniera integrata, gestita e resa disponibile attraverso un Sistema Informativo che è nel contempo portale di accesso sia alla banca dati territoriale e ai suoi continui aggiornamenti che ai servizi a carattere territoriale, assicurando la rappresentazione in modo unitario, coerente e cogente delle scelte di valenza territoriale connesse alla competenza di ciascun Servizio regionale.",
+          "destinazioneUrbanistica": "E’ noto che talune previsioni di leggi regionali (v. ad es. l’art. 65 della legge della Regione\nCalabria n. 19/2002) stabiliscono che per determinati Comuni che hanno avviato la procedura di\nredazione del Piano Strutturale (1), le previsioni del Piano Regolatore Generale vigente rimangono\nin vigore fino all'adozione del nuovo Piano. Al contrario per i Comuni dotati di PRG che non hanno\navviato la procedura di redazione del Piano Strutturale può talora essere prevista la decadenza da\ntutte le previsioni di detto strumento (cioè del PRG) riguardanti - tra l’altro - le aree esterne al\nperimetro dei suoli urbanizzati (tipicamente quelli rientranti nelle aree aventi destinazione di zona\n“A” e “B” negli strumenti urbanistici vigenti oppure rientranti nelle zone “C” individuate dai\nmedesimi strumenti per le quali siano stati per ipotesi approvati piani di lottizzazioni).",
+          "ulterioriTutele": "Il richiedente, consapevole delle pene stabilite per false attestazioni e mendaci dichiarazioni ai sensi dell’articolo 76 del d.P.R. 28\ndicembre 2000, n. 445 e degli artt. 483,495 e 496 del Codice Penale e che inoltre, qualora dal controllo effettuato emerga la non\nveridicità del contenuto della dichiarazione resa, decadrà dai benefici conseguenti al provvedimento conseguito sulla base della\ndichiarazione non veritiera ai sensi dell’articolo 75 del d.P.R. n. 445/2000, sotto la propria responsabilità \n",
+          "confermaCoerenza": true,
+          "strumentoInAdozione": 2,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 1,
+        "legittimitaUrbanstica": "La presenza di vincoli si traduce in relazioni funzionali tra le coordinate generalizzate, le quali non devono essere necessariamente le coordinate cartesiane, che generano lo spazio delle configurazioni, all'interno del quale è descritto il moto del sistema.",
+        "legittimitaInfo": [],
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "La presenza di vincoli si traduce in relazioni funzionali tra le coordinate generalizzate, le quali non devono essere necessariamente le coordinate cartesiane, che generano lo spazio delle configurazioni, all'interno del quale è descritto il moto del sistema",
+          "dataIntervento": "2018-11-11T23:00:00.000Z",
+          "dataImposizioneVincolo": "2037-01-29T23:00:00.000Z"
+        },
+        "tipoLegittimitaPaesaggistica": 1,
+        "legitimitaInfo": []
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 1,
+        "tipoStato": [],
+        "motivazione": [],
+        "pressoData": "",
+        "espressoData": "",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 2,
+        "contestoPaesaggInterv": 7,
+        "morfologiaConPaesag": 3,
+        "destinazioneUsoSpecifica": [],
+        "contestoPaesaggIntervSpecifica": [],
+        "morfologiaConPaesagSpecifica": []
+      },
+      "effetiMitigazione": {
+        "descrizione": "<p>Realizzazione muro di sostegno in area di pertinenza di edificio residenziale esistente (tipologia B21 allegato B DPR 13.2.2017 n.31) e ampliamento edificio residenziale esistente (tipologia B17 allegato B DPR 13.2.2017 n.31)</p>",
+        "effeti": "<p>AMPLIAMENTO LABORATORIO ARTIGIANALE , IN SAN VENANZO CAPOLUOGO VIA IV NOVEMBRE , ai sensi dell'Art 8 del D.P.R . 160 del 2010 (SUAP) . Variante alla S.C.I.A. prat. n. 180/2012 del 12-12-2012</p>",
+        "misure": "<p>Gli elementi per la valutazione di compatibilità paesaggistica si basano su una simulazione dettagliata dello stato dei luoghi a seguito della realizzazione del progetto, resa mediante una fotomodellazione realistica (rendering computerizzato o manuale del progetto e sovrapposizione alle foto dello stato di fatto), comprendente un adeguato intorno dell'area di intervento, desunto dal rapporto di intervisibilità esistente (punti di osservazione precisati al punto III ), per consentire la valutazione di compatibilità e adeguatezza delle soluzioni nei riguardi del contesto paesaggistico.&nbsp;</p>",
+        "contenutiPercettivi": "<p>La percezione ha inizio con la codifica, da parte di specifici canali sensoriali, dell’informazione disponibile nelle variazioni dell’energia contenuta in uno stimolo informativo. I processi percettivi, tuttavia, non si esauriscono nella codifica iniziale dell’informazione che giunge ai recettori. Quando percepiamo la nostra mente attua una vera e propria forma di interpretazione degli stimoli ambientali in ingresso, attiva, sofisticata e dinamica nella misura in cui si giova di una continua esplorazione dell’ambiente.</p>"
+      },
+      "eventualiProcedimenti": { "contenzisoAtto": 1, "descrizione": [] },
+      "parreriEAtti": {
+        "parreriInfo": [
+          {
+            "tipologia": "8",
+            "rilasciatoDa": "MINISTRO AFFARI ESTERI",
+            "noProtocollo": "15",
+            "dataRilascio": "2019-12-09T23:00:00.000Z",
+            "intestinario": "Giorgio Cheillini"
+          }
+        ]
+      },
+      "pptr": {
+        "ambitoPaesaggistico": "6",
+        "figura": "23",
+        "art103": true,
+        "art142": true,
+        "descrizione": "Con DCC n.43 del 07.09.2017 il Comune di San Severo ha adottato la proposta di Adeguamento al\nPPTR, dando così avvio al procedimento di adeguamento come previsto dall'art. 97 co. 3 delle NTA del\nPPTR.",
+        "ulteririContestiPaesaggistici": [
+          {
+            "value": "12",
+            "label": "UCP - Sorgenti (25m",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 42 - 2)",
+            "provisions": "Misure    di    salvaguardia  e utilizzazione",
+            "art1": "art. 48"
+          },
+          {
+            "value": "15",
+            "label": "BP - Zone umide Ramscar Specificare: (*)",
+            "art": "art. 142, co. 1, lett. i)",
+            "definition": "art. 58 - 2)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 64"
+          },
+          {
+            "value": "24",
+            "label": "BP - Zone gravate da usi civici",
+            "art": "art. 142, co. 1, lett. h)",
+            "definition": "art. 75 - 2)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          },
+          {
+            "value": "32",
+            "label": "UCP - Strade a valenza paesaggistica",
+            "art": "art. 143,co.1, lett. e)",
+            "definition": "art. 85 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazionei",
+            "art1": "art. 88"
+          },
+          {
+            "value": "2",
+            "label": "USP - Lame e gravine",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 54"
+          }
+        ]
+      },
+      "vincolistica": {
+        "sottopostoATutela": 2,
+        "specificaVincolo": [
+          { "value": 1, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" },
+          { "value": 2, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" },
+          { "value": 3, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" }
+        ],
+        "altriVincolo": " Nel campo Data vincolo viene visualizzata la data specifica associata a determinati tipi di vincolo, quali Deve iniziare il, Deve finire il, Iniziare non prima del, Iniziare non oltre il, Finire non prima del e Finire non oltre il."
+      },
+      "dichiara": { "tipiDichiarazione": 1 }
+    },
+    "istanza": {
+      "valida": false,
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "",
+          "descrizioneAltro": "",
+          "nome": "",
+          "cognome": "",
+          "codiceFiscale": "",
+          "sesso": "",
+          "natoIl": "",
+          "natoStato": "",
+          "natoCitta": "",
+          "residenteIn": { "stato": "", "citta": "", "via": "", "n": "", "cap": "" },
+          "recapitoTelefonico": "",
+          "indirizzoEmail": "",
+          "pec": "",
+          "nelCaso": "",
+          "inQualitaDi": "",
+          "societa": "",
+          "partitaIva": "",
+          "societaCodiceFiscale": "",
+          "tipo": "",
+          "numero": "",
+          "rilascitoIl": "",
+          "rilascitoDa": "",
+          "dataScadenza": ""
+        }
+      ],
+      "richiedente": {
+        "nome": "Daniele",
+        "cognome": "Padelli",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1985-10-24T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Lecco",
+        "residenteIn": {
+          "stato": "Hotel Romana Residence",
+          "citta": "Milano",
+          "via": "Corso di Porta Romana ",
+          "n": "64",
+          "cap": "20122"
+        },
+        "recapitoTelefonico": "+39 0258 3421",
+        "indirizzoEmail": "padelli.daniele@gmail.com",
+        "pec": "romana@residence.it.com",
+        "nelCaso": [null],
+        "inQualitaDi": "Personale",
+        "societa": "Engineering Software Lab",
+        "partitaIva": "10154566564",
+        "societaCodiceFiscale": "CBR19018093KLFDZ",
+        "tipo": "3",
+        "numero": "Y6878OKDJSHK",
+        "rilascitoIl": "2000-07-17T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2026-02-27T23:00:00.000Z"
+      },
+      "dichiarazioni": {
+        "useDiAvereTitolo": true,
+        "diAvereTitolo": {
+          "diAvereTitoloType": "locatario",
+          "imobileInteresato": "S"
+        },
+        "interventaNecesitaArt146": [
+          {
+            "value": 142,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasChildren": true,
+            "childName": "art136Child:",
+            "childValues": [],
+            "childOptions": [
+              {
+                "value": "bp-territori-costiri",
+                "label": "BP-TERRITORI-COSTIRI di cui all'art. 38.2.2. a delle NTA del PPTR lett a) iterritori costieri compresi in una fascia della profondi di 300 metri dalla linea di battigia, anche per i territori elevanti sui mare;",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              }
+            ]
+          },
+          {
+            "value": 136,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasDescription": false
+          },
+          {
+            "value": 134,
+            "label": "dell'art. 134, c.1,lett c) del d.lgs. n. 42/2004",
+            "hasDescription": false
+          }
+        ],
+        "art136Child": [],
+        "altreOpzioni": [
+          {
+            "value": "112",
+            "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo*",
+            "selectionType": "single"
+          },
+          {
+            "value": "105",
+            "label": "di astenersi dall'avviare i lavori fino a quando non ha ottenuto la prescritta autorizzazione paesaggistica*",
+            "selectionType": "single"
+          },
+          {
+            "value": "111",
+            "label": "sulla conformita agli strumenti urbanistici adottati o approvati ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di riferimento vigenti*",
+            "selectionType": "single"
+          }
+        ],
+        "useNelCasoDichiara": false
+      },
+      "localizazione": {
+        "localizazioniInfo": [
+          { "comune": "ALBEROBELLO", "section": "2", "fog": "34", "part": "2", "sub": "12" }
+        ],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": "Daniele",
+        "cognome": "Padelli",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1985-10-24T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Lecco",
+        "residenteIn": {
+          "stato": "Hotel Romana Residence",
+          "citta": "Milano",
+          "via": "Corso di Porta Romana ",
+          "n": "64",
+          "cap": "20122"
+        },
+        "conStudioIn": {
+          "stato": "Corso Sempione",
+          "citta": "Milano",
+          "via": " Isaac Newton",
+          "n": "43",
+          "cap": "20122"
+        },
+        "recapitoTelefonico": "",
+        "pec": "romana@residence.it.com",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "",
+        "tipo": "3",
+        "numero": "Y6878OKDJSHK",
+        "rilascitoIl": "2000-07-17T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2026-02-27T23:00:00.000Z"
+      },
+      "privacyAccettata": true
+    },
+    "allegati": {
+      "valida": true,
+      "documentazioneAmministrativa": {
+        "grigliaPagamentoAllegati": [
+          {
+            "descrizione": "Ricevuta di pagamento oneri istruttori",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:10 PM"
+          }
+        ],
+        "descrizione": "3",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:15 PM"
+          },
+          {
+            "id": 2,
+            "descrizione": "Eventuali titoli edilizi già rilasciati",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:19 PM"
+          },
+          {
+            "id": 3,
+            "descrizione": "Eventuali provvedimenti paesaggistici già rilasciati",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:23 PM"
+          },
+          {
+            "id": 4,
+            "descrizione": "Eventuali atti di assenso già acquisiti",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:26 PM"
+          },
+          {
+            "id": 5,
+            "descrizione": "Atti relativi a eventuali procedimenti di contenzioso in atto",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:30 PM"
+          },
+          {
+            "id": 6,
+            "descrizione": "Eventuali pareri di natura paesaggistica ambientale",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:33 PM"
+          }
+        ]
+      },
+      "documentazioneTecnica": {
+        "descrizione": "4",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:46 PM"
+          },
+          {
+            "id": 2,
+            "descrizione": "STRALCI ED ESTRATTI PPTR",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:49 PM"
+          },
+          {
+            "id": 3,
+            "descrizione": "DOCUMENTAZIONE FOTOGRAFICA DELLO STATO ATTUALE DELLO STATO ATTUALE",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:52 PM"
+          },
+          {
+            "id": 4,
+            "descrizione": "ELABORATI GRAFICI STATO DI FATTO",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:55 PM"
+          },
+          {
+            "id": 5,
+            "descrizione": "ELABORATI GRAFICI DI PROGETTO",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:58 PM"
+          },
+          {
+            "id": 6,
+            "descrizione": "SIMULAZIONI",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:14:02 PM"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "codiceFascicolo": "APPPTR-206-2020",
+    "ente": "2",
+    "oggeto": "Variante urbanistica ai sensi dell'art. 8 del D.P.R. 160/2010 per la realizzazione di parcheggio privato a sevizio di opificio esistente destinato alla produzione e commercio di minuteria metallica per serramenti",
+    "tipoProcedimento": "2",
+    "dataCreazione": "2019-12-13T13:28:47.187Z",
+    "attivitaDaEspletare": "Istanza Presentata",
+    "schedaTecnica": {
+      "valida": true,
+      "descrizione": {
+        "descrizione": "La presente relazione tecnica costituisce parte integrante del Progetto per l’intervento dimanutenzione straordinaria per i lavori di ripristino strutturale del calcestruzzo ammalorato dei portici dei loculi al cimitero comunale.\n",
+        "tipologiaDiIntervento": {
+          "tipologiaDiIntervento": 2,
+          "inParticolareAgliArtt": "",
+          "approvatoData": "",
+          "con": ""
+        },
+        "caratterizzazioneIntervento": {
+          "interventiRiquarda": [
+            { "value": 3, "label": "DESCRIPTION_TAB.NEW_INSTITUTIONS_IN_THE_URBAN_AREA" }
+          ],
+          "interventiIn": 2
+        },
+        "qualificazioneIntervento1": "",
+        "qualificazioneIntervent2": [],
+        "qualificazioneIntervento3": [],
+        "tipologiaDiInterventoDegliArtt3": [
+          { "value": 7, "label": "DESCRIPTION_TAB.B5" },
+          { "value": 10, "label": "DESCRIPTION_TAB.B8" },
+          { "value": 11, "label": "DESCRIPTION_TAB.B9" },
+          { "value": 12, "label": "DESCRIPTION_TAB.B10" },
+          { "value": 13, "label": "DESCRIPTION_TAB.B11" },
+          { "value": 15, "label": "DESCRIPTION_TAB.B13" },
+          { "value": 14, "label": "DESCRIPTION_TAB.B12" },
+          { "value": 23, "label": "DESCRIPTION_TAB.B21" },
+          { "value": 24, "label": "DESCRIPTION_TAB.B22" }
+        ]
+      },
+      "destinazione": [
+        {
+          "titolo": "ALBEROBELLO",
+          "strumentoUrbanistico": 2,
+          "approvatoData": "2019-08-11T22:00:00.000Z",
+          "approvatoCon": "A sostegno delle attività istituzionali degli Enti Locali, dell’attività dei professionisti e delle esigenze di conoscenza e trasparenza dei cittadini pugliesi, i diversi settori regionali che a vario titolo intervengono nel governo del territorio, ciascuno per gli ambiti e gli aspetti di specifica competenza, promuovono la diffusione di una base di conoscenza condivisa e certificata del territorio e delle sue dinamiche di trasformazione, indispensabile per garantire percorsi decisionali semplici ed efficaci, costruita in maniera integrata, gestita e resa disponibile attraverso un Sistema Informativo che è nel contempo portale di accesso sia alla banca dati territoriale e ai suoi continui aggiornamenti che ai servizi a carattere territoriale, assicurando la rappresentazione in modo unitario, coerente e cogente delle scelte di valenza territoriale connesse alla competenza di ciascun Servizio regionale.",
+          "destinazioneUrbanistica": "E’ noto che talune previsioni di leggi regionali (v. ad es. l’art. 65 della legge della Regione\nCalabria n. 19/2002) stabiliscono che per determinati Comuni che hanno avviato la procedura di\nredazione del Piano Strutturale (1), le previsioni del Piano Regolatore Generale vigente rimangono\nin vigore fino all'adozione del nuovo Piano. Al contrario per i Comuni dotati di PRG che non hanno\navviato la procedura di redazione del Piano Strutturale può talora essere prevista la decadenza da\ntutte le previsioni di detto strumento (cioè del PRG) riguardanti - tra l’altro - le aree esterne al\nperimetro dei suoli urbanizzati (tipicamente quelli rientranti nelle aree aventi destinazione di zona\n“A” e “B” negli strumenti urbanistici vigenti oppure rientranti nelle zone “C” individuate dai\nmedesimi strumenti per le quali siano stati per ipotesi approvati piani di lottizzazioni).",
+          "ulterioriTutele": "Il richiedente, consapevole delle pene stabilite per false attestazioni e mendaci dichiarazioni ai sensi dell’articolo 76 del d.P.R. 28\ndicembre 2000, n. 445 e degli artt. 483,495 e 496 del Codice Penale e che inoltre, qualora dal controllo effettuato emerga la non\nveridicità del contenuto della dichiarazione resa, decadrà dai benefici conseguenti al provvedimento conseguito sulla base della\ndichiarazione non veritiera ai sensi dell’articolo 75 del d.P.R. n. 445/2000, sotto la propria responsabilità \n",
+          "confermaCoerenza": true,
+          "strumentoInAdozione": 2,
+          "conformitaStrumentoUrbanistico": true
+        }
+      ],
+      "legittimita": {
+        "tipoLegittimitaUrbanistica": 1,
+        "legittimitaUrbanstica": "La presenza di vincoli si traduce in relazioni funzionali tra le coordinate generalizzate, le quali non devono essere necessariamente le coordinate cartesiane, che generano lo spazio delle configurazioni, all'interno del quale è descritto il moto del sistema.",
+        "legittimitaInfo": [],
+        "dettaglioLegittimitaPaesaggistica": {
+          "tipologiaVincolo": "La presenza di vincoli si traduce in relazioni funzionali tra le coordinate generalizzate, le quali non devono essere necessariamente le coordinate cartesiane, che generano lo spazio delle configurazioni, all'interno del quale è descritto il moto del sistema",
+          "dataIntervento": "2018-11-11T23:00:00.000Z",
+          "dataImposizioneVincolo": "2037-01-29T23:00:00.000Z"
+        },
+        "tipoLegittimitaPaesaggistica": 1,
+        "legitimitaInfo": []
+      },
+      "procedureEdilizie": {
+        "tipoIntervento": 1,
+        "tipoStato": [],
+        "motivazione": [],
+        "pressoData": "",
+        "espressoData": "",
+        "detagglio": ""
+      },
+      "inquadramento": {
+        "destinazioneUso": 2,
+        "contestoPaesaggInterv": 7,
+        "morfologiaConPaesag": 3,
+        "destinazioneUsoSpecifica": [],
+        "contestoPaesaggIntervSpecifica": [],
+        "morfologiaConPaesagSpecifica": []
+      },
+      "effetiMitigazione": {
+        "descrizione": "<p>Realizzazione muro di sostegno in area di pertinenza di edificio residenziale esistente (tipologia B21 allegato B DPR 13.2.2017 n.31) e ampliamento edificio residenziale esistente (tipologia B17 allegato B DPR 13.2.2017 n.31)</p>",
+        "effeti": "<p>AMPLIAMENTO LABORATORIO ARTIGIANALE , IN SAN VENANZO CAPOLUOGO VIA IV NOVEMBRE , ai sensi dell'Art 8 del D.P.R . 160 del 2010 (SUAP) . Variante alla S.C.I.A. prat. n. 180/2012 del 12-12-2012</p>",
+        "misure": "<p>Gli elementi per la valutazione di compatibilità paesaggistica si basano su una simulazione dettagliata dello stato dei luoghi a seguito della realizzazione del progetto, resa mediante una fotomodellazione realistica (rendering computerizzato o manuale del progetto e sovrapposizione alle foto dello stato di fatto), comprendente un adeguato intorno dell'area di intervento, desunto dal rapporto di intervisibilità esistente (punti di osservazione precisati al punto III ), per consentire la valutazione di compatibilità e adeguatezza delle soluzioni nei riguardi del contesto paesaggistico.&nbsp;</p>",
+        "contenutiPercettivi": "<p>La percezione ha inizio con la codifica, da parte di specifici canali sensoriali, dell’informazione disponibile nelle variazioni dell’energia contenuta in uno stimolo informativo. I processi percettivi, tuttavia, non si esauriscono nella codifica iniziale dell’informazione che giunge ai recettori. Quando percepiamo la nostra mente attua una vera e propria forma di interpretazione degli stimoli ambientali in ingresso, attiva, sofisticata e dinamica nella misura in cui si giova di una continua esplorazione dell’ambiente.</p>"
+      },
+      "eventualiProcedimenti": { "contenzisoAtto": 1, "descrizione": [] },
+      "parreriEAtti": {
+        "parreriInfo": [
+          {
+            "tipologia": "8",
+            "rilasciatoDa": "MINISTRO AFFARI ESTERI",
+            "noProtocollo": "15",
+            "dataRilascio": "2019-12-09T23:00:00.000Z",
+            "intestinario": "Giorgio Cheillini"
+          }
+        ]
+      },
+      "pptr": {
+        "ambitoPaesaggistico": "6",
+        "figura": "23",
+        "art103": true,
+        "art142": true,
+        "descrizione": "Con DCC n.43 del 07.09.2017 il Comune di San Severo ha adottato la proposta di Adeguamento al\nPPTR, dando così avvio al procedimento di adeguamento come previsto dall'art. 97 co. 3 delle NTA del\nPPTR.",
+        "ulteririContestiPaesaggistici": [
+          {
+            "value": "12",
+            "label": "UCP - Sorgenti (25m",
+            "art": "art. 143, co. 1,lett. e)",
+            "definition": "art. 42 - 2)",
+            "provisions": "Misure    di    salvaguardia  e utilizzazione",
+            "art1": "art. 48"
+          },
+          {
+            "value": "15",
+            "label": "BP - Zone umide Ramscar Specificare: (*)",
+            "art": "art. 142, co. 1, lett. i)",
+            "definition": "art. 58 - 2)",
+            "provisions": "Prescrizioni",
+            "art1": "art. 64"
+          },
+          {
+            "value": "24",
+            "label": "BP - Zone gravate da usi civici",
+            "art": "art. 142, co. 1, lett. h)",
+            "definition": "art. 75 - 2)",
+            "provisions": "n.p. (si applicano solo indirizzi e direttive)",
+            "art1": ""
+          },
+          {
+            "value": "32",
+            "label": "UCP - Strade a valenza paesaggistica",
+            "art": "art. 143,co.1, lett. e)",
+            "definition": "art. 85 - 1)",
+            "provisions": "Misure di salvaguardia e utilizzazionei",
+            "art1": "art. 88"
+          },
+          {
+            "value": "2",
+            "label": "USP - Lame e gravine",
+            "art": "art. 143, co. 1, lett. e)",
+            "definition": "art. 50 - 2)",
+            "provisions": "Misure di salvaguardia e utilizzazione",
+            "art1": "art. 54"
+          }
+        ]
+      },
+      "vincolistica": {
+        "sottopostoATutela": 2,
+        "specificaVincolo": [
+          { "value": 1, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" },
+          { "value": 2, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" },
+          { "value": 3, "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE" }
+        ],
+        "altriVincolo": " Nel campo Data vincolo viene visualizzata la data specifica associata a determinati tipi di vincolo, quali Deve iniziare il, Deve finire il, Iniziare non prima del, Iniziare non oltre il, Finire non prima del e Finire non oltre il."
+      },
+      "dichiara": { "tipiDichiarazione": 1 }
+    },
+    "istanza": {
+      "valida": true,
+      "altriTitolari": [
+        {
+          "titolaritaInQualitaDi": "3",
+          "descrizioneAltro": "fshhshghgh",
+          "nome": "Daniele",
+          "cognome": "Padelli",
+          "codiceFiscale": "LBRCST80A41D508B",
+          "sesso": "M",
+          "natoIl": "1985-10-24T23:00:00.000Z",
+          "natoStato": "Italia",
+          "natoCitta": "Lecco",
+          "residenteIn": {
+            "stato": "Hotel Romana Residence",
+            "citta": "Milano",
+            "via": "Corso di Porta Romana ",
+            "n": "64",
+            "cap": "20122"
+          },
+          "recapitoTelefonico": "+39 0258 3421",
+          "pec": "padelli.daniele@gmail.com",
+          "nelCaso": true,
+          "inQualitaDi": "LJ:LKJDFLFDJDFJK",
+          "societa": "Engineering Software Lab",
+          "partitaIva": "190102910910",
+          "societaCodiceFiscale": "LBRCST80A41D508B",
+          "tipo": "3",
+          "numero": "Y6878OKDJSHK",
+          "rilascitoIl": "2000-07-17T22:00:00.000Z",
+          "rilascitoDa": "MINISTRO AFFARI ESTERI",
+          "dataScadenza": "2026-02-27T23:00:00.000Z"
+        }
+      ],
+      "richiedente": {
+        "nome": "Daniele",
+        "cognome": "Padelli",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1985-10-24T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Lecco",
+        "residenteIn": {
+          "stato": "Hotel Romana Residence",
+          "citta": "Milano",
+          "via": "Corso di Porta Romana ",
+          "n": "64",
+          "cap": "20122"
+        },
+        "recapitoTelefonico": "+39 0258 3421",
+        "indirizzoEmail": "padelli.daniele@gmail.com",
+        "pec": "romana@residence.it.com",
+        "nelCaso": [null],
+        "inQualitaDi": "",
+        "societa": "Engineering Software Lab",
+        "partitaIva": "10154566564",
+        "societaCodiceFiscale": "CBR19018093KLFDZ",
+        "tipo": "3",
+        "numero": "Y6878OKDJSHK",
+        "rilascitoIl": "2000-07-17T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2026-02-27T23:00:00.000Z"
+      },
+      "dichiarazioni": {
+        "useDiAvereTitolo": true,
+        "diAvereTitolo": {
+          "diAvereTitoloType": "altro",
+          "imobileInteresato": "N"
+        },
+        "interventaNecesitaArt146": [
+          {
+            "value": 142,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasChildren": true,
+            "childName": "art136Child:",
+            "childValues": [],
+            "childOptions": [
+              {
+                "value": "bp-territori-costiri",
+                "label": "BP-TERRITORI-COSTIRI di cui all'art. 38.2.2. a delle NTA del PPTR lett a) iterritori costieri compresi in una fascia della profondi di 300 metri dalla linea di battigia, anche per i territori elevanti sui mare;",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-territori-contermini",
+                "label": "BP-TERRITORI CONTERMINI AI LANGHI..",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "BP-FIUMI, TORRENTI CORSI D'ACQUA ISCRITTI NEGLI ELENCHI DELLE ACQUE PUBBLICHE...",
+                "hasDescription": false
+              },
+              {
+                "value": "bp-fiumi-torrenti",
+                "label": "(*)BP-PARCHI E RISERVE di cui all'art. 38.2.2. f delle NTA del PPTR lett. f) i parchi e le riserve nazionali o regionali, nonche i territori di protezione esterna dei parchi...",
+                "hasDescription": false
+              }
+            ]
+          },
+          {
+            "value": 136,
+            "label": "dell'art. 136, del d.lgs. n. 42/2004",
+            "hasDescription": false
+          },
+          {
+            "value": 134,
+            "label": "dell'art. 134, c.1,lett c) del d.lgs. n. 42/2004",
+            "hasDescription": false
+          }
+        ],
+        "art136Child": [],
+        "altreOpzioni": [
+          {
+            "value": "112",
+            "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo*",
+            "selectionType": "single"
+          },
+          {
+            "value": "105",
+            "label": "di astenersi dall'avviare i lavori fino a quando non ha ottenuto la prescritta autorizzazione paesaggistica*",
+            "selectionType": "single"
+          },
+          {
+            "value": "111",
+            "label": "sulla conformita agli strumenti urbanistici adottati o approvati ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di riferimento vigenti*",
+            "selectionType": "single"
+          }
+        ],
+        "useNelCasoDichiara": false
+      },
+      "localizazione": {
+        "localizazioniInfo": [{}],
+        "allegaShapeFile": [],
+        "ulterioriInformazioni": {
+          "bpParchiEReserve": "",
+          "ucpPaesaggioRurale": "",
+          "bpImmobileAreePubblico": ""
+        }
+      },
+      "tecnicoIncaricato": {
+        "nome": "Daniele",
+        "cognome": "Padelli",
+        "codiceFiscale": "LBRCST80A41D508B",
+        "sesso": "M",
+        "natoIl": "1985-10-24T23:00:00.000Z",
+        "natoStato": "Italia",
+        "natoCitta": "Lecco",
+        "residenteIn": {
+          "stato": "Hotel Romana Residence",
+          "citta": "Milano",
+          "via": "Corso di Porta Romana ",
+          "n": "64",
+          "cap": "20122"
+        },
+        "conStudioIn": {
+          "stato": "Corso Sempione",
+          "citta": "Milano",
+          "via": " Isaac Newton",
+          "n": "43",
+          "cap": "20122"
+        },
+        "recapitoTelefonico": "",
+        "pec": "romana@residence.it.com",
+        "iscritoAllOrdine": "",
+        "di": "",
+        "n": "",
+        "fax": "",
+        "cellulare": "",
+        "tipo": "3",
+        "numero": "Y6878OKDJSHK",
+        "rilascitoIl": "2000-07-17T22:00:00.000Z",
+        "rilascitoDa": "MINISTRO AFFARI ESTERI",
+        "dataScadenza": "2026-02-27T23:00:00.000Z"
+      },
+      "privacyAccettata": true
+    },
+    "allegati": {
+      "valida": true,
+      "documentazioneAmministrativa": {
+        "grigliaPagamentoAllegati": [
+          {
+            "descrizione": "Ricevuta di pagamento oneri istruttori",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:10 PM"
+          }
+        ],
+        "descrizione": "3",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:15 PM"
+          },
+          {
+            "id": 2,
+            "descrizione": "Eventuali titoli edilizi già rilasciati",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:19 PM"
+          },
+          {
+            "id": 3,
+            "descrizione": "Eventuali provvedimenti paesaggistici già rilasciati",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:23 PM"
+          },
+          {
+            "id": 4,
+            "descrizione": "Eventuali atti di assenso già acquisiti",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:26 PM"
+          },
+          {
+            "id": 5,
+            "descrizione": "Atti relativi a eventuali procedimenti di contenzioso in atto",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:30 PM"
+          },
+          {
+            "id": 6,
+            "descrizione": "Eventuali pareri di natura paesaggistica ambientale",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:33 PM"
+          }
+        ]
+      },
+      "documentazioneTecnica": {
+        "descrizione": "4",
+        "grigliaAllegatiCaricati": [
+          {
+            "id": 1,
+            "descrizione": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:46 PM"
+          },
+          {
+            "id": 2,
+            "descrizione": "STRALCI ED ESTRATTI PPTR",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:49 PM"
+          },
+          {
+            "id": 3,
+            "descrizione": "DOCUMENTAZIONE FOTOGRAFICA DELLO STATO ATTUALE DELLO STATO ATTUALE",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:52 PM"
+          },
+          {
+            "id": 4,
+            "descrizione": "ELABORATI GRAFICI STATO DI FATTO",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:55 PM"
+          },
+          {
+            "id": 5,
+            "descrizione": "ELABORATI GRAFICI DI PROGETTO",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:13:58 PM"
+          },
+          {
+            "id": 6,
+            "descrizione": "SIMULAZIONI",
+            "nome": "CONSIP_CQ_SGI_L3_RP_AET_DOAF_SITPUGLIA_SportelloPaesaggioPresentazione_B001_revisione.docx_1.odt",
+            "data": "12/13/2019, 4:14:02 PM"
+          }
+        ]
+      }
+    },
+    "documentiSottoscritti": [
+      { "descrizione": "istanza_7504", "data": "12/13/2019, 5:56:27 PM" },
+      { "descrizione": "dichiarazione_tecnica_7504", "data": "12/13/2019, 5:56:31 PM" }
+    ]
+  }
+]

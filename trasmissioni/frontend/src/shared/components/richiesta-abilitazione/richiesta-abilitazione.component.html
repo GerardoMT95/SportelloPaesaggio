@@ -1,0 +1,282 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+	[hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+	[title]="alertData.title"></app-alert>
+<!--dialog segnalazione all'amministratore applicazione-->
+<app-edit-notify [(display)]="displayOrganizzazioneMancante" [titolo]="'abilitazione.titleOrganizzazioneMancante'"
+	[labelNotifica]="'abilitazione.campoOrganizzazioneMancante'" (emitNotify)="sendSegnalazione($event)">
+</app-edit-notify>
+<div class="portlet-content-container " *ngIf="loaded">
+	<div class="portlet-body">
+		<form [formGroup]="formRichiesta">
+			<div class="col-md-12">
+				<p>
+					<b>{{'abilitazione.saluto'|translate}} {{userLogged.firstName}} {{userLogged.lastName}}.&nbsp;</b>
+				</p>
+				<p *ngIf="gruppiUtente.length<=0">{{'abilitazione.nonRisultano'|translate}}</p>
+				<div *ngIf="gruppiUtente.length>0">
+					<p>{{'abilitazione.risultano'|translate}}</p>
+					<div>
+						<ul>
+							<li *ngFor="let tipoOrganizzazione of myGruppi">
+								<b>{{tipoOrganizzazione.gruppo}}</b>
+								<ul>
+									<li *ngFor="let gruppo of tipoOrganizzazione.ruoli">
+										{{gruppo.nome}}
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<br /><b>
+					<!--<i>{{'appTitle'|translate}}</i>-->
+				</b>
+				<br />{{'abilitazione.compilare'|translate}}
+
+			</div>
+			<app-section-header [title]="'abilitazione.datiRichiedente' | translate | titlecase"></app-section-header>
+			<div class="row">
+				<div class="col">
+					<p><b>{{'abilitazione.ilSottoscritto'|translate}}</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="nome">{{'abilitazione.nome'|translate}} *</label>
+						<input type="text" formControlName="nome" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.nome.errors }"
+							maxlength="{{const.MAX_LEN_NOME}}" readonly/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.nome.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="cognome">{{'abilitazione.cognome'|translate}} *</label>
+						<input type="text" formControlName="cognome" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.cognome.errors }" 
+							maxlength="{{const.MAX_LEN_COGNOME}}" readonly/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.cognome.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="email">{{'abilitazione.email'|translate}} *</label>
+						<input type="text" formControlName="email" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.email.errors }" 
+							maxlength="{{const.MAX_LEN_EMAIL_PEC}}"/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.email.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="telefono">{{'abilitazione.telefono'|translate}} *</label>
+						<input type="text" formControlName="telefono" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.telefono.errors }" 
+							maxlength="{{const.MAX_LEN_TELEFONO}}"/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.telefono.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="fax">{{'abilitazione.fax'|translate}}</label>
+						<input type="text" formControlName="fax" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.fax.errors }" 
+							maxlength="{{const.MAX_LEN_FAX}}"/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.fax.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col text-center">
+					<p><b>{{'abilitazione.chiede'|translate|uppercase}}</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p><b>{{'abilitazione.autorizzazione'|translate}}</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="form-group">
+						<label for="organizzazione">{{'abilitazione.organizzazione'|translate}} *</label>
+						<!--tooltip-->
+						<!--<fa-icon icon="info-circle" (mouseenter)="op1.toggle($event)" (mouseleave)="op1.toggle($event)" ></fa-icon>-->
+						<fa-icon icon="info-circle" (click)="op1.toggle($event)"></fa-icon>
+						<!--<i class="fa fa-info-circle info-icon" ></i>-->
+						<p-overlayPanel #op1 [appendTo]="'body'" [style]="{'max-width':'600px'}">
+							<p>{{'abilitazione.organizzazioneMancante'|translate}}</p>
+							<button type="button" (click)="op1.toggle($event);openModalOrganizzazioneMancante()"
+								class="bttn btn btn-primary">{{'abilitazione.buttonOrganizzazioneMancante' | translate}}</button>
+						</p-overlayPanel>
+						<!--end tooltip-->
+						<p-dropdown class="dflex" formControlName="organizzazione" [showClear]="true"
+							[options]="organizzazioni" [autoWidth]="false" placeholder="Seleziona una voce"
+							[group]="true" [filter]="true" filterBy="label,value"
+							(onChange)="cambioOrganizzazione($event)"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.organizzazione.errors }">
+						</p-dropdown>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.organizzazione.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="ruolo">{{'abilitazione.ruolo'|translate}} *</label>
+						<p-dropdown class="dflex" formControlName="ruolo" [showClear]="true" [options]="ruoli"
+							[autoWidth]="false" placeholder="Seleziona una voce"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.ruolo.errors }">
+						</p-dropdown>
+					</div>
+					<app-input-error
+						[errors]="mergeErrorsValidation(formRichiesta.controls.ruolo.errors,'combinazioneOrganizzazioneRuoloInvalida')"
+						[validation]="submitted && !formRichiesta.valid && 
+					   (mergeErrorsValidation(formRichiesta.controls.ruolo.errors,'combinazioneOrganizzazioneRuoloInvalida'))">
+					</app-input-error>
+				</div>
+			</div>
+			<app-section-header [title]="'abilitazione.datiResponsabile' | translate | titlecase"></app-section-header>
+			<div class="row">
+				<div class="col">
+					<p><b>{{'abilitazione.autorizzatoDa'|translate}}</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="capoNome">{{'abilitazione.nome'|translate}} *</label>
+						<input type="text" formControlName="capoNome" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.capoNome.errors }"
+							maxlength="{{const.MAX_LEN_NOME}}" />
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.capoNome.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="capoCognome">{{'abilitazione.cognome'|translate}} *</label>
+						<input type="text" formControlName="capoCognome" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.capoCognome.errors }" 
+							maxlength="{{const.MAX_LEN_COGNOME}}"/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.capoCognome.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="capoEmail">{{'abilitazione.email'|translate}} *</label>
+						<input type="text" formControlName="capoEmail" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.capoEmail.errors }" 
+							maxlength="{{const.MAX_LEN_EMAIL_PEC}}" />
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.capoEmail.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="capoTelefono">{{'abilitazione.telefono'|translate}} *</label>
+						<input type="text" formControlName="capoTelefono" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.capoTelefono.errors }" 
+							maxlength="{{const.MAX_LEN_TELEFONO}}" />
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.capoTelefono.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+				<div class="col-md-4 ">
+					<div class="form-group ">
+						<label for="inQualitaDi">{{'abilitazione.inQualitaDi'|translate}} *</label>
+						<input type="text" formControlName="inQualitaDi" class="form-control" [disableControl]="false"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.controls.inQualitaDi.errors }" 
+							maxlength="{{const.MAX_LEN_RUOLO_DITTA}}"/>
+					</div>
+					<app-input-error 
+					[errors]="formRichiesta.controls.inQualitaDi.errors" 
+					[validation]="submitted">
+					</app-input-error>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label
+							for="exampleFormControlFile1">{{'abilitazione.allegatoAutorizzazione'|translate|titlecase}}* ({{'generic.max-size'|translate}}:{{const.MAX_1MB|filesize:'MB':'0'}})</label>
+						<input type="file" class="form-control" id="exampleFormControlFile1"
+							formControlName="allegatoName" (change)="onFileChange($event)"
+							[ngClass]="{'is-invalid': submitted && formRichiesta.get('allegatoName').errors }">
+						<app-input-error [errors]="formRichiesta.get('allegatoName').errors"
+							[validation]="submitted && formRichiesta.get('allegatoName').errors">
+						</app-input-error>
+					</div>
+				</div>
+			</div>
+			<app-section-header [title]="'abilitazione.dichiarazioni' | translate">
+			</app-section-header>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+
+						<div class="form-row mb-1">
+							<p-checkbox name="dichiarazioni" [binary]="true"
+								[formControl]="formRichiesta.get('dichMendaciAccettato')"
+								[label]="(testoDichMendaci|translate)" labelstyleclass="labelLungaCheckBox"
+								class="dflex"
+								[styleClass]="submitted && formRichiesta.errors && formRichiesta.errors.allCheckedRequired ?'checkbox-invalida':''">
+							</p-checkbox>
+						</div>
+						<div class="form-row mb-1">
+							<p-checkbox name="dichiarazioni" [binary]="true"
+								[formControl]="formRichiesta.get('privacyAccettato')"
+								[label]="('abilitazione.privacy'|translate)" labelstyleclass="labelLungaCheckBox"
+								class="dflex"
+								[styleClass]="submitted && formRichiesta.errors && formRichiesta.errors.allCheckedRequired ?'checkbox-invalida':''">
+							</p-checkbox>
+						</div>
+						<app-input-error [errors]="formRichiesta.errors" [validation]="submitted && !formRichiesta.valid && 
+					   formRichiesta.errors && formRichiesta.errors.allCheckedRequired">
+						</app-input-error>
+					</div>
+				</div>
+			</div>
+			<div class="pt-3 border" style="font-size:0.8em;" [innerHTML]="testoPrivacy|safeHtml">
+			</div>
+			<div *ngIf="submitted && formRichiesta.controls.privacy.errors" class="invalid-feedback">
+				<div *ngIf="formRichiesta.controls.privacy.errors.required">{{'abilitazione.informativaPrivacyMancante'|translate}}
+				</div>
+			</div>
+			<div class="text-center inner-pulsantiera">
+				<button type="button" (click)="richiediAbilitazione()"
+					class="bttn btn btn-primary">{{'abilitazione.button' | translate}}</button>
+			</div>
+		</form>
+	</div>
+</div>

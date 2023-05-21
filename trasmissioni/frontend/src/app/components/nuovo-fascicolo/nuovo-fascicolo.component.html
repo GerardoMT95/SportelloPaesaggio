@@ -1,0 +1,18 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="nuovoFascicoloForm">
+        <div class="col-md-6">
+        <app-form-riepilogo [fascicoloForm]="nuovoFascicoloForm" [submitted]="submitted"></app-form-riepilogo>
+        </div>
+      <div class="text-center inner-pulsantiera">
+        <button type="submit" class="bttn btn btn-primary">{{'fascicolo.crea'|translate}}</button>
+        <button type="button" class="bttn btn btn-primary" (click)="back()">{{'generic.indietro'|translate}}<fa-icon
+            icon="arrow-left"></fa-icon></button>
+      </div>
+    </form>
+  </div>
+</div>

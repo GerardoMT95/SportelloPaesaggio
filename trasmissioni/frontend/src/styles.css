@@ -1,0 +1,777 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* css utility globale */
+.p5{padding: 5px}
+.hidden{display: none!important}
+.nom {margin: 0!important;}
+.nomt {margin-top: 0!important;}
+.nomr {margin-right: 0!important;}
+.nomb {margin-bottom: 0!important;}
+.noml {margin-left: 0!important;}
+.nop {padding: 0!important;}
+.nopt{padding-top: 0!important;}
+.nopb{padding-bottom: 0!important;}
+.min160{min-width: 160px;}
+.min126{min-height: 126px;}
+.bold{font-weight: bold}
+.paginazione {min-width: 250px;}
+.max100 {max-width: 100px;width: 100%;}
+.nooverflow{overflow: initial!important}
+label.block {display: block;}
+.mtop20{margin-top: 20px}
+.resetText {font-size: 14px;}
+body .ui-datepicker-calendar-container td.ui-datepicker-other-month span{color:#bbb;}
+.uppercase {text-transform: uppercase;}
+.lowercase {text-transform: lowercase;}
+.mtop10{margin-top: 10px}
+.pl15 {padding-left: 15px;}
+.pr15 {padding-right: 15px;}
+.pt20 {padding-top: 15px;}
+.pb20 {padding-bottom: 15px;}
+.mbottom20{margin-bottom: 20px}
+.mbottom50{margin-bottom: 50px!important}
+.mbottom40{margin-bottom: 40px!important}
+.nob-right{border: 0px solid!important}
+.mauto{margin: 0 auto}
+.longText {word-break: break-all;}
+p.inline{display: inline;}
+.p20{padding: 20px}
+.p15 {padding: 0 15px;}
+.text-center{text-align: center}
+.dflex {display: flex;}
+.noStyle {list-style: none;margin: 0;padding: 0;}
+.pointer{cursor: pointer;}
+.btn-trasparente {background: none;border: 0px solid;}
+.full-width{width: 100%;}
+.nowrap{white-space: nowrap}
+.maxH100 {max-height: 85px;}
+.relative{position: relative;}
+.input-group>.input-group-text:first-child {border-radius: 5px 0 0 5px;}
+.input-group>.form-control.flex1{flex:1 1 auto}
+.input-group>.form-control.flex2{flex:2 1 auto}
+.input-group>.form-control.flex3{flex:3 1 auto}
+.input-group>.form-control.flex4{flex:4 1 auto}
+.input-group>.form-control.flex5{flex:5 1 auto}
+.input-group-text.nobr {border-radius: 0;margin-left: -1px;margin-right: -1px;}
+input.form-control,textarea.form-control,input.ui-inputtext{font-size: 1em;}
+.ui-calendar input.ui-inputtext{font-size: 0.9em}
+.nouppercase-text {font-weight: normal;text-transform: none;}
+.hyperlink{cursor: pointer;}
+.hyperlink fa-icon {margin-left: 5px;}
+.fakeLink {cursor:pointer;background: transparent;border: 0px solid;color: #337ab7;}
+.fakeLink:hover {text-decoration: underline;}
+.popover .popover-header{color:#333}
+body app-root .ui-datepicker table td,body .ui-datepicker table td{padding: 0!important;}
+.mbnegative30{margin-bottom: -30px;}
+.ppover {border-radius: 50%;margin: 0 0 0 8px;line-height: 17px;font-weight: bold;width: 27px;padding: 5px;}
+.ppover.small {padding: 0px;width: 19px;}
+body app-root .ui-fileupload .ui-state-disabled {min-height: initial;}
+body app-root .ui-autocomplete {display: block;}
+.max150{max-width: 150px;display: block;}
+.break{word-break: break-all}
+/* css globale per i button*/
+body .bttn {padding: 5px 15px;font-size: 1em;background-color: #2b86c2;border: 0px solid;line-height: 20px}
+body .bttn.btn-danger {color: #fff;background-color: #dc3545;border-color: #dc3545;}
+body .bttn.btn-success {color: #fff;background-color: #28a745;}
+body .bttn.btn-dark {background-color: #656565;}
+body .bttn.btn-dark:hover,body .bttn.btn-dark:focus {background-color: #252525;}
+body .bttn + .bttn {margin-left: 15px;}
+body .bttn:hover, body .bttn:focus {background-color: #115582;}
+body .bttn.btn-trasparente{background-color:transparent}
+body .bttn fa-icon {margin: 0 0 0 10px;}
+
+.legend {background-color: #fff;padding: 10px 15px;border-radius: 3px;border: 1px solid #f1f1f1;box-shadow: 0 0 5px rgba(0,0,0,0.1);}
+.legend.noStyle {background-color: transparent;box-shadow: none;border: 0px solid;padding: 5px 0;}
+.legend li {display: inline-block;padding: 0 10px;}
+.legend .round {padding: 10px;border-radius: 50%;margin-left: 5px;display: inline-block;vertical-align: middle;}
+.legend .round.bdg {border-radius: 5px;padding: 4px 9px;color: #fff;font-weight: bold;}
+.legend .big-text {font-size: 2em;vertical-align: middle;}
+.legend .round.icon {padding-left: 70px;position: relative;min-height: 67px;}
+.legend fa-icon.big-text {position: absolute;top: 50%;left: 18px;margin-top: -30px;font-size: 3em;}
+
+.label-success, .trasmesso, .stato_4, .stato_5,.stato_8, .totaleTerminati, .stato_lavori_3 {background-color: #5cb85c;}
+.label-warning, .inLavorazione, .stato_1, .stato_2, .totaleAvviati, .stato_lavori_2 {background-color: #f0ad4e;}
+.label-primary, .daTrasmettere, .da_trasmettere, .stato_3, .totaleNonAvviati, .stato_lavori_1 {background-color: #337ab7;}
+.label-danger, .totaleArchiviati, .stato_6, .stato_7, .stato_lavori_4 {background-color: #d9534f;}
+
+/*.stato-fascicolo .stato.i{background-color: #ffba01}
+.stato-fascicolo .stato.v{background-color: #0ad08e}
+.stato-fascicolo .stato.c{background-color: #00548e}
+.stato-fascicolo .stato.t{background-color: #0ad01c}
+.stato-fascicolo .stato.a{background-color: #0a801c}
+.stato-fascicolo .stato.k1{background-color: #dd0000}
+.stato-fascicolo .stato.k2{background-color: #ff3c00}
+.stato-fascicolo .stato.f{background-color: #0ad01c}*/
+
+body .modal-header .close {color: #fff;opacity: 1;padding: 13px;}
+body .modal-header .close:hover,.modal-header .close:focus {color: #fff!important;}
+body .modal-header{border-radius: 0}
+
+.label.my-label {border-radius: 50%;padding: 3px 8px;width: 20px;height: 20px;display: inline-block;}
+
+p-dropdown.is-invalid~.invalid-feedback{display:block}
+p-dropdown.dflex .ui-dropdown, p-multiselect.dflex .ui-multiselect {width: 100%;background: #ffffff;border: 1px solid #ced4da;transition: all 0.2s;}
+p-dropdown.dflex .ui-dropdown label, p-multiselect.dflex .ui-multiselect label,
+p-multiselect.dflex .ui-multiselect .ui-multiselect-label-container .ui-multiselect-label
+   {text-transform: none;min-height: 38px;line-height: 25px;padding: 6px 12px;margin: 0;font-weight: normal;font-size: 1em;text-overflow: ellipsis;}
+
+body app-root .ui-dropdown:not(.ui-state-disabled).ui-state-focus,
+body app-root .ui-dropdown:not(.ui-state-disabled):focus,
+body app-root .ui-dropdown.ui-inputwrapper-focus {color: #495057;background-color: #fff;border-color: #80bdff;outline: 0;box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);}
+body app-root .ui-dropdown:not(.ui-state-disabled):hover {border-color: #ced4da;}
+body .paginazione .ui-dropdown.ui-widget {min-width: 8em};/*per evitare nel paginatore effetto allungamento*/
+/*body app-root .ui-dropdown label.ui-dropdown-label {text-transform: none;min-height: 38px;line-height: 25px;}*/
+body app-root .ui-datepicker .ui-state-disabled {background-color: transparent;opacity: 0.5;color: #bebebe;}
+body app-root .is-invalid .ui-dropdown:not(.ui-state-disabled), body app-root .is-invalid .ui-multiselect {border-color: #dc3545;border-left: 5px solid #F44336;}
+body app-root .is-invalid .ui-dropdown:not(.ui-state-disabled).ui-state-focus,
+body app-root .is-invalid .ui-dropdown:not(.ui-state-disabled):focus,
+body app-root .is-invalid .ui-dropdown.ui-inputwrapper-focus,
+body app-root .is-invalid .ui-multiselect.ui-inputwrapper-focus{border-color: #dc3545;box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);}
+body app-root .ui-fileupload .ui-fileupload-buttonbar,
+body .modal-body .ui-fileupload .ui-fileupload-buttonbar  {background-color: transparent;padding: 0.571em 1em;border: 0px solid #c8c8c8;color: #333333;border-bottom: 0 none;}
+
+
+body app-root .ui-fileupload .ui-widget:disabled,
+body .modal-body .ui-fileupload .ui-widget:disabled {min-height: initial;border-color: #c5c5c5;}
+
+/*body app-root .ui-fileupload .ui-fileupload-content,
+body .modal-body .ui-fileupload .ui-fileupload-content  {border: 0px solid #c8c8c8;background-color: #fcfcfc;min-height: 50px}*/
+body app-root .ui-fileupload .ui-fileupload-content,
+body .modal-body .ui-fileupload .ui-fileupload-content {
+  border: 1px solid #a6a6a6;
+  height: 120px;
+}
+body app-root .ui-fileupload .ui-fileupload-buttonbar,
+body .modal-body .ui-fileupload .ui-fileupload-buttonbar {
+  text-align: center;
+}
+/*.ui-fileupload-row{
+    display: none !important;
+}
+.ui-fileupload .ui-fileupload-buttonbar, .modal-body .ui-fileupload .ui-fileupload-buttonbar {
+    position: absolute;
+    border:1px solid red;
+    z-index: 999;
+    left: calc(50% - 61px);
+    top: calc(50% - 20px);
+  }
+*/
+
+.btn.btn-white {background-color: #fff;border-color: #f3f3f3;}
+.btn.btn-white:hover, .btn.btn-white:focus {background-color: #f3f3f3;border-color: #bebebe;}
+/*
+body .esri-widget--button {padding: 7px;}
+body .esri-ui-corner .esri-component{margin:0;}
+*/
+body .accordion .ui-autocomplete{display: block}
+body .input-group-text{font-size: 0.8rem;padding: .375rem .65rem;}
+.table td, .table th{vertical-align: middle;}
+.tableContainer {border: 1px solid #d6d6d6;margin: 20px 0 0px 0;border-radius: 5px;overflow: auto;}
+.table thead tr {border-bottom: 3px solid #333;}
+.table th, .table td {border-right: 1px solid #cccccc;}
+.table th:last-child, .table td:last-child {border-right: 0px solid;padding: 5px 10px;}
+.table th.noaction:last-child, .table td.noaction:last-child {padding: 8px;}
+.table th {background-color: #e6e6e6;color: #000;padding: 8px;}
+.table .action .bttn{border-radius: 50%;color: #fff;width: 30px;height: 30px;padding: 0;border: 3px solid #fff;}
+.table .action .bttn fa-icon{margin:0}
+.table .action .bttn + .bttn {margin-left: 5px;}
+.table .no-items-columns td {padding: 20px;border-bottom: 5px solid #F44336;font-size: 1.2em;background-color: #fff;}
+.table .vmiddle td {vertical-align: middle;}
+.table tfoot>tr>td.text-center {padding-top: 15px;padding-bottom:0}
+body .bttn.bttn-table {border: 3px solid #fff;border-radius: 50%;color: #fff!important;width: 30px;height: 30px;padding: 0;text-align: center;}
+body .bttn.bttn-table fa-icon {margin: 0;}
+body .bttn.bttn-table + .bttn.bttn-table {margin-left: 10px;}
+
+body .accordion .card button.btn.btn-link{text-align: center}
+body .accordion .card {margin-bottom: 20px;}
+
+/** per la ricerca in accordion*/
+.ui-accordion .ui-accordion-header {
+    text-align: center;
+  }
+.ui-accordion .ui-accordion-header .ui-accordion-toggle-icon {
+    font-size: 20px;
+    margin-top: -8px;
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+  }
+
+@media only screen and (max-width: 768px) {
+    .step > .ui-tabview > ul {
+        text-align: center; 
+    }
+}
+
+/*@media only screen and (min-width: 992px) {*/
+.double-input > *:first-child {padding-left: 0;}
+.double-input > *:last-child {padding-right: 0;}
+.double-input > *:last-child > *:first-child:after {content: "";display: block;position: absolute;top: 50%;left: -15px;border-top: 1px solid #cccccc;width: 15px;height: 1px;}
+.double-input > *:first-child > *:last-child:after {content: "";display: block;position: absolute;top: 50%;right: -15px;border-top: 1px solid #cccccc;width: 15px;height: 1px;}
+/*}*/
+
+span.glyphicon-triangle-bottom:before {content: "";display: inline-block;margin: 0 5px;border: 4px solid;border-bottom-color: transparent;border-left-color: transparent;border-right-color: transparent;line-height: 100%;vertical-align: middle;}
+span.glyphicon-triangle-bottom,span.glyphicon-triangle-top {float: right;}
+span.glyphicon-triangle-top:before {content: "";display: inline-block;margin: 0 5px;border: 4px solid;border-top-color: transparent;border-left-color: transparent;border-right-color: transparent;line-height: 100%;vertical-align: middle;}
+.breadDivisor {padding: 0 10px;}
+.portlet-title-text {border-left-color: transparent;border-left: 0px;background-color: #fff;color: #8c8c8c;border-top: 1px solid #fff;box-shadow: 0px 0px 4px rgba(0,0,0,0.2);position: relative;padding: 11px 15px;margin-bottom: 2px;font-size: 0.85em;max-width: none;font-weight: 500;}
+.portlet-content-container {background-color: #fcfcfc;/*margin-top: 103px;*/padding: 15px 15px 60px 15px;font-size: 0.9em;}
+.ricercaPulsantieraContainer{margin-top: 30px;padding-bottom: 0px;text-align: center;}
+.accordion .card {margin-bottom: 40px;border-bottom: 1px solid #ddd!important;}
+.accordion .card button.btn.btn-link {padding:0;color:#333;display:block;width: 100%;text-align: left;font-size: 1.1em;font-weight: 500}
+.accordion .card button.btn.btn-link fa-icon{float:right}
+body .card-header {padding: .45rem 1.25rem;}
+
+.paginazione p-dropdown.dflex .ui-dropdown label, .paginazione p-multiselect.dflex .ui-multiselect label {min-height: 30px;line-height: 21px;}
+
+body .table td, body .table th {padding: .5rem;font-size: 0.97em;}
+body .table{margin-bottom: 0.8rem;}
+body .ui-datepicker-header{font-size:0.9em}
+
+app-root {font-size: 0.88em;}
+app-root .invalid-feedback,body .invalid-feedback{font-size: 0.9em; display: block;}
+label {text-transform: uppercase;display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;font-size: 0.80em;}
+body .ui-tabview .ui-tabview-panels .ui-tabview-panel table {font-size: 0.94em;}
+
+.alert.alert-info.my-alert {padding: 10px;width: 100%;margin: 0 15px 20px 15px;}
+.alert-info {background-color: #fff;border-color: #2b86c2;color: #155986;}
+.alert-info:before {content: "i";background-color: #2b86c2;color: #fff;padding: 5px;border-radius: 50%;margin-right: 10px;width: 30px;height:30px;display: inline-block;text-align: center;font-weight: bold;}
+
+.pulsantiera .bttn + .bttn{margin-left: 20px;}
+.pulsantiera .bttn {background-color: #2b86c2;border: 0px solid;padding: 7px 15px;color: #fff;}
+
+.input-group-append .bttn {border: 1px solid #ced4da;padding: 0 15px;border-radius: 0 3px 3px 0;}
+.input-group-append .bttn fa-icon {margin: 0;}
+
+body app-root .ui-widget-content p {margin: 0 0 10px;}
+.ui-autocomplete {display: block;}
+/*p-autocomplete.ng-untouched {padding: 0!important;}*/
+
+/*.containerBtnAggiuntivi {border-radius: 0px 0px 5px 5px;margin-top: 0;position: fixed;top: 59px;right: 10px;background: transparent;z-index: 999;border: 0px;padding: 0;}
+.inner-pulsantiera {position: fixed;top: 59px;right: 12px;background-color: transparent;z-index: 999;margin: 0;padding: 0;border: 0;}*/
+
+/*.containerBtnAggiuntivi {background-color: #f1f1f2;padding: 15px 7px 20px 7px;text-align: center;border-radius: 0 0 5px 5px;border: 1px solid #d6d6d6;margin-bottom: 15px;margin-top: -5px;}*/
+.containerBtnAggiuntivi .bttn {line-height: 35px;padding-top: 0;padding-bottom: 0;}
+
+.inner-pulsantiera{position: fixed;bottom: 0;right: 0;left: 0;background-color: #f1f1f1;border-top: 1px solid #bebebe;z-index: 999;margin: 0;padding: 10px;}
+.modal-pulsantiera{background-color: #f1f1f1;border-top: 1px solid #bebebe;margin: 20px -20px -20px;padding: 10px;}
+.inner-pulsantiera button,
+.inner-pulsantiera input,
+.inner-pulsantiera a,
+.modal-pulsantiera button,
+.modal-pulsantiera input,
+.modal-pulsantiera a{padding: 5px 15px;}
+.pagination.pull-right{display: none}
+.pagination{justify-content: center!important;margin-top: 10px;margin-bottom: 0;}
+
+.form-control:disabled, .form-control[readonly],
+ .ui-state-disabled .ui-inputtext, 
+ .ui-state-disabled.ui-dropdown .ui-dropdown-trigger, 
+ *[ng-reflect-disable-control="true"],
+ input[disabled],
+ /*body app-root .ui-state-disabled, dava fastidio alle p-checkbox*/
+ body app-root .ui-state-disabled :not(.ui-chkbox-box) :not(.ui-chkbox-box), 
+ body app-root .ui-widget:disabled{background-color: #f9f9f9;opacity: 1;color: #a0a0a0;min-height: 36px;}
+/*.ui-state-disabled {opacity: 1!important;} disattivato per la successiva.. Adriano*/
+/*stato disattivo per le p-checkbox*/
+.ui-chkbox-box.ui-state-disabled ,
+.ui-chkbox-icon.ui-state-disabled,
+.ui-chkbox-label.ui-label-disabled{opacity:.5;}
+/***/
+*[ng-reflect-disable-control="true"] input {opacity: 1!important;}
+.vmiddle .form-control.disabled {min-width: 188px;background-color: #f9f9f9;opacity: 1;color: #a0a0a0;}
+
+/* css globale per la validazione */
+.form-control.is-invalid {border-left: 5px solid #F44336;}
+p-editor.is-invalid .ui-editor-container {border-left: 5px solid #F44336;border: 1px solid #F44336;}
+.form-control.is-invalid .ui-calendar
+.error {color: #F44336;padding: 5px 15px;}
+/* in caso di box con pcheckbox */
+/*div.is-invalid{border:1px solid #F44336;}*/
+p-checkbox.ng-invalid .ui-chkbox.checkbox-invalida .ui-chkbox-box{
+    border-color: #F44336;
+}
+/*p-calendar invalidi*/
+.form-control .is-invalid .ui-calendar{
+    border: 1px solid #F44336;
+    border-left: 5px solid #F44336;
+}
+
+/* css per la input del calendario */
+body app-root .ui-inputtext, body .modal-dialog .ui-inputtext {font-size: inherit;color: inherit;background: transparent;border: 0;padding: .375rem .75rem;width: 100%;border-radius: 0;height: initial;}
+
+/* sezione per il tab presente in lavora fascicolo */
+hr.divisore {margin-top: 50px;}
+hr.divisore.tratteggio {margin-top: 40px;margin-bottom: 40px;border-top-width: 2px;border-style: dashed;border-color: #aaadaf;}
+.divisore + .text-center {background-color: #f3f3f3;display: inline-block;position: relative;padding: 8px 15px;color: #383838;top: -38px;left: 15px;text-transform: uppercase;}
+/*#2196F3*/
+/*.dettaglio-f {position:relative;border: 2px solid #e6e6e6;padding: 10px;margin-bottom: 20px;color: #333;min-height: 60px;border-radius: 5px;background-color: #fff;}*/
+.dettaglio-f h3, .dettaglio-f .intestazione {background-color: #e6e6e6;padding: 8px 15px;color: #333;font-size: 1.2em;margin: -10px -10px 10px;}
+.dettaglio-f.accordion .card {position: relative;border: 2px solid #d8d6d6;color: #333;min-height: 50px;border-radius: 5px;background-color: #fff;}
+.dettaglio-f.accordion .card .card-header {min-height: 50px;background: #d8d6d6;text-align: left;padding: 3px 15px 3px 15px;}
+.dettaglio-f.accordion .card .card-header .btn {text-align: left;}
+.dettaglio-f.accordion .card button.btn.btn-link fa-icon {font-size: 1.5em;position: absolute;top: 0;right: 0;padding: 10px 20px;}
+.allegatoIcon .icon, .allegatiList li .icon, .destinatariList li .icon {margin-right: 9px;color: #fff;background: #337ab7;padding: 0;line-height: 25px;border-radius: 50%;font-size: 0.9em;width: 25px;height: 25px;display: inline-block;text-align: center;}
+
+.stato-fascicolo .codice, .stato-fascicolo .stato {border-radius: 5px;box-shadow: 0 0 0 4px rgba(255,255,255,0.9);padding: 9px 15px;margin-left: 15px;}
+.stato-fascicolo {position: absolute;top: 0;right: 55px;width: initial;text-align: center;font-size: 0.8em;font-weight: bold;color: #fff;margin: 8px;}
+.stato-fascicolo.i .codice, .stato-fascicolo.i .stato{background-color: #ffd147;color: #423029;}
+
+.tab-pane .intestazione {background: transparent;font-size: 2em;margin: 40px 0px;height: initial;border-bottom: 2px solid;display: none;float: left;width: 100%;}
+body .step .ui-tabview .ui-tabview-nav li {display: inline-block;float:none}
+body .step .ui-tabview.ui-tabview-top{margin:0; padding:0}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav {background: #f3f3f3;margin: 0 -15px 0px -15px;padding: 0px 15px;border-radius: 0;border-bottom: 1px solid #e6e6e6;/*margin-top: -23px;background-color: #2196f3;margin-bottom: 20px;padding:5px;padding-bottom: 0px;border-radius: 0 0 5px 5px;*/}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav .ui-state-active a{border-top-color: #4CAF50;color:#333;border-bottom-color:#fff}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav a{font-weight:400!important; font-size: 13px!important; transition: all 0.2s;color: #333;border: 0px solid;border-top: 5px solid #0085f7;border-radius: 0;/*margin-right: 3px;*/background-color: #fff;border-bottom: 1px solid #e6e6e6;font-size: 0.90em;padding: 7px 8px;}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav > li:first-child a {margin-left: 1px;}
+/*body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li:hover,
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li:focus,*/
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li a:hover ,
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li a:focus {background-color: #ffffff;border-top-width: 10px;margin-top: -5px;color: #333;}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav .ui-state-active.disabled-tab a {border-top-color: #6ca06e;}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover a,
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:focus a{background-color:#fcfcfc!important; color:#333!important}
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover a,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active:hover a,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active:hover a,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active:hover a{color:#333}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav li{border:0px solid!important;background-color: transparent!important;margin: -2px 3px 0 0}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-panels{border: 1px solid #e6e6e6;border-top: 0px solid;background-color: #fff;padding: 15px 0;border-radius: 0 0 5px 5px;margin-bottom: 15px;}
+body .step .ui-tabview.ui-tabview-top .ui-tabview-nav .disabled-tab a{border-top-color: #bebebe;background-color: #f9f9f9;color: #909090;}
+
+body p-calendar.ng-dirty.ng-invalid > .ui-calendar > .ui-inputtext{
+    border: 1px solid transparent!important;
+}
+
+/*.container-timeline{background-image:url("assets/freccia.png"); background-repeat: no-repeat; background-position: right bottom}*/
+.rangeAnni {border-top: 2px solid transparent;margin-bottom: 10px;margin-top: 10px;/*padding-right: 40px;*/ background-image:url("assets/bg_timeline.png"); background-repeat: repeat-x; background-position: left 0px}
+    .rangeAnni .annoDa{vertical-align: top;margin-top: 9px;display: inline-block;margin-left: 20px;font-size: 0.9em;margin-bottom: 14px;text-align: center;}
+    /*.rangeAnni .annoDa + .annoDa {margin-left: 40px;}*/
+    .rangeAnni .date {background-color: #006838;padding: 4px 10px;text-align: center;color: #fff;border-radius: 3px;min-height: 25px;display: inline-block;margin: 0 auto;}
+   
+.indicator {position: absolute;top: -16px;left: 50%;width: 15px;height: 15px;margin-left: -7px;display: block;border-radius: 50%;background-color: #006838;border: 3px solid #fff;}
+.rangeAnni .label {color: #333;padding: 0 5px;text-align: center;display: block;font-size: 0.85em;font-weight: bold;white-space: nowrap;}
+    .rangeAnni .label > span {display: inline-block;}
+
+body app-root .ui-fileupload-buttonbar .ui-button-icon-left,
+body .modal-dialog .ui-fileupload-buttonbar .ui-button-icon-left {left: initial;right: 3px;display: none;}
+body app-root .ui-button.ui-button-text-icon-left .ui-button-text,
+body .modal-dialog .ui-button.ui-button-text-icon-left .ui-button-text {padding: 0.429em 1em 0.429em 1em;font-size: 0.9em;}
+body app-root .ui-calendar,
+body .modal-dialog .ui-calendar{display: block;}
+body app-root .ui-calendar .ui-datepicker,
+body .modal-dialog .ui-calendar .ui-datepicker {top: 36px!important;}
+body .modal-dialog .ui-fileupload-row>div:nth-child(2){word-break:break-all}
+
+.error-container {border: 1px solid #f44336;background-color: snow;border-left-width: 5px;padding: 25px;color: #c13e35;font-size: 1.2em;border-radius: 5px;box-shadow: 0 0 0 5px rgba(244, 67, 54,0.2);}
+.error-container > fa-icon {font-size: 4em;display: block;}
+.error-container + .dojoxFloatingPane {display: none;}
+
+/* css per l'alert */
+body .success.ui-dialog .ui-dialog-titlebar {border-bottom: 3px solid #4CAF50;}
+body .danger.ui-dialog .ui-dialog-titlebar {border-bottom: 3px solid #d30000;}
+body .info.ui-dialog .ui-dialog-titlebar {border-bottom: 3px solid #00a2ca;}
+body .warning.ui-dialog .ui-dialog-titlebar {border-bottom: 3px solid #ffd900;}
+
+body .success.ui-dialog .icon {background-color: #4CAF50}
+body .danger.ui-dialog .icon {background-color: #d30000}
+body .info.ui-dialog .icon {background-color: #00a2ca}
+body .warning.ui-dialog .icon {background-color: #ffd900}
+
+
+.modal-body.danger {border-top: 3px solid #d30000;}
+.modal-body.danger .icon {font-size: 1.2em;background-color: #d30000;line-height: 43px;border-radius: 50%;color: #fff;width: 45px;height: 45px;text-align: center;}
+.modal-body.info {border-top: 3px solid #00a2ca;}
+.modal-body.info .icon {font-size: 1.2em;background-color: #00a2ca;line-height: 43px;border-radius: 50%;color: #fff;width: 45px;height: 45px;text-align: center;}
+
+body .modal-footer {border-top: 1px solid #c8c8c8;background-color: #f1f1f1;text-align: center;justify-content: center;font-size: 0.90em;}
+body .modal-body {font-size: 0.87em;}
+body .modal-header h4 {font-weight: bold;font-size: 0.9em;}
+body .modal-dialog {font-family: "Open Sans", "Helvetica Neue", sans-serif;}
+
+body .ui-dialog .icon {font-size: 1.2em;background-color: #333;line-height: 43px;border-radius: 50%;color: #fff;width: 45px;height: 45px;text-align: center}
+body .ui-dialog .ui-dialog-content {padding: 20px!important;}
+/*body .ui-datepicker{z-index: 100060!important;}*/
+body .modal-backdrop{z-index: 1000!important;}
+body .modal{z-index: 1000;}
+.modal-content {font-size: 0.95em;}
+.modal-content input {font-size: 0.9em!important;}
+
+.dropdown-menu.show {box-shadow: 0 0 5px rgba(0,0,0,0.2);}
+
+.ricerca .card-body{padding: 1.25rem 0;font-size: 1.1em;}
+
+body app-root .ui-dialog .ui-dialog-titlebar {border: 0px solid;background-color: #333;color: #fff;padding: 1em;font-weight: 600;border-bottom: 0 none;}
+body app-root .ui-dialog{min-width: 100%!important;top: 0px!important;margin: 1.75rem auto;}
+@media only screen and (min-width: 768px) {
+    body app-root .ui-dialog{min-width: 500px!important;}
+}
+.checkbox, .radio {margin-top: 0;margin-bottom: 0;}
+.checkbox label:after, 
+.radio label:after {content: '';display: table;clear: both;}
+.checkbox .cr,
+.radio .cr {position: relative;display: block;border: 1px solid #a9a9a9;border-radius: .25em;width: 1.3em;height: 1.3em;float: left;margin-right: .5em;background-color: #fff;color: #333;margin-top: 4px;}
+.table .checkbox .cr,
+.table .radio .cr {display: inline-block;margin-right: 0;margin-top: 4px;}
+
+body .ui-datepicker .ui-datepicker-prev {left: 0;}
+body .ui-datepicker .ui-datepicker-next {right: 0em;}
+body .ui-datepicker .ui-datepicker-header {padding: .429em 1.857em;}
+body .ui-datepicker .ui-datepicker-header .ui-datepicker-title{white-space: nowrap;padding: 0 20px;}
+body .ui-datepicker .ui-datepicker-header .ui-datepicker-title select{font-size: 0.9em;}
+body .ui-datepicker-title{font-size:0.9em}
+
+#fineLavori .ui-fileupload-row>div:nth-child(2) {
+    max-width: 150px;
+    word-break: break-all;
+}
+
+body .modal-header {border: 0 solid;background-color: #333;color: #fff;padding: 10px 15px;font-weight: 600;border-bottom: 0;}
+body .modal-header h4{font-size:01em;}
+body .modal-footer {padding: 10px 15px}
+
+.checkbox.inline + .checkbox.inline,
+.radio.inline + .radio.inline { margin-left: 15px}
+.radio .is-invalid + .cr, .checkbox .is-invalid + .cr  {border-color: #F44336;}
+.radio .cr {border-radius: 50%;}
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {position: absolute;font-size: .8em;line-height: 0;top: 50%;left: 50%;padding: 5px;background-color: #2196f3;border-radius: 50%;margin-top: -5px;margin-left: -5px;}
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {opacity: 0;margin: 0;padding: 0;width: 0px;height: 0px;min-height: 0;}
+.checkbox label input[type="checkbox"]:focus + .cr, .radio label input[type="radio"]:focus + .cr{color: #495057;background-color: #fff;border-color: #80bdff;outline: 0;box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);}
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {transform: scale(3) rotateZ(-20deg);opacity: 0;transition: all .3s ease-in;}
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {transform: scale(1) rotateZ(0deg);opacity: 1;}
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr {opacity: .5;}
+.radio label, .checkbox label {padding-left: 0px;line-height: 24px;font-size: 0.87em;}
+.checkbox+.checkbox, .radio+.radio{ margin-top: 0}
+.checkbox.inline, .radio.inline {display: inline-block;vertical-align: sub;}
+.checkboxContainer .checkbox, .checkboxContainer .radio {width: 33%;float: left;}
+.checkboxContainer {padding: 5px 0;float: left;width: 100%;box-sizing: border-box;clear: both;}
+
+.upload-container {text-align: center;border: 1px solid #bebebe;border-radius: 5px;background-color: #fff;padding: 5px 0 0 0;position: relative;}
+.upload-container.is-invalid {border-color: #F44336;border-left: 5px solid #F44336;}
+.placeholderDeD {position: absolute;bottom: 15px;left: 50%;z-index: 5;font-size: 0.85em;margin-left: -85px;}
+
+.dijitTitleNode {padding: 5px 10px;background: #656565;display: block;color: #fff;border-radius: 0;}
+#pFloatingPane{z-index:1;background: #fff;box-shadow: 0 0 5px rgba(0,0,0,0.2);border-radius: 0;overflow: hidden;top: 0!important;right: 0!important;left: initial!important;}
+app-esri-map {position: relative;display: block;border: 3px solid #e2e2e2;box-shadow: 0 0 0 5px rgba(245, 245, 245, 0.5);}
+body .map .logo-med {display: inline-block;vertical-align: bottom;width: 65px;height: 36px;z-index: 30;background-image: url('assets/logo-med.png');cursor: pointer;}
+body .esriSimpleSliderDecrementButton:hover, .esriSimpleSliderIncrementButton:hover, #baseMapList button:hover, .closeMap button:hover {background-color: #252525;}
+div#baseMapList {position: absolute;top: 72px;left: 0;z-index: 110;border-top: 1px solid #5a5959;}
+div#baseMapList button,.closeMap button {min-width: 36px;background-color: #656565;border-radius: 0;color: #fff;padding: 6px 9px;}
+div#baseMapList button:after{display:none}
+div#baseMapList .dropdown-menu{min-width:350px}
+div#baseMapList .dropdown-menu img{width:70px;display:block}
+div#baseMapList .dropdown-menu button {background-color: transparent;width:33%;height: initial;border:0px solid;color:#333;font-size: 0.8em;}
+.dojoxFloatingPaneCanvas {width: 100%!important;position: absolute;padding: 15px;overflow: auto;top: 31px!important;left: 0;right: 0;bottom: 0;height: initial!important;height: auto!important}
+body app-root #topbar {position: absolute;top: 20px;left: 51px;padding: 4px 5px;z-index: 100;background-color: #fff;min-height: 60px;}
+body app-root #topbar-right {position: absolute;top: 20px;right: 20px;padding: 4px 5px;z-index: 100;background-color: #fff;min-height: 60px;}
+body app-root .topbar .btn{line-height: 24px;margin: 8px 2px;padding: 5px 9px;}
+body app-root .esriSimpleSlider{border-radius:0; border:0px solid}
+body app-root #layerList {position: absolute;top: 23px;right: 73px;z-index: 1;width: 200px;}
+body app-root .esriSimpleSlider > * {background-color: #656565;color: #fff;border-color: #fff;border-radius: 0!important;padding: 4px;width: 36px;height: 36px;}
+body app-root .esriSimpleSliderTL {top: 0px;left: 0px;}
+
+/*body app-dettaglio-fascicolo .ui-autocomplete .ui-autocomplete-input {padding: 0;}*/
+ p-autocomplete.form-control {padding: 0;}
+p-autocomplete.form-control input {padding: .375rem .75rem;border-radius: 4px}
+body app-dettaglio-fascicolo .ui-autocomplete {display: block;} 
+
+.buttonDivisor {border-left: 1px solid #f3f3f3;padding-left: 10px;margin-left: 10px;height: 31px;display: inline-block;vertical-align: middle;}
+
+.bordered{border: 1px solid #bebebe;background-color: #fff}
+.bordered-title{text-align: center;font-weight: bold;background-color: #eee;padding: 9px}
+.bordered-body{padding: 20px 0}
+.bordered-footer {text-align: center;padding: 15px;border-top: 1px solid #bebebe;}
+.mr-button{padding-right: 70px}
+
+
+.alert-status {color: #31708f;background-color: #d9edf7;border-color: #bce8f1;border-left: 5px solid;border-radius: 0;padding: 20px;}
+
+.nolavori {padding: 20px;font-weight: bold;}
+.nolavori .icon {font-size: 2em;background-color: #2b86c2;display: inline-block;width: 50px;height: 50px;text-align: center;line-height: 50px;vertical-align: middle;border-radius: 50%;margin-right: 10px;color: #fff;}
+
+mfdefaultsorter{display: block;}
+mfdefaultsorter a{display: flex;-ms-flex-pack: justify!important;justify-content: space-between!important;}
+body span.glyphicon-triangle-bottom,
+body span.glyphicon-triangle-top {float: none;/*position: absolute;top: 0;right: 0;*/}
+
+.dojoxGrid table {padding: 0;width: 219px;}
+.esriDrawingToolbar td{display: none;}
+.dijit.dijitReset,.dijitToolbarSeparator{display: none;}
+span.dijitReset[widgetid="btnDelete2"]{display:block; width:100%}
+span.dijitReset[widgetid="btnDelete2"] > *{display:block;padding:5px; background-color:#656565; margin-bottom: 10px}
+.infoDiv {margin: 10px 0 0 0;}
+
+body app-root .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item{padding: 0 .857em;}
+body app-root .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item label {font-size: 0.9em;}
+body .ci .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item label {
+    display: inline-block;
+    vertical-align: middle;
+    /* width: 100%; */
+    width: 350px;
+    white-space: normal;
+}
+/*A.G*/
+.divisore + .text-center + .bttn {
+    top: -39px;
+    position: relative;
+    margin-left: 25px;
+}
+.bozza, .pervenuta, .stato_1 {background-color: #777;}
+.label-success, .approvata, .stato_4, .inCaricoINFR, .inCaricoFSE {background-color: #4CAF50;}
+.label-warning,  .inLavorazione, .inLavorazione, .assegnata, .stato_3, .stato_6 {color: #423029; background-color: #ffd147;}
+.label-primary, .trasmessa, .stato_2, .ricevutaFSE {background-color: #337ab7;}
+.label-danger, .rifiutata, .stato_5, .rifiutataINFR {background-color: #F44336;}
+.label.my-label {border-radius: 50%;padding: 3px 8px;width: 20px;height: 20px;display: inline-block;}
+
+/*
+p-autocomplete.form-control,p-calendar.form-control, p-dropdown.dflex .ui-dropdown, p-multiselect.dflex .ui-multiselect {margin: 0;border: 0px;}
+body .ui-autocomplete .ui-autocomplete-input, body p-calendar .ui-inputtext,p-dropdown.dflex .ui-dropdown label, p-multiselect.dflex .ui-multiselect label {height: calc(2.25rem + 2px);padding: .375rem .75rem;border: 1px solid #ced4da;border-radius:0px;}
+body .ui-dropdown .ui-dropdown-trigger{margin: 2px 1px 0 0;height: 35px!important;min-height: initial!important;}
+body .input-group p-calendar .ui-inputtext {border-radius: 3px 0 0 3px}
+.input-group-text.nobr {border-left-width: 0;}
+.input-group-text.nobr:first-child{border-left-width:1px}*/
+p-autocomplete.form-control .ui-widget:disabled,
+p-calendar.form-control .ui-widget:disabled,
+p-dropdown.dflex .ui-dropdown .ui-widget:disabled,
+p-multiselect.dflex .ui-multiselect .ui-widget:disabled{margin: 0;background-color: transparent;border: 0px;}
+
+.card{
+    overflow: visible!important;
+}
+.form-control{
+    min-height: 40px!important;
+    border-radius: .19rem!important;
+}
+
+
+/*TABELLE PRIMENG*/
+body .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .03)!important;
+}
+body .ui-table .ui-table-tbody > tr:hover {
+    background-color: #E6E6E6!important;
+    cursor:pointer!important;
+}
+body .ui-table{
+    border-radius: 5px!important;
+}
+body .ui-table .ui-table-tbody > tr > td {
+    background: inherit;
+    border: 1px solid #cccccc!important;
+}
+.ui-table {
+    border-radius: 5px!important;
+}
+
+/*commentata Adriano... effetto su datepicker*/
+/*body .ui-widget {
+     font-family: "Open Sans", "Helvetica Neue", sans-serif; 
+    font-size: .97em!important;
+    text-decoration: none;
+}*/ 
+.tableContainerCustom {
+    font-size:0.97em!important;
+    margin: 20px 0 0 0!important;
+    border-radius: 5px;
+    overflow: auto;
+    border: 1px solid #d6d6d6;
+}
+
+body .ui-table .thead {
+    background-color: gray;
+}
+
+body .ui-table .ui-table-tfoot > tr > td{
+    font-weight: 500!important;
+}
+body .ui-table .ui-table-thead > tr > th{
+    background-color: #e6e6e6!important;
+    padding: 10px!important;
+}
+body .ui-table .ui-table-thead > tr{
+    border-bottom: 3px solid;
+}
+.bordoTabellaNew{
+    border:hidden!important;
+    padding:15px;
+}
+/*FINE TABELLE PRIMENG*/
+
+#logoName {
+    padding: 20px 15px 10px;
+}
+
+
+
+.ui-fieldset-legend-text{
+    font-size: 1.0rem; /*evito il dimensionamento a 1.5rem di bootstrap*/
+}
+
+/*utilizzata in form intervento per gestire i newline*/
+.labelLungaCheckBox {
+    display: inline-block;
+    width: 90%;
+    white-space: pre-line;
+}
+
+.ui-chkbox.ui-widget
+{
+    vertical-align: top!important;
+    margin-top: .1em!important;
+}
+
+body app-root .ui-fileupload .ui-fileupload-content, body .modal-body .ui-fileupload .ui-fileupload-content
+{
+    display: none!important;
+}
+.ui-dropdown-panel .ui-dropdown-item
+{
+    font-weight: normal!important;
+    border: 0 none!important;
+    cursor: pointer!important;
+    margin: 1px 0!important;
+    padding: .125em .25em!important;
+    width: 100%!important;
+    text-align: left!important;
+}
+
+/*per evitare il bordo quando mi arriva il Focus sulla timeline-component*/
+.btn-link.focus,.btn-link:focus {
+ text-decoration:underline;
+ border-color:transparent;
+ box-shadow:none;
+}
+
+/*adattamenti breadcrumb  come i vecchi con / e non >*/
+.ui-breadcrumb-chevron{
+  visibility: hidden;
+}
+.ui-breadcrumb-chevron:before{
+  display:none;
+}
+.ui-breadcrumb-chevron:after {
+  content: '/';  
+  visibility: visible;
+}
+.ui-menuitem-text{
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #8c8c8c;
+}
+/*fine  adattamenti breadcrumb  come i vecchi con / e non >*/  
+
+/*TABELLE PRIMENG*/
+body .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .03)!important;
+}
+body .ui-table .ui-table-tbody > tr:hover {
+    background-color: #E6E6E6!important;
+    cursor:pointer!important;
+}
+body .ui-table{
+    border-radius: 5px!important;
+}
+body .ui-table .ui-table-tbody > tr > td {
+    background: inherit;
+    border: 1px solid #cccccc!important;
+}
+.ui-table {
+    border-radius: 5px!important;
+}
+body .ui-widget {
+    /* font-family: "Open Sans", "Helvetica Neue", sans-serif; */
+    font-size: .97em!important;
+    text-decoration: none;
+}
+.tableContainerCustom {
+    font-size:0.97em!important;
+    margin: 20px 0 0 0!important;
+    border-radius: 5px;
+    overflow: auto;
+    border: 1px solid #d6d6d6;
+}
+
+body .ui-table .thead {
+    background-color: gray;
+}
+
+body .ui-table .ui-table-tfoot > tr > td{
+    font-weight: 500!important;
+}
+body .ui-table .ui-table-thead > tr > th{
+    background-color: #e6e6e6!important;
+    padding: 10px!important;
+}
+body .ui-table .ui-table-thead > tr{
+    border-bottom: 3px solid;
+}
+.bordoTabellaNew{
+    border:hidden!important;
+    padding:15px;
+}
+/*FINE TABELLE PRIMENG*/
+
+#logoName {
+    padding: 20px 15px 10px;
+}
+
+
+ body .portlet-content-container .ui-paginator-prev
+,body .portlet-content-container .ui-paginator-first 
+,body .portlet-content-container .ui-paginator-next
+,body .portlet-content-container .ui-paginator-last
+{min-height: auto;}
+
+/*riportati qui dalle modal */
+.footer-style{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.button-style{
+    font-size: 1.1em;
+    background-color: #616161;
+    font-weight: bold;
+    border: 0px solid;
+    padding: 7px 15px;
+    color: #fff;
+    border-radius: 0;
+}   
+/*end  riportati qui dalle modal */
+
+body .ui-dialog-footer{
+    background-color: #f1f1f1!important;
+}
+
+.modal-body.warning {border-top: 3px solid #ffd900;}
+.modal-body.warning .icon {font-size: 1.2em;background-color: #ffd900;line-height: 43px;border-radius: 50%;color: #fff;width: 45px;height: 45px;text-align: center;}
+
+/* eccezione su file-upload per mostrare i file in coda da caricare (solo nel caso di verifica impronta hash*/
+body app-root app-verifica-impronta-hash app-file-upload .ui-fileupload .ui-fileupload-content{
+    display:block!important;
+    height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    body .esri-view { height: 700px; }
+}
+@media screen and (max-width: 760px) {
+    body { font-size: 0.9rem; }
+}
+
+@media screen and (max-width: 760px) {
+    body {font-size: 0.85rem !important;}
+    body .ui-table .ui-table-tbody > tr > td {padding: 0.2em 0.2em !important;}
+    td > .bttn {padding: 0.1em 0.3em !important;}
+    div.tableContainerCustom div.ui-table
+    ,div.tableContainerCustom div.ui-table-wrapper
+    {overflow: unset;}
+    body .bttn + .bttn{margin-left: 0px !important;}
+    .page-link{padding: .25rem .375rem !important;}
+}

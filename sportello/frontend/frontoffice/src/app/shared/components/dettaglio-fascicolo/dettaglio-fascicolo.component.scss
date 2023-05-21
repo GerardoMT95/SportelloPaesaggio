@@ -1,0 +1,60 @@
+.dettaglio-fascicolo {
+  border: 1px solid transparent;
+  margin-bottom: 15px;
+
+  .arrow {
+    height: 20px;
+    width: 100%;
+    position: relative;
+    .time-line {
+      height: 3px;
+      background-color: green;
+      width: 100%;
+    }
+    .square {
+      transform: rotate(45deg) translate(-70%, 75%);
+      border-right: 3px solid green;
+      border-top: 3px solid green;
+      height: 17px;
+      width: 17px;
+      float: right;
+      background-color: transparent;
+      position: absolute;
+      left: 100%;
+    }
+  }
+  .label-circle-square {
+    width: 90px;
+    height: 60px;
+    position: relative;
+    bottom: 20px;
+    /* for timeline movement */
+    left: 0px;
+    .circle-wrapper {
+      .time-line-circle {
+        height: 17px;
+        width: 17px;
+        background-color: green;
+      }
+    }
+    .square-wrapper {
+      .label-square {
+        height: 30px;
+        width: 100%;
+        background-color: green;
+        p {
+          color: white;
+          text-align: center;
+          margin-top: 3px;
+        }
+      }
+    }
+    .data-creazione {
+      font-size: 12px;
+    }
+  }
+}
+
+.btn-fasc {
+  position: initial !important;
+}

@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DocumentoDiTrasmissione" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7faadea-4645-4c73-8882-3e0722c662e7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DettaglioFascicolo"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F2F8FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#E2E2E2">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="TipologicaDTO" uuid="c16008c6-06d6-4f16-ad8f-deb5163040a0">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="label" class="java.lang.String"/>
+		<field name="codice" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="JasperAllegatoDTO" uuid="c16008c6-06d6-4f16-ad8f-deb5163040a0">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="data" class="java.util.Date"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="listaTipi" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="protocollo" class="java.lang.String"/>
+	<field name="sanatoria" class="java.lang.Boolean"/>
+	<field name="codicePratica" class="java.lang.String"/>
+	<field name="ufficio" class="java.lang.String"/>
+	<field name="provvedimentoNumero" class="java.lang.String"/>
+	<field name="provvedimentoDataAutorizzazione" class="java.util.Date"/>
+	<field name="provvedimentoEsito" class="java.lang.String"/>
+	<field name="provvedimentoRup" class="java.lang.String"/>
+	<field name="richiedenteInfo" class="java.util.List"/>
+	<field name="interventoInfo" class="java.util.List"/>
+	<field name="listaDestinatari" class="java.util.List"/>
+	<field name="listaLocalizzazioni" class="java.util.List"/>
+	<field name="listaAllegatiLocalizzazione" class="java.util.List"/>
+	<field name="listaAllegatiProvvedimento" class="java.util.List"/>
+	<field name="listaAllegatiAmministrativi" class="java.util.List"/>
+	<field name="listaAllegatiTecnici" class="java.util.List"/>
+	<field name="sezioniDinamiche" class="java.util.Map"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="217" splitType="Stretch">
+			<image isUsingCache="false">
+				<reportElement x="480" y="17" width="90" height="200" uuid="a122b732-8177-441f-a608-bc579b08c01f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA["jasper/Immagine2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="40" y="27" width="150" height="140" uuid="a4f4156f-35ef-4172-9d47-77392e5788b4"/>
+				<imageExpression><![CDATA[javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode((String)$F{sezioniDinamiche}.get("Logo"))));]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="211" y="42" width="268" height="30" forecolor="#FABE28" uuid="5cb11a81-d9a2-4aa1-971e-9e048d47bbcd"/>
+				<textElement>
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIPARTIMENTO MOBILITÀ, QUALITÀ URBANA,
+OPERE PUBBLICHE, ECOLOGIA E PAESAGGIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="80" width="268" height="20" uuid="9552de45-2168-4c32-98ec-69533de98de0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEZIONE TUTELA E VALORIZZAZIONE DEL PAESAGGIO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="94" y="97" width="386" height="1" forecolor="#FABE28" uuid="f5169a3b-12ca-4305-9fda-2b006d9e7819">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="193" y="46" width="1" height="51" forecolor="#FABE28" uuid="b439b526-5521-44e5-9993-92b61a131bb5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="211" y="100" width="268" height="20" uuid="b781862e-0d51-4028-b295-5e11cc0feca8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="CustomArial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Intestazione")]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="97" splitType="Prevent">
+			<staticText>
+				<reportElement x="40" y="0" width="119" height="17" isRemoveLineWhenBlank="true" uuid="67f88574-8346-43cd-8970-b49bb447ec54">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROTOCOLLO USCITA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="17" width="180" height="32" uuid="95e4cd94-3a66-44b0-9867-4ef173db5113">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="CustomArial" size="8"/>
+				</textElement>
+				<text><![CDATA[Trasmissione a mezzo posta
+elettronica certificata ai sensi
+dell'art.47 del D.Lgs n. 82/2005]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="40" y="49" width="440" height="37" uuid="59781e12-8875-472c-be3f-2ef35eb39583">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="TipologicaDTO" uuid="0b97b6c0-6c0c-4818-bb5e-5a8e23552da7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDestinatari})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="37" width="440">
+						<textField>
+							<reportElement x="0" y="0" width="440" height="13" uuid="efc58d88-cbb1-4b43-958e-869d0355d6f1">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["All'attenzione di " + $F{label}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="13" width="440" height="13" uuid="c5212b9f-259f-4d98-8396-7af2b520c047">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Mail/PEC: " + $F{codice}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement x="159" y="0" width="174" height="17" isRemoveLineWhenBlank="true" uuid="21d49d97-b8c6-4550-af18-d2a9c4c90303">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{protocollo}!=null && $F{protocollo}.length()>0 ) ? $F{protocollo} : "-non protocollato-"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="40">
+			<staticText>
+				<reportElement x="40" y="0" width="50" height="20" uuid="f67e14b0-1b70-435a-b198-1918fee0bdd3"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oggetto:  ]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="90" y="0" width="390" height="40" uuid="18018760-b0d0-4770-a6e3-d912fbb5af32"/>
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="CustomArial" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Oggetto")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{sanatoria}!=null && $F{sanatoria}==true]]></printWhenExpression>
+			<textField>
+				<reportElement x="90" y="0" width="390" height="20" uuid="e1846692-555c-47d4-8e86-515a09806324">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["• Provvedimento richiesto in Sanatoria"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="126" splitType="Prevent">
+			<staticText>
+				<reportElement x="40" y="0" width="440" height="34" uuid="d4e359e1-7a42-47e4-8907-cee1ed90d42c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Si conferma la ricezione dei dati della pratica in oggetto come riportata nelle pagine seguenti.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="82" width="240" height="28" uuid="fff24e44-a56f-4057-8889-c3eb971eb8ae">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="7"/>
+				</textElement>
+				<text><![CDATA[La firma autografata del dirigente responsabile del Procedimento è sostituita 
+a mezzo stampa ai sensi dell’art. 3 comma 2 del D.L. 39/1993 e ss.mm.ii.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="34" width="260" height="27" uuid="26fd6506-8136-4f57-a64a-b1eb03b26c7f"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="CustomArial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("FirmaSup")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="61" width="260" height="21" uuid="7a81ffa0-afb7-4931-be55-0591388536fa"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="CustomArial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Firma")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="55" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport overflowType="Stretch">
+				<reportElement positionType="Float" mode="Opaque" x="40" y="0" width="440" height="40" uuid="4d42c142-4fdc-44ba-85e9-6da7bc6cf70f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{richiedenteInfo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/Trasmissione/TrasmissioneRichiedente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<subreport overflowType="Stretch">
+				<reportElement positionType="Float" mode="Opaque" x="40" y="0" width="440" height="40" uuid="ccd6a778-2af9-427c-a91d-d5390c81100a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{interventoInfo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/Trasmissione/TrasmissioneIntervento.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="2">
+			<break>
+				<reportElement x="0" y="1" width="100" height="1" uuid="d127e38e-02cc-44a4-af0b-c0a0f95e321c"/>
+			</break>
+		</band>
+		<band height="24" splitType="Prevent">
+			<staticText>
+				<reportElement x="228" y="0" width="105" height="24" uuid="0b2f14f9-24da-408c-87eb-96288fcd8cfc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOCALIZZAZIONE]]></text>
+			</staticText>
+		</band>
+		<band height="98">
+			<printWhenExpression><![CDATA[$F{listaAllegatiLocalizzazione}!=null && $F{listaAllegatiLocalizzazione}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="41" y="0" width="119" height="20" uuid="0ded2ea5-eb27-4457-aa07-2ffd9201ae75">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{listaAllegatiLocalizzazione}!=null && $F{listaAllegatiLocalizzazione}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Allegati localizzazione]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="41" y="20" width="439" height="67" uuid="529ecd0e-7de4-4b74-bdb4-ff01f72c46e2">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JasperAllegatoDTO" uuid="92d706c8-690a-491d-ab36-fdb7397099f8">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAllegatiLocalizzazione})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="170" uuid="a3b7f5a8-81f9-4574-8928-d11ebb177c32">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="170" height="30" uuid="be5c2c9f-1431-404f-bc12-10b649da110b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome file]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="170" height="30" uuid="c065235f-e28a-4160-9884-f9d2848c25d7">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="847668d1-bd33-4126-b23a-2413b07b45fe">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="8be1e3a1-88f5-4f5d-8594-fe68b3a7c545"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipo Allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="190" height="30" uuid="c065235f-e28a-4160-9884-f9d2848c25d7">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle" markup="html">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{listaTipi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="79" uuid="2f68bd13-be2e-4215-9dd3-e4377be1b88f">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="e220e0dc-5c0e-4008-ba6e-8046cb6f65c4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data arrivo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="79" height="15" uuid="5f21f11d-0d8b-43f6-bdea-6e19b754d770"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="ScaleFont" pattern="HH:mm">
+								<reportElement stretchType="RelativeToBandHeight" x="33" y="15" width="28" height="15" uuid="d496ddd4-b5e1-4562-8d51-34aadc071a0f">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="15" width="33" height="15" uuid="7d3b70bd-364d-4292-8068-d82cb3c37c7b">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[[ore]]></text>
+							</staticText>
+							<staticText>
+								<reportElement stretchType="RelativeToBandHeight" x="61" y="15" width="18" height="15" uuid="42bf6a3b-2d36-4ed2-87db-7fe9e9e0bfcd">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[]]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="60">
+			<subreport overflowType="Stretch">
+				<reportElement positionType="Float" mode="Opaque" x="40" y="10" width="440" height="40" uuid="651f0a4e-66ac-4a54-8513-5b3bd979dc28">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaLocalizzazioni})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/Trasmissione/TrasmissioneLocalizzazione.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="240" splitType="Prevent">
+			<staticText>
+				<reportElement x="40" y="121" width="119" height="20" uuid="aec5fda8-1745-4b85-b181-e765357f34ff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{listaAllegatiProvvedimento}!=null && $F{listaAllegatiProvvedimento}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Allegati provvedimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="25" width="122" height="20" uuid="72796b37-bc7b-477f-ace0-1bf84e4c6e6a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero provvedimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="45" width="140" height="20" uuid="bc61d191-30c6-4d90-96a1-03e80df9b0b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data rilascio autorizzazione:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="65" width="35" height="20" uuid="61533bee-69cd-4de1-98a5-274a4654e45e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Esito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="85" width="31" height="20" isRemoveLineWhenBlank="true" uuid="28addaa3-39ed-4938-8274-f8a75394d709">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{provvedimentoRup}!=null && $F{provvedimentoRup}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="25" width="317" height="20" uuid="94b45311-9194-4b27-a428-414bf309a195"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provvedimentoNumero}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="181" y="45" width="299" height="20" uuid="b488302b-84e2-4378-94ea-03632debe60a"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provvedimentoDataAutorizzazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="65" width="404" height="20" uuid="84fa1e12-9272-4743-8e1e-5d0b25b43c6f"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provvedimentoEsito}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="85" width="408" height="20" isRemoveLineWhenBlank="true" uuid="6a60b15b-f924-43b2-b136-7be541f491df"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provvedimentoRup}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="228" y="0" width="105" height="25" uuid="fe3337d1-99d2-4a44-b0df-9819cdf03004">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVVEDIMENTO]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="40" y="141" width="439" height="67" uuid="500b43e7-1393-42cb-8526-15313b96ec3e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JasperAllegatoDTO" uuid="09a96896-cb21-4c5f-b46b-c6495022cc32">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAllegatiProvvedimento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="170" uuid="34e8f877-8758-496e-9746-fff9412119ec">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="170" height="30" uuid="441e011a-ac51-43c8-9fd0-4665ee44313a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome file]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="170" height="30" uuid="6ccf0692-3619-436f-8c21-89904769a051">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="2f26593c-d142-4aac-81b0-8133ad99b2b5">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="ca6ceea1-88b7-4c6a-83e8-5a1a6b74543d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipo Allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="190" height="30" uuid="c065235f-e28a-4160-9884-f9d2848c25d7">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle" markup="html">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{listaTipi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="79" uuid="0cda9842-e726-4c7c-a410-c393210c3529">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="eafb19dd-34bd-4fa6-8574-a09290595c9c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data arrivo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="79" height="15" uuid="039c0801-b7ee-4fd8-8238-cd6ff2d56d64"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="ScaleFont" pattern="HH:mm">
+								<reportElement stretchType="RelativeToBandHeight" x="33" y="15" width="28" height="15" uuid="9ddb66b0-43af-4815-befb-aedeb7674f12">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="15" width="33" height="15" uuid="e44bee07-696e-499e-b983-94071f1b14ff">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[[ore]]></text>
+							</staticText>
+							<staticText>
+								<reportElement stretchType="RelativeToBandHeight" x="61" y="15" width="18" height="15" uuid="6485746b-6dd9-497b-aa64-8efd7bc5bd72">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[]]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="130" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{listaAllegatiAmministrativi}!=null && $F{listaAllegatiAmministrativi}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="235" y="0" width="90" height="24" uuid="20b762e0-d9d5-4ad3-9b4c-bfd2e70d18de">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLEGATI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="24" width="210" height="20" uuid="e393358e-f2f1-472b-bbb3-d52875803c0b">
+					<printWhenExpression><![CDATA[$F{listaAllegatiAmministrativi}!=null && $F{listaAllegatiAmministrativi}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista allegati amministrativi]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="40" y="44" width="439" height="67" uuid="99ffc01c-5365-40a7-8cc8-641ba4e5b44e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JasperAllegatoDTO" uuid="2bab4910-630c-4b80-8046-b1b08fa23269">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAllegatiAmministrativi})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="170" uuid="ebe47614-82a0-448f-9b7b-b4124c57cb7b">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="170" height="30" uuid="7ceed825-5bb6-4daa-a8b4-6a980a494f04"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome file]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="170" height="30" uuid="82fd4a12-3033-45f8-b882-318f92b8a46d">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="b8c4d98e-57ae-4f62-a83d-efd64015cd3d">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="375fb255-8bf3-4e0d-bfbc-4e0d83ef5a81"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipi Allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="190" height="30" uuid="c065235f-e28a-4160-9884-f9d2848c25d7">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle" markup="html">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{listaTipi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="79" uuid="5eaf90ed-99d8-4079-bdcd-4a0ac324f3ad">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="39be81c7-969b-4ae8-b1e4-45a418c8c197"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data arrivo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="79" height="15" uuid="458c0d4a-db91-4a44-905e-eee51e2b0bf3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="ScaleFont" pattern="HH:mm">
+								<reportElement stretchType="ElementGroupHeight" x="33" y="15" width="28" height="15" uuid="2cd5b0e5-6177-4c0a-86c6-f17ee4f4f53f">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="15" width="33" height="15" uuid="0b5ec857-8dd6-435c-b08c-2584cdaef0fb">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[[ore]]></text>
+							</staticText>
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="61" y="15" width="18" height="15" uuid="d714feba-7557-47e2-9c7b-f92622f9790a">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[]]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="104">
+			<printWhenExpression><![CDATA[$F{listaAllegatiTecnici}!=null && $F{listaAllegatiTecnici}.size()>0]]></printWhenExpression>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="40" y="20" width="439" height="67" uuid="37140c21-21e2-4873-b9a3-eb37d380b79d">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JasperAllegatoDTO" uuid="ac602125-ea66-4d00-98c3-7256427bbdd3">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAllegatiAmministrativi})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="170" uuid="0a6b50aa-e432-4268-85be-ea9d41a01061">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="170" height="30" uuid="072fff8f-7f86-4e1e-9df3-3161ccce14e2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome file]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="170" height="30" uuid="138e945c-db92-45d1-9daa-bba2fe668ef8">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="7491df22-b3ce-4d39-9639-ca322432140a">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="096d5e23-ae4f-4822-a22b-1cceb4f46785"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipi Allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="190" height="30" uuid="4fa58875-7eeb-4a6c-8905-cd6ec8921409">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle" markup="html">
+									<font fontName="CustomArial"/>
+									<paragraph leftIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{listaTipi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="79" uuid="92f0bfa6-a218-431e-afa3-2c17e441ba83">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="e27cc0c3-b3ae-4aff-baec-f5717c47eb43"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data arrivo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement x="0" y="0" width="79" height="15" uuid="12d0a022-0964-4c8d-a187-e36f48d11761"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="ScaleFont" pattern="HH:mm">
+								<reportElement stretchType="ElementGroupHeight" x="33" y="15" width="28" height="15" uuid="a3b92edd-f071-4e65-a41e-2d71e1b0e6ff">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="15" width="33" height="15" uuid="5354ec5e-5ec6-4045-9e95-4dad943e6a51">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[[ore]]></text>
+							</staticText>
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="61" y="15" width="18" height="15" uuid="6df792d9-8346-4f18-b610-d8f198d02fa4">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<text><![CDATA[]]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="40" y="0" width="210" height="20" uuid="af6f95f4-1725-41a0-814e-ee11f9a6cb9d"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista allegati tecnici]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="10" width="110" height="20" uuid="b2e8ee9e-33f7-4d9b-b4cf-e88d083270a7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.regione.puglia.it]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="10" width="216" height="20" uuid="32039a93-c8e1-458c-b3f6-7cfaed319f93"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["pag. " + $V{PAGE_NUMBER} +" di "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="31" width="260" height="20" uuid="22a4a359-bbf0-442e-8d36-7eb0b1e0e353"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servizio Osservatorio e Pianificazione Paesaggistica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="51" width="260" height="30" uuid="1dbecca8-f653-4888-aa84-0ab4e5cb972c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Via Gentile, 52 - 70126 Bari
+pec: sezione.paesaggio@pec.rupar.puglia.it]]></text>
+			</staticText>
+			<line>
+				<reportElement x="40" y="30" width="440" height="1" forecolor="#FABE28" uuid="b7f2ee52-bca6-4043-b2cb-fe08984807ba">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField evaluationTime="Report">
+				<reportElement x="466" y="10" width="14" height="20" uuid="aa08c929-9cc5-408b-b6b0-5e5d0306ea27">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

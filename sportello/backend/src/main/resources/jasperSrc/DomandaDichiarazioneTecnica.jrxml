@@ -1,0 +1,2504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e5c8ab4-e925-4288-8f6b-324ab5aa7d25">
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 9_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 9_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 10_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 10_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 11_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 11_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 12_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 12_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 13_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 13_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 14_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 14_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="FontCustomArial" isDefault="true" fontName="CustomArial"/>
+	<subDataset name="JasperTecnicoIncaricatoDto" uuid="de985c91-1bb4-47cc-919d-da8b0c8aec37">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="sesso" class="java.lang.String"/>
+		<field name="natoIl" class="java.util.Date"/>
+		<field name="natoStato" class="java.lang.String"/>
+		<field name="natoProvincia" class="java.lang.String"/>
+		<field name="natoComune" class="java.lang.String"/>
+		<field name="natoCitta" class="java.lang.String"/>
+		<field name="iscritoAllOrdine" class="java.lang.String"/>
+		<field name="di" class="java.lang.String"/>
+		<field name="n" class="java.lang.String"/>
+		<field name="recapitoTelefonico" class="java.lang.String"/>
+		<field name="fax" class="java.lang.String"/>
+		<field name="cellulare" class="java.lang.String"/>
+		<field name="pec" class="java.lang.String"/>
+		<field name="residenteIn" class="java.util.List"/>
+		<field name="conStudioIn" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="Richiedente" uuid="bdc0c6df-ffac-408d-848c-22dc296192c2">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="sesso" class="java.lang.String"/>
+		<field name="natoIl" class="java.util.Date"/>
+		<field name="natoStato" class="java.lang.String"/>
+		<field name="natoProvincia" class="java.lang.String"/>
+		<field name="natoComune" class="java.lang.String"/>
+		<field name="natoCitta" class="java.lang.String"/>
+		<field name="residenteIn" class="java.util.List"/>
+		<field name="recapitoTelefonico" class="java.lang.String"/>
+		<field name="indirizzoEmail" class="java.lang.String"/>
+		<field name="pec" class="java.lang.String"/>
+		<field name="nelCaso" class="java.lang.Boolean"/>
+		<field name="inQualitaDi" class="java.lang.String"/>
+		<field name="descAltroDitta" class="java.lang.String"/>
+		<field name="societa" class="java.lang.String"/>
+		<field name="partitaIva" class="java.lang.String"/>
+		<field name="societaCodiceFiscale" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Localizzazione" uuid="13a3b897-dd3c-4be4-a5ad-147e73f45b2c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="comune" class="java.lang.String"/>
+		<field name="sigla" class="java.lang.String"/>
+		<field name="indirizzo" class="java.lang.String"/>
+		<field name="numCivico" class="java.lang.String"/>
+		<field name="piano" class="java.lang.String"/>
+		<field name="interno" class="java.lang.String"/>
+		<field name="destUsoAtt" class="java.lang.String"/>
+		<field name="destUsoProg" class="java.lang.String"/>
+		<field name="dataRiferimentoCatastale" class="java.util.Date"/>
+		<field name="particelle" class="java.util.List"/>
+		<field name="ulterioriInformazioni" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="IndirizzoCompleto" uuid="dffb2d9e-0d71-4dbf-99e4-8136b796ffac">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="stato" class="java.lang.String"/>
+		<field name="citta" class="java.lang.String"/>
+		<field name="comune" class="java.lang.String"/>
+		<field name="provincia" class="java.lang.String"/>
+		<field name="via" class="java.lang.String"/>
+		<field name="n" class="java.lang.String"/>
+		<field name="cap" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Particelle" uuid="82c90a26-0350-412c-aed0-d06ae660ed87">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="livello" class="java.lang.String"/>
+		<field name="sezione" class="java.lang.String"/>
+		<field name="foglio" class="java.lang.String"/>
+		<field name="particella" class="java.lang.String"/>
+		<field name="sub" class="java.lang.String"/>
+		<field name="codCat" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="UlterioriInformazioni" uuid="b694862d-a750-41de-b4c0-7b852e7ba8fc">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="bpParchiEReserve" class="java.util.List"/>
+		<field name="ucpPaesaggioRurale" class="java.util.List"/>
+		<field name="bpImmobileAreePubblico" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="StringWrapper" uuid="84293f18-696e-4237-a7fe-0bb2c07ec606">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Inquadramento" uuid="b274d565-1803-4169-9e38-06c7fd447f3d">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="destinazioneUso" class="java.lang.Integer"/>
+		<field name="destinazioneUsoSpecifica" class="java.lang.String"/>
+		<field name="contestoPaesaggInterv" class="java.lang.Integer"/>
+		<field name="contestoPaesaggIntervSpecifica" class="java.lang.String"/>
+		<field name="morfologiaConPaesag" class="java.lang.Integer"/>
+		<field name="morfologiaConPaesagSpecifica" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Descrizione" uuid="cf27a80c-87d3-4e2f-8c97-ff348d74b229">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="descrizione" class="java.lang.String"/>
+		<field name="caratterizzazioneIntervento" class="java.util.List"/>
+		<field name="qualificazioneIntervento" class="java.util.List"/>
+		<field name="tipologiaIntervento" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="EventualiProcedimenti" uuid="f944d10d-1d93-4669-b082-5b6f26d6fe51">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="presenza" class="java.lang.Boolean"/>
+		<field name="descrizione" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CaratterizzazioneIntervento" uuid="f9696c92-897b-49ab-86af-094120f9955c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="caratterizzazione" class="java.util.List"/>
+		<field name="durata" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ConfigOptionValue" uuid="2a0bc3db-6f07-4e2e-95e7-d7177bab5eaf">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+		<field name="text" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="QualificazioneIntervento" uuid="1713754d-0531-486e-bc36-ce4b2f712787">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="text" class="java.lang.String"/>
+		<field name="subtext" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="DestinazioneUrbanistica" uuid="1646efae-eb61-40db-9cd9-89c7eb992a35">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nomeComune" class="java.lang.String"/>
+		<field name="mostraCoerenza" class="java.lang.Boolean"/>
+		<field name="coerenzaData" class="java.util.Date"/>
+		<field name="coerenzaAtto" class="java.lang.String"/>
+		<field name="strumentoUrbanistico" class="java.lang.Integer"/>
+		<field name="approvatoData" class="java.util.Date"/>
+		<field name="approvatoCon" class="java.lang.String"/>
+		<field name="destinazioneUrbanistica" class="java.lang.String"/>
+		<field name="ulterioriTutele" class="java.lang.String"/>
+		<field name="confermaCoerenza" class="java.lang.Boolean"/>
+		<field name="strumentoInAdozione" class="java.lang.Integer"/>
+		<field name="adottatoData" class="java.util.Date"/>
+		<field name="adottatoCon" class="java.lang.String"/>
+		<field name="destinazioneUrbanisticaAdottato" class="java.lang.String"/>
+		<field name="ulterioriTuteleAdottato" class="java.lang.String"/>
+		<field name="conformitaStrumentoUrbanistico" class="java.lang.Boolean"/>
+	</subDataset>
+	<subDataset name="TipologiaIntervento" uuid="c797cd34-033e-4320-8d42-cea0dcef8497">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipologiaDiIntervento" class="java.lang.String"/>
+		<field name="inParticolareAgliArtt" class="java.lang.String"/>
+		<field name="dataApprovazione" class="java.util.Date"/>
+		<field name="con" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ProcedureEdilizie" uuid="e3209d75-45f0-43ff-b52b-1a098ed2bcc3">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipoIntervento" class="java.lang.Integer"/>
+		<field name="motivazione" class="java.lang.String"/>
+		<field name="detagglio" class="java.lang.String"/>
+		<field name="pressoData" class="java.util.Date"/>
+		<field name="espressoData" class="java.util.Date"/>
+		<field name="primaCheckbox" class="java.lang.Boolean"/>
+		<field name="secondaCheckbox" class="java.lang.Boolean"/>
+	</subDataset>
+	<subDataset name="Legittimita" uuid="abcf1c90-16a9-4636-b295-5b284b9419fa">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipoLegittimitaUrbanistica" class="java.lang.Integer"/>
+		<field name="legittimitaUrbanstica" class="java.lang.String"/>
+		<field name="legittimitaInfo" class="java.util.List"/>
+		<field name="tipoLegittimitaPaesaggistica" class="java.lang.Integer"/>
+		<field name="tipologiaVincolo" class="java.lang.String"/>
+		<field name="dataIntervento" class="java.util.Date"/>
+		<field name="dataImposizioneVincolo" class="java.util.Date"/>
+		<field name="autorizzatoPaesaggisticamenteInfo" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="TipologiaDettaglio" uuid="d01257de-6da4-4942-b49b-897aedbb8c6e">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipologia" class="java.lang.String"/>
+		<field name="rialisciatoDa" class="java.lang.String"/>
+		<field name="noProtocollo" class="java.lang.String"/>
+		<field name="dataRilascio" class="java.util.Date"/>
+		<field name="intestinario" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PareriAtti" uuid="e1dd2ae1-d7bd-47d0-8ddd-dc23ed3df34f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="parreriInfo" class="java.util.List"/>
+		<field name="attiInfo" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="Pptr" uuid="8b272379-39a4-4b5b-9257-259c9243f4e8">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="ambitoPaesaggistico" class="java.lang.String"/>
+		<field name="figura" class="java.lang.String"/>
+		<field name="art103" class="java.lang.Boolean"/>
+		<field name="art142" class="java.lang.Boolean"/>
+		<field name="descrizione" class="java.lang.String"/>
+		<field name="vincoloArt38" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Vincolistica" uuid="763ac57c-3f97-4dbe-aec9-bda241799f57">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="sottopostoATutela" class="java.lang.Boolean"/>
+		<field name="specificaVincolo" class="java.util.List"/>
+		<field name="altriVincolo" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="EffettiMitigazione" uuid="64b3e039-f3f8-4667-8eca-9556c20d9bf2">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="descrizione" class="java.lang.String"/>
+		<field name="effeti" class="java.lang.String"/>
+		<field name="misure" class="java.lang.String"/>
+		<field name="contenutiPercettivi" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Allegato" uuid="2515881c-3494-41a5-b29a-66efe2a743ca">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nomeAllegato" class="java.lang.String"/>
+		<field name="nomeArchivio" class="java.lang.String"/>
+		<field name="tipoDocumento" class="java.lang.String"/>
+		<field name="checksum" class="java.lang.String"/>
+		<field name="strDimensione" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PptrTabella" uuid="27f7a943-3907-46ac-be9d-2b1b4534cf82">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="titolo" class="java.lang.String"/>
+		<field name="contenuto" class="java.util.List"/>
+		<field name="codice" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PptrContenutoTabella" uuid="27529ff8-71f0-4715-b8e9-5fc2ff5dc66f">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nome" class="java.lang.String"/>
+		<field name="art1" class="java.lang.String"/>
+		<field name="definizione" class="java.lang.String"/>
+		<field name="disposizioniNormative" class="java.lang.String"/>
+		<field name="art2" class="java.lang.String"/>
+		<field name="figli" class="java.util.List"/>
+		<field name="specificare" class="java.lang.String"/>
+		<field name="codice" class="java.lang.String"/>
+		<field name="gruppo" class="java.lang.String"/>
+		<field name="livello" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codiceFascicolo" class="java.lang.String"/>
+	<field name="tipoProcedimento" class="java.lang.Integer"/>
+	<field name="oggettoIntervento" class="java.lang.String"/>
+	<field name="tecnicoIncaricato" class="java.util.List"/>
+	<field name="localizzazione" class="java.util.List"/>
+	<field name="richiedente" class="java.util.List"/>
+	<field name="inquadramento" class="java.util.List"/>
+	<field name="descrizione" class="java.util.List"/>
+	<field name="eventualiProcedimenti" class="java.util.List"/>
+	<field name="destinazioneUrbanistica" class="java.util.List"/>
+	<field name="procedureEdilizie" class="java.util.List"/>
+	<field name="legittimita" class="java.util.List"/>
+	<field name="pareriAtti" class="java.util.List"/>
+	<field name="pptr" class="java.util.List"/>
+	<field name="vincolistica" class="java.util.List"/>
+	<field name="effettiMitigazione" class="java.util.List"/>
+	<field name="elencoAllegati" class="java.util.List"/>
+	<field name="documentazioneAmministrativa" class="java.util.List"/>
+	<field name="documentazioneTecnica" class="java.util.List"/>
+	<field name="testoPrivacyHtml" class="java.lang.String"/>
+	<field name="pptrTabella" class="java.util.List"/>
+	<field name="listTipoProcedimento" class="java.util.List"/>
+	<field name="descrstampasottotitolo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="90">
+			<image>
+				<reportElement x="0" y="0" width="220" height="80" uuid="0f3a416b-9305-48b5-9b3c-5f86af318602"/>
+				<imageExpression><![CDATA["jasper/pptr.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="460" y="40" width="100" height="30" uuid="c74a1090-d69c-4e80-8712-770a9b027b75"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFascicolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="40" width="90" height="30" uuid="7d96fc1a-9330-4cc4-86fd-2022ee3cb833"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right">
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<text><![CDATA[Codice Fascicolo:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="180" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="551" height="170" uuid="306d23cf-0f38-4f6d-9c8b-81f27c02a9ab"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listTipoProcedimento})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["jasper/subreportDichiarazioneTecnicaPratica.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="79">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9559494e-7c38-473a-b845-0b3acec840f4"/>
+				<textElement markup="none">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Richiedente]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="40" uuid="cfc83da4-25d8-469d-92e7-403362d7f0f9"/>
+				<frame>
+					<reportElement x="0" y="0" width="550" height="50" uuid="9d72ab7d-abde-4e45-8c43-aa2e561b2a21"/>
+					<box padding="5">
+						<pen lineWidth="0.5" lineStyle="Solid"/>
+					</box>
+					<componentElement>
+						<reportElement x="0" y="0" width="540" height="40" uuid="0c48ddb7-d37b-4f7c-be97-df5ceec5fab5"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="Richiedente" uuid="f8f45414-4fbc-4855-9791-bb3663408f15">
+								<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{richiedente})]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="40" width="540">
+								<staticText>
+									<reportElement x="0" y="0" width="60" height="20" uuid="27f272e6-66a1-428b-bc34-1da2ef6723a0"/>
+									<textElement>
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[Cognome]]></text>
+								</staticText>
+								<textField>
+									<reportElement x="60" y="0" width="210" height="20" uuid="1f177b4b-61fe-4987-acc0-7885d300c703"/>
+									<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+								</textField>
+								<staticText>
+									<reportElement x="270" y="0" width="40" height="20" uuid="282c749a-94b2-4b15-8ecd-9c3b2d12715b"/>
+									<textElement>
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[Nome]]></text>
+								</staticText>
+								<textField>
+									<reportElement x="310" y="0" width="230" height="20" uuid="b4598ce6-d0ac-4b0d-a545-1ec1e77c03e2"/>
+									<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+								</textField>
+								<staticText>
+									<reportElement x="0" y="20" width="80" height="20" uuid="81e71148-8a8a-4b8f-9849-b2eb17250617"/>
+									<textElement>
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[Codice Fiscale]]></text>
+								</staticText>
+								<textField>
+									<reportElement x="80" y="20" width="460" height="20" uuid="1e9b62ce-5fc5-4700-8bb6-1aa70dbf49e6"/>
+									<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+		<band height="87">
+			<staticText>
+				<reportElement x="0" y="0" width="110" height="20" uuid="ad1c6540-8201-4129-85d0-a1a055cc7491"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oggetto dell'intervento]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="60" uuid="22b27c04-bd22-450f-b5b7-bd4f6f573fb8"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<staticText>
+					<reportElement x="1" y="1" width="79" height="19" uuid="a691a3cf-039a-4fdf-b4d2-052596dab58c"/>
+					<textElement>
+						<font fontName="CustomArial" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Per l'intervento]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement stretchType="ElementGroupHeight" x="1" y="21" width="538" height="24" uuid="b7c48fbb-b300-4d08-bd06-1d837402e643"/>
+					<textElement>
+						<font fontName="CustomArial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{oggettoIntervento}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="26">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="0" y="0" width="550" height="26" backcolor="#B0AEAE" uuid="5d7bed76-2c9d-4461-9be0-0fb745bd1a96">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="html"/>
+				<textFieldExpression><![CDATA[$F{descrstampasottotitolo}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="257">
+			<staticText>
+				<reportElement x="0" y="0" width="170" height="20" uuid="2e601304-eb1a-4aa6-a99c-e68dcd838cad"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tecnico di riferimento per l'istanza]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="230" uuid="a2d17562-31bd-45d1-bf1e-a697e5a0ec37"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<subreport>
+					<reportElement x="1" y="1" width="549" height="229" uuid="b90cc9fc-835d-4291-a341-18df7884d9cd"/>
+					<subreportParameter name="tecnicoIncaricato">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{tecnicoIncaricato})]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{tecnicoIncaricato})]]></dataSourceExpression>
+					<subreportExpression><![CDATA["jasper/subreportTecnicoIncaricato.jasper"]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+		<band height="76">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="40" uuid="28343aaf-e9bb-4eac-96c6-34a56ba3fea2"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[consapevoli delle penalità previste in caso di false attestazioni, dichiarazioni mendaci o che affermano fatti non conformi al vero, ai sensi dell'articolo 76 del d.P.R. 28 dicembre 2000, n. 445 e degli artt. 483, 495 e 496 del Codice Penale, sotto la propria responsabilità,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="50" width="100" height="20" uuid="68ee4f60-140e-433d-b3a4-dcaa73c4b10d"/>
+				<textElement>
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARANO CHE]]></text>
+			</staticText>
+		</band>
+		<band height="224">
+			<printWhenExpression><![CDATA[$F{inquadramento}!=null && $F{inquadramento}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="150" height="20" uuid="2eafa1f8-5282-45ee-a2ad-149a23272c63"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Inquadramento dell'intervento]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="190" uuid="09dce367-4fbc-494b-886b-2da8df518c44"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="1" y="1" width="538" height="174" uuid="f1812f59-96a3-4af4-a5dc-2276b3b06be3"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Inquadramento" uuid="cfb5b39d-02a6-4605-956b-0bfd9b473429">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{inquadramento})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="174" width="538">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="20" uuid="02e9dc3e-3477-4a7b-854a-1df96098886a"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Destinazione d'uso:]]></text>
+							</staticText>
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="20" width="528" height="30" uuid="64f057dc-4f1e-4751-933d-a6e8c140ad50"/>
+								<textFieldExpression><![CDATA[$F{destinazioneUso} == 1 ? "RESIDENZIALE" : (
+	$F{destinazioneUso} == 2 ? "RICETTIVA/TURISTICA" : (
+		$F{destinazioneUso} == 3 ? "INDUSTRIALE/ARTIGIANALE" : (
+			$F{destinazioneUso} == 4 ? "AGRICOLO" : (
+				$F{destinazioneUso} == 5 ? "COMMERCIALE/DIREZIONALE" : "" + $F{destinazioneUsoSpecifica}
+			)
+		)
+	)
+)]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="60" width="270" height="20" uuid="6d68f6cb-4891-4e59-81db-370962faaa52"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Il contesto paesaggistico dell'intervento e/o dell'opera è:]]></text>
+							</staticText>
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="80" width="528" height="30" uuid="b62b5fe8-fc57-4421-94e5-a814a2814447"/>
+								<textFieldExpression><![CDATA[$F{contestoPaesaggInterv} == 1 ? "CENTRO E NUCLEO STORICO" : (
+	$F{contestoPaesaggInterv} == 2 ? "AREA URBANA" : (
+		$F{contestoPaesaggInterv} == 3 ? "AREA PERIURBANA" : (
+			$F{contestoPaesaggInterv} == 4 ? "AREA AGRICOLA" : (
+				$F{contestoPaesaggInterv} == 5 ? "INSEDIAMENTO RURALE (SPARSO E NUCLEO)" : (
+					$F{contestoPaesaggInterv} == 6 ? "AREA NATURALE" : (
+						$F{contestoPaesaggInterv} == 7 ? "AREA BOSCHIVA" : (
+							$F{contestoPaesaggInterv} == 8 ? "AMBITO FLUVIALE" : (
+								$F{contestoPaesaggInterv} == 9 ? "AMBITO LACUSTRE" : "" + $F{contestoPaesaggIntervSpecifica}
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="120" width="210" height="20" uuid="8ef7b3a5-45a4-419a-9470-75282596339a"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[La morfologia del contesto paesaggistico è:]]></text>
+							</staticText>
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="140" width="528" height="30" uuid="84eb8428-7204-471a-b03b-d5e686aef01d"/>
+								<textFieldExpression><![CDATA[$F{morfologiaConPaesag} == 1 ? "COSTA (BASSA/ALTA)" : (
+	$F{morfologiaConPaesag} == 2 ? "CRINALE (COLLINARE/MONTANO)" : (
+		$F{morfologiaConPaesag} == 3 ? "PIANURA" : (
+			$F{morfologiaConPaesag} == 4 ? "VERSANTE" : (
+				$F{morfologiaConPaesag} == 5 ? "ALTOPIANO/PROMONTORIO" : (
+					$F{morfologiaConPaesag} == 6 ? "PIANA VALLIVA (MONTANA/COLLINARE)" : "" + $F{morfologiaConPaesagSpecifica}
+				)
+			)
+		)
+	)
+)]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="243">
+			<staticText>
+				<reportElement x="0" y="0" width="150" height="20" uuid="ec3bdbdc-2b26-4e8f-a800-40ebe3b88c79"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Localizzazione dell'Intervento]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="210" uuid="c1f34e84-a45c-42a8-b1a3-dd9c4d404d02"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="1" y="1" width="538" height="194" uuid="e4a3a853-17ce-4291-915c-f12561604200"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Localizzazione" uuid="662a2778-4f62-4c70-9ca3-2d0a3699a4cc">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{localizzazione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="194" width="538">
+							<componentElement>
+								<reportElement x="0" y="120" width="370" height="60" uuid="da57ce2c-80d0-446f-a364-c95ff4596069">
+									<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+									<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+									<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+									<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+								</reportElement>
+								<jr:table>
+									<datasetRun subDataset="Particelle" uuid="764bec9c-7e00-4ad7-a799-a1ba6c0b7f23">
+										<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{particelle})]]></dataSourceExpression>
+									</datasetRun>
+									<jr:column width="70" uuid="50e2da49-b712-4513-bf28-dc55ede7ba58">
+										<jr:columnHeader style="Table_CH" height="30">
+											<staticText>
+												<reportElement x="0" y="0" width="70" height="30" uuid="8fa047fb-d37f-43a5-89c5-261b53253a7e"/>
+												<textElement textAlignment="Center">
+													<font isBold="true"/>
+												</textElement>
+												<text><![CDATA[Livello]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="Table_TD" height="30">
+											<textField>
+												<reportElement x="0" y="0" width="70" height="30" uuid="1784189c-d3cf-4ce9-94cc-8eee363e0bf0"/>
+												<textElement textAlignment="Center"/>
+												<textFieldExpression><![CDATA[$F{livello}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="70" uuid="096b6ee7-e044-4260-931b-c495b0c761f1">
+										<jr:columnHeader style="Table_CH" height="30">
+											<staticText>
+												<reportElement x="0" y="0" width="70" height="30" uuid="b9816490-e00a-49b3-8ab9-7c78dceec969"/>
+												<textElement textAlignment="Center">
+													<font isBold="true"/>
+												</textElement>
+												<text><![CDATA[Sezione]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="Table_TD" height="30">
+											<textField>
+												<reportElement x="0" y="0" width="70" height="30" uuid="d357e290-916f-484a-b7de-8dff3105085a"/>
+												<textElement textAlignment="Center"/>
+												<textFieldExpression><![CDATA[$F{sezione}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="80" uuid="7a5994b5-a5a9-4113-935f-252121cc7b86">
+										<jr:columnHeader style="Table_CH" height="30">
+											<staticText>
+												<reportElement x="0" y="0" width="80" height="30" uuid="d30d4a55-4aac-4223-a8b7-1914566e1aaa"/>
+												<textElement textAlignment="Center">
+													<font isBold="true"/>
+												</textElement>
+												<text><![CDATA[Foglio]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="Table_TD" height="30">
+											<textField>
+												<reportElement x="0" y="0" width="80" height="30" uuid="301a2782-d971-4cbf-82ef-0b6a938f2a99"/>
+												<textElement textAlignment="Center"/>
+												<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="70" uuid="59b652d3-93d5-49e5-aab7-28e05622d74c">
+										<jr:columnHeader style="Table_CH" height="30">
+											<staticText>
+												<reportElement x="0" y="0" width="70" height="30" uuid="a49d01fa-0da0-496d-a545-b384142a726b"/>
+												<textElement textAlignment="Center">
+													<font isBold="true"/>
+												</textElement>
+												<text><![CDATA[Particella]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="Table_TD" height="30">
+											<textField>
+												<reportElement x="0" y="0" width="70" height="30" uuid="5ff7ee6f-f918-42e4-9876-6e136e2de85f"/>
+												<textElement textAlignment="Center"/>
+												<textFieldExpression><![CDATA[$F{particella}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="80" uuid="c0360606-903d-45be-b2d3-2d12cef231e5">
+										<jr:columnHeader style="Table_CH" height="30">
+											<staticText>
+												<reportElement x="0" y="0" width="80" height="30" uuid="d723d6f0-1002-498d-b438-9537e01d770b"/>
+												<textElement textAlignment="Center">
+													<font isBold="true"/>
+												</textElement>
+												<text><![CDATA[Sub.]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="Table_TD" height="30">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="80" height="30" uuid="ed8360d2-94cd-44e0-8c0c-6214dd1ff150"/>
+												<textElement textAlignment="Center"/>
+												<textFieldExpression><![CDATA[$F{sub}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+								</jr:table>
+							</componentElement>
+							<staticText>
+								<reportElement x="0" y="0" width="210" height="20" uuid="6a4f3696-32c6-45b1-b39a-b55f312cc737"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[L'intervento interessa l'area o l'immobile sito in]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight">
+								<reportElement x="210" y="0" width="320" height="20" forecolor="#0EB51F" uuid="3fa6ecd5-d9d3-4488-8aeb-22f32053626a"/>
+								<textFieldExpression><![CDATA[$F{comune}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="20" width="30" height="20" uuid="1a089aa2-69cf-4986-89cb-dd4d2202f690"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Prov.:]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="30" y="20" width="508" height="20" uuid="22caa691-788a-4603-b061-c1bc012f6033"/>
+								<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="40" width="80" height="20" uuid="bc27a39d-5387-4a54-bd9a-d1de47509cd3"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[in via / localita']]></text>
+							</staticText>
+							<textField>
+								<reportElement x="80" y="40" width="458" height="20" uuid="fd875154-5904-4d1a-b45a-4319b9976287"/>
+								<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="60" width="40" height="20" uuid="bf77109f-2f7a-473e-943d-845fb7ffc93e"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[n. civ. :]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="40" y="60" width="140" height="20" uuid="e22019b8-ed01-4b70-bb10-26b066b0371f"/>
+								<textFieldExpression><![CDATA[$F{numCivico}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="180" y="60" width="30" height="20" uuid="7a2fe8c0-3a07-4d1b-a892-d09407873302"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[piano]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="210" y="60" width="150" height="20" uuid="d556d6ea-c432-4f3e-b2e1-8ea7b2fdda7c"/>
+								<textFieldExpression><![CDATA[$F{piano}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="360" y="60" width="40" height="20" uuid="e7141482-9ac9-412e-bfca-e77c7cc93f3c"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[interno]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="400" y="60" width="138" height="20" uuid="0bd9aacd-e319-45d8-acdf-b1abe80abf39"/>
+								<textFieldExpression><![CDATA[$F{interno}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="80" width="538" height="20" uuid="6dd8e3e1-ab0a-430f-8b85-1fe352ab4536"/>
+								<textElement>
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Particelle Catastali interessate:]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="0" y="100" width="538" height="20" uuid="74d5b8bd-70a9-4a57-88cc-da88443ca6a6"/>
+								<textFieldExpression><![CDATA[$F{comune}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="128">
+			<staticText>
+				<reportElement x="0" y="0" width="340" height="20" uuid="2956a80f-9684-4834-a201-aa3be0382b30"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione sintetica dell'intervento e delle caratteristiche dell'opera(1)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="100" uuid="f2af1d91-b6bb-441d-9c43-c626b1b39720"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="1" y="1" width="538" height="49" uuid="0301f1d9-8e8d-4e32-bf8c-866e707ff8e6"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Descrizione" uuid="4fafa614-16cd-4b41-a189-a8e309710e62">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{descrizione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="49" width="538">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="538" height="49" uuid="e15c69cf-cb41-4cf8-ae8b-66fb05171602"/>
+								<textFieldExpression><![CDATA[$F{descrizione}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<staticText>
+					<reportElement positionType="Float" x="2" y="51" width="537" height="39" forecolor="#969696" uuid="a2beb715-658a-44ce-bbb7-1bd440611832"/>
+					<textElement>
+						<font fontName="CustomArial" size="9"/>
+					</textElement>
+					<text><![CDATA[(1) dimensioni, materiali, colore, finiture, modalità di messa in opera, ecc – In caso sia necessario è possibile allegare apposito elaborato contenente fotoinserimenti del progetto comprendenti un adeguato intorno dell'area di intervento desunto dal rapporto di intervisibilità esistente, al fine di valutarne il corretto inserimento]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="139">
+			<staticText>
+				<reportElement x="1" y="0" width="529" height="20" uuid="a8f4bd0f-53bb-4cdd-b32e-107f79049326"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Eventuali procedimenti di contenzioso in atto (di carattere urbanistico-edilizio e/o paesaggistico e/o forestale)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="110" uuid="a7a3ebb3-a938-4384-8c5b-d68712e9c577"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="90" uuid="470f1fe3-7a45-4db8-a389-ad9adae36116"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="EventualiProcedimenti" uuid="f82d2de1-1eca-4260-97bd-1e6b02a268fc">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{eventualiProcedimenti})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="90" width="538">
+							<textField>
+								<reportElement x="0" y="0" width="538" height="30" uuid="b4fdff07-9bdd-4714-a33d-fa9275136be6"/>
+								<textFieldExpression><![CDATA[$F{presenza} == true ? "Vi sono procedimenti di contenzioso in atto (di carattere urbanistico-edilizio e/o paesaggistico e/o forestale)" : "Non vi sono procedimenti di contenzioso in atto (di carattere urbanistico-edilizio e/o paesaggistico e/o forestale)"]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="30" width="60" height="20" uuid="d052ff7b-5c3e-49d6-947c-72eedd66982b">
+									<printWhenExpression><![CDATA[$F{presenza} == true]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Descrizione:]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="50" width="538" height="40" isRemoveLineWhenBlank="true" uuid="557ba00c-c6d2-40e8-8623-9dce5576f7ef"/>
+								<textFieldExpression><![CDATA[$F{descrizione}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="188">
+			<frame>
+				<reportElement x="0" y="20" width="550" height="160" uuid="c21203b3-356b-4aaf-badd-4d8c6af3c36b"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<subreport>
+					<reportElement x="1" y="1" width="549" height="159" uuid="d5daa116-5d6e-44fe-a828-b48deae69122"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{descrizione})]]></dataSourceExpression>
+					<subreportExpression><![CDATA["jasper/subreportCaratterizzazioneIntervento.jasper"]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement x="1" y="-19" width="159" height="20" uuid="ab3d00be-7b5b-4ee2-827b-e7d235f568cc"/>
+					<textElement>
+						<font fontName="CustomArial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Caratterizzazione dell'intervento]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="109">
+			<textField>
+				<reportElement x="1" y="0" width="549" height="20" uuid="73a0b225-f34f-41f6-b488-009c6db1fc33"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoProcedimento} == 1 ? "Gli interventi e/o opere di progetto sono qualificabili, ai sensi del DPCM 12/12/2005, come:" : (
+	$F{tipoProcedimento} == 2 ? "Tipologia dell'opera e/o dell'intervento ai sensi degli artt 3 e del DPR 31/2017" : (
+		$F{tipoProcedimento} == 3 ? "L'intervento ricade tra le seguenti categorie di cui al c. 4 dell' art. 167 D. Lgs 42/2004:" : "Le opere/interventi in progetto:"
+	)
+)]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="1" y="20" width="549" height="80" uuid="eb25eec3-8e0e-4617-9908-6b8b58ded70e"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="537" height="70" uuid="6bd47aed-eb18-47c3-aebd-ef93aaa03200"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Descrizione" uuid="3fc44d6d-909d-4140-a813-16c283a6a5e2">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{descrizione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="70" width="537">
+							<componentElement>
+								<reportElement x="0" y="0" width="537" height="70" uuid="db42be61-7722-44f8-9082-e40104e30375"/>
+								<jr:list printOrder="Vertical">
+									<datasetRun subDataset="QualificazioneIntervento" uuid="b526510b-b862-4ae3-8576-540e7b95e521">
+										<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{qualificazioneIntervento})]]></dataSourceExpression>
+									</datasetRun>
+									<jr:listContents height="70" width="537">
+										<textField textAdjust="StretchHeight">
+											<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="537" height="30" uuid="4457965d-ece6-434a-beea-0d1282443b66"/>
+											<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement positionType="Float" x="10" y="30" width="527" height="40" uuid="245109aa-6bca-4ece-9eff-b6a6e5d44534"/>
+											<jr:list printOrder="Vertical">
+												<datasetRun subDataset="StringWrapper" uuid="f59893bb-414e-4683-9bb2-1d3c548c55ab">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{subtext})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:listContents height="40" width="527">
+													<textField textAdjust="StretchHeight">
+														<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="527" height="40" uuid="bf3cd0d7-a3fa-436d-b37a-92fd7f8a9e28"/>
+														<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+													</textField>
+												</jr:listContents>
+											</jr:list>
+										</componentElement>
+									</jr:listContents>
+								</jr:list>
+							</componentElement>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="419">
+			<staticText>
+				<reportElement x="0" y="0" width="240" height="20" uuid="2d437732-651b-414b-983a-a9d20a7aa699"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destinazione urbanistica e conformità urbanistica]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="390" uuid="4fa68d33-56c4-472b-9732-c31306671d0b"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="0" y="0" width="540" height="370" uuid="8ef5bd63-be86-44ed-bbdf-a10aa4a8ffef"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="DestinazioneUrbanistica" uuid="58f339e5-e170-4c26-a046-f6c9c2c65819">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{destinazioneUrbanistica})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="370" width="540">
+							<staticText>
+								<reportElement x="0" y="0" width="20" height="20" uuid="c9907e66-5088-4882-a003-91f6942f50cc"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="20" y="0" width="520" height="20" forecolor="#099E0C" uuid="1aa71e29-e03a-4a35-92ac-65fd441b9b2b"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nomeComune}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="20" width="270" height="20" uuid="c4557717-787d-4c16-9099-47358b87052a"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Lo strumento urbanistico generale vigente è il seguente:]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="10" y="40" width="530" height="20" uuid="9e989df4-e04c-4c57-b144-da257430a852"/>
+								<textFieldExpression><![CDATA[$F{strumentoUrbanistico} == 1 ? "Piano Urbanistico Generale PUG" : (
+	$F{strumentoUrbanistico} == 2 ? "Piano Regolatore Genereale PRG approvanto" : "Programa di fabbricazione Pdf"
+)]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="10" y="60" width="80" height="20" uuid="79cb9c57-8bef-4497-be9a-d6921854cbc7"/>
+								<text><![CDATA[approvato in data]]></text>
+							</staticText>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement x="90" y="60" width="90" height="20" uuid="3b0fa52b-b59e-4e2a-b64e-b893d07a66a9"/>
+								<textFieldExpression><![CDATA[$F{approvatoData}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="180" y="60" width="20" height="20" uuid="7845856b-b8d2-4627-bcbc-ace26f091bb2"/>
+								<text><![CDATA[con]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="200" y="60" width="340" height="20" uuid="e7e81468-6d31-49ea-8ccb-bb242a5cb2c6"/>
+								<textFieldExpression><![CDATA[$F{approvatoCon}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="80" width="520" height="20" uuid="7a8912b9-6589-4841-a691-2d932e416048"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[La destinazione urbanistica dell’area nell’ambito dello strumento urbanistico generale vigente è la seguente:]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="10" y="100" width="530" height="30" uuid="5955ce74-6198-4ac7-8a7e-aaf8fb386a43"/>
+								<textFieldExpression><![CDATA[$F{destinazioneUrbanistica}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="130" width="200" height="20" isRemoveLineWhenBlank="true" uuid="dcfb226f-cdfa-4246-8f17-fc6c09def297">
+									<printWhenExpression><![CDATA[$F{ulterioriTutele}.length() > 0]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Sono previste le seguenti ulteriori tutele:]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="ElementGroupHeight" x="10" y="150" width="530" height="30" isRemoveLineWhenBlank="true" uuid="ce2092c6-7246-4ac9-af80-0fbfda0d9169"/>
+								<textFieldExpression><![CDATA[$F{ulterioriTutele}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="2" y="182" width="521" height="20" uuid="2a14a2e1-439f-477b-b0ac-b009c17e2c9b"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{coerenzaAtto}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement positionType="Float" x="0" y="208" width="540" height="30" uuid="f6e400ea-0f85-4796-9312-aa98d9d3f786"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{strumentoInAdozione} == 1 ? "Il comune non ha alcuno strumento in adozione" : (
+	$F{strumentoInAdozione} == 2 ? "Il comune ha un Piano Urbanistico Generale PUG adottato in data " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{adottatoData}) + " con " + $F{adottatoCon} : "Il comune ha una Variante allo strumento urbanistico generale adottato in data " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{adottatoData})+ " con " + $F{adottatoCon}
+)]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="238" width="460" height="20" uuid="1609d5e7-8977-4e3a-804b-320e3e28d6b8"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[La destinazione dell’area nell’ambito dello strumento urbanistico generale vigente è la seguente:]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" stretchType="ElementGroupHeight" x="9" y="258" width="530" height="30" uuid="b7e80b20-8c4c-42f4-825c-9deb57bc37a0"/>
+								<textFieldExpression><![CDATA[$F{destinazioneUrbanisticaAdottato}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="288" width="200" height="20" isRemoveLineWhenBlank="true" uuid="e9df650c-b26f-4512-bc0a-40dfcbeb905a">
+									<printWhenExpression><![CDATA[$F{ulterioriTuteleAdottato}.length() > 0]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Sono previste le seguenti ulteriori tutele:]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="ElementGroupHeight" x="9" y="308" width="531" height="30" isRemoveLineWhenBlank="true" uuid="c047b108-86f0-45b9-adf2-b717bd4a1b90"/>
+								<textFieldExpression><![CDATA[$F{ulterioriTuteleAdottato}]]></textFieldExpression>
+							</textField>
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" stretchType="ElementGroupHeight" x="1" y="337" width="489" height="21" uuid="321ffe4b-4582-49f3-8c5b-8aac8bd43ae5"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["l'intervento"+($F{conformitaStrumentoUrbanistico}!=null && $F{conformitaStrumentoUrbanistico}==true?"":" NON")+" è conforme alla disciplina urbanistica vigente"]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="118">
+			<staticText>
+				<reportElement x="0" y="0" width="280" height="20" uuid="d258bfc1-07fd-4fb1-8a8f-fd65e0acb54f"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipologia di intervento e conformità alla disciplina edilizia]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="90" uuid="0fb0d758-65a0-451f-bab2-89f1f42a2805"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="2" y="1" width="537" height="80" uuid="019a6c3f-8eb8-47ee-9a7a-9db12964765e"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Descrizione" uuid="38fb23c9-10c1-49c0-a876-c7792fa77b1f">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{descrizione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="80" width="537">
+							<componentElement>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="537" height="80" uuid="73c14bb3-140e-4d83-a5fc-c90c38962b73"/>
+								<jr:list printOrder="Vertical">
+									<datasetRun subDataset="TipologiaIntervento" uuid="34784df4-f24e-493f-b029-dde3d969d333">
+										<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{tipologiaIntervento})]]></dataSourceExpression>
+									</datasetRun>
+									<jr:listContents height="80" width="537">
+										<staticText>
+											<reportElement x="0" y="0" width="340" height="20" uuid="d5154024-ccdc-47ee-84c3-899dd40681ba"/>
+											<textElement>
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[Le opere in progetto rientrano nella seguente tipologia di intervento(1):]]></text>
+										</staticText>
+										<textField textAdjust="StretchHeight">
+											<reportElement stretchType="ElementGroupHeight" x="10" y="20" width="527" height="20" uuid="28fecc78-5fc9-4f95-90f6-1b60999cc399"/>
+											<textFieldExpression><![CDATA[$F{tipologiaDiIntervento}]]></textFieldExpression>
+										</textField>
+										<staticText>
+											<reportElement x="0" y="50" width="537" height="30" forecolor="#8F8C8C" uuid="1c7b45b4-2465-4702-968c-05c6336f6ef0"/>
+											<text><![CDATA[(1) nel caso in cui le opere in progetto siano riconducibili a più tipologie di intervento, è stata indicata quella di maggiore impatto.]]></text>
+										</staticText>
+									</jr:listContents>
+								</jr:list>
+							</componentElement>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="128">
+			<staticText>
+				<reportElement x="0" y="0" width="90" height="20" uuid="9a7ff28e-6067-4d50-8636-9a9adb2cd44a"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Procedure edilizie]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="100" uuid="9f732c9c-a6af-4b19-9bbd-273a1dd6981d"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="0" y="0" width="539" height="90" uuid="d4428f7e-e404-47fb-ac4f-3310bdeb5714"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="ProcedureEdilizie" uuid="c90c3356-d1e3-4c63-99dd-e2fb0b04bc50">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{procedureEdilizie})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="90" width="539">
+							<textField>
+								<reportElement x="0" y="0" width="539" height="30" uuid="5e3eb085-924f-491b-b2cd-b6ef889fa3d6"/>
+								<textFieldExpression><![CDATA[$F{tipoIntervento} == 1 ? "L'intervento non è soggetto a procedura edilizia: " + $F{motivazione} : "L'intervento è soggetto a procedura edilizia"]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement x="10" y="30" width="529" height="30" isRemoveLineWhenBlank="true" uuid="566ec7f5-5769-4138-88d2-44a9a526375b">
+									<printWhenExpression><![CDATA[$F{tipoIntervento} == 2 && $F{primaCheckbox} == true]]></printWhenExpression>
+								</reportElement>
+								<textFieldExpression><![CDATA["La pratica è stata presentata presso " + $F{detagglio} + " il " + $F{pressoData}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="10" y="60" width="529" height="30" isRemoveLineWhenBlank="true" uuid="09ae0501-6279-4728-b816-e71c8d4790fe">
+									<printWhenExpression><![CDATA[$F{tipoIntervento} == 2 && $F{secondaCheckbox} == true]]></printWhenExpression>
+								</reportElement>
+								<textFieldExpression><![CDATA["E' stato espresso parere urbanistico in data " + $F{espressoData}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="235">
+			<staticText>
+				<reportElement x="0" y="0" width="250" height="20" uuid="27f3db2c-b77f-4042-9bbe-d3e6dde8dd63"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Legittimità urbanistica e paesaggistica dell'esistente]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="210" uuid="88d0dbef-e870-4524-8295-0992842752a7"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<subreport>
+					<reportElement x="1" y="1" width="549" height="200" uuid="b8d1809a-8f56-4bce-b385-c13b68c8c926"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{legittimita})]]></dataSourceExpression>
+					<subreportExpression><![CDATA["jasper/subreportLegittimita.jasper"]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+		<band height="276">
+			<staticText>
+				<reportElement x="1" y="0" width="179" height="20" uuid="874b55cb-73b0-4850-a572-3a017c94f045"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pareri ed atti di assenso già acquisiti]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="250" uuid="78ea43e7-292b-4f09-a4c3-a58cebc61ee1"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<subreport>
+					<reportElement x="2" y="1" width="548" height="229" uuid="82408791-5497-41d6-9888-a323cdfd51ff"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{pareriAtti})]]></dataSourceExpression>
+					<subreportExpression><![CDATA["jasper/subreportPareriAtti.jasper"]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+		<band height="198">
+			<staticText>
+				<reportElement x="0" y="0" width="540" height="20" uuid="dd9fe9f3-1b56-4c8e-ada1-8df1b8013498"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PPTR come rettificato e/o aggiornato (anche in sede di pianificazione comunale conforme e/o adeguata al PPTR)]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="550" height="170" uuid="71956bf2-ebcb-480f-9ef4-fb5d47003990"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement x="1" y="1" width="539" height="170" uuid="250a3c2f-cf52-4720-a9ec-168e50d2727c"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Pptr" uuid="7bbc36c7-bfe6-4a31-b9c7-947f6cd24b43">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{pptr})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="170" width="539">
+							<staticText>
+								<reportElement x="0" y="0" width="290" height="20" uuid="0d7b5af0-7e8f-492d-9882-16bc589425fb"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[L'area oggetto di intervento ricade nell'ambito paesaggistico:]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="10" y="20" width="529" height="20" uuid="ee221208-5f8d-48f4-8f8b-b6a115d33ef5"/>
+								<textFieldExpression><![CDATA[$F{ambitoPaesaggistico}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="40" width="40" height="20" uuid="1bf81e2d-1353-4f05-a780-5e357ed79342"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Figura:]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="10" y="60" width="529" height="20" uuid="9a81f5ed-7f17-432b-9849-ec42ccd421c4"/>
+								<textFieldExpression><![CDATA[$F{figura}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="80" width="539" height="20" isRemoveLineWhenBlank="true" uuid="d811efdc-52ef-4ad8-b049-f8774c83ed59">
+									<printWhenExpression><![CDATA[$F{art103} == true]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[- L'area oggetto di intervento ricade nei territori costruiti di cui all'art 1.03 co 5 e 66 delle NTA del PUTT/P]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="0" y="100" width="539" height="30" isRemoveLineWhenBlank="true" uuid="6e220f65-aee0-403a-9cb5-55a17a844142">
+									<printWhenExpression><![CDATA[$F{art142} == true]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[- L'area oggetto di intervento ricade in area che presenta le caratteristiche definite al co. 2 dell'art. 142 D.Lgs. 42/2004]]></text>
+							</staticText>
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="9" y="130" width="521" height="30" uuid="58e883f7-a0ff-4bb6-8e10-406e64923f5c"/>
+								<textElement markup="html"/>
+								<textFieldExpression><![CDATA[$F{vincoloArt38}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="195">
+			<frame>
+				<reportElement x="0" y="30" width="550" height="40" uuid="e2ef853d-e5d7-488e-a037-a9b2cfb033b1"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<staticText>
+					<reportElement x="1" y="8" width="538" height="17" uuid="5d074c50-4866-4625-9e21-38ec35485740"/>
+					<textElement>
+						<font fontName="CustomArial"/>
+					</textElement>
+					<text><![CDATA[l'area oggetto di intervento è interessata anche parzialmente dai seguenti beni e ulteriori contesti paesaggistici:]]></text>
+				</staticText>
+			</frame>
+			<componentElement>
+				<reportElement x="0" y="90" width="550" height="100" uuid="c9e07d8b-6067-46b0-96f7-bffbff19fe96"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="PptrTabella" uuid="b895321d-f62d-4547-aa0f-86ae7dfaf207">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{pptrTabella})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="100" width="550">
+						<textField>
+							<reportElement mode="Opaque" x="0" y="0" width="550" height="20" forecolor="#FFFFFF" backcolor="#757575" uuid="a615271a-cb6d-4f44-80ae-dc0ca262c195"/>
+							<textFieldExpression><![CDATA["  "+$F{titolo}]]></textFieldExpression>
+						</textField>
+						<componentElement>
+							<reportElement x="0" y="20" width="550" height="80" uuid="8800e77f-846c-46bd-8b27-85bb35514115">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+								<property name="com.jaspersoft.studio.table.style.table_header" value="Table 5_TH"/>
+								<property name="com.jaspersoft.studio.table.style.column_header" value="Table 5_CH"/>
+								<property name="com.jaspersoft.studio.table.style.detail" value="Table 5_TD"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<jr:table>
+								<datasetRun subDataset="PptrContenutoTabella" uuid="89dd6805-b576-40fb-bb6b-503221f98a71">
+									<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{contenuto})]]></dataSourceExpression>
+								</datasetRun>
+								<jr:column width="90" uuid="9b8ad594-59b8-4f0d-9d28-2cdc8ba0816b">
+									<jr:columnHeader style="Table 5_CH" height="30">
+										<staticText>
+											<reportElement x="0" y="0" width="90" height="30" uuid="95ab6131-af20-4fb2-a25d-2f4c19250f7c"/>
+											<textElement textAlignment="Center">
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[]]></text>
+										</staticText>
+									</jr:columnHeader>
+									<jr:detailCell style="Table 5_TD" height="30">
+										<textField textAdjust="StretchHeight">
+											<reportElement stretchType="ElementGroupHeight" mode="Transparent" x="0" y="0" width="90" height="15" uuid="219fbdbb-3c7f-4f26-ac2b-8c868341bca1"/>
+											<textElement markup="styled">
+												<font size="10" isBold="false"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{livello}==2?"<b>"+
+($F{specificare} != null && $F{specificare}.length() > 0 ? $F{nome} + "\n <i>specificare</i>:\n " + $F{specificare} : $F{nome} )+
+"</b>":
+($F{specificare} != null && $F{specificare}.length() > 0 ? $F{nome} + "\n <i>specificare</i>: \n" + $F{specificare} : $F{nome} )]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement x="0" y="15" width="90" height="15" uuid="a4759d49-2ea8-4aa1-bb8d-b74bbbcfc583">
+												<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+												<property name="com.jaspersoft.studio.table.style.table_header" value="Table 10_TH"/>
+												<property name="com.jaspersoft.studio.table.style.column_header" value="Table 10_CH"/>
+												<property name="com.jaspersoft.studio.table.style.detail" value="Table 10_TD"/>
+											</reportElement>
+											<jr:table>
+												<datasetRun subDataset="PptrContenutoTabella" uuid="27564891-b928-4949-9eec-23bb55689c12">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{figli})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:column width="90" uuid="e0bb6b4a-dcf7-410e-9d6f-5501ca63f18d">
+													<jr:detailCell style="Table 10_TD" height="30">
+														<textField textAdjust="StretchHeight">
+															<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="90" height="30" uuid="7592fb0e-8686-4e04-a27f-1c0ffb90aa55"/>
+															<box>
+																<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+																<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+																<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+																<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+															</box>
+															<textFieldExpression><![CDATA[$F{specificare} != null && $F{specificare}.length() > 0 ? $F{nome} + "\n SPECIFICARE: " + $F{specificare} : $F{nome}]]></textFieldExpression>
+														</textField>
+													</jr:detailCell>
+												</jr:column>
+											</jr:table>
+										</componentElement>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="100" uuid="6cb78e7f-23b8-4848-b808-4eef3ffe211d">
+									<jr:columnHeader style="Table 5_CH" height="30">
+										<staticText>
+											<reportElement x="0" y="0" width="100" height="30" uuid="0f061c95-8a8a-48cd-8e61-d4c733a53345"/>
+											<textElement textAlignment="Center">
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[art.]]></text>
+										</staticText>
+									</jr:columnHeader>
+									<jr:detailCell style="Table 5_TD" height="30">
+										<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="100" height="15" uuid="b5d93b4c-20d8-4989-87d5-73b452d06fe9">
+												<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+												<printWhenExpression><![CDATA[$F{art1}!=null]]></printWhenExpression>
+											</reportElement>
+											<textElement markup="styled">
+												<font isBold="false"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{livello}==2?"<b>"+($F{art1})+"</b>":($F{art1})]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement x="0" y="15" width="100" height="15" uuid="b7ca0c8d-df3e-4378-a577-c2d656906131">
+												<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+												<property name="com.jaspersoft.studio.table.style.table_header" value="Table 11_TH"/>
+												<property name="com.jaspersoft.studio.table.style.column_header" value="Table 11_CH"/>
+												<property name="com.jaspersoft.studio.table.style.detail" value="Table 11_TD"/>
+											</reportElement>
+											<jr:table>
+												<datasetRun subDataset="PptrContenutoTabella" uuid="56e1200c-6144-4665-8a20-b018a9eef3de">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{figli})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:column width="100" uuid="1bee79e5-8d57-4a5e-b17e-9d5297a099d5">
+													<jr:detailCell style="Table 11_TD" height="30">
+														<textField>
+															<reportElement x="0" y="0" width="100" height="30" uuid="1656230e-836b-4e35-9b52-270cfa6465bc"/>
+															<textFieldExpression><![CDATA[$F{art1}]]></textFieldExpression>
+														</textField>
+													</jr:detailCell>
+												</jr:column>
+											</jr:table>
+										</componentElement>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="90" uuid="ac5448b1-bc01-4806-b465-2584eea75b3e">
+									<jr:columnHeader style="Table 5_CH" height="30">
+										<staticText>
+											<reportElement x="0" y="0" width="90" height="30" uuid="8c9d770d-8647-42f9-a55e-8d7444cfc66e"/>
+											<textElement textAlignment="Center">
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[Definizione]]></text>
+										</staticText>
+									</jr:columnHeader>
+									<jr:detailCell style="Table 5_TD" height="30">
+										<textField textAdjust="StretchHeight">
+											<reportElement x="0" y="0" width="90" height="15" uuid="e8cbc486-a3c9-4d01-85a8-a493728d6222">
+												<printWhenExpression><![CDATA[$F{definizione}!=null]]></printWhenExpression>
+											</reportElement>
+											<textElement markup="styled">
+												<font isBold="false"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{livello}==2?"<b>"+($F{definizione})+"</b>":($F{definizione})]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement x="0" y="15" width="90" height="15" uuid="da379ebc-c847-473e-ad22-e1dfb76a8046">
+												<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+												<property name="com.jaspersoft.studio.table.style.table_header" value="Table 12_TH"/>
+												<property name="com.jaspersoft.studio.table.style.column_header" value="Table 12_CH"/>
+												<property name="com.jaspersoft.studio.table.style.detail" value="Table 12_TD"/>
+											</reportElement>
+											<jr:table>
+												<datasetRun subDataset="PptrContenutoTabella" uuid="7738d9bd-3ee9-4c90-a360-1217c2b1d318">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{figli})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:column width="90" uuid="1d91d96a-c490-4f0f-9f80-0aefc3726d31">
+													<jr:detailCell style="Table 12_TD" height="30">
+														<textField>
+															<reportElement x="0" y="0" width="90" height="30" uuid="c5197886-7a4d-4edf-aad3-5e2d21d8c93d"/>
+															<textFieldExpression><![CDATA[$F{definizione}]]></textFieldExpression>
+														</textField>
+													</jr:detailCell>
+												</jr:column>
+											</jr:table>
+										</componentElement>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="190" uuid="cee06ffd-92fd-44c2-b36b-1766ac40dff8">
+									<jr:columnHeader style="Table 5_CH" height="30">
+										<staticText>
+											<reportElement x="0" y="0" width="190" height="30" uuid="4eaf7208-6728-44cf-93df-13829b6e76eb"/>
+											<textElement textAlignment="Center">
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[Disposizioni normative]]></text>
+										</staticText>
+									</jr:columnHeader>
+									<jr:detailCell style="Table 5_TD" height="30">
+										<textField textAdjust="StretchHeight">
+											<reportElement x="0" y="0" width="190" height="15" uuid="4e768196-5a97-46a5-929f-0e96f40b8b40">
+												<printWhenExpression><![CDATA[$F{disposizioniNormative}!=null]]></printWhenExpression>
+											</reportElement>
+											<textElement markup="styled">
+												<font isBold="false"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{livello}==2?"<b>"+($F{disposizioniNormative})+"</b>":($F{disposizioniNormative})]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement x="0" y="15" width="190" height="15" uuid="3b5d7038-0c9d-4e30-9485-b8b630931812">
+												<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+												<property name="com.jaspersoft.studio.table.style.table_header" value="Table 13_TH"/>
+												<property name="com.jaspersoft.studio.table.style.column_header" value="Table 13_CH"/>
+												<property name="com.jaspersoft.studio.table.style.detail" value="Table 13_TD"/>
+												<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+											</reportElement>
+											<jr:table>
+												<datasetRun subDataset="PptrContenutoTabella" uuid="63b7683a-0f2e-4f19-8683-c62d5becf83d">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{figli})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:column width="190" uuid="d6cf32cb-0e52-4e4e-8952-d1ee60e0c6bb">
+													<jr:detailCell style="Table 13_TD" height="30">
+														<textField>
+															<reportElement x="0" y="0" width="190" height="30" uuid="b0c8a398-56ac-49f5-aee9-44a75fa573ef"/>
+															<textFieldExpression><![CDATA[$F{disposizioniNormative}]]></textFieldExpression>
+														</textField>
+													</jr:detailCell>
+												</jr:column>
+											</jr:table>
+										</componentElement>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="80" uuid="ba9338ed-8123-4902-9f6a-12305fbe909d">
+									<jr:columnHeader style="Table 5_CH" height="30">
+										<staticText>
+											<reportElement x="0" y="0" width="80" height="30" uuid="8da2a9bb-935c-48ec-ba3a-251b804703a1"/>
+											<textElement textAlignment="Center">
+												<font isBold="true"/>
+											</textElement>
+											<text><![CDATA[art.]]></text>
+										</staticText>
+									</jr:columnHeader>
+									<jr:detailCell style="Table 5_TD" height="30">
+										<textField textAdjust="StretchHeight">
+											<reportElement x="0" y="0" width="80" height="15" uuid="115ca0cc-db01-451c-bfca-d7703ea9c4f3">
+												<printWhenExpression><![CDATA[$F{art2}!=null]]></printWhenExpression>
+											</reportElement>
+											<textElement markup="styled">
+												<font isBold="false"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{livello}==2?"<b>"+($F{art2})+"</b>":($F{art2})]]></textFieldExpression>
+										</textField>
+										<componentElement>
+											<reportElement x="0" y="15" width="80" height="15" uuid="3dd81319-9162-4b07-b403-afbe79974120">
+												<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+												<property name="com.jaspersoft.studio.table.style.table_header" value="Table 14_TH"/>
+												<property name="com.jaspersoft.studio.table.style.column_header" value="Table 14_CH"/>
+												<property name="com.jaspersoft.studio.table.style.detail" value="Table 14_TD"/>
+												<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+											</reportElement>
+											<jr:table>
+												<datasetRun subDataset="PptrContenutoTabella" uuid="4ca5b702-53b7-47ad-9d76-c4e44e677290">
+													<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{figli})]]></dataSourceExpression>
+												</datasetRun>
+												<jr:column width="80" uuid="e21f5e2d-6c0c-4a87-9588-5936a3e70af9">
+													<jr:detailCell style="Table 14_TD" height="30">
+														<textField>
+															<reportElement x="0" y="0" width="80" height="30" uuid="6990b34b-40f2-40a6-abaf-c380fb7ae11a"/>
+															<textFieldExpression><![CDATA[$F{art2}]]></textFieldExpression>
+														</textField>
+													</jr:detailCell>
+												</jr:column>
+											</jr:table>
+										</componentElement>
+									</jr:detailCell>
+								</jr:column>
+							</jr:table>
+						</componentElement>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="90" y="70" width="110" height="20" uuid="0fe99189-f75e-4a57-9fa0-cefcc45e53e6"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[D.Lgs. 42/2004]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="70" width="350" height="20" uuid="36e6ca28-c375-481b-9a89-5e7894dab197"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Norme tecniche di attuazione del PPTR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="90" height="20" uuid="890e6610-f991-4f99-8231-612d78ce1ebc"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="209">
+			<staticText>
+				<reportElement x="0" y="0" width="260" height="20" uuid="e43224fe-af7a-4f89-aa53-08b1c76ca114"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bene sottoposto a vincolo architettonico/archeologico]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="180" uuid="222a1c64-c289-4d49-a87d-6a033b2135e8"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="170" uuid="355b7c97-63a3-45a5-af4f-6b1af1f97ac8"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="Vincolistica" uuid="6990ad61-180d-4a35-88d3-ca294afc8141">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{vincolistica})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="170" width="538">
+							<staticText>
+								<reportElement x="0" y="0" width="410" height="20" uuid="869788d1-4bca-4813-8a6c-1e13b84f4be8"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[l'immobile/area oggetto dei lavori, ai sensi del d.lgs n. 42/2004, Parte II, Titolo I, Capo I,]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="9" y="20" width="529" height="20" uuid="48743034-9fd7-4868-ad9d-b7e4394079c7"/>
+								<textFieldExpression><![CDATA[$F{sottopostoATutela} == true ? "- è sottoposto a tutela" : "- non è sottoposto a tutela"]]></textFieldExpression>
+							</textField>
+							<componentElement>
+								<reportElement x="9" y="40" width="529" height="20" isRemoveLineWhenBlank="true" uuid="3a469af2-044a-444e-b514-6edfa173848a"/>
+								<jr:list printOrder="Vertical">
+									<datasetRun subDataset="StringWrapper" uuid="5af8f52b-d729-4e93-a8a7-50f9a4bfe602">
+										<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{specificaVincolo})]]></dataSourceExpression>
+									</datasetRun>
+									<jr:listContents height="20" width="529">
+										<textField textAdjust="StretchHeight">
+											<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="529" height="20" uuid="d1daee12-18dc-4e3b-98f9-b7a829a4384e"/>
+											<textFieldExpression><![CDATA["- " + $F{value}]]></textFieldExpression>
+										</textField>
+									</jr:listContents>
+								</jr:list>
+							</componentElement>
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" x="9" y="140" width="528" height="30" isRemoveLineWhenBlank="true" uuid="580b477c-7311-4422-a6ae-a526dd8ea3e5">
+									<printWhenExpression><![CDATA[$F{altriVincolo}.length() > 0]]></printWhenExpression>
+								</reportElement>
+								<textFieldExpression><![CDATA[$F{altriVincolo}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="10" y="120" width="60" height="20" isRemoveLineWhenBlank="true" uuid="e42004b8-4964-4309-9c8e-20d8acbfa14c">
+									<printWhenExpression><![CDATA[$F{altriVincolo}.length() > 0]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[altri vincoli:]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="208">
+			<printWhenExpression><![CDATA[$F{effettiMitigazione}!=null && $F{effettiMitigazione}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="5eb6b389-a3dc-4fb8-a183-426be74c36dc"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Altri vincoli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="390" height="20" uuid="d3c675d7-646f-46c1-a864-c3191383efce"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione sintetica dello stato attuale dell'immobile o dell'area di intervento(1)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="50" width="550" height="150" uuid="066ff2be-ade1-4ce8-9c76-0de82e9adb96"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="140" uuid="7923afa2-a4aa-486e-9d4f-e425a8bce56f"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="EffettiMitigazione" uuid="538d53fc-eb25-49b3-9f46-f8b378620fc6">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{effettiMitigazione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="140" width="538">
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="538" height="70" uuid="1b69fdb0-8c5e-4e48-a66d-24419963bf96"/>
+								<textElement markup="html"/>
+								<textFieldExpression><![CDATA[$F{descrizione}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="70" width="538" height="70" forecolor="#949494" uuid="02f925fb-16bd-4878-aaab-51c75115f83f"/>
+								<text><![CDATA[(1) La descrizione deve riportare la lettura dei caratteri che effettivamente connotano l'immobile o l'area di intervento e il contesto paesaggistico, (anche con riferimento ai quadri conoscitivi degli strumenti della pianificazione e a quanto indicato dalle specifiche schede di vincolo) il livello di dettaglio dell'analisi deve essere adeguato rispetto ai valori del contesto e a lla tipologia di intervento. descrivere la compatibilità dell'intervento proposto con gli indirizzi e le prescrizioni di tutela paesaggistica di cui al PPTR.]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="188">
+			<printWhenExpression><![CDATA[$F{effettiMitigazione}!=null && $F{effettiMitigazione}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="1" y="0" width="239" height="20" uuid="21d76afc-eaf2-4b9e-979c-78d95f404dc9"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Effetti conseguenti alla realizzazione dell'opera(1)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="1" y="20" width="550" height="160" uuid="270a499d-85a8-4be3-8895-6961364cd5c0"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="150" uuid="16fb487a-9f13-4bc9-93ae-2fd848f1fc44"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="EffettiMitigazione" uuid="ab8a9763-a787-4668-a647-c65f6c3262dc">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{effettiMitigazione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="150" width="538">
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="538" height="70" uuid="8d03f5ec-1443-457f-bb27-d5642c6157c7"/>
+								<textElement markup="html"/>
+								<textFieldExpression><![CDATA[$F{effeti}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="70" width="538" height="80" forecolor="#949494" uuid="7d5aa487-dfe3-4921-8f74-2baf77d88426"/>
+								<text><![CDATA[(1) Tale valutazione si ricava dal confronto fra le caratteristiche dello stato attuale, gli elementi di progetto e gli obiettivi della tutela. Si elencano, a titolo esemplificativo, alcune delle possibili modificazioni dell'immobile o dell'area tutelata: - cromatismi dell'edificio; - rapporto vuoto/pieni; - sagoma; - volume; - caratteristiche architettoniche; - copertura; - pubblici accessi; - impermeabilizzazione del terreno; - movimenti di terreno/sbancamenti; - realizzazione di strutture accessorie; - aumento superficie coperta; - alterazione dello skyline (profilo dell'edificio o profilo dei crinali); - alterazione percettiva del paesaggio (intrusione o ostruzione visuale); - interventi su elementi arborei e vegetazione.]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="139">
+			<printWhenExpression><![CDATA[$F{effettiMitigazione}!=null && $F{effettiMitigazione}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="240" height="20" uuid="d63d1207-d37e-44b3-951a-d5d658001e92"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Eventuali misure di inserimento paesaggistico(1)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="20" width="550" height="110" uuid="96d5d134-2a68-45d0-afe9-b83726cc5338"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="100" uuid="9b7c39f6-0267-4d62-8680-4afec1cebb52"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="EffettiMitigazione" uuid="09b67e27-7e7b-4355-8b99-5e4383d51bf9">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{effettiMitigazione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="100" width="538">
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" isPrintRepeatedValues="false" x="0" y="0" width="538" height="70" uuid="2237b939-3a07-472d-b136-14a97d713d9e"/>
+								<textElement markup="html"/>
+								<textFieldExpression><![CDATA[$F{misure}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement positionType="Float" x="0" y="70" width="538" height="30" forecolor="#949494" uuid="b823c669-f628-422a-abde-725de87609b1"/>
+								<text><![CDATA[(1) Qualificazione o identificazione degli elementi progettuali finalizzati a ottenere il miglior inserimento paesaggistico dell'intervento nel contesto in cui questo è realizzato.]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="117">
+			<printWhenExpression><![CDATA[$F{effettiMitigazione}!=null && $F{effettiMitigazione}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" uuid="18bfb14d-5be4-4a6c-ae3c-5b0d4150b6ac"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indicazione dei contenuti percettivi della disciplina paesaggistica vigente in riferimento alla tipologia di intervento: conformità con i contenuti della disciplina]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="30" width="550" height="80" uuid="eb4c0bee-ed05-48f4-9dd9-876a2958d9d9"/>
+				<box padding="5">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ElementGroupHeight" x="1" y="1" width="538" height="70" uuid="7a8bbf0f-2b5c-4cd6-a764-d1e8a87db951"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="EffettiMitigazione" uuid="2f106d8f-5dcd-413c-861b-4e62e2876a78">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{effettiMitigazione})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="70" width="538">
+							<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="538" height="70" uuid="c8589dba-4ea6-4684-85a5-995baf909aea"/>
+								<textElement markup="html"/>
+								<textFieldExpression><![CDATA[$F{contenutiPercettivi}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="84">
+			<staticText>
+				<reportElement x="230" y="0" width="110" height="20" uuid="8a3918f3-bd8b-4b67-b70f-4080966068e0"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ELENCO ALLEGATI (1)]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="7" y="20" width="544" height="60" uuid="66e61d2d-40ca-4087-90f2-9ebe54706f76">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Allegato" uuid="61c740dd-2677-4c84-9c1d-ae5e609a5d32">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{elencoAllegati})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="210" uuid="2e5e89f7-90ee-421f-a927-727455c49bc8">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna1"/>
+						<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="210" height="30" uuid="7f92c7fc-dbc4-4749-8f6e-81488fa2b545"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome allegato / Tipo documento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="210" height="30" uuid="55deb1f2-4c06-4c5a-bbc5-dea84466e2fd"/>
+								<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="149" uuid="6d9adae3-0b7b-42dc-8df8-0510d85e3c73">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna2"/>
+						<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="149" height="30" uuid="e8e0b3b9-aa14-4777-bd1e-44557b48bd2a"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome archivio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="149" height="30" uuid="c1e7ddc6-40d1-455e-ab14-7d3092319f5e"/>
+								<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeArchivio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="130" uuid="912de7a3-3444-4e18-9509-174028adbf71">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna3"/>
+						<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="30" uuid="398204cc-233f-4663-86ce-391fad3095e5"/>
+								<textElement textAlignment="Center">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Checksum(SHA256)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement x="0" y="0" width="130" height="30" uuid="6db80e81-594c-436a-92f5-6ab191a444aa"/>
+								<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+								<textElement textAlignment="Center">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{checksum}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="54" uuid="815acf0f-8e7f-49aa-b5b2-c9331f57300e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonna4"/>
+						<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="54" height="30" uuid="52e0b16a-19f9-47eb-b335-e9cc56029532"/>
+								<textElement textAlignment="Center">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dimensione]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 2_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement x="0" y="0" width="54" height="30" uuid="62426b06-04e0-484c-af51-714a8ec27e6a"/>
+								<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+								<textElement textAlignment="Right">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{strDimensione}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="91">
+			<staticText>
+				<reportElement x="7" y="0" width="543" height="80" uuid="95c8ba90-016a-4d0d-a313-72918c71ab06"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[(1) Ai sensi del DPCM 12/12/2005, oltre agli elaborati di progetto redatti ai sensi del d.P.R.380/2001 e del D.L. 163/2006, occorre allegare sempre la RELAZIONE PAESAGGISTICA. 
+Al fine di perseguire i principi di dematerializzazione delle procedure amministrative, si invita a presentare gli allegati su supporto magnetico, firmati digitalmente. In tal caso al fini del l’ottenimento del parere della Soprintendenza risulta opportuno, nel transitorio, allegare una copia cartacea degli allegati di progetto, munita di attestazione di conformità alla documentazione in possesso dell’ente competente al rilascio del provvedimento finale.]]></text>
+			</staticText>
+		</band>
+		<band height="108">
+			<staticText>
+				<reportElement x="130" y="0" width="300" height="20" uuid="1793ab1c-aba3-4e61-b5b5-3a695502aaf9"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MAPPA DEI CONTENUTI PRESENTI NEGLI ALLEGATI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="20" width="155" height="20" uuid="9af2c3ea-dfeb-40e7-b7c9-75f39784fb42"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documentazione amministrativa]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="6" y="40" width="544" height="60" uuid="c8d4e743-3ea5-4e16-800f-82040042d93e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Allegato" uuid="9817efd7-bd25-4a19-ad99-04d7ef2ea7bf">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documentazioneAmministrativa})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="130" uuid="4be3fc0a-993c-4354-b991-21815a2f0bbc">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="30" uuid="f1b59dbe-7391-4886-bf9c-e3e45bcfd704"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="130" height="30" uuid="5934aa2f-d056-4b79-86ec-f6c0af70bdf0"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeAllegato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="af83368b-e0e7-406b-94df-d3d1f022b1a8">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="dbe71039-2bde-425b-9d92-e85a16d8c9e2"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome Archivio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="140" height="30" uuid="83eb4c89-bbab-4b2f-b0fa-93fce3f2078f"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeArchivio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="274" uuid="73a4a5a4-c326-48d2-84b4-892de25254de">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="274" height="30" uuid="e9862ce4-499b-4367-8aec-c63906915683"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipo Documento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="274" height="30" uuid="e738ae18-0b2f-4c3b-8db6-962c6195dc09"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="133">
+			<staticText>
+				<reportElement x="5" y="0" width="345" height="20" uuid="1a5faa5c-cc06-40ca-949b-3332c0805536"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documentazione tecnica per la verifica della compatibilità paesaggistica]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="7" y="20" width="543" height="60" uuid="f3f83210-5f53-4fb8-a13c-b74fac6e20ff">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 4_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 4_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 4_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Allegato" uuid="52289e13-a618-470e-9b5c-0e45c7567586">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documentazioneTecnica})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="132" uuid="1fd16c60-ede9-4519-b59b-f74f8fee5d47">
+						<jr:columnHeader style="Table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="132" height="30" uuid="07ce5195-2c7e-47f5-a490-51973088b393"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome allegato]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="132" height="30" uuid="ca8e1a59-8f35-436f-95ea-1a8c48352654"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeAllegato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="138" uuid="89e056ea-4748-4c04-90c2-4e34723ef801">
+						<jr:columnHeader style="Table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="138" height="30" uuid="59c764f4-22bd-4892-ac57-7481b96302f7"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome Archivio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="138" height="30" uuid="ad988fba-884b-40f3-9cde-55f22d10e8c9"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeArchivio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="273" uuid="7bf62190-720e-43c1-a913-2ef4018c9067">
+						<jr:columnHeader style="Table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="273" height="30" uuid="9756885f-809d-4dfc-94cc-3d4fe0b4a9a6"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Descrizione contenuto]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="273" height="30" uuid="ecc347c1-36f6-46df-8105-76ee0968511d"/>
+								<textElement textAlignment="Left" markup="html">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="119">
+			<staticText>
+				<reportElement x="85" y="10" width="102" height="20" uuid="943dc287-138c-4f5a-90dd-4aa1bcbcf71b"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Data e luogo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="30" width="273" height="20" uuid="1aa89273-6863-44f0-b133-6d9a899cfb50"/>
+				<textElement textAlignment="Left">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[_________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="70" width="100" height="20" uuid="641345cb-0cfc-400d-94f4-c061cbcc42ee"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Il Richiedente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="90" width="240" height="20" uuid="c99095f5-db8f-48ed-bb6a-56d9ba3c92ab"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[__________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="70" width="100" height="20" uuid="db2d91e9-ab70-4b45-9ea6-d9dea00d20c9"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Il Tecnico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="90" width="240" height="20" uuid="7d827127-eaa8-4113-9257-b678f5a77065"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[__________________________________________]]></text>
+			</staticText>
+		</band>
+		<band height="170">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="1" width="551" height="161" uuid="86896378-28d3-4fa0-aee2-25eed937ef61"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{testoPrivacyHtml}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="95">
+			<staticText>
+				<reportElement x="220" y="57" width="230" height="20" forecolor="#09752A" uuid="f04419cc-0117-49d2-91c5-d5b7d0af4d9d"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[pugliacon.regione.puglia.it]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="57" width="34" height="19" forecolor="#047A1B" uuid="2959fd82-7be5-4e47-8c5b-ceee7f270a81"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="80" width="71" height="15" uuid="a74a89b1-3581-41c4-9d60-7805220fa639"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="504" y="57" width="56" height="19" forecolor="#047A1B" uuid="4c915e30-cca9-46b0-8861-402436811037"/>
+				<textFieldExpression><![CDATA[" di " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

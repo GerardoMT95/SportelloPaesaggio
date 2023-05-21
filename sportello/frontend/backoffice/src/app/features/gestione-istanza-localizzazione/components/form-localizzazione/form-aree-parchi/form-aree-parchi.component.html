@@ -1,0 +1,73 @@
+<div [formGroup]="fascicoloFormLocalizzazione">
+  <!--<p-fieldset legend="{{'fascicolo.localizzazioneSection.altreInfo.titolo'|translate}}"> -->
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.localizzazioneSection.altreInfo.titolo' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8 col-sm-12">
+      <div class="form-group ">
+        <label for="bpParchiRiserve">{{'fascicolo.localizzazioneSection.altreInfo.bpParchiRiserve'|translate}}</label>
+        <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}" [disabled]="disable"
+          maxSelectedLabels="2" class="dflex text-left" [options]="bpParchiRiserve" formControlName="bpParchiRiserve"
+          [defaultLabel]="'generic.selezionaunavoce'|translate"
+          [ngClass]="{ 'is-invalid': submitted && form.bpParchiRiserve.errors }">
+          <ng-template let-car let-i="index" pTemplate="item">
+            <div style="max-width: 40em!important; font-size: .8em; display: inline; text-overflow: ellipsis; word-wrap: break-word;">
+              {{car.label}}
+            </div>
+          </ng-template>
+        </p-multiSelect>
+        <div *ngIf="submitted && form.bpParchiRiserve.errors" class="invalid-feedback">
+          {{'generic.required'|translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8 col-sm-12">
+      <div class="form-group ">
+        <label
+          for="bpPaesaggioRurale">{{'fascicolo.localizzazioneSection.altreInfo.bpPaesaggioRurale'|translate}}</label>
+        <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}" [disabled]="disable"
+          class="dflex text-left" maxSelectedLabels="1" [options]="bpPaesaggioRurale" [style]="{'max-width': '100%'}"
+          formControlName="bpPaesaggioRurale" [defaultLabel]="'generic.selezionaunavoce'|translate"
+          [ngClass]="{ 'is-invalid': submitted && form.bpPaesaggioRurale.errors }">
+          <ng-template let-car let-i="index" pTemplate="item">
+            <div style="max-width: 40em!important; font-size: .8em; display: inline; text-overflow: ellipsis; word-wrap: break-word;">
+              {{car.label}}
+            </div>
+          </ng-template>
+        </p-multiSelect>
+        <div *ngIf="submitted && form.bpPaesaggioRurale.errors" class="invalid-feedback">
+          {{'generic.required'|translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-8 col-sm-12">
+      <div class="form-group">
+        <label for="idTipo">{{'fascicolo.localizzazioneSection.altreInfo.bpImmobiliAree'|translate}}</label>
+        <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}" [disabled]="disable"
+          class="dflex " maxSelectedLabels="1" [options]="bpImmobiliAreeInteresse"
+          formControlName="bpImmobiliAreeInteresse" [defaultLabel]="'generic.selezionaunavoce'|translate"
+          [ngClass]="{ 'is-invalid': submitted && form.bpImmobiliAreeInteresse.errors }">
+          <ng-template let-car let-i="index" pTemplate="item">
+            <div style="max-width: 40em!important; font-size: .8em; display: inline; text-overflow: ellipsis; word-wrap: break-word;">
+              {{car.label}}
+            </div>
+          </ng-template>
+        </p-multiSelect>
+        <div *ngIf="submitted && form.bpImmobiliAreeInteresse.errors" class="invalid-feedback">
+          {{'generic.required'|translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</p-fieldset>-->
+</div>

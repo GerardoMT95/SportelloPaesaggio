@@ -1,0 +1,62 @@
+<div class="portlet-content-container">
+    <div class="portlet-body">
+        <p-dialog *ngIf="display" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{ width: '60%' }"
+            [contentStyle]="{'min-height':'12em'}" (onHide)="chiudiDialog()" [blockScroll]="true" 
+            [ngClass]="{'error': displayError}">
+            <p-header>
+                <span *ngIf="displayMembers">{{commissioneScelta.denominazione}} - Membri</span>
+                <span *ngIf="displayError">Impossibile salvare questa commisione locale</span>
+            </p-header>
+            <div *ngIf="displayMembers; else errors">
+                <span style="margin-top: 1.2em;">La commissione locale {{commissioneScelta.denominazione}}
+                    ha attualmente {{usersContainer ? usersContainer.length : 0}} membri registrati</span>
+                <app-generic-table [header]="userTableHeader" [items]="usersContainer" [paginator]="false" 
+                    [disableEditButton]="true" [disableDeleteButton]="true" [disableSelectButton]="true">
+                </app-generic-table>
+            </div>
+            <ng-template #errors>
+                <span style="margin-top: 1.2em;">Impossibile procedere con il salvataggio, le date inserite 
+                    si intersecano con il range di validità di altre commissioni in cui figurano i seguenti enti: 
+                </span>
+                <app-generic-table [header]="errorsTableHeader" [items]="errorsEnti" [paginator]="false" 
+                    [disableEditButton]="true" [disableDeleteButton]="true" [disableSelectButton]="true">
+                </app-generic-table>
+            </ng-template>
+            <p-footer>
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-row-reverse">
+                        <button class="dialog-button" type="button" pButton (click)="chiudiDialog()"
+                            label="{{ 'generic.chiudi' | translate }}"></button>
+                    </div>
+                </div>
+            </p-footer>
+        </p-dialog>
+        <div *ngIf="!showDetails; else details">
+            <ngb-accordion #acc="ngbAccordion" class="ricerca full-width">
+                <ngb-panel id="ricerca">
+                    <ng-template ngbPanelTitle>
+                        {{'generic.ricerca'|translate}}
+                        <fa-icon *ngIf="acc.isExpanded('ricerca')" icon="angle-double-up"></fa-icon>
+                        <fa-icon *ngIf="!acc.isExpanded('ricerca')" icon="angle-double-down"></fa-icon>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <div class="pl-3 pr-3">
+                            <app-form-search *ngIf="utentiCommissione" [configuration]="searchConfig" 
+                                [nColumns]="3" (onSearch)="search($event)" (onReset)="resetFilters()">
+                            </app-form-search>
+                        </div>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+            <app-table-commissione-locale [commissioni]="commissioni" [totalRecords]="totalRecords" [page]="filters.pagina" 
+                [rows]="filters.limite" (sortByOrPaging)="tableChange($event)" (openEdit)="openEdit($event)" (showMembers)="showMembers($event)">
+            </app-table-commissione-locale>
+        </div>
+        <ng-template #details>
+            <app-dettaglio-commissione [commissione]="commissioneScelta" [entiOptions]="entiCommissione"
+                [userOptions]="utentiCommissione" (chiudi)="chiudiDetails()" (salva)="salvaDetails($event)"
+                (addUtente)="aggiungiUtente($event)" (delUtente)="eliminaUtente($event)">
+            </app-dettaglio-commissione>
+        </ng-template>
+    </div>
+</div>

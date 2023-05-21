@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="wrapper" *ngIf="(fascicoloLoaded$|async) as caricato">
+    <app-dettaglio-fascicolo [fascicolo]="fascicolo" ></app-dettaglio-fascicolo> <!-- [meta]="metadati" -->
+    <app-genera-stampa-domanda [data]="domande" (download)="handleDownload($event)"></app-genera-stampa-domanda>
+    <div class="mt-3">
+      <button *ngIf="showAllega && fascicolo.currentUserOwner" pButton (click)="uploadFilesGridVisibility()" type="button"
+        label="{{ 'BUTTONS.UPLOAD_DOCUMENTS_BUTTON' | translate | titlecase }}"></button>
+    </div>
+    <div *ngIf="showPresentata">
+      <app-section-header [title]="'DETAILS.GENERATE_PRINT' | translate | titlecase"></app-section-header>
+      <div class="row">
+        <div class="col">
+          <div class="form-control">
+            <p-checkbox 
+            [label]="('DETAILS.DOC_FIRMATI'|translate)" 
+            [formControl]="fcIsSigned" [binary]="true" >
+            </p-checkbox>
+            <app-tooltip  [message]="('DETAILS.DOC_FIRMATI_TOOLTIP' | translate)"></app-tooltip>
+          </div>
+        </div>
+      </div>
+      <app-table-no-filter [readonly]="!fascicolo.currentUserOwner" [files]="files" [types]="types" (onTableDownload)="download($event)"  
+        (onTableDelete)="delete($event)" (onTableUpload)="handleUpload($event)"></app-table-no-filter>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-self-center mt-4 mb-4 ">
+    <div class="btn-group" *ngIf="showPresentata && fascicolo.currentUserOwner">
+      <button [disabled]="disablePresentata" (click)="finalize()" class="bttn btn btn-primary">
+        {{ 'BUTTONS.FINALIZE_BUTTON' | translate | titlecase }}
+      </button>&nbsp;
+    </div>
+    <div class="btn-group" *ngIf="fascicolo.currentUserOwner">
+      <button (click)="indietro()" class="bttn btn btn-primary">
+        {{ 'DETTAGLIO-FASCICOLO.TORNA-DETTAGLIO' | translate | titlecase }}
+      </button>
+    </div>
+    &nbsp;
+    <button (click)="indietroAListaFascicoli()" type="button" label=""
+                class="bttn btn btn-primary">{{ 'REQUESTER_TAB.BACK' | translate | titlecase }} <fa-icon
+                        icon="arrow-left"></fa-icon></button>
+  </div>
+</div>

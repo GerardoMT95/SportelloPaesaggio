@@ -1,0 +1,1 @@
+ALTER TABLE corrispondenza DROP COLUMN tipologia;

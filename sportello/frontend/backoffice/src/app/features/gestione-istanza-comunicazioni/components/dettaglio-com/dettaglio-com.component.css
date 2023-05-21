@@ -1,0 +1,52 @@
+.marginRight6{
+    margin-right: 6px!important;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.marginLeft15{
+    margin-left: 15px!important;
+}
+
+.label.my-label {border-radius: 50%;padding: 3px 8px;width: 20px;height: 20px;display: inline-block;}
+
+.max100 {max-width: 100px;width: 100%;}
+.max150 {max-width: 150px;width: 100%;}
+
+.dflex {display: flex;}
+
+.paddingBottom15{
+    padding-bottom: 15px!important;
+}
+
+.disabledBdg{ background-color: gray!important; opacity: 0.25;}
+
+.omino-destinatario{
+    margin-left: 12px;
+    font-size: 1.2em!important;
+    text-align: left!important;
+    height: 50px;
+    vertical-align: middle;
+    padding-top: 11px;
+}
+
+.colorPec{
+    background-color: #f0ad4e!important;
+}
+
+.badge-inviato {
+    color: #fff;
+    background-color: #337ab7;
+}
+.round {padding: 10px;border-radius: 50%;margin-left: 15px;display: inline-block;vertical-align: middle;margin-bottom: 15px}
+.round.bdg {border-radius: 5px;padding:13px;color: #fff;font-weight: bold; background-color: #f0ad4e}
+.big-text {font-size: 2em;vertical-align: middle;}
+.medio-text{font-size: 1.2em;vertical-align: middle;}
+/*.round.icon {padding-left: 70px;position: relative;min-height: 67px;}*/
+.round.icon {position: relative;min-height: 67px;}
+fa-icon.big-text {position: absolute;top: 50%;left: 18px;margin-top: -30px;font-size: 3em;}
+
+
+.disabledBdg{ background-color: gray!important; opacity: 0.25;}

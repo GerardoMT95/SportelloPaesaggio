@@ -1,0 +1,33 @@
+<form [formGroup]="form" *ngIf="form">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <app-text-field [label]="('RELAZIONE_ENTE.BODY_PROTOCOL_NUMBER' | translate | lowercase) + '*'"
+          [id]="'numeroProtocolloEnte'" [name]="'numeroProtocolloEnte'" formControlName="numeroProtocolloEnte"
+          [errors]="form.controls.numeroProtocolloEnte.errors" [validation]="trasmetti"></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <app-text-field [label]="('RELAZIONE_ENTE.NAME_INSTRUCTOR_ENTITY' | translate | lowercase) + '*'"
+          [id]="'nominativoIstruttore'" [name]="'nominativoIstruttore'" formControlName="nominativoIstruttore"
+          [errors]="form.controls.nominativoIstruttore.errors" [validation]="trasmetti">
+        </app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-textarea-field [label]="'RELAZIONE_ENTE.REPORT_DETAIL' | translate | uppercase" [id]="'dettaglioRelazione'"
+          [name]="'dettaglioRelazione'" formControlName="dettaglioRelazione">
+        </app-textarea-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-textarea-field [label]="'RELAZIONE_ENTE.NOTE' | translate | uppercase" [id]="'notaInterna'"
+          [name]="'notaInterna'" formControlName="notaInterna">
+        </app-textarea-field>
+      </div>
+    </div>
+  </div>
+</form>

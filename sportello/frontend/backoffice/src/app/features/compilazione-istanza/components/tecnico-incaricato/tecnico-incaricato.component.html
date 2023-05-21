@@ -1,0 +1,183 @@
+<div class="container-fluid" [formGroup]="mainForm.controls['tecnicoIncaricato']" *ngIf="mainForm.controls['tecnicoIncaricato'] as fgTcn">
+  <app-section-header [title]="'TECHNICIAN_IN_CHARGE.TITLE_DATA' | translate | titlecase"></app-section-header>
+  <div class="row pt-5">
+    <div class="col-md-4">
+      <app-text-field formControlName="cognome" [label]="('TECHNICIAN_IN_CHARGE.SURNAME' | translate | uppercase) + '*'"
+        [validation]="validation" [errors]="fgTcn.get('cognome').errors">
+      </app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field formControlName="nome" [label]="('TECHNICIAN_IN_CHARGE.NAME' | translate | uppercase) + '*'"
+        [validation]="validation" [errors]="fgTcn.get('nome').errors">
+      </app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field formControlName="codiceFiscale" [uppercase]="true"
+        [label]="('TECHNICIAN_IN_CHARGE.FISCAL_CODE' | translate | uppercase) + '*'" [validation]="validation"
+        [errors]="fgTcn.get('codiceFiscale').errors"></app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+      <app-radio-field formControlName="sesso" name="sesso" radioValue="F" [radioLabel]="'F'"
+        [label]="('REQUESTER_TAB.SEX' | translate | uppercase) + '*'" [validation]="validation"
+        [errors]="fgTcn.get('sesso').errors"></app-radio-field>
+    </div>
+    <div class="col-md-1">
+      <app-radio-field formControlName="sesso" name="sesso" radioValue="M" [radioLabel]="'M'" [label]="'&nbsp;'">
+      </app-radio-field>
+    </div>
+    <div class="col-md-3">
+      <app-date-picker-field formControlName="natoIl"
+        [label]="('TECHNICIAN_IN_CHARGE.BORN_ON' | translate | titlecase) + '*'"
+        [yearRange]="'1900:'+const.MAX_YEAR_MAGGIORENNI" 
+        [validation]="validation"
+        [maxDate]="const.MAX_DATE_MAGGIORENNI"
+        [errors]="fgTcn.get('natoIl').errors"></app-date-picker-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-stato-citta-prov-field [formGroupSet]="mainForm.controls['tecnicoIncaricato']" [nazionalita]="'natoStato'"
+        [provincia]="'natoProvincia'" [comune]="'natoComune'" [comuneEstero]="'natoCitta'"
+        [label]="('OTHER_OWNER_TAB.BIRTH_PLACE' | translate | uppercase) +'*'" [submitted]="validation">
+      </app-stato-citta-prov-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-stato-citta-prov-field [formGroupSet]="mainForm.controls['tecnicoIncaricato'].get('residenteIn')"
+        [nazionalita]="'stato'" [provincia]="'provincia'" [comune]="'comune'" [comuneEstero]="'citta'"
+        [label]="('REQUESTER_TAB.RESIDENT' | translate | uppercase) "></app-stato-citta-prov-field>
+    </div>
+  </div>
+  <div class="row" formGroupName="residenteIn">
+  
+    <div class="col">
+      <app-text-field formControlName="via" 
+        [label]="'REQUESTER_TAB.ADDRESS' | translate | uppercase"></app-text-field>
+    </div>
+    <div class="col-md-2">
+      <app-text-field formControlName="n" [prepend]="'REQUESTER_TAB.N' | translate | lowercase" [label]="'&nbsp;'"
+        [maxlength]="100">
+      </app-text-field>
+    </div>
+    <div class="col-md-2">
+      <app-text-field formControlName="cap" [prepend]="'REQUESTER_TAB.CAP' | translate | uppercase" [label]="'&nbsp;'"
+        [maxlength]="5">
+      </app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <app-stato-citta-prov-field [formGroupSet]="mainForm.controls['tecnicoIncaricato'].get('conStudioIn')"
+        [nazionalita]="'stato'" [provincia]="'provincia'" [comune]="'comune'" [comuneEstero]="'citta'"
+        [label]="('TECHNICIAN_IN_CHARGE.WITH_STUDIO_IN' | translate | uppercase) "></app-stato-citta-prov-field>
+    </div>
+  </div>
+  <div class="row" formGroupName="conStudioIn">
+    <div class="col">
+      <app-text-field formControlName="via" 
+        [label]="'REQUESTER_TAB.ADDRESS' | translate | uppercase" [maxlength]="100"></app-text-field>
+    </div>
+    <div class="col-md-2">
+      <app-text-field formControlName="n" [prepend]="'REQUESTER_TAB.N' | translate | lowercase" [label]="'&nbsp;'"
+        [maxlength]="100">
+      </app-text-field>
+    </div>
+    <div class="col-md-2">
+      <app-text-field formControlName="cap" [prepend]="'REQUESTER_TAB.CAP' | translate | uppercase" [label]="'&nbsp;'"
+        [maxlength]="5">
+      </app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-5">
+      <app-text-field formControlName="iscritoAllOrdine"
+        [label]="'TECHNICIAN_IN_CHARGE.REGISTERED_IN_THE_ORDER/COLLEGE' | translate | uppercase"></app-text-field>
+    </div>
+    <div class="col">
+      <app-text-field formControlName="di" [prepend]="'TECHNICIAN_IN_CHARGE.OF' | translate | titlecase"
+        [label]="'&nbsp;'" [maxlength]="100"></app-text-field>
+    </div>
+    <div class="col">
+      <app-text-field formControlName="n" [prepend]="'n.'" [label]="'&nbsp;'" [maxlength]="100"></app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <app-text-field formControlName="recapitoTelefonico"
+        [label]="'TECHNICIAN_IN_CHARGE.PHONE_NUMBER' | translate | uppercase" [maxlength]="100"></app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field formControlName="fax" [label]="'TECHNICIAN_IN_CHARGE.FAX' | translate | uppercase">
+      </app-text-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field formControlName="cellulare" [label]="'TECHNICIAN_IN_CHARGE.MOBILE_PHONE' | translate | uppercase"
+        [maxlength]="100">
+      </app-text-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <app-text-field formControlName="pec" [maxlength]="255"
+        [label]="('TECHNICIAN_IN_CHARGE.PEC' | translate | uppercase) + '   ('+ ('generic.domicilio_digitale' | translate | uppercase) + ') *'"
+        [validation]="validation" [errors]="fgTcn.get('pec').errors">
+      </app-text-field>
+    </div>
+  </div>
+
+  <app-section-header [title]="'TECHNICIAN_IN_CHARGE.ATTACHED_RECOGNITION_DOCUMENT' | translate"></app-section-header>
+  <div class="row">
+    <div class="offset-md-4 col-md-4" formGroupName="documento">
+      <app-select-field formControlName="idTipo" [label]="('TECHNICIAN_IN_CHARGE.TIP' | translate | uppercase) + '*'"
+        [options]="tipoDocumentoOptions" [validation]="validation"
+        [errors]="fgTcn.get('documento')['controls'].idTipo.errors"></app-select-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center pt-3" formGroupName="documento" *ngIf="fgTcn.get('documento') as fgDoc">
+    <div class="col-md-2">
+      <app-text-field formControlName="numero" [label]="('TECHNICIAN_IN_CHARGE.NUMBER' | translate | uppercase) + '*'"
+        [validation]="validation"
+        [errors]="fgDoc.get('numero').errors">
+      </app-text-field>
+    </div>
+    <div class="col-md-3">
+      <app-date-picker-field formControlName="dataRilascio"
+        [label]="('TECHNICIAN_IN_CHARGE.RELEASED' | translate | titlecase) + '*'" [validation]="validation"
+        [errors]="fgDoc.get('dataRilascio').errors"
+        [maxDate]="const.TODAY">
+      </app-date-picker-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field formControlName="enteRilascio"
+        [label]="('TECHNICIAN_IN_CHARGE.RELEASED_BY' | translate | titlecase) + '*'" [validation]="validation"
+        [errors]="fgDoc.get('enteRilascio').errors"></app-text-field>
+    </div>
+    <div class="col-md-3">
+      <app-date-picker-field formControlName="dataScadenza"
+        [label]="('TECHNICIAN_IN_CHARGE.EXPIRY_DATE' | translate | titlecase) + '*'" [validation]="validation"
+        [errors]="fgDoc.get('dataScadenza').errors"
+        [minDate]="const.TODAY">
+      </app-date-picker-field>
+    </div>
+  </div>
+
+  <div>
+    <app-documento-riconoscimento-allegato [fascicolo]="fascicolo" [praticaId]="fascicolo.id"
+      [referenteId]="fascicolo.istanza.tecnicoIncaricato.id" (emitTableData)="validazioneTabella($event)">
+    </app-documento-riconoscimento-allegato>
+    <div *ngIf="validation && fgTcn.get('esisteDocumento').errors"
+      style="color: #dc3545; font-size: 13px;">
+      Campo obbligatorio
+    </div>
+  </div>
+
+</div>

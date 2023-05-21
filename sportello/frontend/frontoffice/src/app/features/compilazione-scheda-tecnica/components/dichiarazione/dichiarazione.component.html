@@ -1,0 +1,13 @@
+<form [formGroup]="mainForm.controls['dichiarazione']">
+  <div class="container-fluid">
+    <div class="mt-4 mb-4">
+      <div [innerHtml]="dichiarazione.get('testo').value|safeHtml"></div>
+    </div>
+    <div class="dichiarazione">
+      <app-checkbox-field formControlName="accettata" [isSingle]="true"
+        [checkboxLabel]="dichiarazione.get('labelCb').value"
+        [validation]="validation"
+        [errors]="mainForm.controls['dichiarazione'].get('accettata').errors"></app-checkbox-field>
+    </div>
+  </div>
+</form>

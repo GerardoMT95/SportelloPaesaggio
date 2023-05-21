@@ -1,0 +1,318 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="row noml nomr">
+  <div class="col-md-12">
+    <!-- separatore -->
+    <div class="row noml nomr journal-content-article">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          MODALITA' DI ASSEGNAZIONE FASCICOLI
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="form">
+      <!-- manuale/automatico -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="p-grid" style="width:250px;margin-bottom:10px">
+            <div class="p-col-12">
+              <p-radioButton name="tipoAssegnazione" value="DISATTIVATA" label="{{'configurazioneAssegnazione.DISATTIVATA.label'|translate}}"
+                formControlName="tipoAssegnazione">
+              </p-radioButton>&nbsp;
+              <fa-icon icon="info-circle" (mouseenter)="op1.toggle($event)" (mouseleave)="op1.toggle($event)"></fa-icon>
+              <p-overlayPanel #op1 [appendTo]="'body'" [style]="{'max-width':'600px'}">
+                {{'configurazioneAssegnazione.DISATTIVATA.info'|translate}}
+              </p-overlayPanel>
+            </div>
+            <div class="p-col-12">
+              <p-radioButton name="tipoAssegnazione" value="MANUALE" label="{{'configurazioneAssegnazione.MANUALE.label'|translate}}"
+                formControlName="tipoAssegnazione">
+              </p-radioButton>
+            </div>
+            <div class="p-col-12">
+              <p-radioButton name="tipoAssegnazione" value="AUTOMATICO" label="{{'configurazioneAssegnazione.AUTOMATICA.label'|translate}}"
+                formControlName="tipoAssegnazione">
+              </p-radioButton>
+            </div>
+          </div>
+        </div>
+
+        <!-- se automatico -->
+        <p-dropdown *ngIf="form.controls.tipoAssegnazione.value === 'AUTOMATICO'" class="dflex col-md-4"
+          formControlName="tipoSelezione" [showClear]="true" [options]="listaTipoSelezione" [disableControl]="disable"
+          [autoWidth]="false" placeholder="Seleziona una voce">
+        </p-dropdown>
+
+        <!-- se automatico e localizzazione -->
+        <div
+          *ngIf="form.controls.tipoAssegnazione.value === 'AUTOMATICO' && form.controls.tipoSelezione.value === 'LOCALIZZAZIONE'">
+          <br><br>
+          <strong>ASSEGNA FUNZIONARIO/RUP ALLA LOCALIZZAZIONE:</strong>
+          <br><br>
+          <!-- comune -->
+          <div class="row noml nomr">
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">COMUNE:</label>
+              <p-dropdown class="dflex" formControlName="comuneLocalizzazione" [showClear]="true"
+                [options]="listaComuneLocalizzazione" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+              </p-dropdown>
+            </div>
+            <!-- funzionario -->
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">FUNZIONARIO:</label>
+              <p-dropdown class="dflex" formControlName="funzionarioLocalizzazione" [showClear]="true"
+                [options]="listaFunzionarioLocalizzazione" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+            <!-- rup -->
+            <!-- <div class="form-group col-md-4 col-sm-12">
+              <label for="">RUP:</label>
+              <p-dropdown class="dflex" formControlName="rupLocalizzazione" [showClear]="true"
+                [options]="listaRupLocalizzazione" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce" [ngClass]="{'is-invalid': form['controls'].rupLocalizzazione.errors }">
+              </p-dropdown>
+            </div> -->
+          </div>
+          <!-- button aggiungi funzionario/rup -->
+          <div class="text-center">
+            <button type="button" (click)="aggiungiFunzionarioRupLocalizzazione()" class="bttn btn btn-primary">Assegna
+              Funzionario/RUP</button>
+          </div>
+
+          <br><br>
+
+          <!-- ricerca -->
+          <strong>ELENCO FUNZIONARIO/RUP ASSOCIATI ALLA LOCALIZZAZIONE:</strong>
+          <br><br>
+          <!-- comune -->
+          <div class="row noml nomr">
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">COMUNE:</label>
+              <p-dropdown class="dflex" formControlName="comuneLocalizzazioneRicerca" [showClear]="true"
+                [options]="listaComuneLocalizzazioneRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+              </p-dropdown>
+            </div>
+            <!-- funzionario -->
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">FUNZIONARIO:</label>
+              <p-dropdown class="dflex" formControlName="funzionarioLocalizzazioneRicerca" [showClear]="true"
+                [options]="listaFunzionarioLocalizzazioneRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+            <!-- rup -->
+            <!-- <div class="form-group col-md-4 col-sm-12">
+              <label for="">RUP:</label>
+              <p-dropdown class="dflex" formControlName="rupLocalizzazioneRicerca" [showClear]="true"
+                [options]="listaRupLocalizzazioneRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce"
+                [ngClass]="{'is-invalid': form['controls'].rupLocalizzazioneRicerca.errors }">
+              </p-dropdown>
+            </div> -->
+          </div>
+          <!-- button cerca e annulla funzionario/rup -->
+          <div class="text-center">
+            <button type="button" (click)="cercaFunzionarioRupLocalizzazione()"
+              class="bttn btn btn-primary">Ricerca</button>
+            <button type="button" (click)="annullaFunzionarioRupLocalizzazione()"
+              class="bttn btn btn-primary">Annulla</button>
+          </div>
+
+          <br><br>
+
+          <!-- tabella ricerca -->
+          <div class="tableContainerCustom">
+            <p-table [value]="tabellaLocalizzazione" [columns]="colonneTabellaLocalizzazione">
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th class="uppercase" *ngFor="let col of columns">
+                    {{col.header}}
+                  </th>
+                  <th class="uppercase" style="width: 9em">
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+                <tr>
+                  <td>{{rowData.denominazioneComuneProcedimento}}</td>
+                  <td>{{rowData.denominazioneFunzionario}}&nbsp;[{{rowData.usernameFunzionario}}]</td>
+                  <td>
+                    <button type="button" (click)="eliminaFunzionarioLocalizzazione(rowData, index)" placement="top"
+                      container="body" ngbTooltip="{{'generic.elimina'|translate}}"
+                      class="bttn bttn-table btn btn-danger">
+                      <fa-icon icon="trash"></fa-icon>
+                    </button>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                  <td [attr.colspan]="columns.length + 1">
+                    <span style="text-align: center">{{'generic.norows' | translate}}</span>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+
+        <!-- se automatico e tipologia procedimento -->
+        <div
+          *ngIf="form.controls.tipoAssegnazione.value === 'AUTOMATICO' && form.controls.tipoSelezione.value === 'TIPO_PROCEDIMENTO'">
+          <br><br>
+          <strong>ASSEGNA FUNZIONARIO/RUP ALLA TIPOLOGIA PROCEDIMENTO:</strong>
+          <br><br>
+          <!-- tipologia procedimento -->
+          <div class="row noml nomr">
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">TIPOLOGIA PROCEDIMENTO:</label>
+              <p-dropdown class="dflex" formControlName="tipologiaProcedimento" [showClear]="true"
+                [options]="listaTipologiaProcedimento" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+            <!-- funzionario -->
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">FUNZIONARIO:</label>
+              <p-dropdown class="dflex" formControlName="funzionarioProcedimento" [showClear]="true"
+                [options]="listaFunzionarioProcedimento" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+            <!-- rup -->
+            <!-- <div class="form-group col-md-4 col-sm-12">
+              <label for="">RUP:</label>
+              <p-dropdown class="dflex" formControlName="rupProcedimento" [showClear]="true"
+                [options]="listaRupProcedimento" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce" [ngClass]="{'is-invalid': form['controls'].rupProcedimento.errors }">
+              </p-dropdown>
+            </div> -->
+          </div>
+          <!-- button aggiungi funzionario/rup -->
+          <div class="text-center">
+            <button type="button" (click)="aggiungiFunzionarioRupProcedimento()" class="bttn btn btn-primary">Assegna
+              Funzionario/RUP</button>
+          </div>
+
+          <br><br>
+
+          <!-- ricerca -->
+          <strong>ELENCO FUNZIONARIO/RUP ASSOCIATI ALLA TIPOLOGIA PROCEDIMENTO:</strong>
+          <br><br>
+          <!-- tipologia procedimento -->
+          <div class="row noml nomr">
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">TIPOLOGIA PROCEDIMENTO:</label>
+              <p-dropdown class="dflex" formControlName="tipologiaProcedimentoRicerca" [showClear]="true"
+                [options]="listaTipologiaProcedimentoRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+              </p-dropdown>
+            </div>
+            <!-- funzionario -->
+            <div class="form-group col-md-6 col-sm-12">
+              <label for="">FUNZIONARIO:</label>
+              <p-dropdown class="dflex" formControlName="funzionarioProcedimentoRicerca" [showClear]="true"
+                [options]="listaFunzionarioProcedimentoRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}&nbsp;{{'['+item.value+']'}}</span>
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <span style="vertical-align:middle">{{user.label}}&nbsp;{{'['+user.value+']'}}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+            <!-- rup -->
+            <!-- <div class="form-group col-md-4 col-sm-12">
+              <label for="">RUP:</label>
+              <p-dropdown class="dflex" formControlName="rupProcedimentoRicerca" [showClear]="true"
+                [options]="listaRupProcedimentoRicerca" [disableControl]="disable" [autoWidth]="false"
+                placeholder="Seleziona una voce"
+                [ngClass]="{'is-invalid': form['controls'].rupProcedimentoRicerca.errors }">
+              </p-dropdown>
+            </div> -->
+          </div>
+          <!-- button cerca e annulla funzionario/rup -->
+          <div class="text-center">
+            <button type="button" (click)="cercaFunzionarioRupProcedimento()"
+              class="bttn btn btn-primary">Ricerca</button>
+            <button type="button" (click)="annullaFunzionarioRupProcedimento()"
+              class="bttn btn btn-primary">Annulla</button>
+          </div>
+          <br><br>
+          <!-- tabella ricerca -->
+          <div class="tableContainerCustom">
+            <p-table [value]="tabellaProcedimento" [columns]="colonneTabellaProcedimento">
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th class="uppercase" *ngFor="let col of columns">
+                    {{col.header}}
+                  </th>
+                  <th class="uppercase" style="width: 9em">
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+                <tr>
+                  <td class="longText">{{rowData.denominazioneComuneProcedimento}}</td>
+                  <td class="longText">{{rowData.denominazioneFunzionario}}&nbsp;[{{rowData.usernameFunzionario}}]</td>
+                  <td>
+                    <button type="button" (click)="eliminaFunzionarioProcedimento(rowData, index)" placement="top"
+                      container="body" ngbTooltip="{{'generic.elimina'|translate}}"
+                      class="bttn bttn-table btn btn-danger">
+                      <fa-icon icon="trash"></fa-icon>
+                    </button>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                  <td [attr.colspan]="columns.length + 1">
+                    <span style="text-align: center">{{'generic.norows' | translate}}</span>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br><br><br>
+    <div class="text-center inner-pulsantiera">
+      <button type="button" (click)="salva()" class="bttn btn btn-primary">{{'generic.salva'|translate}}</button>
+      <button type="button" (click)="annulla()" class="bttn btn btn-primary">{{'generic.annulla'|translate}}</button>
+    </div>
+  </div>
+</div>

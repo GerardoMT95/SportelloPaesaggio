@@ -1,0 +1,90 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div *ngIf="fascicoloForm" [formGroup]="fascicoloForm">
+    <!--<p-fieldset legend="{{'fascicolo.provvedimentoSection.insDatiProvv'|translate}}">-->
+  <div class="row noml nomr">
+    <div class="col-md-4 ">
+      <div class="form-group ">
+        <label for="numero">{{'fascicolo.provvedimentoSection.numeroProvv'|translate}} *</label>
+        <input type="text" formControlName="numeroProvvedimento" class="form-control" [disableControl]="disableAndNotEditable"
+          [ngClass]="{'is-invalid': submitted && form.numeroProvvedimento.errors }"
+          [maxlength]="const.MAX_LEN_PROVVEDIMENTO" />
+          <div *ngIf="submitted && form.numeroProvvedimento.errors" class="invalid-feedback">
+          <div *ngIf="form.numeroProvvedimento.errors.required">{{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 ">
+      <div class="form-group ">
+        <label for="dataRilascioAutorizzazione">{{'fascicolo.provvedimentoSection.dataProvv'|translate}} *</label>
+        <div class="input-group">
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [disabled]="disableAndNotEditable"
+                      dateFormat="{{'generic.dateFormatCalendar'|translate}}" class="form-control nop"
+                      formControlName="dataRilascioAutorizzazione" [locale]="const.IT" showButtonBar="true"
+                      yearRange="1900:{{const.NOW_YEAR}}" 
+                      [maxDate]="const.NOW_DATE"
+                      inputStyleClass="form-control"
+                      [ngClass]="{'is-invalid': submitted && form.dataRilascioAutorizzazione.errors }">
+          </p-calendar>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <fa-icon icon="calendar"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="submitted && form.dataRilascioAutorizzazione.errors" class="invalid-feedback">
+          <div *ngIf="form.dataRilascioAutorizzazione.errors.required">{{'generic.required'|translate}}</div>
+          <div *ngIf="form.dataRilascioAutorizzazione.errors.dateError">{{'generic.invalidDate'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 ">
+      <div class="form-group">
+        <label for="esitoProvvedimento">{{'search.esitoProvvedimento'|translate}} *</label>
+        <ng-container *ngIf="esitiProvvedimento$ | async as bodyList">
+          <p-dropdown class="dflex" formControlName="esito" [showClear]="true" [options]="bodyList" [disableControl]="disable"
+            [autoWidth]="false" placeholder="Seleziona una voce" [ngClass]="{'is-invalid': submitted && form.esito.errors }">
+          </p-dropdown>
+        </ng-container>
+      </div>
+      <div *ngIf="submitted && form.esito.errors" class="invalid-feedback">
+        <div *ngIf="form.esito.errors.required"> {{'generic.required'|translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 ">
+      <div class="form-group ">
+        <label for="rup">{{'fascicolo.provvedimentoSection.rup'|translate}} *</label>
+        <p-autoComplete class="form-control" formControlName="rup" [suggestions]="listaRupAutocomplete" (completeMethod)="autocompleteRup($event)"
+          [ngClass]="{'is-invalid': submitted && form.rup.errors }" [disableControl]="disableAndNotEditable"
+          maxlength="{{const.MAX_LEN_NOME + const.MAX_LEN_COGNOME}}"></p-autoComplete>
+        <!-- <input type="text" formControlName="rup" class="form-control" [disableControl]="disable"
+          [ngClass]="{'is-invalid': submitted && form.rup.errors }"/> -->
+      </div>
+        <div *ngIf="submitted && form.rup.errors" class="invalid-feedback">
+        <div *ngIf="form.rup.errors.required">{{'generic.required'|translate}}</div>
+      </div>
+    </div>
+    </div>
+    <div  class="row noml nomr journal-content-article">
+      <div class="text-left clearfix w100">
+          <hr class="divisore">
+          <div class="text-center">
+              {{'fascicolo.elencoAllegati' | translate}}
+          </div>
+      </div>
+    </div>
+      <app-allegati-form *ngIf="dettaglioFascicolo"
+          [dettaglioFascicolo]='dettaglioFascicolo' [sezione]="'provvedimento'"
+          [tableHeadersAttachment]="tableHeadersAttachment" [disable]="disable" (avviso)="avviso($event)"
+          [checkFileType]="checkFileType">
+      </app-allegati-form>
+    <div><label>&nbsp;* {{'generic.required'|translate}}</label></div>
+</div>

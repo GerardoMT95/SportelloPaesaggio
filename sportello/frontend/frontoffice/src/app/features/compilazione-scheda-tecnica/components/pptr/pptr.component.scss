@@ -1,0 +1,62 @@
+.ui-table table {
+  table-layout: auto;
+}
+
+.table {
+  table-layout: fixed;
+  padding:0px;
+    margin:0px;
+}
+.parent-container {
+  padding: 0;
+  border: 0;
+  width: 100.1%;
+  >table {
+    border: none;
+    margin: 0;
+    width: 100.1%;
+    thead {
+      th {
+        border-bottom-width: 0 !important;
+      }
+    }
+  }
+}
+
+.table-bordered thead th {
+  border-bottom-width: 0;
+}
+
+.table-bordered {
+  border: 0;
+}
+
+.parent-title {
+  background: whitesmoke;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  >td {
+    border: 0;
+  }
+}
+
+@media (min-width: 780px) {
+  div.pl-5-custom {
+    padding-left: 3rem!important;
+  }
+}
+
+@media (max-width: 599px) {
+  // div.no-pl-5 {
+  //   padding-left: 0rem;
+  // }
+  app-section-header{
+    display: inline-block;
+  }
+  ::ng-deep .ui-table-wrapper.ng-star-inserted{
+    margin-top: 1rem;
+  }
+  // ::ng-deep app-pptr-contesti-paesaggistici p-table table{
+  //   margin-top: 1rem;
+  // }
+}

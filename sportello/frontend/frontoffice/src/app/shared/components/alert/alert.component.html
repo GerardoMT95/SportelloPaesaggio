@@ -1,0 +1,20 @@
+<p-dialog 
+[(visible)]="visible" 
+[styleClass]="type" (onShow)="onShow()" 
+(onHide)="close()" 
+[modal]="true" [draggable]="false" 
+[width]="300" [resizable]="false">
+  <p-header [innerHTML]="title"></p-header>
+  <div class="row nom">
+    <div class="col-auto nop">
+      <div class="icon" *ngIf="type!='none'">
+        <fa-icon [icon]="getIcon(type)"></fa-icon>
+      </div>
+    </div>
+    <div class="col-md" [innerHTML]="content"></div>
+  </div>
+  <p-footer>
+    <button type="button" class="btn btn-default button-style" *ngIf="hasConfirm" (click)="closeOk()">{{labelOk | translate}} <i class="ml-3 fa fa-check"></i></button>
+    <button type="button" class="btn btn-default button-style" (click)="visible=false">{{labelChiudi | translate}} <i class="ml-3 fa fa-times"></i></button>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,129 @@
+<!-- DIALOG-->
+
+<app-alert [(visible)]="displayConfirm" [type]="typConfirm" [hasConfirm]="true" (action)="callbackConfirm($event)"
+  [content]="contentConfirm" [title]="titleConfirm"></app-alert>
+
+<app-alert [(visible)]="displayEsito" [type]="typEsito" [hasConfirm]="false" (action)="closeEsito()"
+  [content]="contentEsito" [title]="titleEsito"></app-alert>
+
+<app-alert [(visible)]="displayReset" [type]="typReset" [hasConfirm]="true" (action)="callbackReset($event)"
+  [content]="contentReset" [title]="titleReset"></app-alert>
+
+<app-alert [(visible)]="displayInvalid" [type]="typInvalid" [hasConfirm]="false" (action)="closeInvalid()"
+  [content]="contentInvalid" [title]="titleInvalid"></app-alert>
+
+
+<!----------------------------------------------------------------------------------------------------->
+
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div class="mtop20">
+      <!--<ng-container *ngIf="!isAutpae">
+        <p>{{'diogene.messaggioConfigurazione'|translate}} {{disabled}}</p>
+      </ng-container>-->
+      <form [formGroup]="form" (ngSubmit)="confirmSave()" class="text-left" >
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="gatewayUsername" [label]="('diogene.label.gatewayUsername'|translate) + '*'" 
+            [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.gatewayUsername.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-password-field formControlName="gatewayPassword" [label]="('diogene.label.gatewayPassword'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.gatewayPassword.errors" ></app-password-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="gatewayConsumerKey" [label]="('diogene.label.gatewayConsumerKey'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.gatewayConsumerKey.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-password-field formControlName="gatewayConsumerSecret" [label]="('diogene.label.gatewayConsumerSecret'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.gatewayConsumerSecret.errors" ></app-password-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="diogeneUsername" [label]="('diogene.label.diogeneUsername'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.diogeneUsername.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-password-field formControlName="diogenePassword" [label]="('diogene.label.diogenePassword'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.diogenePassword.errors" ></app-password-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="diogeneConsumerKey" [label]="('diogene.label.diogeneConsumerKey'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.diogeneConsumerKey.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-password-field formControlName="diogeneConsumerSecret" [label]="('diogene.label.diogeneConsumerSecret'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.diogeneConsumerSecret.errors" ></app-password-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="idTitolario" [label]="('diogene.label.idTitolario'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.idTitolario.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="idVoceTitolario" [label]="('diogene.label.idVoceTitolario'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.idVoceTitolario.errors" ></app-text-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="idCartellaRoot" [label]="('diogene.label.idCartellaRoot'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.idCartellaRoot.errors" ></app-text-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="nomeCartellaRoot" [label]="('diogene.label.nomeCartellaRoot'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.nomeCartellaRoot.errors" ></app-text-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-select-field  [disabled]="disabled" formControlName="environment" [label]="('diogene.label.environment'|translate)+'*'" 
+            [options]="environmentOptions" [validation]="submitted" optionLabel="label" 
+            [errors]="form.controls.environment.errors"></app-select-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <app-text-field formControlName="idAoo" [label]="('diogene.label.idAoo'|translate) + '*'" [disabled]="disabled" 
+              [validation]="submitted" [errors]="form.controls.idAoo.errors" ></app-text-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p-checkbox
+            name="enabled"
+            [binary]="true"
+            [formControl]="form.controls['enabled']"
+            [label]="('diogene.label.enabled'|translate)"
+            labelstyleclass="labelLungaCheckBox"
+            class="dflex">
+            </p-checkbox>
+          </div>
+        </div>
+
+        <div class="ricercaPulsantieraContainer relative">
+          <div class="pulsantiera clearfix">
+            <button type="submit" [disabled]="!(form.dirty && form.valid)" class="bttn btn btn-primary">Salva<fa-icon
+                icon="save"></fa-icon></button>
+            <button type="button" [disabled]="!form.dirty" (click)="resetForm()" class="bttn btn btn-primary">Annulla
+              <fa-icon icon="times"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

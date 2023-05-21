@@ -1,0 +1,9 @@
+.no-flex{
+    display: block !important;
+}
+
+@media (max-width: 599px) {
+    ::ng-deep div.ui-accordion.ui-widget.ui-helper-reset {
+    display: flex !important;
+    }
+}

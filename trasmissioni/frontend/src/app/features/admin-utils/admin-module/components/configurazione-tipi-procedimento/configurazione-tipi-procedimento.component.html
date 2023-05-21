@@ -1,0 +1,95 @@
+<!-- DIALOG-->
+
+<app-alert [(visible)]="displayConfirm" [type]="typConfirm" [hasConfirm]="true" (action)="callbackConfirm($event)"
+    [content]="contentConfirm" [title]="titleConfirm"></app-alert>
+
+<app-alert [(visible)]="displayEsito" [type]="typEsito" [hasConfirm]="false" (action)="closeEsito()"
+    [content]="contentEsito" [title]="titleEsito"></app-alert>
+
+    <app-alert [(visible)]="displayReset" [type]="typReset" [hasConfirm]="true" (action)="callbackReset($event)"
+    [content]="contentReset" [title]="titleReset"></app-alert>
+
+
+<!----------------------------------------------------------------------------------------------------->
+
+<div class="container-fluid nop mtop50">
+    <div class="portlet-content-container">
+        <div class="mtop20">
+            <form [formGroup]="form" (ngSubmit)="confirmSave()" class="text-left">
+                <div class="row noml nomr">
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                      <label for="tipoProcedimento">{{'fascicolo.tipoProcedimento'|translate}} *</label>
+                      <ng-container >
+                        <p-dropdown class="dflex" [filter]=false [options]="tipiProcedimento" formControlName="tipoProcedimento"
+                          (onChange)="popolaValidita($event)" placeholder="{{'generic.selezionaunavoce'|translate}}"
+                          [autoWidth]="false" [showClear]="true">
+                        </p-dropdown>
+                      </ng-container>
+                      <div *ngIf="submitted && form.controls['tipoProcedimento'].errors" class="invalid-feedback">
+                        <div *ngIf="form.controls['tipoProcedimento'].errors.required">{{'generic.required'|translate}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label for="mesi">{{'tipoProcedimento.label.dataInizioValidita'|translate}} *:</label>
+                      <div class="input-group">
+                        <p-calendar [monthNavigator]="true" 
+                                     [yearNavigator]="true" 
+                                     yearRange="{{MIN_YEAR}}:{{MAX_YEAR}}" 
+                                     dateFormat="{{'generic.dateFormatCalendar'|translate}}" 
+                                     appendTo="body" 
+                                     class="form-control nop"
+                                      [locale]="it" 
+                                      [formControlName]="'dataInizioValidita'" 
+                                      inputStyleClass="form-control" 
+                                      showButtonBar="true" 
+                                      [ngClass]="{'is-invalid': form.controls['dataInizioValidita'].touched && form.controls['dataInizioValidita'].errors }"
+                        ></p-calendar>
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['dataInizioValidita'].errors">
+                      <small *ngIf="form.controls['dataInizioValidita'].errors.required && form.controls['dataInizioValidita'].touched" class="error">
+                        {{'tipoProcedimento.required.dataInizioValidita'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label for="mesi">{{'tipoProcedimento.label.dataFineValidita'|translate}} *:</label>
+                      <div class="input-group">
+                        <p-calendar [monthNavigator]="true" 
+                                     [yearNavigator]="true" 
+                                     yearRange="{{MIN_YEAR}}:{{MAX_YEAR}}" 
+                                     dateFormat="{{'generic.dateFormatCalendar'|translate}}" 
+                                     appendTo="body" 
+                                     class="form-control nop"
+                                      [locale]="it" 
+                                      [formControlName]="'dataFineValidita'" 
+                                      inputStyleClass="form-control" 
+                                      showButtonBar="true" 
+                                      [ngClass]="{'is-invalid': form.controls['dataFineValidita'].touched && form.controls['dataFineValidita'].errors }"
+                        ></p-calendar>
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['dataFineValidita'].errors">
+                      <small *ngIf="form.controls['dataFineValidita'].errors.required && form.controls['dataFineValidita'].touched" class="error">
+                        {{'tipoProcedimento.required.dataFineValidita'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="ricercaPulsantieraContainer relative">
+                    <div class="pulsantiera clearfix">
+                        <button type="submit" [disabled]="!(form.dirty && form.valid)"
+                            class="bttn btn btn-primary">Salva<fa-icon icon="save"></fa-icon></button>
+                        <button type="button" [disabled]="!form.dirty" (click)="resetForm()"
+                            class="bttn btn btn-primary">Annulla<fa-icon icon="times"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

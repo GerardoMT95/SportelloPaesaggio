@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <app-section-header [title]="'DETTAGLIO.FASCICOLO' | translate | titlecase"></app-section-header>
+  <div class="form">
+    <div class="row mb-2">
+      <div class="col-md-11">
+        <app-select-field formControlName="enteDelegato" [options]="entiDelegati"
+          [label]="('DETTAGLIO.ENTE-DELEGATO' | translate) + '*'" [name]="'ente'"></app-select-field>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-11">
+        <app-select-field formControlName="tipoProcedimento" [options]="tpMapping" 
+        [label]="('DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO' | translate) + '*'" [name]="'tipoProcedimento'">
+      </app-select-field>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-11">
+        <app-textarea-field formControlName="oggetto" [label]="('DETTAGLIO.OGGETTO' | translate) + '*'" [rows]="3"
+          [name]="'oggetto'"></app-textarea-field>
+      </div>
+    </div>
+  </div>
+</form>

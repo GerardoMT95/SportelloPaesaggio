@@ -1,0 +1,697 @@
+[
+    {
+        "nome": "Mario",
+        "cognome": "Rizzo",
+        "username": "utente_pubblico",
+        "password": "utente_pubblico",
+        "role": 5,
+        "gruppiRuoli": [
+            {
+                "id": "5",
+                "nomeGruppo": "Utente pubblico",
+                "codiceGruppo": "PUB",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": null,
+                "idUtentiResponsabili": null,
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Alberto",
+        "cognome": "Rossi",
+        "username": "richiedente",
+        "password": "richiedente",
+        "role": 1,
+
+        "gruppiRuoli": 
+        [
+            {
+                "id": "0",
+                "nomeGruppo": "Richiedente",
+                "codiceGruppo": "RIC",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": null,
+                "idUtentiResponsabili": ["test"],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Antonio",
+        "cognome": "De Luca",
+        "username": "amministratore",
+        "password": "amministratore",
+        "role": 6,
+        "gruppiRuoli": [
+            {
+                "id": "6",
+                "nomeGruppo": "Amministratore",
+                "codiceGruppo": "ADMIN",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Lorenzo",
+        "cognome": "Costa",
+        "username": "gestore_regione",
+        "password": "gestore_regione",
+        "role": 2,
+        "gruppiRuoli": [
+            {
+                "id": "1",
+                "nomeGruppo": "Regione Puglia",
+                "codiceGruppo": "REG_PU",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Cesare",
+        "cognome": "Zeppelli",
+        "username": "amministratore_gestore_regione",
+        "password": "amministratore_gestore_regione",
+        "role": 2,
+        "gruppiRuoli": [
+            {
+                "id": "1",
+                "nomeGruppo": "Regione Puglia",
+                "codiceGruppo": "REG_PU",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "2",
+                        "nomeRuolo": "Dirigente",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "DIRG",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Matteo",
+        "cognome": "Giordano",
+        "username": "soprintendenza",
+        "password": "soprintendenza",
+        "role": 3,
+        "gruppiRuoli": 
+        [
+            {
+                "id": "2",
+                "nomeGruppo": "Soprintendenza test",
+                "codiceGruppo": "SBAP_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Gerardo",
+        "cognome": "Greco",
+        "username": "amministratore_soprintendenza",
+        "password": "amministratore_soprintendenza",
+        "role": 8,
+        "gruppiRuoli": [
+            {
+                "id": "2",
+                "nomeGruppo": "Soprintendenza test",
+                "codiceGruppo": "SBAP_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "2",
+                        "nomeRuolo": "Dirigente",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "DIRG",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Marco",
+        "cognome": "Conti",
+        "username": "ente_territoriale",
+        "password": "ente_territoriale",
+        "role": 4,
+
+        "gruppiRuoli": [
+            {
+                "id": "4",
+                "nomeGruppo": "Ente territoriale test",
+                "codiceGruppo": "ETI_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Giovanni",
+        "cognome": "Lombardi",
+        "username": "amministratore_ente_territoriale",
+        "password": "amministratore_ente_territoriale",
+        "role": 9,
+        "gruppiRuoli": [
+            {
+                "id": "4",
+                "nomeGruppo": "Ente territoriale test",
+                "codiceGruppo": "ETI_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "2",
+                        "nomeRuolo": "Dirigente",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "DIRG",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Filippo",
+        "cognome": "Argenti",
+        "username": "ente_delegato",
+        "password": "ente_delegato",
+        "role": 13,
+        "gruppiRuoli": [
+            {
+                "id": "7",
+                "nomeGruppo": "Ente delegato test",
+                "codiceGruppo": "ED_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Dante",
+        "cognome": "Romano",
+        "username": "amministratore_ente_delegato",
+        "password": "amministratore_ente_delegato",
+        "role": 7,
+        "gruppiRuoli": [
+            {
+                "id": "7",
+                "nomeGruppo": "Ente delegato test",
+                "codiceGruppo": "ED_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "2",
+                        "nomeRuolo": "Dirigente",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "DIRG",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Bruno",
+        "cognome": "Bucciarati",
+        "username": "amministratore_commissione_locale",
+        "password": "amministratore_commissione_locale",
+        "role": 10,
+        "gruppiRuoli": [
+            {
+                "id": "8",
+                "nomeGruppo": "Ente Commissione locale test",
+                "codiceGruppo": "CL_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "3",
+                        "nomeRuolo": "Amministratore",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "ADMIN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "2",
+                        "nomeRuolo": "Dirigente",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "DIRG",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    },
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    },
+    {
+        "nome": "Enrico",
+        "cognome": "Pucci",
+        "username": "commissione_locale",
+        "password": "commissione_locale",
+        "role": 11,
+        "gruppiRuoli": [
+            {
+                "id": "8",
+                "nomeGruppo": "Ente Commissione locale",
+                "codiceGruppo": "CL_TEST",
+                "descrizioneGruppo": "",
+                "idApplicazione": "0",
+                "idGruppoPadre": null,
+                "idTipo": null,
+                "nomePadre": null,
+                "nomeApplicazione": "PPTR Istruttoria",
+                "codiceApplicazione": "PPTRE-ISTR",
+                "nomeRuolo": null,
+                "nomeTipo": null,
+                "ruoli": [
+                    {
+                        "id": "0",
+                        "nomeRuolo": "Funzionario",
+                        "descrizioneRuolo": "",
+                        "ruoloPadre": null,
+                        "applicazione": "PPTR-ISTR",
+                        "codiceRuolo": "FUN",
+                        "nomePadre": null,
+                        "nomeApplicazione": "PPTR Istruttoria",
+                        "numeroGruppi": null,
+                        "numeroPermessi": null,
+                        "gruppiEntity": null,
+                        "additionalProperties": null
+                    }
+                ],
+                "idUtentiResponsabili": [
+                    "test"
+                ],
+                "numeroRuoliAssociati": null,
+                "numeroResponsabili": 1,
+                "additionalProperties": null
+            }
+        ]
+    }
+]

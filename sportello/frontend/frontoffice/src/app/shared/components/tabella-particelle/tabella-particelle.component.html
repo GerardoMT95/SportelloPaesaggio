@@ -1,0 +1,80 @@
+<!--<div class="row noml nomr">-->
+  <!--<div class="col-md-12 col-sm-12">-->
+    <div class="tableContainer" [formGroup]="formComune">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th style="width: 40px"></th>
+            <th>{{'LOCALIZZAZIONE.LIVELLO'|translate}}*</th>
+            <th>{{'LOCALIZZAZIONE.SEZ'|translate}}</th>
+            <th>{{'LOCALIZZAZIONE.FOG'|translate}}*</th>
+            <th>{{'LOCALIZZAZIONE.PART'|translate}}*</th>
+            <th>{{'LOCALIZZAZIONE.SUB'|translate}}</th>
+            <th>{{'LOCALIZZAZIONE.NOTE'|translate}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="vmiddle riga" *ngFor="let item of particelle(); let i = index;">
+            <td class="text-center">{{(i+1)}}</td>
+            <td>
+              {{item.livello}}
+            </td>
+            <td>
+              {{(!item.descrSezione?item.sezione:item.descrSezione)}}
+            </td>
+            <td>
+              {{item.foglio}}
+            </td>
+            <td>
+              {{item.particella}}
+            </td>
+            <td>
+              {{item.sub}}
+            </td>
+            <td>
+              {{item.note}}
+            </td>
+            <td class="action">
+              <button type="button" [disabled]="disable" class="bttn btn btn-danger"
+                (click)="emitDelete(i)" *ngIf="tipoSelezioneLocalizzazione=='PTC' && !disable">
+                <span class="sr-only">{{'generic.eliminaAllegato'|translate}}</span>
+                <!--<fa-icon icon="times"></fa-icon>-->
+                <em class="fa fa-trash" aria-hidden="true"></em>
+              </button>
+              <button  type="button" *ngIf="item.oid "  
+              class="bttn btn btn-primary" (click)="emitZoomMap(i)">
+                <span class="sr-only">{{'LOCALIZZAZIONE.LOCALIZZA'|translate}}</span>
+                <fa-icon icon="map-marker-alt"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="100%" class="text-center">
+              <button [disabled]="disable" *ngIf="particelle().length>0 && 
+                tipoSelezioneLocalizzazione=='PTC' && !disable" type="button" 
+                (click)="emitDeleteAll()"
+                class="bttn btn btn-primary">
+                {{'LOCALIZZAZIONE.TABLE_DELETE_ALL_ROW_BUTTON'|translate}}
+                <fa-icon icon="trash"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!--<div *ngIf="submitted && demanioForm.controls.intervento.errors" class="invalid-feedback">
+      <div *ngIf="demanioForm.controls.intervento.errors.particelleRequired">
+        Inserire almeno una particella
+      </div>
+      <div *ngIf="demanioForm.controls.intervento.errors.shapeRequired">
+        Inserire almeno una geometria
+      </div>
+      <div *ngIf="demanioForm.controls.intervento.errors.fileRequired">
+        Inserire almeno un file di shape
+      </div>
+    </div>-->
+<!--  </div>-->
+<!--</div>-->

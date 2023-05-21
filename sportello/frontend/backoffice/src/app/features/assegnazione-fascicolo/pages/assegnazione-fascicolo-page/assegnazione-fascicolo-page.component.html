@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <app-tabella-storico [idPratica]="_idPratica" [data]="_assegnazioni" [display]="displayStorico" 
+        [codicePratica]="_codice" (onClose)="closeStorico()"></app-tabella-storico>
+    <app-nuova-assegnazione *ngIf="displayNewAssignment" [idPratica]="_idPratica" [display]="displayNewAssignment" [functionary]="funzionariOptions"
+        [rup]="rupOptions" [codicePratica]="_codice" (onSave)="saveAssignment($event)" (onClose)="closeAssegnaFascicolo()">
+    </app-nuova-assegnazione>
+    <div>
+        <!-- Area legata ai fascicoli da assegnare -->
+        <div class="text-left clearfix">
+            <hr class="divisore">
+            <div class="text-center">
+                {{'ASSEGNAZIONE_FASCICOLO.TITLE_ASSEGNAZIONE' | translate}}
+                <span class="dett"></span>
+            </div>
+        </div>
+        <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+            <p-accordionTab header="{{ 'ASSEGNAZIONE_FASCICOLO.RICERCA_DA_ASSEGNARE' | translate }}">
+                <app-form-search [configuration]="configurationNA" [nColumns]="nCol" [init]="filtersNotAssigned.codice"
+                    (onSearch)="formSearchEvent($event, false)" (onReset)="initFiltersNotAssigned(true)">
+                </app-form-search>
+            </p-accordionTab>
+        </p-accordion>
+        <div style="margin-top: 2em;"></div>
+        <app-assegna-fascicolo-table [data]="notAssigned" [totalItems]="totalItemsNotAssigned" [assigned]="false"
+            (pagingOrOrderBy)="sortByAndPaging($event, false)" (assegnaFascicolo)="assegnaFascicolo($event)">
+        </app-assegna-fascicolo-table>
+        <!-- End -->
+        <!-- Area legata ai fascicoli già assegnati -->
+        <div class="text-left clearfix w100">
+            <hr class="divisore">
+            <div class="text-center">
+                {{'ASSEGNAZIONE_FASCICOLO.TITLE_ELENCO' | translate}}
+                <span class="dett"></span>
+            </div>
+        </div>
+        <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+            <p-accordionTab header="{{ 'ASSEGNAZIONE_FASCICOLO.RICERCA_ASSEGNATA' | translate }}">
+                <app-form-search [configuration]="configurationA" [nColumns]="nCol" (onSearch)="formSearchEvent($event, true)"
+                    (onReset)="initFiltersAssigned(true)">
+                </app-form-search>
+            </p-accordionTab>
+        </p-accordion>
+        <div style="margin-top: 2em;"></div>
+        <app-assegna-fascicolo-table [data]="assigned" [totalItems]="totalItemsAssigned" [assigned]="true"
+            (pagingOrOrderBy)="sortByAndPaging($event, true)" (mostraStorico)="mostraStorico($event)"
+            (assegnaFascicolo)="assegnaFascicolo($event)" (eliminaAssegnazione)="eliminaAssegnazione($event)">
+        </app-assegna-fascicolo-table>
+        <!-- End -->
+    </div>
+</div>

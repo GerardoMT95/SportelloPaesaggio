@@ -1,0 +1,30 @@
+<!--    DIALOG   -->
+<app-alert [(visible)]="display" 
+[type]="type" 
+[hasConfirm]="hasConfirm" 
+(action)="callback($event)" 
+[content]="content" 
+[title]="title" 
+[extraData]="extraData"
+></app-alert>
+<!--    ----------------         -->
+
+<div class="container-fluid nop">
+    <div class="col-md-12">
+        <form class="text-left">
+            <div class="row noml nomr">
+                <label>{{'privacyAccetta.testo'|translate}}</label>
+                <div class="col-md-12 col-sm-12" 
+                style="padding:10px;border:1px solid #eee;"
+                [innerHTML]="testoPrivacy|safeHtml"
+                ></div>
+            </div>
+            <div class="row noml nomr" style="height: 55px;"></div><!--altrimenti il testo puo' essere coperto dalla pulsantiera fixed sotto-->
+            <div class="text-center inner-pulsantiera">
+                <div class="pulsantiera clearfix">
+                    <button type="button" (click)="openAccettaPrivacy()" class="bttn btn btn-primary">{{'privacyAccetta.accetta'|translate}}<fa-icon icon="check"></fa-icon></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

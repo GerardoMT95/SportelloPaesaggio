@@ -1,0 +1,114 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+    [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+    [title]="alertData.title" [modal]="false"></app-alert>
+<app-form-ud *ngIf="openEdit" [data]="data" (salva)="salva($event)" (chiudi)="chiudi()"></app-form-ud>
+<div *ngIf="!openEdit">
+    <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+            {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.ALLEGATI' | translate}}
+        </div>
+    </div>
+    <div style="text-align: right; padding-top: .8em; padding-bottom: .4em">
+        <button class="bttn btn btn-primary" (click)="apriEdit(-1)">Aggiungi allegato</button>
+    </div>
+    <p-table [value]="allegati" [autoLayout]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Titolo</th>
+                <th>Descrizione</th>
+                <th style="width: 11em;"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+            <tr>
+                <td>{{row.titolo}}</td>
+                <td>{{row.descrizione}}</td>
+                <td>
+                    <button class="bttn btn btn-primary bttn-table" (click)="apriEdit(rowIndex)">
+                        <fa-icon icon="edit"></fa-icon>
+                    </button>
+                    <button class="bttn btn btn-danger bttn-table" (click)="eliminaElemento(rowIndex)">
+                        <fa-icon icon="trash"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="3">
+                    Nessun file inserito
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <span class="invalid-feedback"
+                    *ngIf="inviato && (!allegati || allegati.length == 0)">{{'generic.required'|translate}}</span>
+</div>
+<div *ngIf="!openEdit" class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+            {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.CONDIVIDI' | translate}}
+        </div>
+    </div>
+</div>
+<div *ngIf="!openEdit" class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-12">
+                <label for="enti">{{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.DOCUMENTI_VISUALIZZABILI_DA'|translate}}</label>
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-12">
+                <p-multiSelect class="dflex" [options]="entiOptions$|async" [(ngModel)]="selectedDefault"
+                    [ngClass]="{'is-invalid': inviato && (!selectedDefault || selectedDefault.length == 0)}"
+                    defaultLabel="{{'generic.selezionavoci'|translate}}">
+                </p-multiSelect>
+                <span class="invalid-feedback"
+                    *ngIf="inviato && (!selectedDefault || selectedDefault.length == 0)">{{'generic.required'|translate}}</span>
+            </div>
+        </div>
+        <!-- Tabella per i destinatari fissi -->
+        <!-- <div class="text-left clearfix w100">
+            <hr class="divisore">
+            <div class="text-center">
+                {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.DESTINATARI_FISSI'|translate}} <span class="dett"></span>
+            </div>
+        </div> -->
+        <!-- <app-tabella-indirizzi [addresses]="destinatariFissi" [paginator]="false" [deletable]="false"
+            [selectable]="false" [editable]="false">
+        </app-tabella-indirizzi> -->
+        <!-- Fine gestione destinatari fissi -->
+        <div class="row" style="padding-top: 1.2em;">
+            <div class="col-md-12">
+                <label for="notificaA">{{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.NOTIFICA_A'|translate}}*</label>
+                <div style="margin-top: 2em;">
+                    <app-aggiungi-destinatario [addresses]="destinatari" [collapsed]="true"
+                        (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" 
+                        (onRemove)="removeDestinatario($event)">
+                    </app-aggiungi-destinatario>
+                    <div class="invalid-feedback" *ngIf="inviato && !destinatariValid">
+                        <ng-container *ngIf="destinatari.length === 0; else patternError">
+                            {{'generic.required'|translate}}
+                        </ng-container>
+                        <ng-template #patternError>
+                            Deve esserci almeno un destinatario
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!openEdit" class="row" style="padding-top: 2em;">
+    <div class="col-md-12 text-center">
+        <button class="bttn btn btn-primary" (click)="onSubmit()">
+            {{'BUTTONS.SEND_MAIL'|translate|titlecase}}
+          <fa-icon icon="paper-plane"></fa-icon>
+        </button>
+        <button class="bttn btn btn-primary" (click)="onCanceled()">
+            {{'BUTTONS.CANCEL_BUTTON'|translate|titlecase}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+    </div>
+</div>

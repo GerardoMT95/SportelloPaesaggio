@@ -1,0 +1,31 @@
+<div *ngIf="!allegaNuovo" class="container-fluid">
+  <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+    <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+      <app-documentazione-ricerca (searchChange)="updateQuery($event)" (annullaSearch)="updateQuery()"
+        [meta]="tipiOrganizzazioneSelect"></app-documentazione-ricerca>
+    </p-accordionTab>
+  </p-accordion>
+  <div class="row mt-3 mb-3">
+    <div class="col">
+      <div class="float-right" *ngIf="true">
+        <button *ngIf="!readOnly && visibilitaMailDefault" type="button" class="bttn btn btn-primary" (click)="allegaNuovoTrue()">
+            {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA_NUOVO' | translate | titlecase }}
+            <fa-icon icon="plus"></fa-icon>
+         </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-documentazione-table [tableData]="documentazione" [tableHeader]="documentazioneTableHeaders"
+        [currentUser]="currentUser" [meta]="tipiOrganizzazioneSelect" (navigateChange)="azioni($event)"
+        [idFascicolo]="fascicolo.id" (deleteChange)="deleteDocumetazione($event)"></app-documentazione-table>
+    </div>
+  </div>
+</div>
+<!-- <app-aggiungi-ulteriore-documentazione *ngIf="allegaNuovo" [doc]="doc" [entiOptions] = "entiOptions$" 
+  (uploadFile)="uploadFile($event)" (deleteFile)="deleteFile($event)" (onComplete)="newAttachment($event)"
+  (onCanceled)="canceled($event)">
+</app-aggiungi-ulteriore-documentazione> -->
+<app-aggiungi-ulteriore-documentazione-multi *ngIf="allegaNuovo" [entiOptions]="entiOptions$" [idFascicolo]="fascicolo.id"
+  (onComplete)="newAttachmentMulti($event)" (onCanceled)="canceled($event)" [indirizziMailDefault]="indirizziMailDefault"></app-aggiungi-ulteriore-documentazione-multi>

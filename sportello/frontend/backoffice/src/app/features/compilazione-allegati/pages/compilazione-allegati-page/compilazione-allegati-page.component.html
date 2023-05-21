@@ -1,0 +1,37 @@
+<div class="pt-1 px-3 mb-3" *ngIf="(loadedFascicolo|async) as caricato" style="padding-bottom: 2em;">
+  <p-tabView class="step" [(activeIndex)]="activeIndex">
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.ADMIN_DOCUMENTATIONS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneAmministrativa']">
+            <strong>{{numberOfErrorsOnthePage['documentazioneAmministrativa']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-documentazione-amministrativa [fascicolo]="fascicolo" [tipiContenuto]="tipiContenuto" 
+        [mainForm]="mainForm" [allegati]="allegati" [enteConPagamenti]="enteConPagamenti"
+        [sportelloConfig]="sportelloConfig">  
+      </app-documentazione-amministrativa>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.TECH_DOCUMENTATIONS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneTecnica']">
+            <strong>{{numberOfErrorsOnthePage['documentazioneTecnica']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-documentazione-tecnica [fascicolo]="fascicolo" [tipiContenuto]="tipiContenuto" 
+        [mainForm]="mainForm" [allegati]="allegati">
+      </app-documentazione-tecnica>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+<div class="text-center inner-pulsantiera" *ngIf="(loadedFascicolo|async) as caricato">
+  <button type="button" class="bttn btn btn-primary" (click)="indietro()">
+    {{'BACK_BUTTON'|translate}}
+    <fa-icon icon="arrow-left"></fa-icon>
+  </button>
+</div>

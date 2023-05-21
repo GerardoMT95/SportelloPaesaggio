@@ -1,0 +1,8 @@
+<app-document-table [fascicolo]="fascicolo" 
+  [tableHeaders]="documentTableHeaders" 
+  [tableData]="tableData"
+  (fileUpload)="caricaDocumento($event)" 
+  (emitDownload)="scaricaDocumento($event)"
+  (emitDeletion)="eliminaDocumento($event)"
+  [disabled]="fascicolo.attivitaDaEspletare !== 'COMPILA_DOMANDA' || disabled"
+  [filterFileToUploadFn]="checkFileType"></app-document-table>

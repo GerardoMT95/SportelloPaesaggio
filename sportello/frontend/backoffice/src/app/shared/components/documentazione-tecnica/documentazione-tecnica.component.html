@@ -1,0 +1,55 @@
+<!--<form [formGroup] = "mainForm.controls['documentazioneTecnica']">-->
+<div class="container-fluid">
+    <!-- <form [formGroup]="formInserimento">
+        <div class="row">
+            <div class="col-md-7">
+                <app-multiselect-field [label]="'TECHNICAL_DOCUMENTATION.FILE_TYPE'" formControlName="descrizione"
+                    id="descrizione" name="descrizione" [options]="getFileTypeSelect()" [dropdown]="false">
+                </app-multiselect-field>
+            </div>
+            <div class="col-md-5">
+                <app-text-field formControlName="nomeContenuto" [label]="
+                  ('TECHNICAL_DOCUMENTATION.NOME_CONTENUTO' | translate | uppercase) + '*'
+                " id="descrizione" name="descrizione"></app-text-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="fileUpload"
+                        class="mt-3 font-weight-bold">{{'TECHNICAL_DOCUMENTATION.ATTACH_FILE' | translate |uppercase}}</label>
+                    <p-fileUpload #fileUpload id="fileUpload" name="myfile" customUpload="true" [auto]="true"
+                        (uploadHandler)="doUpload($event)" [chooseLabel]="'BUTTONS.UPLOAD' | translate"
+                        [disabled]="false"></p-fileUpload>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <form [formGroup]="mainForm.controls['documentazioneTecnica']">
+        <div class="row mb-4">
+            <div class="col-md-12 mt-3">
+                <app-document-table [fascicolo]="fascicolo" (fileUpload)="dummy($event)"
+                    (emitDeletion)="deleteAttachment($event)" [tableHeaders]="documentTableHeaders"
+                    [tableData]="documentazioneTecnicaForm.get('grigliaAllegatiCaricati').value"
+                    [enableUploadFromTable]="false" (emitDownload)="scaricaDocumento($event)"></app-document-table>
+            </div>
+        </div>
+    </form> -->
+    <div class="row mb-4">
+        <div class="col-md-12 mt-3">
+            <app-document-table [fascicolo]="fascicolo" (fileUpload)="dummy($event)"
+                (emitDeletion)="deleteAttachment($event)" [tableHeaders]="documentTableHeaders"
+                [tableData]="documentazioneTecnicaForm.get('grigliaAllegatiCaricati').value" [enableUploadFromTable]="false"
+                (emitDownload)="scaricaDocumento($event)" [disabled]="true"></app-document-table>
+        </div>
+    </div>
+    <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+        <p-accordionTab header="{{ 'TECHNICAL_DOCUMENTATION.LIST_OF_ATTACHMENTS.HEADER' | translate }}"
+            [selected]="true">
+            <ng-container *ngFor="let contenuto of legendaTipiContenuto()">
+                <div [innerHTML]="contenuto.descrizioneEstesa|safeHtml"></div>
+            </ng-container>
+        </p-accordionTab>
+    </p-accordion>
+</div>

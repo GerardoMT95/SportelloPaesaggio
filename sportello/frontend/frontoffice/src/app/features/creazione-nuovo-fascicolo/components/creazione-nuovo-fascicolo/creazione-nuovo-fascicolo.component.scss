@@ -1,0 +1,23 @@
+
+.button {
+  padding: 15px;
+  text-align: center;
+}
+
+.form {
+  border: 1px solid #c8c8c8;
+  padding: 15px;
+}
+
+:host {
+  ::ng-deep .bttn {
+    padding: 5px 15px;
+    font-size: 1em;
+    background-color: #2b86c2;
+    border: 0px solid;
+    line-height: 20px;
+    margin: 0 0.5em 0 0;
+    width: auto;
+  }
+}
+

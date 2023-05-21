@@ -1,0 +1,227 @@
+<form [formGroup]="mainForm.controls['inquadramento']" *ngIf="mainForm.controls['inquadramento'] as fgInq">
+  <div class="container-fluid">
+    <app-radio-field
+      [label]="('FRAME_TAB.INTENDED-USE' | translate | uppercase) + '*'"
+      [radioLabel]="'FRAME_TAB.RESIDENTIAL' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="1"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.ACCOMMODATION-TOURISM' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="2"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.INDUSTRIAL-ARTISAN' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="3"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.AGRICULTURAL' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="4"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.COMMERCIAL-MANAGEMENT' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="5"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.OTHER' | translate"
+      formControlName="destinazioneUso"
+      [name]="'destinazioneUso'"
+      [radioValue]="6"
+      [validation]="validation"
+      [errors]="fgInq.get('destinazioneUso').errors"
+    ></app-radio-field>
+
+    <div class="row" *ngIf="showFormControl('destinazioneUsoSpecifica', 'destinazioneUso', 6)">
+      <div class="col-md-8">
+        <app-text-field
+          [prepend]="('FRAME_TAB.SPECIFIC' | translate | uppercase) + '*'"
+          formControlName="destinazioneUsoSpecifica"
+          [validation]="validation" [maxlength]="400"
+          [errors]="fgInq.get('destinazioneUsoSpecifica').errors"
+        ></app-text-field>
+      </div>
+    </div>
+    <div class="mt-5 mb-5"></div>
+    <app-radio-field
+      [label]="('FRAME_TAB.LANDSCAPE-CONTEXT' | translate | uppercase) + '*'"
+      [radioLabel]="'FRAME_TAB.CENTER-AND-HISTORICAL-CORE' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="1"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.URBAN-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="2"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.PERIURBAN-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="3"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.AGRICOLA-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="4"
+    ></app-radio-field>
+
+    <!-- <app-radio-field
+      [radioLabel]="'FRAME_TAB.COMMERCIAL-MANAGEMENT' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="5"
+    ></app-radio-field> -->
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.RURAL-SETTLEMENT' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="5"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.NATURAL-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="6"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.WOODED-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="7"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.FLUVIAL-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="8"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.LAKE-AREA' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="9"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.OTHER' | translate"
+      formControlName="contestoPaesaggInterv"
+      [name]="'contestoPaesaggInterv'"
+      [radioValue]="10"
+      [validation]="validation"
+      [errors]="fgInq.get('contestoPaesaggInterv').errors"
+    ></app-radio-field>
+
+    <div
+      class="row"
+      *ngIf="showFormControl('contestoPaesaggIntervSpecifica', 'contestoPaesaggInterv', 10)"
+    >
+      <div class="col-md-8">
+        <app-text-field
+          [prepend]="('FRAME_TAB.SPECIFIC' | translate | uppercase) + '*'"
+          formControlName="contestoPaesaggIntervSpecifica"
+          [validation]="validation" [maxlength]="400"
+          [errors]="fgInq.get('contestoPaesaggIntervSpecifica').errors"
+        ></app-text-field>
+      </div>
+    </div>
+
+    <div class="mt-5 mb-5"></div>
+
+    <app-radio-field
+      [label]="('FRAME_TAB.MORPHOLOGY-OF-THE-LANDSCAPE-CONTEXT' | translate | uppercase) + '*'"
+      [radioLabel]="'FRAME_TAB.COAST-LOW-HIGH' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="1"
+    ></app-radio-field>
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.RIDGE-HILLY-MOUNTAIN' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="2"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.FLAT-LAND' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="3"
+    ></app-radio-field>
+
+    <!-- <app-radio-field
+      [radioLabel]="'FRAME_TAB.AGRICOLA-AREA' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="4"
+    ></app-radio-field> -->
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.MOUNTAINSIDE' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="4"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.PLATEAU-PROMONTORY' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="5"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.FLAT-VALLEY-MOUNTAIN-HILLY' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="6"
+    ></app-radio-field>
+
+    <app-radio-field
+      [radioLabel]="'FRAME_TAB.OTHER' | translate"
+      formControlName="morfologiaConPaesag"
+      [name]="'morfologiaConPaesag'"
+      [radioValue]="7"
+      [validation]="validation"
+      [errors]="fgInq.get('morfologiaConPaesag').errors"
+    ></app-radio-field>
+
+    <div class="row">
+      <div
+        class="col-md-8"
+        *ngIf="showFormControl('morfologiaConPaesagSpecifica', 'morfologiaConPaesag', 7)"
+      >
+        <app-text-field
+          [prepend]="('FRAME_TAB.SPECIFIC' | translate | uppercase) + '*'"
+          formControlName="morfologiaConPaesagSpecifica"
+          [validation]="validation" [maxlength]="400"
+          [errors]="fgInq.get('morfologiaConPaesagSpecifica').errors"
+        ></app-text-field>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <p>{{'manuale.header'|translate}}</p>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" (click)="download()">
+        {{'manuale.download'|translate}}&nbsp;&nbsp;<fa-icon icon="file"></fa-icon>
+      </button>
+    </div>
+    <ng-container *ngIf="isAdmin()">
+      <br><br>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" (click)="downloadAdmin()">
+          {{'manuale.downloadAdmin'|translate}}&nbsp;&nbsp;<fa-icon icon="file"></fa-icon>
+        </button>
+      </div>
+    </ng-container>
+    
+  </div>
+</div>

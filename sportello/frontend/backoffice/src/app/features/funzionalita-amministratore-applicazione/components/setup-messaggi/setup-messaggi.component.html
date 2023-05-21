@@ -1,0 +1,42 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title" [modal]="false"></app-alert>
+<div class="container-fluid">
+  <div class="portlet-content-container">
+    <div *ngIf="(loadedFormData|async) as caricato">
+
+      <div *ngFor="let form of  formMessaggi.controls; 
+      let i = index" [formGroup]="formMessaggi"
+        >
+      
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label> {{'SETUP-MESSAGGI-LABEL.'+form.get('codiceContenuto').value|translate}}
+              <span *ngIf="form.get('tooltip').value" class="hyperlink"
+                (click)="openInfo(form.get('tooltip').value)">
+                <fa-icon icon="link"></fa-icon>
+              </span>
+            </label>
+            <p-editor name="contenuto" [style]="{'height':'320px'}" formControlName="contenuto">
+            </p-editor>
+            <div *ngIf="submitted && form.get('contenuto').errors" class="invalid-feedback">
+              <div *ngIf="form.get('contenuto').errors.required">
+                  {{'generic.required'|translate}}
+              </div>
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <div class="text-center inner-pulsantiera">
+    <button type="submit" class="bttn btn btn-primary" (click)="openSalva()">{{'generic.salva'|translate}}
+      <fa-icon icon="save"></fa-icon>
+    </button>
+    <button (click)="back()" class="bttn btn btn-primary">{{'generic.chiudi'|translate}}<fa-icon icon="times">
+      </fa-icon>
+    </button>
+  </div>
+
+</div>
+</div>
+

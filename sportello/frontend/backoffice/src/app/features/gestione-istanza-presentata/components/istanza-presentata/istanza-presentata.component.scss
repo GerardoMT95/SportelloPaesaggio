@@ -1,0 +1,29 @@
+.green {
+    float: left;
+  }
+
+  .green-square {
+    background-color: green;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    float: left;
+    margin-top: 4px;
+    margin-right: 2px;
+  }
+
+  .btn.btn-download {
+    border: 3px solid transparent;
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    background-color: #28a745;
+    margin: 0 3px;
+  }
+
+  .edit-th {
+    width: 60px;
+    text-align: center;
+  }

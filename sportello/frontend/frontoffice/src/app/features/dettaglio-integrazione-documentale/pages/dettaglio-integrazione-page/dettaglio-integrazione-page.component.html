@@ -1,0 +1,8 @@
+<app-inserimento-allegati-integrazione *ngIf="integrazione && integrazione.stato === 'IN_BOZZA'" (action)="actionResolver($event)" 
+    [fascicolo]="fascicolo" [idIntegrazione]="idIntegrazione" [allegati]="allegati"></app-inserimento-allegati-integrazione>
+<app-documento-riepilogo-integrazione *ngIf="integrazione && integrazione.stato === 'IN_ATTESA'" [fascicolo]="fascicolo"
+    [documentoIntegrazione]="documentoIntegrazione" 
+    [integrazione]="integrazione"
+    (action)="actionResolver($event)" (upload)="uploadDocumentoIntegrazione($event)"
+    (delete)="cancellaDocumentoIntegrazione($event)" 
+    (download)="downloadDocumentoCompilato($event)"></app-documento-riepilogo-integrazione>

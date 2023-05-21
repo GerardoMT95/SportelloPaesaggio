@@ -1,0 +1,139 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<div [formGroup]="fascicoloForm">
+  <div class="form-group">
+    <label for="ufficio">{{'fascicolo.enteCompetente'|translate}} *</label>
+    <ng-container *ngIf="disable">
+      <input type="text" name="ufficio" class="form-control" [readonly]="true" value="{{enteCompetente}}"/>
+    </ng-container>
+    <ng-container *ngIf="!disable && entiCompetenza$ | async as bodyList">
+      <!-- è fisso perchè sara' sempre e solo 1 elemento e quindi lo imposto a disabled-->
+      <p-dropdown class="dflex" [filter]=false [options]="bodyList" formControlName="ufficio" 
+      [disabled]="true"
+        placeholder="{{'generic.selezionaunavoce'|translate}}" [autoWidth]="false" [showClear]="true">
+      </p-dropdown>
+    </ng-container>
+    <div *ngIf="submitted && f.ufficio.errors" class="invalid-feedback">
+      <div *ngIf="f.ufficio.errors.required">{{'generic.required'|translate}}</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tipoProcedimento">{{'fascicolo.tipoProcedimento'|translate}} *</label>
+    <ng-container *ngIf="disable">
+      <input type="text" class="form-control" [readonly]="true" value="{{tipoProcedimento}}"/>
+    </ng-container>
+    <ng-container *ngIf="!disable && tipiProcedimento$ | async as bodyList">
+      <p-dropdown class="dflex" [filter]=false [options]="bodyList" formControlName="tipoProcedimento"
+        [disabled]="disable" 
+        (onChange)="resettaForm($event)" placeholder="{{'generic.selezionaunavoce'|translate}}"
+        [autoWidth]="false" [showClear]="true">
+      </p-dropdown>
+    </ng-container>
+    <div *ngIf="submitted && f.tipoProcedimento.errors" class="invalid-feedback">
+      <div *ngIf="f.tipoProcedimento.errors.required">{{'generic.required'|translate}}</div>
+    </div>
+  </div>
+  <div class="form-group" *ngIf="enableInSanatoria(f.tipoProcedimento.value)">
+    <p-checkbox label="{{'fascicolo.inSanatoria'|translate}}" 
+    formControlName="sanatoria" binary="true"
+      [disabled]="disable">
+    </p-checkbox>
+  </div>
+  <div class="form-group" *ngIf="const.isPutt()">
+    
+      <label for="dataDelibera">{{'fascicolo.dataPresentazione'|translate}} *</label>
+      <div class="input-group">
+        <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+          dateFormat="{{'generic.dateFormatCalendar'|translate}}" [locale]="it" 
+          [monthNavigator]="true"
+          [yearNavigator]="true" yearRange="1900:{{const.NOW_YEAR}}" class="form-control nop" 
+          formControlName="dataDelibera"
+          [maxDate]="const.TODAY"
+          inputStyleClass="form-control" showButtonBar="true" [disabled]="disableAndNotEditable"
+          [ngClass]="{ 'is-invalid': submitted && f.dataDelibera.errors }">
+        </p-calendar>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <fa-icon icon="calendar"></fa-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="submitted && f.dataDelibera.errors" class="invalid-feedback">
+        <ng-container *ngIf="f.dataDelibera.errors">
+          {{'generic.invalidDate'|translate}}
+        </ng-container>
+      </div>
+    
+  </div>
+  <div class="form-group">
+    <label for="oggettoIntervento">{{'fascicolo.oggettoIntervento'|translate}} *</label>
+    <textarea class="form-control" rows="5" formControlName="oggettoIntervento" 
+    [readonly]="disable"
+      [ngClass]="{ 'is-invalid': submitted && f.oggettoIntervento.errors }" maxlength="{{const.MAX_LEN_OGGETTO_INTERVENTO}}"></textarea>
+    <div *ngIf="submitted  && f.oggettoIntervento.errors" class="invalid-feedback">
+      <div *ngIf="f.oggettoIntervento.errors.required">{{'generic.required'|translate}}</div>
+      <div *ngIf="f.oggettoIntervento.errors.maxlength">{{'generic.maxLengthTextarea'|translate}} {{maxLengthTextArea}}</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="note">{{'fascicolo.note'|translate}}</label>
+    <textarea class="form-control" rows="5" formControlName="note" 
+    [readonly]="disableAndNotEditable"
+      [ngClass]="{ 'is-invalid': submitted && f.note.errors }" maxlength="{{const.MAX_LEN_NOTE}}"></textarea>
+    <div *ngIf="submitted && f.note.errors" class="invalid-feedback">
+    <div *ngIf="f.note.errors.maxlength">{{'generic.maxLengthTextarea'|translate}} {{maxLength}}</div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="row journal-content-article">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          {{'fascicolo.codiceInternoEnte' | translate}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group ">
+      <label for="codiceInternoEnte">{{'fascicolo.codiceInternoEnte'|translate}}</label>
+      <input type="text" formControlName="codiceInternoEnte" class="form-control" 
+      [readonly]="disableAndNotEditable" maxlength="{{const.MAX_LEN_CODICE_INTERNO_ENTE}}"/>
+    </div>
+    <div class="form-group ">
+      <label for="numeroInternoEnte">{{'fascicolo.numeroInternoEnte'|translate}}</label>
+      <input type="text" formControlName="numeroInternoEnte" class="form-control" 
+      [readonly]="disableAndNotEditable" maxlength="{{const.MAX_LEN_NUMERO_INTERNO_ENTE}}"/>
+    </div>
+    <div class="form-group ">
+      <label for="protocolloInternoEnte">{{'fascicolo.protocolloInternoEnte'|translate}}</label>
+      <input type="text" formControlName="protocollo" class="form-control" 
+      [readonly]="disableAndNotEditable" maxlength="{{const.MAX_LEN_PROTOCOLLO_INTERNO_ENTE}}"/>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group ">
+      <label for="dataProtocollo">{{'fascicolo.dataProtocolloInternoEnte'|translate}}</label>
+      <div class="input-group">
+        <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+          dateFormat="{{'generic.dateFormatCalendar'|translate}}" [locale]="it" [monthNavigator]="true"
+          [yearNavigator]="true" yearRange="1900:{{MAX_YEAR}}" class="form-control nop" 
+          formControlName="dataProtocollo"
+          [maxDate]="const.TODAY"
+          inputStyleClass="form-control" showButtonBar="true" [disabled]="disableAndNotEditable"
+          [ngClass]="{ 'is-invalid': submitted && f.dataProtocollo.errors }">
+        </p-calendar>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <fa-icon icon="calendar"></fa-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="submitted && f.dataProtocollo.errors" class="invalid-feedback">
+        <ng-container *ngIf="f.dataProtocollo.errors; else dataAvvioRequired">
+          {{'generic.invalidDate'|translate}}
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<div><label>* {{'generic.required'|translate}}</label></div>

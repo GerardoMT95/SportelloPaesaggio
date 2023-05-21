@@ -1,0 +1,48 @@
+<p-dialog [(visible)]="mostraDialog" (onHide)="close()" [resizable]="false" [draggable]="false" [modal]="true"
+    [focusTrap]="true">
+    <p-header>
+        Informazioni
+    </p-header>
+    <div class="display-elements">
+        <div class="float-left">
+            <i class="fa fa-warning style-warning"></i>
+        </div>
+        <div class="float-left">
+            <div class="mb-4 font-weight-bold">
+                Campi non validi:
+            </div>
+            <ul *ngFor="let sezione of invalidFields; let i = index" class="mb-2">
+                <li><button class="btn btn-default"
+                        (click)="closeAndUpdatePanel(sezione.indexPannello)"><u>{{sezione.sezione | translate}}</u></button><br>
+                </li>
+                <ul>
+                    <li *ngFor="let field of sezione.messaggi; let j = index" class="mb-2">
+                        {{field}} <br>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="font-weight-bold">
+        {{'correggereCampi'|translate}}
+    </div> -->
+    <!--<div class="">
+      <div class="float-left">
+          <div class="mb-4 font-weight-bold">
+            {{'correggereCampi'|translate}}
+          </div>
+          <div>
+             <button type="button" (click)="downloadAnteprima()" class="text-left nop fakeLink allegatoIcon" >
+               <fa-icon class="icon" icon="file"></fa-icon>{{'fascicolo.mailCompose.visualizzaAnteprima'|translate}}
+             </button>
+          </div>
+      </div>      
+      <div class="clearfix"></div>
+  </div>-->
+    <p-footer>
+        <div class="footer-style">
+            <button type="button" class="btn btn-default button-style"
+                (click)="close()">{{ 'generic.chiudi' | translate }}</button>
+        </div>
+    </p-footer>
+</p-dialog>

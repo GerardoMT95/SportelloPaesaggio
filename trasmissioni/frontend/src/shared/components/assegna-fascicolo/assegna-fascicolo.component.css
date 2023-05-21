@@ -1,0 +1,10 @@
+.registration-status-color{
+	border-radius: 50%; 
+    padding: 3px 8px;
+    width: 24px;
+    height: 24px;
+	display: inline-block;
+	color:white;
+	font-weight: 500;
+	margin-left:0%;
+}

@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <p-accordion [formGroup]="dest" *ngFor="let dest of destinazione.controls; let i = index"
+    expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+    <p-accordionTab
+      header="{{ ('URBAN-DESTINATION.DESTINATION-DATA-ENTRY' | translate) + ' ' + dest.get('titolo').value }}"
+      [selected]="true">
+      <app-radio-field formControlName="strumentoUrbanistico" [name]="'strumentoUrbanistico' + i" [radioValue]="1"
+        [label]="('URBAN-DESTINATION.TOOL-URBAN' | translate)" [radioLabel]="'URBAN-DESTINATION.TOWN-PLAN' | translate"
+        [radioValue]="1"></app-radio-field>
+      <app-radio-field formControlName="strumentoUrbanistico" [name]="'strumentoUrbanistico' + i" [radioValue]="2"
+        [radioLabel]="'URBAN-DESTINATION.PLAN-REGULATOR' | translate" [radioValue]="2"></app-radio-field>
+      <app-radio-field formControlName="strumentoUrbanistico" [name]="'strumentoUrbanistico' + i" [radioValue]="3"
+        [radioLabel]="'URBAN-DESTINATION.MANUFACTURING-PROGRAM' | translate" [radioValue]="3" [validation]="validation"
+        [errors]="dest.controls.strumentoUrbanistico.errors"></app-radio-field>
+      <div class="row d-flex align-items-end">
+        <div class=" col-md-3">
+          <app-date-picker-field formControlName="approvatoData" [label]="'URBAN-DESTINATION.APPROVED' | translate"
+            [prepend]="('URBAN-DESTINATION.DATA' | translate)" [validation]="validation"
+            [errors]="dest.controls.approvatoData.errors"></app-date-picker-field>
+        </div>
+        <div class="col-md-4 ">
+          <app-text-field formControlName="approvatoCon" [label]="'&nbsp;'"
+            [prepend]="'URBAN-DESTINATION.WITH' | translate" [validation]="validation"
+            [errors]="dest.controls.approvatoCon.errors"></app-text-field>
+        </div>
+      </div>
+      <app-textarea-field formControlName="destinazioneUrbanistica"
+        [label]="'URBAN-DESTINATION.THE-URBAN-DESTINATION' | translate" [validation]="validation"
+        [errors]="dest.controls.destinazioneUrbanistica.errors"></app-textarea-field>
+      <app-textarea-field formControlName="ulterioriTutele" [label]="'URBAN-DESTINATION.PROVIDED' | translate">
+      </app-textarea-field>
+      <div class="borderContainer pl-2">
+        <div class="row" *ngIf="dest.get('coerenzaAtto').value">
+          <div class="col">
+            <strong style="font-style: italic;">{{ dest.get('coerenzaAtto').value}}</strong>
+          </div>
+          <br><br><br>
+        </div>
+        <div class="row" *ngIf="dest.get('coerenzaAtto').value">
+          <div class="col">
+            <app-checkbox-field formControlName="confermaCoerenza" [isSingle]="true"
+              [checkboxLabel]="'URBAN-DESTINATION.CONFIRM_LABEL' | translate" [validation]="validation"
+              [errors]="dest.get('confermaCoerenza').errors"></app-checkbox-field>
+          </div>
+        </div>
+      </div>
+      <!--<div class="row" *ngIf="dest.get('mostraCoerenza').value === false || dest.get('mostraCoerenza').value === null">
+        <div class="col">
+          <strong>{{'URBAN-DESTINATION.INSTRUMENT' | translate}}</strong>
+        </div>
+        <br><br><br>
+      </div>
+      <div class="row" *ngIf="dest.get('mostraCoerenza').value === true">
+        <div class="col">
+          <strong>Lo strumento urbanistico generale vigente è adeguato al PPTR ai sensi dell'art. 97 in data
+            {{dest.get('coerenzaData').value | date: "dd/MM/yyyy"}} con {{dest.get('coerenzaAtto').value}}.</strong>
+          <app-checkbox-field formControlName="confermaCoerenza" [isSingle]="true"
+            [checkboxLabel]="'URBAN-DESTINATION.CONFIRM_LABEL' | translate" [validation]="validation"
+            [errors]="dest.controls.confermaCoerenza.errors"></app-checkbox-field>
+        </div>
+      </div>-->
+
+      <app-radio-field formControlName="strumentoInAdozione" [name]="'strumentoInAdozione' + i"
+        [label]="'URBAN-DESTINATION.SELECT-THE-INSTRUMENT' | translate" [radioValue]="1"
+        [radioLabel]="'URBAN-DESTINATION.FIRST-RADIO' | translate"></app-radio-field>
+
+      <app-radio-field formControlName="strumentoInAdozione" [name]="'strumentoInAdozione' + i" [radioValue]="2"
+        [radioLabel]="'URBAN-DESTINATION.SECOND-RADIO' | translate"></app-radio-field>
+
+      <app-radio-field formControlName="strumentoInAdozione" [name]="'strumentoInAdozione' + i"
+        [radioLabel]="'URBAN-DESTINATION.THIRD-RADIO' | translate" [radioValue]="3" [validation]="validation"
+        [errors]="dest.controls.strumentoInAdozione.errors"></app-radio-field>
+
+      <br>
+      <!-- <div class="mb-4 mt-4">
+          <strong>{{ "URBAN-DESTINATION.APPROVED" | translate }}</strong>
+        </div> -->
+      <div class="row d-flex align-items-end">
+        <div class=" col-md-3">
+          <app-date-picker-field formControlName="adottatoData" [label]="'URBAN-DESTINATION.ADOPTED IN' | translate"
+            [prepend]="('URBAN-DESTINATION.DATA' | translate)" [validation]="validation"
+            [errors]="dest.controls.adottatoData.errors"></app-date-picker-field>
+        </div>
+        <div class="col-md-4 ">
+          <app-text-field formControlName="adottatoCon" [label]="'&nbsp;'"
+            [prepend]="'URBAN-DESTINATION.WITH' | translate" [validation]="validation"
+            [errors]="dest.controls.adottatoCon.errors"></app-text-field>
+        </div>
+      </div>
+      <app-textarea-field formControlName="destinazioneUrbanisticaAdottato"
+        [label]="'URBAN-DESTINATION.DESTINATION-OF-THE-AREA' | translate" [validation]="validation"
+        [errors]="dest.controls.destinazioneUrbanisticaAdottato.errors"></app-textarea-field>
+      <app-textarea-field formControlName="ulterioriTuteleAdottato" [label]="'URBAN-DESTINATION.PROVIDED' | translate">
+      </app-textarea-field>
+
+      <hr class="dash mb-4" />
+      <app-checkbox-field formControlName="conformitaStrumentoUrbanistico" [isSingle]="true" [checkboxLabel]="
+            'URBAN-DESTINATION.INTERVENTION-IS-COMPLIANT' | translate
+          " [validation]="validation" [errors]="dest.controls.conformitaStrumentoUrbanistico.errors">
+      </app-checkbox-field>
+    </p-accordionTab>
+  </p-accordion>
+</div>

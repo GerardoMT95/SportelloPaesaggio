@@ -1,0 +1,83 @@
+<app-loader *ngIf="isLoadingOperation"></app-loader>
+<app-header [zoomMax]="zoomMax" [zoomMin]="zoomMin" [zoom]="zoom" (zoomPagina)="updateZoom($event)"></app-header>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{'dialog.rinnova'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body row nom info">
+        <div class="col-auto nop">
+            <div class="icon">
+                <fa-icon icon="info"></fa-icon>
+            </div>
+        </div>
+        <div class="col-md">{{'dialog.rinnovaMessage'|translate}} {{timerCount}} {{'dialog.rinnovaMessageTime'|translate}}</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="bttn btn btn-primary" (click)="onStopTimer()">{{'generic.rinnova'|translate}}</button>
+    </div>
+</ng-template>
+<ng-template #sessioneScaduta let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{'dialog.sessionescaduta.title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="goLogin()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body row nom info">
+        <div class="col-auto nop">
+            <div class="icon">
+                <fa-icon icon="info"></fa-icon>
+            </div>
+        </div>
+        <div class="col-md">{{'dialog.sessionescaduta.content'|translate}}</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="bttn btn btn-primary"
+            (click)="goLogin()">{{'dialog.sessionescaduta.button'|translate}}</button>
+    </div>
+</ng-template>
+<div [ngStyle]="zoomPage" class="divContent">
+    <router-outlet></router-outlet>
+    <app-footer ></app-footer>
+</div>
+<ng-template #error let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{'dialog.errore'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeErrorDialog()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body row nom danger">
+        <div class="col-auto nop">
+            <div class="icon">
+                <fa-icon icon="times"></fa-icon>
+            </div>
+        </div>
+        <div class="col-md" [innerHTML]="errorMessage"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="bttn btn btn-primary" (click)="closeErrorDialog()">{{'generic.chiudi'|translate}}</button>
+    </div>
+</ng-template>
+<ng-template #warning let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{'dialog.warning'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeErrorDialog()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body row nom warning">
+        <div class="col-auto nop">
+            <div class="icon">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+            </div>
+        </div>
+        <div class="col-md" [innerHTML]="errorMessage"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="bttn btn btn-primary" (click)="closeErrorDialog()">{{'generic.chiudi'|translate}}</button>
+    </div>
+</ng-template>

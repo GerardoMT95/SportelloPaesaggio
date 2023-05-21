@@ -1,0 +1,2 @@
+update template_email set testo = '<p>Si comunica che è disponibile la seguente documentazione alla pratica in oggetto.</p><p></p>{ALLEGATI_ULTERIORE_DOCUMENTAZIONE}<p><br></p><p class="ql-align-center">Si prega di non rispondere a questa e-mail in quanto la stessa è prodotta in automatico dal sistema SIT Puglia (www.sit.puglia.it).<br><br></p>' 
+where codice = 'INVIO_ULTERIORE_DOCUMENTAZIONE'

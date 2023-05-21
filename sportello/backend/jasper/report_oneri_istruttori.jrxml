@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.0.final utlizzo versione della libreria JasperReports6.19.0-646c68931cebf1a58bc65c4359d1f0ca223c5e94  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_oneri_istruttori" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9175507-f097-46fb-8026-ceb144b1a448">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<parameter name="DATA" class="java.util.Date"/>
+	<parameter name="DATA_FROM" class="java.util.Date"/>
+	<parameter name="DATA_TO" class="java.util.Date"/>
+	<parameter name="TITOLO" class="java.lang.String"/>
+	<parameter name="DESCRIZIONE_ENTE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="onere" class="java.lang.Double"/>
+	<field name="tipoProcedimento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="105" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="120" y="0" width="315" height="25" uuid="9de1a042-d050-4838-af83-a576d0de3847"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Report Oneri Istruttori"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="120" y="25" width="315" height="25" uuid="e73ddac6-d5ee-4ef4-a9ce-6823d3bbcac2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format($P{DATA})]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="18" width="100" height="55" uuid="30f5e1ac-e6ad-4b52-826a-e2da1c0aecef">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["./loghi/pugliacon.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="480" y="10" width="55" height="55" uuid="156269a1-b901-46e5-9911-63235102fab8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["./loghi/regione.png"]]></imageExpression>
+			</image>
+			<textField pattern="">
+				<reportElement x="120" y="50" width="315" height="25" uuid="d4e31a6a-76a1-4fff-9499-df4b8f005052"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{DATA_FROM} == null && $P{DATA_TO} == null) ? "Dati estratti globalmente" : (($P{DATA_FROM} != null && $P{DATA_TO} == null) ? "Dati estratti dal " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{DATA_FROM}) :  ( ($P{DATA_FROM} == null && $P{DATA_TO} != null)  ? "Dati estratti fino al  " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TO}) : "Dati estratti dal " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{DATA_FROM})  + " fino al  " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{DATA_TO}) ))]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="120" y="75" width="315" height="25" uuid="27ffdcb4-5aad-4dad-8363-de75e684e63c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DESCRIZIONE_ENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement x="30" y="0" width="250" height="30" uuid="1cf5e704-5961-453b-a261-1795d31c46ad"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Procedimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="170" height="30" uuid="7e4c9654-6620-47c9-98a8-d5eb92b4766c"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oneri Istruttori]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30">
+			<textField>
+				<reportElement x="30" y="0" width="250" height="30" uuid="1142454d-6a5e-4c7b-b74a-2fa6ca93d81e">
+					<property name="com.jaspersoft.studio.unit.spacingBefore" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="0" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="3" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoProcedimento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#">
+				<reportElement x="280" y="0" width="170" height="30" uuid="905b04a7-02a9-459f-8df6-efc772d9dde8">
+					<property name="com.jaspersoft.studio.unit.spacingBefore" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="0" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph leftIndent="0" rightIndent="3" spacingBefore="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{onere}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#000000" uuid="99a8f53a-a33d-4547-a359-c0bf137d4d69"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="311">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="555" height="311" uuid="bc4d8625-70c8-4117-8a87-0b3726be7241"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{tipoProcedimento}]]></keyExpression>
+					<valueExpression><![CDATA[$F{onere}]]></valueExpression>
+					<labelExpression><![CDATA[$F{tipoProcedimento}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

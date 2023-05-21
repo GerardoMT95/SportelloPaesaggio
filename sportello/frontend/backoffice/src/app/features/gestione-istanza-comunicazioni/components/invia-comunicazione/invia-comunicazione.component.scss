@@ -1,0 +1,15 @@
+.file-upload-box {
+  padding: 15px;
+    background: whitesmoke;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+    p-fileUpload {
+      padding: 0;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+}

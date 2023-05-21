@@ -1,0 +1,14 @@
+p-checkbox{
+    display: flex;
+  }
+  .checkbox-container{
+    width: 100%; 
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+@media (max-width: 1000px) {
+  div.no-flex {
+    display: grid !important;
+  }
+}

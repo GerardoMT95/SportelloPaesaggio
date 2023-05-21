@@ -1,0 +1,57 @@
+<div class="col-md-12">
+  <div class="form-group">
+      <form [formGroup]="form">
+          <div class="row mb-2">
+              <!--<div class="col-md-12 my-3">
+                  <app-copy-in-input [label]="'configurazioneProcedimento.disclaimers.testo'" [required]="true"
+                  [form]="form" [name]="'testo'"></app-copy-in-input>
+                  <p-editor (onTextChange)="textChange($event)" [style]="{'height':'320px'}" formControlName="testo">
+                  </p-editor>
+              </div>
+              <div class="col-md-12 invalid-feedback" style="margin-bottom: 0.7em;"
+                  *ngIf="validOn && (testoEditor || form.controls['testo'].errors)">
+                  <ng-container *ngIf="validOn && (testoEditor || form.controls['testo'].errors)">
+                      {{'generic.required'|translate}}
+                  </ng-container>
+              </div>-->
+              <div class="col-md-12 my-3">
+                <app-textarea-field formControlName="testo"
+                [label]="('configurazioneProcedimento.disclaimers.testo' | translate | uppercase) + '*'" id="testo" name="testo"
+                [validation]="validOn" 
+                [errors]="form['controls'].testo.errors"></app-textarea-field>
+              </div>
+          </div>
+          <div class="row mb-2">
+              <!--attualmente sono tutte obbligatorie e quindi la gestione del required è bloccata-->
+              <div class="col-md-3 my-3">
+                  <p-checkbox formControlName="required" [binary]="true" [disabled]="true"
+                      [label]="('configurazioneProcedimento.disclaimers.required'|translate)">
+                  </p-checkbox>
+              </div>
+              <div class="col-md-3 my-3">
+                <app-select-field formControlName="tipoReferente" [label]="
+              ('configurazioneProcedimento.disclaimers.tipoReferente' | translate | uppercase) + '*'
+            " id="tipoReferente" name="tipoReferente" 
+              [options]="tipoReferenteOptions" [validation]="validOn"
+              [disableControl]="true"
+              [errors]="form['controls'].tipoReferente.errors"></app-select-field>
+            </div>
+          </div>
+      </form>
+  </div>
+</div>
+
+<div class="text-center inner-pulsantiera">
+  <div style="display: inline-block; margin: 0 4px;">
+      <button type="button" class="bttn btn btn-primary" (click)="aggiungiDichiarazione()">
+          {{ 'generic.salva' | translate }}
+          <fa-icon icon="save"></fa-icon>
+      </button>
+  </div>
+  <div style="display: inline-block; margin: 0 4px;">
+      <button type="button" class="bttn btn btn-primary" (click)="closeDettaglio()">
+          {{ 'generic.chiudi' | translate }}
+          <fa-icon icon="times"></fa-icon>
+      </button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid  mtop50">
+  <div class="portlet-content-container">
+    <div *ngIf="(loadedFascicolo|async) as caricato">
+      <p-tabView class="step" [(activeIndex)]="activeIndex">
+        <p-tabPanel
+          [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='IN_PREISTRUTTORIA']">
+          <ng-template pTemplate="header">
+            <div class="intestazione">{{'TAB_TITLE.ADMIN_DOCUMENTATIONS'|translate}}
+              <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneAmministrativa']">
+                <strong>{{numberOfErrorsOnthePage['documentazioneAmministrativa']}}</strong>
+              </div>
+            </div>
+          </ng-template>
+          <app-documentazione-amministrativa [fascicolo]="fascicolo" [tipiContenuto]="tipiContenuto"
+            [disabledForm]="this.fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA' || !fascicolo.currentUserOwner" [mainForm]="mainForm"
+            [allegati]="allegati" [enteConPagamenti]="enteConPagamenti" [sportelloConfig]="sportelloConfig"
+            (actionComplete)="actionComplete($event)"
+            [invalidaOnDelete]="true">
+          </app-documentazione-amministrativa>
+        </p-tabPanel>
+        <p-tabPanel
+          [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='IN_PREISTRUTTORIA']">
+          <ng-template pTemplate="header">
+            <div class="intestazione">{{'TAB_TITLE.TECH_DOCUMENTATIONS'|translate}}
+              <div class="badge" *ngIf="numberOfErrorsOnthePage['documentazioneTecnica']">
+                <strong>{{numberOfErrorsOnthePage['documentazioneTecnica']}}</strong>
+              </div>
+            </div>
+          </ng-template>
+          <app-documentazione-tecnica [fascicolo]="fascicolo" [tipiContenuto]="tipiContenuto"
+            [disabledForm]="this.fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA' || !fascicolo.currentUserOwner" [mainForm]="mainForm"
+            [allegati]="allegati"
+            (actionComplete)="actionComplete($event)"
+            [invalidaOnDelete]="true">
+          </app-documentazione-tecnica>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+    <div class="action-footer">
+      <app-action-footer [isDisabled]="fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA' || !fascicolo.currentUserOwner"
+        [enableValida]="this.fascicolo.attivitaDaEspletare=='COMPILA_DOMANDA'?true:false" [enableAnnulla]="false"
+        (salvaChange)="salva()"
+         (indietroChange)="indietro()" 
+        (validaChange)="valida()"></app-action-footer>
+    </div>
+  </div>
+</div>

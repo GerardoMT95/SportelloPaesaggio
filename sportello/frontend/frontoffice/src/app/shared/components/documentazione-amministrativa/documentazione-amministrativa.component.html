@@ -1,0 +1,90 @@
+ <div class="pt-1 pb-3 ml-3 mr-3">
+    <ng-container *ngIf="!idIntegrazione">
+      <app-section-header [title]="'SEZIONI.PAGAMENTI' | translate"></app-section-header>
+      <app-pagamenti-mypay-mod3 [hasPagamenti]="hasPagamenti" [giorniScadenzaPagamento]="sportelloConfig.giorniScadenzaPagamento" 
+      [disabled]="disabledForm || !hasPagamenti" [praticaId]="fascicolo.id"></app-pagamenti-mypay-mod3>
+      <!-- checkboxs esoneri -->
+      <form [formGroup]="mainForm">    
+      <div class="row">
+        <div class="col-md-12">
+            <app-checkbox-field formControlName="esoneroOneri" [isSingle]="true"
+            [checkboxLabel]="sportelloConfig.esoneroOneriLabel" [validation]="false"
+            [disableControl]="disabledForm"
+            ></app-checkbox-field>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <app-checkbox-field formControlName="esoneroBollo" [isSingle]="true"
+              [checkboxLabel]="sportelloConfig.esoneroBolloLabel" [validation]="false"
+              [disableControl]="disabledForm"
+              ></app-checkbox-field>
+          </div>
+          </div>
+      </form>
+      <!-- checkbox esoneri -->
+    </ng-container>
+</div>    
+<form [formGroup]="mainForm.controls['documentazioneAmministrativa']">    
+  <div class="pt-1 pb-3 ml-3 mr-3">
+    <app-section-header [title]="'SEZIONI.ALLEGATI_1' | translate"></app-section-header>
+    <div class="row">
+      <div class="col-md-12">
+        <app-document-table
+          [fascicolo]="fascicolo"
+          (emitDeletion)="deletePaymentAttachment($event)"
+          [tableData]="documentazioneAmministrativaForm.get('grigliaPagamentoAllegati').value"
+          (fileUpload)="uploadFileFromTable($event)"
+          (emitDownload)="scaricaDocumento($event)"
+          [disabled]="disabledForm"
+          [tableHeaders]="documentTableHeaders"
+        ></app-document-table>
+      </div>
+    </div>
+    <app-section-header [title]="'SEZIONI.ALLEGATI_2' | translate"></app-section-header>
+    <div class="row" *ngIf="!disabledForm">
+      <div class="col-md-12">
+        <app-select-field *ngIf="selectOptionDocAmmE"
+          formControlName="descrizione"
+          [label]="'ADMINISTRATIVE_DOCUMETATION_TAB.FILE_TYPE_LABEL' | translate"
+          id="descrizione"
+          name="descrizione"
+          [options]="selectOptionDocAmmE"
+          (change)="selectFileType()"
+        ></app-select-field>
+      </div>
+    </div>
+    <div class="row" *ngIf="!disabledForm">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="allega-file" class="mt-3 font-weight-bold">{{
+            'ADMINISTRATIVE_DOCUMETATION_TAB.UPLOAD_FILE_LABEL' | translate | uppercase
+          }}</label>
+          <p-fileUpload #fileUpload
+            id="allega-file"
+            name="myfile"
+            customUpload="true"
+            accept=".pdf,.rar,.zip"
+            [auto]="true"
+            [chooseLabel]="'BUTTONS.UPLOAD' | translate"
+            (uploadHandler)="onFileSelect($event)"
+            [disabled]="disabled"
+          ></p-fileUpload>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <app-document-table
+          [fascicolo]="fascicolo"
+          (emitDeletion)="deleteAttachment($event)"
+          [tableData]="documentazioneAmministrativaForm.get('grigliaAllegatiCaricati').value"
+          [tableHeaders]="documentTableHeaders"
+          (fileUpload)="uploadFileFromTable($event)"
+          (emitDownload)="scaricaDocumento($event)"
+          [disabled]="disabledForm"
+        ></app-document-table>
+      </div>
+    </div>
+  </div>
+</form>

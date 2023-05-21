@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportDichiarazioni" pageWidth="550" pageHeight="842" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96939aa0-aaa0-4b9f-97cd-5727cd68a786">
+	<style name="FontCustomArial" isDefault="true" fontName="CustomArial"/>
+	<subDataset name="IntegerWrapper" uuid="45673bfb-931e-4f73-9a5f-ce7bffcb1ce6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="titolarita" class="java.lang.Integer"/>
+	<field name="immobile" class="java.lang.String"/>
+	<field name="tipoProcedimento" class="java.lang.Integer"/>
+	<field name="disclaimer" class="java.util.List"/>
+	<field name="titoloAltroSpec" class="java.lang.String"/>
+	<field name="titoloRappSpec" class="java.lang.String"/>
+	<field name="descrstampatitolo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="205" y="0" width="100" height="20" uuid="d37e93bb-7d5a-4fd9-b0e1-07f34cce76c4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="21" width="215" height="20" uuid="6d1fa2f2-a95f-4abe-9572-139674aadae6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[b) Titolarità dell'intervento]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="103" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="ElementGroupHeight" x="-11" y="-39" width="521" height="141" uuid="ceee2750-12c4-4dcb-bd4d-883a5c27a6fa"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="-38" width="520" height="20" uuid="4290f7b1-061b-464a-b3b9-f12ea9c1cbdf"/>
+				<box topPadding="3" leftPadding="5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[di avere titolo alla presentazione della presente istanza in quanto]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="ElementGroupHeight" x="-11" y="-17" width="521" height="20" uuid="04980286-793f-4545-9149-7fa30c87356d"/>
+				<box topPadding="3" leftPadding="16"/>
+				<textFieldExpression><![CDATA["- " +
+($F{titolarita} == 1 ? "proprietario/comproprietario" :
+$F{titolarita} == 2 ?  "nudo proprietario" :
+$F{titolarita} == 3 ?  "usufruttuario" :
+$F{titolarita} == 4 ?  "proprietario esclusivo" :
+$F{titolarita} == 5 ?  new String("rappresentante legale della Ditta, Società, Associazione o Ente Pubblico") :
+$F{titolarita} == 6 ?  "amministratore/delegato dal Condominio(solo per i lavori che interessano parti condominiali)" :
+$F{titolarita} == 7 ?  "comproprietario con i soggetti elencati nella sezione \"Altri richiedenti\"" :
+$F{titolarita} == 8 ? "locatario/comodatario a tale scopo autorizzato dai proprietari nella sezione \"Altri richiedenti\"" : "" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="ElementGroupHeight" x="-11" y="47" width="521" height="54" uuid="b2f63ad0-d06c-4188-aec0-22024437fa86"/>
+				<box topPadding="3" leftPadding="16"/>
+				<textFieldExpression><![CDATA["- " + 
+($F{immobile}.toUpperCase().equals("S") ? new String("avere titolarità esclusiva all'esecuzione dell'intervento"):
+	new String("non avere titolarità esclusiva all'esecuzione dell'intervento, ma di disporre comunque di assenso dei terzi titolari di altri diritti reali o obbligatori elencati nella sezione \"Altro Titolare\"")
+)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="27" width="520" height="20" uuid="0803c02c-3556-41c3-b6de-81e92687402c"/>
+				<box topPadding="3" leftPadding="5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[dell'immobile interessato dall'intervento e di]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-11" y="3" width="520" height="24" uuid="1f5fca79-810d-4184-bd83-f049b5695873"/>
+				<textFieldExpression><![CDATA["    " +($F{titolarita}==5?$F{titoloRappSpec}:$F{titolarita}==9?$F{titoloAltroSpec}:"")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="38">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="-11" y="1" width="521" height="28" uuid="31f80814-bf9f-4177-9af1-f2c56f492224">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="IntegerWrapper" uuid="a74b7b4b-c5bc-443b-80ee-a7d51f6a0057">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{disclaimer})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="28" width="521">
+						<rectangle>
+							<reportElement x="0" y="1" width="15" height="15" uuid="2cf47b2c-053f-403f-9930-e3904e474606">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+						</rectangle>
+						<staticText>
+							<reportElement x="5" y="1" width="15" height="15" uuid="2cba8c16-aa97-4a01-9469-d4ba937d33c0">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="26" y="1" width="489" height="27" uuid="31220823-fe34-44a4-8bcc-64944680b0a1">
+								<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="60">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="0" y="22" width="509" height="30" uuid="354829c6-1acc-4831-832f-aba1c41fd067">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IL RILASCIO DELL' "+$F{descrstampatitolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="205" y="1" width="100" height="20" uuid="e9e89aea-b2a7-4635-936b-7ef72f4bca50">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

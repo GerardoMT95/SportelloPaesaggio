@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="CustomTimes">
+		<normal><![CDATA[fonts/CustomTimes/times.ttf]]></normal>
+		<bold><![CDATA[fonts/CustomTimes/timesbd.ttf]]></bold>
+		<italic><![CDATA[fonts/CustomTimes/timesi.ttf]]></italic>
+		<bolditalic><![CDATA[fonts/CustomTimes/timesbi.ttf]]></bolditalic>
+		<pdfEncoding><![CDATA[Cp1252]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

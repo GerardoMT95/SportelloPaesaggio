@@ -1,0 +1,98 @@
+<div class="tableContainerCustom">
+<p-table
+  [value]="tableData"
+  class="mb-2"
+  autoLayout="true"
+  [columns]="tableHeaders"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [ngClass]="col.header === '' ? 'col-width' : ''">
+        {{ col.header }}
+      </th>
+      <th class="fixed-width-row"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-i="rowIndex" let-columns="columns">
+    <tr class="small-row" >
+      <td *ngFor="let col of columns" [ngClass]="(col.field === 'status' || col.field === 'noStatus') ? 'col-width' : ''">
+        <!-- <ng-container *ngIf="col.field === 'noStatus'">
+          </ng-container> -->
+        <ng-container *ngIf="col.field === 'status'">
+          <div class="text-center">
+            <span
+              [ngClass]="rowData.data !== null ? 'label-success' : 'label-fail'"
+              data-toggle="tooltip"
+              data-placement="top"
+              title=""
+              class="my-label label label-success"
+              data-original-title="File Caricato"
+            >
+            </span>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="col.field == 'data' " >
+          {{ rowData[col.field] | date: "dd/MM/yyyy H:mm" }}
+        </ng-container>
+        <ng-container *ngIf="col.field == 'tipiContenuto' " >
+          <ul>
+            <li *ngFor="let tipoContenuto of rowData[col.field]" >{{tipoContenuto}}</li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="col.field == 'idIntegrazione' " >
+          <ng-container *ngIf="rowData[col.field]">
+            <em class="fa fa-check" aria-hidden="true"></em>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="(col.field !== 'noStatus' || col.field !== 'status') && col.field!=='data' && col.field!=='tipiContenuto' && col.field!=='idIntegrazione'" >
+          <span [ngClass]="col.css ? col.css : ''">{{ rowData[col.field] }}</span>
+        </ng-container>
+      </td>
+      <td class="text-center" *ngIf="rowData.id; else uploadButton">
+        
+        <button
+          [disabled]="false"
+          data-toggle="tooltip"
+          data-placement="top"
+          title=""
+          type="button"
+          class="bttn-table bttn btn btn-success"
+          (click)="download(rowData['id'],rowData['nome'])"
+        >
+          <em class="fa fa-download" aria-hidden="true"></em>
+        </button>
+        <button *ngIf="!disabled"
+          data-toggle="tooltip"
+          data-placement="top"
+          type="button"
+          class="bttn-table bttn btn btn-danger"
+          (click)="deleteFile(rowData['id'])"
+        >
+          <em class="fa fa-trash" aria-hidden="true"></em>
+        </button>
+      </td>
+      <ng-template #uploadButton>
+        <td class="text-center" *ngIf="enableUploadFromTable">
+          <input
+            hidden
+            type="file"
+            #uploader
+            (change)="uploadFile($event, rowData['descrizione'])"
+          />
+          <button
+            data-toggle="tooltip"
+            data-placement="top"
+            title=""
+            type="button"
+            class="bttn-table bttn btn btn-success"
+            (click)="uploader.click()"
+            *ngIf="!disabled"
+          >
+            <em class="fa fa-upload" aria-hidden="true"></em>
+          </button>
+        </td>
+      </ng-template>
+    </tr>
+  </ng-template>
+</p-table>
+</div>

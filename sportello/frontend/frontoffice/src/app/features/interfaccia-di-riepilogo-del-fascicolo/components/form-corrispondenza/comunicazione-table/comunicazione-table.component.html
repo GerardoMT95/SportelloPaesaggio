@@ -1,0 +1,149 @@
+<app-rows-number-handler
+   [itemsTotal]="totalObject" [totalRecords]="numeroOggettiRestituiti"
+   [init-rows]="tableSearch.limit"
+    [page]="tableSearch.page" 
+    (change)="pagingChanges($event)"
+    [customElement]="customElement"
+    ><ng-template #customElement>
+      <div class="align-right">
+        <label class="marginRight6 vmiddle">Esito con Errore</label><span _ngcontent-c16=""
+          class="my-label label label-danger ng-star-inserted align-middle" placement="right">&nbsp;&nbsp;</span>
+        <label class="marginRight6 marginLeft15 vmiddle">Esito Positivo</label><span _ngcontent-c16=""
+          class="my-label label label-success ng-star-inserted align-middle" placement="right">&nbsp;&nbsp;</span>
+        <label class="marginRight6  marginLeft15 vmiddle">{{'COMMUNICATIONS.SENT' | translate}}</label><span
+          _ngcontent-c16="" class="my-label label label-primary ng-star-inserted align-middle"
+          placement="right">&nbsp;&nbsp;</span>
+      </div>
+    </ng-template>
+  </app-rows-number-handler>
+<div class="row tableContainerCustom">
+<p-table *ngIf="tableData.length>0" #tt [columns]="tableHeader" [value]="tableData" dataKey="corrispondenza.id" 
+  [paginator]="false"
+  rowExpandMode="single" sortField="data" sortOrder="-1"
+  tableStyleClass="bordoTabellaNew" >
+  <ng-template pTemplate="header" let-columns>
+    <tr style="background-color: gray!important;">
+      <th style="width: 3em"></th>
+      <th *ngFor="let col of columns" 
+        [pSortableColumn]="col.field"
+        [pSortableColumnDisabled]="col.field === 'displayButton'">
+        {{ col.header | translate }}
+        <p-sortIcon *ngIf="false" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-index="rowIndex" let-columns="columns">
+    <tr *ngIf="tableData.length > 0">
+      <td *ngIf="rowData['corrispondenza']['bozza'] === false">
+        <a href="#" [pRowToggler]="rowData">
+          <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+        </a>
+      </td>
+      <td *ngIf="rowData['corrispondenza']['bozza'] === true">
+        <a href="#">
+        </a>
+      </td>
+      <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate" style="word-wrap:break-word">
+        <ng-container *ngIf="col.field === 'oggetto'">
+          {{ rowData['corrispondenza'][col.field] | slice: 0:100 }}
+        </ng-container>
+        <!-- <ng-container *ngIf="col.field === 'testo'">
+          <div [innerHTML]="rowData['corrispondenza'][col.field] | slice: 0:100 | safeHtml"></div>
+        </ng-container> -->
+        <ng-container *ngIf="col.field === 'comunicazioneInterna'">
+          {{ rowData['corrispondenza'][col.field] ? ('YES' | translate) : ('NO' | translate) }}
+        </ng-container>
+        <ng-container *ngIf="col.field === 'mittenteEmail'">
+          {{ rowData['corrispondenza'][col.field] }}
+        </ng-container>
+        <ng-container *ngIf="col.field === 'dataInvio'">
+          {{ rowData['corrispondenza'][col.field] | date: "dd/MM/yyyy HH:mm:ss"}}
+        </ng-container>
+        <ng-container *ngIf="col.field === 'riservata'">
+          {{ rowData['corrispondenza'][col.field]==true ? ('YES' | translate) : ('NO' | translate) }}
+        </ng-container>
+        <ng-container *ngIf="col.field === 'destinatari'">
+          <ng-container *ngFor="let comunicazione of rowData['destinatari']">
+            {{ comunicazione.email }}<br/>
+          </ng-container>
+        </ng-container>
+        <ng-container>
+          <div class="align-buttons">
+            <button *ngIf="
+                col.field == 'displayButton' &&
+                ( rowData['corrispondenza']['bozza'] === false)
+              " data-toggle="tooltip" data-placement="top" class="btn btn-success" type="button" placement="left"
+              delay="500" (click)="navigate(rowData['corrispondenza']['id'], 'dettaglio')">
+              <em class="fa fa-eye" aria-hidden="true"></em>
+            </button>
+            <button *ngIf="
+                col.field == 'displayButton' &&
+                (rowData['corrispondenza']['bozza'] === true)
+              " data-toggle="tooltip" data-placement="top" type="button" class="btn btn-edit rounded-circle"
+              tooltipPosition="left" placement="left" delay="500"
+              (click)="navigate(rowData['corrispondenza']['id'], 'modifica')">
+              <em class="fa fa-pencil" aria-hidden="true"></em>
+            </button>
+            <button *ngIf="
+                col.field == 'displayButton' &&
+                (rowData['corrispondenza']['bozza'] === true)
+              " data-toggle="tooltip" data-placement="top" class="btn btn-delete" type="button" placement="left"
+              delay="500" (click)="navigate(rowData['corrispondenza']['id'], 'elimina')">
+              <em class="fa fa-trash" aria-hidden="true"></em>
+            </button>
+          </div>
+        </ng-container>
+      </td>
+    </tr>
+  </ng-template>
+  <!-- <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+    <tr>
+      <td [attr.colspan]="columns.length + 1">
+        <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+          <div class="ui-g-12 ui-md-9">
+            <div class="ui-g">
+              <div class="ui-g-12"><b>Mittente:</b> {{ rowData.mittente }}</div>
+              <div class="ui-g-12"><b>Destinatari:</b> {{ rowData.aggiungiDestinario }}</div>
+              <div class="ui-g-12"><b>Riserva:</b> {{ rowData.riserva }}</div>
+              <div class="ui-g-12"><b>Oggetto:</b> {{ rowData.oggetto }}</div>
+              <div class="ui-g-12"><b>Data:</b> {{ rowData.data | date: 'dd/MM/yyyy' }}</div>
+              <div class="ui-g-12"><b>Testo:</b> {{ rowData.testoTemplate }}</div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-template> -->
+  <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+    <tr>
+      <td [attr.colspan]="columns.length+1">
+        <div style="padding-left: 40px;margin:8px;" *ngFor="let destinatario of rowData.destinatari">
+          <span *ngIf="destinatario.stato ==='ESITO_POSITIVO'" _ngcontent-c16=""
+            class="my-label label label-success ng-star-inserted align-middle"
+            style="margin-right: 10px; margin-bottom: 2px" placement="right">&nbsp;&nbsp;</span>
+          <span *ngIf="destinatario.stato === 'ESITO_CON_ERRORE'" _ngcontent-c16=""
+            class="my-label label label-danger ng-star-inserted align-middle"
+            style="margin-right: 10px; margin-bottom: 2px" placement="right">&nbsp;&nbsp;</span>
+          <span *ngIf="destinatario.stato === 'INVIATA'" _ngcontent-c16=""
+            class="my-label label label-primary ng-star-inserted align-middle"
+            style="margin-right: 10px; margin-bottom: 2px" placement="right">&nbsp;&nbsp;</span>
+          <span>{{destinatario.email}}</span>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer" let-columns>
+    <tr>
+        <td [attr.colspan]="columns.length+1">
+            <ngb-pagination [collectionSize]="totalObject" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                [pageSize]="tableSearch.limit" (pageChange)="pagingChanges({page: $event})"
+                [(page)]="tableSearch.page" aria-label="Default pagination">
+            </ngb-pagination>
+        </td>
+    </tr>
+</ng-template>
+</p-table>
+</div>
+<div *ngIf="tableData.length === 0">
+  <app-no-data [title]="'NO_DATA_FOUND' | translate"></app-no-data>
+</div>

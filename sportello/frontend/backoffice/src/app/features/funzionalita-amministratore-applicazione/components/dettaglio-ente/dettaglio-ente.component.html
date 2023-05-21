@@ -1,0 +1,64 @@
+<!--------------------------------------------------------------->
+<div class="portlet-content-container">
+  <!-- <div class="mtop20"> -->
+  <form [formGroup]="form" class="text-left">
+    <!-- INPUT NOME -->
+    <div class="row journal-content-article" *ngIf="dettaglio">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          <span class="dett"> <b>{{dettaglio.nome}}</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="tipologia">{{'indirizziEnti.label.tipo'|translate}}</label>
+          <p-dropdown class="dflex" [disabled]="true" [options]="tipologiaEnte" 
+            [autoWidth]="false"  formControlName="tipoEnte" [showClear]="false" [style]="{ width: '100%' }"  
+            [ngClass]="{'is-invalid': valida && form.controls['tipoEnte'].errors}"></p-dropdown>
+          <!-- <div *ngIf="valida && form.controls['tipoEnte'].errors">
+            <small *ngIf="form.controls['tipoEnte'].errors.required"
+              class="invalid-feedback">{{'indirizziEnti.errore.required'|translate}}</small>
+          </div> -->
+          <app-input-error [errors]="form.controls['tipoEnte'].errors" [validation]="valida"></app-input-error>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="pec">{{'indirizziEnti.label.pec'|translate}}</label>
+          <div class="input-group">
+            <input type="text" pInputText name="pec" class="form-control" formControlName="pec" 
+              [ngClass]="{'is-invalid': valida && form.controls['pec'].errors}"/>
+          </div>
+          <app-input-error [errors]="form.controls['pec'].errors" [validation]="valida"></app-input-error>
+          <!-- <div *ngIf="valida && form.controls['pec'].errors">
+            <small *ngIf="form.controls['pec'].errors.pec"
+              class="invalid-feedback">{{'indirizziEnti.errore.email'|translate}}</small>
+          </div> -->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="mail">{{'indirizziEnti.label.mail'|translate}}</label>
+          <div class="input-group">
+            <input type="text" pInputText name="email" class="form-control" formControlName="email" 
+              [ngClass]="{'is-invalid': valida && form.controls['email'].errors}"/>
+          </div>
+          <app-input-error [errors]="form.controls['email'].errors" [validation]="valida"></app-input-error>
+          <!-- <div *ngIf="valida && form.controls['email'].errors">
+            <small *ngIf="form.controls['email'].errors.email"
+              class="invalid-feedback">{{'indirizziEnti.errore.email'|translate}}</small>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="text-center inner-pulsantiera">
+    <button type="button" class="bttn btn btn-primary" (click)="openSalva()">{{'generic.salva'|translate}}<fa-icon icon="save"></fa-icon></button>
+    <button type="button" class="bttn btn btn-primary" (click)="back()">{{'generic.annulla'|translate}}<fa-icon
+        icon="times"></fa-icon>
+    </button>
+  </div>
+</div>

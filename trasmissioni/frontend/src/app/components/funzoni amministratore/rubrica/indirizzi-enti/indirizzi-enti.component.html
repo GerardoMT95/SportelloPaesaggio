@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <!-- CONFIGURAZIONE TEMPLATE COMUNICAZIONI-->
+  <div class="portlet-content-container" [hidden]="selected">
+    <div class="mtop20">
+      <!-- accordion form di ricerca-->
+      <!--<p-accordion [activeIndex]="index" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+        <p-accordionTab header="{{'generic.ricerca'|translate}}">
+          <app-form-search [configuration]="configuration" [nColumns]="2" 
+            (onSearch)="ricerca($event)" (onReset)="resetFiltri()"></app-form-search>
+        </p-accordionTab>
+      </p-accordion>-->
+
+      <ngb-accordion activeIds="ricerca" #acc="ngbAccordion" class="ricerca full-width">
+        <ngb-panel id="ricerca">
+          <ng-template ngbPanelTitle>
+            {{'generic.ricerca'|translate}}
+            <fa-icon *ngIf="acc.isExpanded('ricerca')" icon="angle-double-up"></fa-icon>
+            <fa-icon *ngIf="!acc.isExpanded('ricerca')" icon="angle-double-down"></fa-icon>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="ml-2 mr-2">
+            <app-form-search [configuration]="configuration" [nColumns]="2" 
+            (onSearch)="ricerca($event)" (onReset)="resetFiltri()"></app-form-search>
+          </div>
+		    </ng-template>
+        </ngb-panel>
+      </ngb-accordion>		  
+      <!--TABELLA ENTI  -->
+      <div class="dflex align-items-center" style="padding-top: 1.6em;">
+        <div class="col-auto nop">
+          <div class="input-group paginazione">
+            <div class="input-group-prepend">
+              <div class="input-group-text pretendColor">{{'generic.paginazione' | translate}}</div>
+            </div>
+            <p-dropdown class="dflex max100" (onChange)="changeRows($event.value)" [ngModel]="rowsOnPage"
+              [options]="pages" [autoWidth]="false"></p-dropdown>
+          </div>
+        </div>
+        <div class="col-auto" *ngIf="filters && itemsTotal > 0">
+          <p class="nom">{{'generic.da' | translate}} {{((rowsOnPage * page) - rowsOnPage) + 1}}
+            {{'generic.a' | translate}}
+            <span *ngIf="filters.limit * filters.page < itemsTotal">{{rowsOnPage * page}}</span>
+            <span *ngIf="filters.limit * filters.page >= itemsTotal">{{itemsTotal}}</span> di
+            {{itemsTotal}}</p>
+        </div>
+      </div>
+      <div class="row tableContainer tableContainerCustom mbottom20">
+        <p-table [value]="data" [lazy]="true" [responsive]="true"
+          (onSort)="orderElements($event)">
+          <ng-template pTemplate="header" let-columns>
+            <tr style="background-color: gray!important;">
+              <th style="width: 24%" [pSortableColumn]="'nome'">
+                {{'indirizziEnti.label.den'|translate}}
+                <p-sortIcon [field]="'nome'" ariaLabel="{{'generic.ordinamento'|translate}}"
+                  ariaLabelDesc="{{'generic.ordinamento'|translate}}"
+                  ariaLabelAsc="{{'generic.ordinamentoDesc'|translate}}">
+                </p-sortIcon>
+              </th>
+              <th>
+                {{'indirizziEnti.label.tipo'|translate}}
+              </th>
+              <th style="width: 24%">
+                {{'indirizziEnti.label.pec'|translate}}
+              </th>
+              <th>
+                {{'indirizziEnti.label.mail'|translate}}
+              </th>
+              <th style="width: 100px"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData>
+            <tr>
+              <td>{{ rowData.nome | uppercase}}</td>
+              <td>{{ rowData.tipoEnte | translate | uppercase}}</td>
+              <td>{{ rowData.pec }}</td>
+              <td>{{ rowData.email }}</td>
+              <td class="nowrap text-center">
+                <div ngbTooltip="Modifica">
+                  <button class="bttn bttn-table btn btn-primary" (click)="openDettaglio(rowData)">
+                    <fa-icon icon="edit"></fa-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="5">
+                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="footer" let-columns="columns">
+            <tr>
+              <td [attr.colspan]="5">
+                <ngb-pagination [collectionSize]="itemsTotal" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="filters.limit" (pageChange)="pageChangedAction($event)" [page]="filters.page"
+                  aria-label="Default pagination"></ngb-pagination>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-dettaglio-ente *ngIf="selected" (action)="onAction($event)" [dettaglio]="selected"></app-dettaglio-ente>
+  </div>
+</div>

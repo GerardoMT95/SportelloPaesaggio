@@ -1,0 +1,95 @@
+<div class="row noml nomr" *ngIf="!modifica">
+  <app-rows-number-handler [itemsTotal]="listaTemplateTR" [totalRecords]="listaTemplateTR" 
+    (change)="changeRows($event.limit)"></app-rows-number-handler>
+  <div class="col-md-12 tableContainerCustom">
+    <!-- tabella templates -->
+    <p-table [value]="listaTemplate" [columns]="colonneTabella" 
+      [lazy]="true" (onLazyLoad)="updateData($event)">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="uppercase" *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th class="uppercase" style="width: 9em">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+        <tr>
+          <td>{{rowData.nome}}</td>
+          <td>{{rowData.descrizione}}</td>
+          <td>
+            <button type="button" (click)="edit(rowData.codice)" placement="top" container="body"
+              ngbTooltip="{{'generic.modifica'|translate}}" class="bttn bttn-table btn btn-primary">
+              <em class="fa fa-pencil" aria-hidden="true"></em>
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length + 1">
+            <span style="text-align: center">{{'generic.norows' | translate}}</span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length + 1">
+            <ngb-pagination [collectionSize]="listaTemplateTR" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+              [pageSize]="rows" (pageChange)="changePage($event)" [(page)]="page" aria-label="Default pagination">
+            </ngb-pagination>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<!-- quando scelgo cosa modificare -->
+<div *ngIf="modifica">
+  <!-- separatore -->
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        NOME DEL TEMPLATE SCELTO
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 0 15px;">
+    <div class="form-group">
+      <label for="descrizione">Descrizione*:</label>
+      <!-- aggiungere formControlName -->
+      <input type="text" class="form-control" 
+      [readonly]="disable" />
+    </div>
+
+    <div class="form-group">
+      <label for="oggetto">Oggetto*:</label>
+      <!-- aggiungere formControlName -->
+      <input type="text" class="form-control" 
+      [readonly]="disable" />
+    </div>
+
+    <div class="form-group">
+      <label for="testo">Testo*:</label>
+      <!-- aggiungere formControlName -->
+      <p-editor [style]="{'height':'320px'}"></p-editor>
+    </div>
+  </div>
+
+  <!-- separatore -->
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        DESTINATARI
+      </div>
+    </div>
+  </div>
+
+  <!-- tabella destinatari -->
+  
+</div>

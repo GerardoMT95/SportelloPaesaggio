@@ -1,0 +1,41 @@
+html body footer.site-footer{background-color: #616161;color:#fff;padding-top: 1em;padding-bottom: 1em;margin-bottom:-8px;}
+html body footer div.divMargin{height:34px;}
+html body footer.site-footer a{color: #fff !important;}
+html body footer.site-footer hr{border-top:1px solid #fff}
+
+
+#cookie-bar {
+    font-family: 'Montserrat',sans-serif;
+    background: #c2c0c0;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    color: #fff;
+    z-index: 1000;/*1 piu' di inner-pulsantiera*/
+}
+#contentcookie {
+    padding: 20px 50px;
+    width: 80%;
+    margin: auto;
+}
+#cookie-bar button {
+    float: right;
+    background: transparent;
+    border: 1px solid #2e2e2e;
+    color: #2e2e2e;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#cookie-bar p {
+    width: 85%;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 24px;
+    color: #2e2e2e;
+}

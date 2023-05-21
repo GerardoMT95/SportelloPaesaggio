@@ -1,0 +1,13 @@
+<div class="full-width mbnegative30 container-timeline">
+  <div class="rangeAnni">
+    <p *ngFor="let time of timelineArray" class="inline nop nom">
+      <span class="relative annoDa">
+        <span class="indicator"></span>
+        <span class="date">{{time.data| date: 'dd/MM/yyyy'}}</span>
+        <span class="label">
+          <span>{{ 'fascicolo.timeline.'+time.stato| translate}}</span>
+        </span>
+      </span>
+    </p>
+  </div>
+</div>

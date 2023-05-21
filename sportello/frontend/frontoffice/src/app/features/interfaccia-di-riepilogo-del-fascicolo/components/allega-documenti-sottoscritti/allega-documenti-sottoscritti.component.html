@@ -1,0 +1,27 @@
+<div>
+  <app-section-header *ngIf="!inIstruttoria"
+    [title]="'ATTACH_SIGNED_DOCUMENTS.HEADER' | translate | titlecase"
+  ></app-section-header>
+ 
+  <app-section-header *ngIf="inIstruttoria"
+    [title]= "attivitaDaEspletareLabel"
+  ></app-section-header>
+  <p>
+    {{fraseDinamica|translate:{proto:fascicolo.numeroProtocollo} }}
+  </p>
+  <!--<p  *ngIf="fascicolo.attivitaDaEspletare === 'IN_ATTESA_DI_PROTOCOLLAZIONE'">
+    {{ 'ATTACH_SIGNED_DOCUMENTS.REGISTERED_INSTANCE' | translate | titlecase }}
+  </p>-->
+ 
+  <div class="mb-4 mt-4">
+    <app-document-table
+      [fascicolo]="fascicolo"
+      [tableHeaders]="documentTableHeaders"
+      [tableData]="tableData"
+      [disabled]="disabled"
+      (fileUpload)="uploadFile($event)"
+      (emitDeletion)="deleteFile($event)"
+      (emitDownload)="download($event)"
+    ></app-document-table>
+  </div>
+</div>

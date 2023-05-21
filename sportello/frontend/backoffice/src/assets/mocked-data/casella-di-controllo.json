@@ -1,0 +1,498 @@
+{
+    "interventiRiquarda": [
+        {
+            "value": 1,
+            "label": "DESCRIPTION_TAB.DETAIL",
+            "hasDescription": true,
+            "description": ""
+        },
+        {
+            "value": 2,
+            "label": "DESCRIPTION_TAB.DEMOLITION"
+        },
+        {
+            "value": 3,
+            "label": "DESCRIPTION_TAB.NEW_INSTITUTIONS_IN_THE_URBAN_AREA"
+        },
+        {
+            "value": 4,
+            "label": "DESCRIPTION_TAB.NEW_RURAL_SETTLEMENTS"
+        },
+        {
+            "value": 5,
+            "label": "DESCRIPTION_TAB.INTERVENTIONS_ON"
+        },
+        {
+            "value": 6,
+            "label": "DESCRIPTION_TAB.NEW_INDUSTRIAL"
+        },
+        {
+            "value": 7,
+            "label": "DESCRIPTION_TAB.INTERVENTIONS_ON_INDUSTRIAL"
+        },
+        {
+            "value": 8,
+            "label": "DESCRIPTION_TAB.FENCE"
+        },
+        {
+            "value": 9,
+            "label": "DESCRIPTION_TAB.PLANTS"
+        },
+        {
+            "value": 10,
+            "label": "DESCRIPTION_TAB.TELEPHONE_OR_ELECTRIC_LINES"
+        },
+        {
+            "value": 11,
+            "label": "DESCRIPTION_TAB.PRIMARY_INFRASTRUCTURES"
+        },
+        {
+            "value": 12,
+            "label": "DESCRIPTION_TAB.LAND_IMPROVEMENTS"
+        },
+        {
+            "value": 13,
+            "label": "DESCRIPTION_TAB.OTHER",
+            "hasDescription": true,
+            "description": ""
+        }
+    ],
+  "_interventiRiquarda": [
+    {
+      "value": 1,
+      "label": "DESCRIPTION_TAB.DETAIL",
+      "hasDescription": true,
+      "description": ""
+    },
+    {
+      "value": 2,
+      "label": "DESCRIPTION_TAB.DEMOLITION"
+    },
+    {
+      "value": 3,
+      "label": "DESCRIPTION_TAB.NEW_INSTITUTIONS_IN_THE_URBAN_AREA"
+    },
+    {
+      "value": 4,
+      "label": "DESCRIPTION_TAB.NEW_RURAL_SETTLEMENTS"
+    },
+    {
+      "value": 5,
+      "label": "DESCRIPTION_TAB.INTERVENTIONS_ON"
+    },
+    {
+      "value": 6,
+      "label": "DESCRIPTION_TAB.NEW_INDUSTRIAL"
+    },
+    {
+      "value": 7,
+      "label": "DESCRIPTION_TAB.INTERVENTIONS_ON_INDUSTRIAL"
+    },
+    {
+      "value": 8,
+      "label": "DESCRIPTION_TAB.FENCE"
+    },
+    {
+      "value": 9,
+      "label": "DESCRIPTION_TAB.PLANTS"
+    },
+    {
+      "value": 10,
+      "label": "DESCRIPTION_TAB.TELEPHONE_OR_ELECTRIC_LINES"
+    },
+    {
+      "value": 11,
+      "label": "DESCRIPTION_TAB.PRIMARY_INFRASTRUCTURES"
+    },
+    {
+      "value": 12,
+      "label": "DESCRIPTION_TAB.LAND_IMPROVEMENTS"
+    },
+    {
+      "value": 13,
+      "label": "DESCRIPTION_TAB.OTHER",
+      "hasDescription": true,
+      "description": ""
+    }
+  ],
+  "tipologiaDiInterventoDegliArtt3": [
+    {
+      "value": 1,
+      "label": "DESCRIPTION_TAB.APPLICATIOM_FOR_RENEWAL"
+    },
+    {
+      "value": 2,
+      "label": "DESCRIPTION_TAB.THE_WORKS_ARE_AMONG"
+    },
+    {
+      "value": 3,
+      "label": "DESCRIPTION_TAB.B1"
+    },
+    {
+      "value": 4,
+      "label": "DESCRIPTION_TAB.B2"
+    },
+    {
+      "value": 5,
+      "label": "DESCRIPTION_TAB.B3"
+    },
+    {
+      "value": 6,
+      "label": "DESCRIPTION_TAB.B4"
+    },
+    {
+      "value": 7,
+      "label": "DESCRIPTION_TAB.B5"
+    },
+    {
+      "value": 8,
+      "label": "DESCRIPTION_TAB.B6"
+    },
+    {
+      "value": 9,
+      "label": "DESCRIPTION_TAB.B7"
+    },
+    {
+      "value": 10,
+      "label": "DESCRIPTION_TAB.B8"
+    },
+    {
+      "value": 11,
+      "label": "DESCRIPTION_TAB.B9"
+    },
+    {
+      "value": 12,
+      "label": "DESCRIPTION_TAB.B10"
+    },
+    {
+      "value": 13,
+      "label": "DESCRIPTION_TAB.B11"
+    },
+    {
+      "value": 14,
+      "label": "DESCRIPTION_TAB.B12"
+    },
+    {
+      "value": 15,
+      "label": "DESCRIPTION_TAB.B13"
+    },
+    {
+      "value": 16,
+      "label": "DESCRIPTION_TAB.B14"
+    },
+    {
+      "value": 17,
+      "label": "DESCRIPTION_TAB.B15"
+    },
+    {
+      "value": 18,
+      "label": "DESCRIPTION_TAB.B16"
+    },
+    {
+      "value": 19,
+      "label": "DESCRIPTION_TAB.B17"
+    },
+    {
+      "value": 20,
+      "label": "DESCRIPTION_TAB.B18"
+    },
+    {
+      "value": 21,
+      "label": "DESCRIPTION_TAB.B19"
+    },
+    {
+      "value": 22,
+      "label": "DESCRIPTION_TAB.B20"
+    },
+    {
+      "value": 23,
+      "label": "DESCRIPTION_TAB.B21"
+    },
+    {
+      "value": 24,
+      "label": "DESCRIPTION_TAB.B22"
+    },
+    {
+      "value": 25,
+      "label": "DESCRIPTION_TAB.B23"
+    },
+    {
+      "value": 26,
+      "label": "DESCRIPTION_TAB.B24"
+    },
+    {
+      "value": 27,
+      "label": "DESCRIPTION_TAB.B25"
+    },
+    {
+      "value": 28,
+      "label": "DESCRIPTION_TAB.B26"
+    },
+    {
+      "value": 29,
+      "label": "DESCRIPTION_TAB.B27"
+    },
+    {
+      "value": 30,
+      "label": "DESCRIPTION_TAB.B28"
+    },
+    {
+      "value": 31,
+      "label": "DESCRIPTION_TAB.B29"
+    },
+    {
+      "value": 32,
+      "label": "DESCRIPTION_TAB.B30"
+    },
+    {
+      "value": 33,
+      "label": "DESCRIPTION_TAB.B31"
+    },
+    {
+      "value": 34,
+      "label": "DESCRIPTION_TAB.B32"
+    },
+    {
+      "value": 35,
+      "label": "DESCRIPTION_TAB.B33"
+    },
+    {
+      "value": 36,
+      "label": "DESCRIPTION_TAB.B34"
+    },
+    {
+      "value": 37,
+      "label": "DESCRIPTION_TAB.B35"
+    },
+    {
+      "value": 38,
+      "label": "DESCRIPTION_TAB.B36"
+    },
+    {
+      "value": 39,
+      "label": "DESCRIPTION_TAB.B37"
+    },
+    {
+      "value": 40,
+      "label": "DESCRIPTION_TAB.B38"
+    },
+    {
+      "value": 41,
+      "label": "DESCRIPTION_TAB.B39"
+    },
+    {
+      "value": 42,
+      "label": "DESCRIPTION_TAB.B40"
+    },
+    {
+      "value": 43,
+      "label": "DESCRIPTION_TAB.B41"
+    },
+    {
+      "value": 44,
+      "label": "DESCRIPTION_TAB.B42"
+    }
+  ],
+  "qualificazioneIntervento": [
+    {
+      "value": 1,
+      "label": "DESCRIPTION_TAB.WORKS"
+    },
+    {
+      "value": 2,
+      "label": "DESCRIPTION_TAB.USE"
+    },
+    {
+      "value": 3,
+      "label": "DESCRIPTION_TAB.COMMUNAL_WORKS"
+    }
+  ],
+  "qualificazioneIntervento1": [
+    {
+      "value": 1,
+      "label": "DESCRIPTION_TAB.B1"
+    },
+    {
+      "value": 2,
+      "label": "DESCRIPTION_TAB.B2"
+    },
+    {
+      "value": 3,
+      "label": "DESCRIPTION_TAB.B3"
+    },
+    {
+      "value": 4,
+      "label": "DESCRIPTION_TAB.B4"
+    },
+    {
+      "value": 5,
+      "label": "DESCRIPTION_TAB.B5"
+    },
+    {
+      "value": 6,
+      "label": "DESCRIPTION_TAB.B6"
+    },
+    {
+      "value": 7,
+      "label": "DESCRIPTION_TAB.B7"
+    },
+    {
+      "value": 8,
+      "label": "DESCRIPTION_TAB.B8"
+    },
+    {
+      "value": 9,
+      "label": "DESCRIPTION_TAB.B9"
+    },
+    {
+      "value": 10,
+      "label": "DESCRIPTION_TAB.B10"
+    },
+    {
+      "value": 11,
+      "label": "DESCRIPTION_TAB.B11"
+    },
+    {
+      "value": 12,
+      "label": "DESCRIPTION_TAB.B12"
+    },
+    {
+      "value": 13,
+      "label": "DESCRIPTION_TAB.B13"
+    },
+    {
+      "value": 14,
+      "label": "DESCRIPTION_TAB.B14"
+    },
+    {
+      "value": 15,
+      "label": "DESCRIPTION_TAB.B15"
+    },
+    {
+      "value": 16,
+      "label": "DESCRIPTION_TAB.B16"
+    },
+    {
+      "value": 17,
+      "label": "DESCRIPTION_TAB.B17"
+    },
+    {
+      "value": 18,
+      "label": "DESCRIPTION_TAB.B18"
+    },
+    {
+      "value": 19,
+      "label": "DESCRIPTION_TAB.B19"
+    },
+    {
+      "value": 20,
+      "label": "DESCRIPTION_TAB.B20"
+    },
+    {
+      "value": 21,
+      "label": "DESCRIPTION_TAB.B21"
+    },
+    {
+      "value": 22,
+      "label": "DESCRIPTION_TAB.B22"
+    },
+    {
+      "value": 23,
+      "label": "DESCRIPTION_TAB.B23"
+    },
+    {
+      "value": 24,
+      "label": "DESCRIPTION_TAB.B24"
+    },
+    {
+      "value": 25,
+      "label": "DESCRIPTION_TAB.B25"
+    },
+    {
+      "value": 26,
+      "label": "DESCRIPTION_TAB.B26"
+    },
+    {
+      "value": 27,
+      "label": "DESCRIPTION_TAB.B27"
+    },
+    {
+      "value": 28,
+      "label": "DESCRIPTION_TAB.B28"
+    },
+    {
+      "value": 29,
+      "label": "DESCRIPTION_TAB.B29"
+    },
+    {
+      "value": 30,
+      "label": "DESCRIPTION_TAB.B30"
+    },
+    {
+      "value": 31,
+      "label": "DESCRIPTION_TAB.B31"
+    },
+    {
+      "value": 32,
+      "label": "DESCRIPTION_TAB.B32"
+    },
+    {
+      "value": 33,
+      "label": "DESCRIPTION_TAB.B33"
+    },
+    {
+      "value": 34,
+      "label": "DESCRIPTION_TAB.B34"
+    },
+    {
+      "value": 35,
+      "label": "DESCRIPTION_TAB.B35"
+    },
+    {
+      "value": 36,
+      "label": "DESCRIPTION_TAB.B36"
+    },
+    {
+      "value": 37,
+      "label": "DESCRIPTION_TAB.B37"
+    },
+    {
+      "value": 38,
+      "label": "DESCRIPTION_TAB.B38"
+    },
+    {
+      "value": 39,
+      "label": "DESCRIPTION_TAB.B39"
+    },
+    {
+      "value": 40,
+      "label": "DESCRIPTION_TAB.B40"
+    },
+    {
+      "value": 41,
+      "label": "DESCRIPTION_TAB.B41"
+    },
+    {
+      "value": 42,
+      "label": "DESCRIPTION_TAB.B42"
+    }
+  ],
+  "vincolistica": [
+    {
+      "value": 1,
+      "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE"
+    },
+    {
+      "value": 2,
+      "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE"
+    },
+    {
+      "value": 3,
+      "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE"
+    },
+    {
+      "value": 4,
+      "label": "CONSTRAINTS_TAB.ARHITECTURAL_ACORDION_TITLE"
+    }
+  ]
+}

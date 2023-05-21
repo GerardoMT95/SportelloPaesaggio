@@ -1,0 +1,305 @@
+<!-- DIALOG-->
+
+<app-alert [(visible)]="displayConfirm" [type]="typConfirm" [hasConfirm]="true" (action)="callbackConfirm($event)"
+    [content]="contentConfirm" [title]="titleConfirm"></app-alert>
+
+<app-alert [(visible)]="displayEsito" [type]="typEsito" [hasConfirm]="false" (action)="closeEsito()"
+    [content]="contentEsito" [title]="titleEsito"></app-alert>
+
+    <app-alert [(visible)]="displayReset" [type]="typReset" [hasConfirm]="true" (action)="callbackReset($event)"
+    [content]="contentReset" [title]="titleReset"></app-alert>
+
+
+<!----------------------------------------------------------------------------------------------------->
+
+<div class="container-fluid nop mtop50">
+    <div class="portlet-content-container">
+        <div class="mtop20">
+            <form [formGroup]="form" (ngSubmit)="confirmSave()" class="text-left">
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.algoritmoImpronta'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="algoritmoImpronta" class="form-control" formControlName="algoritmoImpronta"
+                          [ngClass]="{'is-invalid': form.controls['algoritmoImpronta'].touched && form.controls['algoritmoImpronta'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['algoritmoImpronta'].errors">
+                      <small *ngIf="form.controls['algoritmoImpronta'].errors.required && form.controls['algoritmoImpronta'].touched"
+                        class="error">
+                        {{'protocollo.required.algoritmoImpronta'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.endpoint'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="endpoint" class="form-control" formControlName="endpoint"
+                          [ngClass]="{'is-invalid': form.controls['endpoint'].touched && form.controls['endpoint'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['endpoint'].errors">
+                      <small *ngIf="form.controls['endpoint'].errors.required && form.controls['endpoint'].touched" class="error">
+                        {{'protocollo.required.endpoint'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.amministrazione'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="amministrazione" class="form-control" formControlName="amministrazione"
+                          [ngClass]="{'is-invalid': form.controls['amministrazione'].touched && form.controls['amministrazione'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['amministrazione'].errors">
+                      <small *ngIf="form.controls['amministrazione'].errors.required && form.controls['amministrazione'].touched"
+                        class="error">
+                        {{'protocollo.required.amministrazione'|translate}}
+                      </small>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="amministrazioneDenominazione">{{'protocollo.label.amministrazioneDenominazione'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="amministrazioneDenominazione" class="form-control" formControlName="amministrazioneDenominazione"
+                          [ngClass]="{'is-invalid': form.controls['amministrazioneDenominazione'].touched && form.controls['amministrazioneDenominazione'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['amministrazioneDenominazione'].errors">
+                      <small *ngIf="form.controls['amministrazioneDenominazione'].errors.required && form.controls['amministrazioneDenominazione'].touched" class="error">
+                        {{'protocollo.required.amministrazioneDenominazione'|translate}}
+                      </small>                   
+                    </div>
+                  </div>
+                </div>
+                <div class="row noml nomr">                  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="mesi">{{'protocollo.label.aoo'|translate}} *:</label>
+                        <div class="input-group">
+                            <input type="text" maxlength="1000" name="aoo" class="form-control" formControlName="aoo"
+                                [ngClass]="{'is-invalid': form.controls['aoo'].touched && form.controls['aoo'].errors }" />
+                        </div>
+                    </div>
+                    <div *ngIf="form.controls['aoo'].errors">
+                        <small *ngIf="form.controls['aoo'].errors.required && form.controls['aoo'].touched"
+                               class="error"
+                        >
+                               {{'protocollo.required.aoo'|translate}}
+                      </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="mesi">{{'protocollo.label.denominazioneAOO'|translate}} *:</label>
+                    <div class="input-group">
+                      <input type="text" maxlength="1000" name="denominazioneAOO" class="form-control" formControlName="denominazioneAOO"
+                        [ngClass]="{'is-invalid': form.controls['denominazioneAOO'].touched && form.controls['denominazioneAOO'].errors }" />
+                    </div>
+                  </div>
+                  <div *ngIf="form.controls['denominazioneAOO'].errors">
+                    <small *ngIf="form.controls['denominazioneAOO'].errors.required && form.controls['denominazioneAOO'].touched" class="error">
+                      {{'protocollo.required.denominazioneAOO'|translate}}
+                    </small>
+                  </div>
+                </div>               
+                </div>
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.utente'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="utente" class="form-control" formControlName="utente"
+                          [ngClass]="{'is-invalid': form.controls['utente'].touched && form.controls['utente'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['utente'].errors">
+                      <small *ngIf="form.controls['utente'].errors.required && form.controls['utente'].touched" class="error">
+                        {{'protocollo.required.utente'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <app-password-field formControlName="pwd" [label]="('protocollo.label.pwd'|translate) + '*:'"
+                      [validation]="form.controls['pwd'].touched && form.controls['pwd'].errors" [errors]="form.controls['pwd'].errors" ></app-password-field>
+                  </div>
+                </div>
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.numeroRegistrazione'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="numeroRegistrazione" class="form-control" formControlName="numeroRegistrazione"
+                          [ngClass]="{'is-invalid': form.controls['numeroRegistrazione'].touched && form.controls['numeroRegistrazione'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['numeroRegistrazione'].errors">
+                      <small *ngIf="form.controls['numeroRegistrazione'].errors.required && form.controls['numeroRegistrazione'].touched" class="error">
+                        {{'protocollo.required.numeroRegistrazione'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.dataRegistrazione'|translate}} *:</label>
+                      <div class="input-group">
+
+                        
+                        <p-calendar [monthNavigator]="true" 
+                                     [yearNavigator]="true" 
+                                     yearRange="{{MIN_YEAR}}:{{MAX_YEAR}}" 
+                                     dateFormat="{{'generic.dateFormatCalendar'|translate}}" 
+                                     appendTo="body" 
+                                     class="form-control nop"
+                                      [locale]="it" 
+                                      [formControlName]="'dataRegistrazione'" 
+                                      inputStyleClass="form-control" 
+                                      showButtonBar="true" 
+                                      [ngClass]="{'is-invalid': form.controls['dataRegistrazione'].touched && form.controls['dataRegistrazione'].errors }"
+                        ></p-calendar>
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['dataRegistrazione'].errors">
+                      <small *ngIf="form.controls['dataRegistrazione'].errors.required && form.controls['dataRegistrazione'].touched" class="error">
+                        {{'protocollo.required.dataRegistrazione'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.tipoIndirizzoTelematico'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="tipoIndirizzoTelematico" class="form-control" formControlName="tipoIndirizzoTelematico"
+                          [ngClass]="{'is-invalid': form.controls['tipoIndirizzoTelematico'].touched && form.controls['tipoIndirizzoTelematico'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['tipoIndirizzoTelematico'].errors">
+                      <small *ngIf="form.controls['tipoIndirizzoTelematico'].errors.required && form.controls['tipoIndirizzoTelematico'].touched" class="error">
+                        {{'protocollo.required.tipoIndirizzoTelematico'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.valoreIndirizzoTelematico'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="valoreIndirizzoTelematico" class="form-control" formControlName="valoreIndirizzoTelematico"
+                          [ngClass]="{'is-invalid': form.controls['valoreIndirizzoTelematico'].touched && form.controls['valoreIndirizzoTelematico'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['valoreIndirizzoTelematico'].errors">
+                      <small *ngIf="form.controls['valoreIndirizzoTelematico'].errors.required && form.controls['valoreIndirizzoTelematico'].touched" class="error">
+                        {{'protocollo.required.valoreIndirizzoTelematico'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.indirizzoPostale'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="indirizzoPostale" class="form-control" formControlName="indirizzoPostale"
+                          [ngClass]="{'is-invalid': form.controls['indirizzoPostale'].touched && form.controls['indirizzoPostale'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['indirizzoPostale'].errors">
+                      <small *ngIf="form.controls['indirizzoPostale'].errors.required && form.controls['indirizzoPostale'].touched" class="error">
+                        {{'protocollo.required.indirizzoPostale'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="mesi">{{'protocollo.label.registro'|translate}} *:</label>
+                        <div class="input-group">
+                            <input type="text" maxlength="1000" name="registro" class="form-control" formControlName="registro"
+                                [ngClass]="{'is-invalid': form.controls['registro'].touched && form.controls['registro'].errors }" />
+                        </div>
+                    </div>
+                    <div *ngIf="form.controls['registro'].errors">
+                        <small *ngIf="form.controls['registro'].errors.required && form.controls['registro'].touched"
+                               class="error"
+                        >
+                               {{'protocollo.required.registro'|translate}}
+                      </small>
+                    </div>
+                </div>
+                </div>
+                <div class="row noml nomr">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="mesi">{{'protocollo.label.mittaoocodiceaoo'|translate}} :</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="20" name="mittaoocodiceaoo" class="form-control" formControlName="mittaoocodiceaoo"
+                          [ngClass]="{'is-invalid': form.controls['mittaoocodiceaoo'].touched && form.controls['mittaoocodiceaoo'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['mittaoocodiceaoo'].errors">
+                      <small *ngIf="form.controls['mittaoocodiceaoo'].errors.required && form.controls['mittaoocodiceaoo'].touched" class="error">
+                        {{'protocollo.required.mittaoocodiceaoo'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <!--
+                <div class="row noml nomr">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="mittente">{{'protocollo.label.mittente'|translate}} *:</label>
+                      <div class="input-group">
+                        <input type="text" maxlength="1000" name="mittente" class="form-control" formControlName="mittente"
+                          [ngClass]="{'is-invalid': form.controls['mittente'].touched && form.controls['mittente'].errors }" />
+                      </div>
+                    </div>
+                    <div *ngIf="form.controls['mittente'].errors">
+                      <small *ngIf="form.controls['mittente'].errors.required && form.controls['mittente'].touched" class="error">
+                        {{'protocollo.mittente.required'|translate}}
+                      </small>
+                    </div>
+                  </div>
+                  -->
+                  <!--
+                  <div class="col-6">
+                    <div class="form-group">
+                        <label for="unitaOrganizzativa">{{'protocollo.label.unitaOrganizzativa'|translate}} *:</label>
+                        <div class="input-group">
+                            <input type="text" maxlength="1000" name="unitaOrganizzativa" class="form-control" formControlName="unitaOrganizzativa"
+                                [ngClass]="{'is-invalid': form.controls['unitaOrganizzativa'].touched && form.controls['unitaOrganizzativa'].errors }" />
+                        </div>
+                    </div>
+                    <div *ngIf="form.controls['unitaOrganizzativa'].errors">
+                        <small *ngIf="form.controls['unitaOrganizzativa'].errors.required && form.controls['unitaOrganizzativa'].touched"
+                               class="error"
+                        >
+                               {{'protocollo.required.unitaOrganizzativa'|translate}}
+                      </small>
+                    </div>
+                </div>
+                </div>
+              -->
+                <div class="ricercaPulsantieraContainer relative">
+                    <div class="pulsantiera clearfix">
+                        <button type="submit" [disabled]="!(form.dirty && form.valid)"
+                            class="bttn btn btn-primary">Salva<fa-icon icon="save"></fa-icon></button>
+                        <button type="button" [disabled]="!form.dirty" (click)="resetForm()"
+                            class="bttn btn btn-primary">Annulla<fa-icon icon="times"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

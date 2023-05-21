@@ -1,0 +1,187 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<!--forse a regime passeremo a questa qui sotto....-->
+<app-alert-dialog></app-alert-dialog>
+<app-prompt-modal [codiceFascicolo]="dettaglio.codice"
+[idFascicolo]="dettaglio.id"></app-prompt-modal>
+<app-validation-modal [invalidFields]="invalid"></app-validation-modal>
+<!-- <div class="container-fluid nop mtop50" *ngIf="dettaglio.codice">
+  <div class="portlet-content-container"> -->
+<div class="portlet-content-container" *ngIf="dettaglio.codice">
+  <div class="portlet-body">
+    <!--timeline e riepologo accordion-->
+    <app-timeline [data]="timeline" 
+    [dettaglioFascicolo]="dettaglio" 
+    [localizzazione]="dettaglio.localizzazione"
+    [stato]="stato" [codice]="dettaglio.codice"></app-timeline> 
+    <div *ngIf="showPage=='FASCICOLO'">
+      <form (ngSubmit)="onSubmit()" *ngIf="fascicoloForm" [formGroup]="fascicoloForm">
+        <p-tabView class="step" [(activeIndex)]="activeIndex">
+          <!--Fascicolo Panel-->
+          <p-tabPanel
+            [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato && dettaglio.stato != rsEnum.WORKING]"
+            header="{{'fascicolo.fascicolo'|translate}}">
+            <div class="col-md-6">
+              <app-form-riepilogo [disableAndNotEditable]="!validGroup || disableAndNotEditable()" [fascicoloForm]="fascicoloForm" [submitted]="submitted" 
+                [id]="dettaglio.id" [disable]="!validGroup || disable" 
+                (cambioTipoProcedimento)="resettaForm($event)" 
+                [dettaglio]="dettaglio"
+                [tipoProcedimento]="timeline.tipoProcedimento"
+                [enteCompetente]="timeline.ente"></app-form-riepilogo>
+            </div>
+          </p-tabPanel>
+          <!--Richiedente  Panel-->
+          <p-tabPanel [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato != rsEnum.WORKING]"
+            header="{{'search.richiedente'|translate}}">
+            <app-form-richiedente [dettaglioFascicolo]="dettaglio" 
+              [fascicoloFormRichiedente]="fascicoloForm.get('richiedente')" [submitted]="submitted"
+              [cfErrorRichiedente]="cfErrorRichiedente" [disable]="disable" 
+              [disableAndNotEditable]="!validGroup || disableAndNotEditable()"
+              [praticaId]="dettaglio.id"></app-form-richiedente>
+          </p-tabPanel>
+          <!-- INTERVENTO Panel-->
+          <p-tabPanel [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato != rsEnum.WORKING]"
+            header="{{'fascicolo.intervento'|translate}}">
+            <app-form-intervento *ngIf="tipiEQualificazioni$" [listaIntervento$]="tipiEQualificazioni$"
+              [submitted]="submitted" 
+              [fascicoloFormIntervento]="fascicoloForm.get('intervento')"
+              [tipoProcedimento]="fascicoloForm.get('tipoProcedimento').value" [disable]="!validGroup || disableAndNotEditable()">
+            </app-form-intervento>
+          </p-tabPanel>
+          <!-- LOCALIZZAZIONE NEW-->
+          <p-tabPanel [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato != rsEnum.WORKING]"
+            header="{{'fascicolo.localizzazioneSection.localizzazione'|translate}}">
+            <app-localizzazione 
+            [disableAndNotEditable]="disableAndNotEditable()"
+            [fascicolo]="dettaglio" 
+            [localizazioneForm]="fascicoloForm.get('localizzazione')"
+            [disable]="!validGroup || disable"
+            [submitted]="submitted"
+            [id]="id"
+            [sezioniCatastali]="sezioniCatastali"
+            [isMultiComune]="isMultiComune"
+            >
+            </app-localizzazione>
+          </p-tabPanel>
+          <!-- PROVVEDIMENTO Panel-->
+          <p-tabPanel [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato != rsEnum.WORKING]"
+            header="{{'fascicolo.provvedimentoSection.provvedimento'|translate}}">
+            <app-form-provvedimento [fascicoloForm]="fascicoloForm.get('provvedimento')" [submitted]="submitted"
+              [codiceFascicolo]="id" [dettaglioFascicolo]="dettaglio" [disable]="disable" [disableAndNotEditable]="!validGroup || disableAndNotEditable()" [id]="id">
+            </app-form-provvedimento>
+          </p-tabPanel>
+          <!-- Allegati Panel-->
+          <p-tabPanel [headerStyleClass]="{true:'disabled-tab',false:''}[dettaglio.stato != rsEnum.WORKING]"
+            header="{{'fascicolo.allegatiSection.titolo'|translate}}">
+            <app-form-allegati [fascicoloForm]="fascicoloForm.get('provvedimento')" [submitted]="submitted"
+              [dettaglioFascicolo]="dettaglio" [codiceFascicolo]="id" [disable]="!validGroup || disable" [id]="id">
+            </app-form-allegati>
+          </p-tabPanel>
+          <!--Ricevuta Trasmissione Panel-->
+          <p-tabPanel *ngIf="dettaglio.stato != rsEnum.WORKING && !dettaglio.statoTrasmissione" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'fascicolo.mailCompose.ricevutaTrasmissione'|translate}}">
+            <div class="row noml nomr">
+              <div class="col-md-12">
+                <p>{{'fascicolo.mailCompose.msgTrasmOk'|translate}}</p>
+                <button type="button" (click)="downloadAttestatoRicezione()"
+                  class="text-left nop fakeLink allegatoIcon">
+                  <fa-icon class="icon" icon="file"></fa-icon>{{'fascicolo.mailCompose.attestatoRicezione'|translate}}
+                </button>
+              </div>
+            </div>
+          </p-tabPanel>
+          <!--Corrispondenza Panel-->
+          <p-tabPanel *ngIf="dettaglio.stato != rsEnum.WORKING && !dettaglio.statoTrasmissione" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'fascicolo.corrispondenzaSection.corrispondenza'|translate}}">
+            <app-form-corrispondenza [fascicolo]="dettaglio" [gestioneComunicazione]="false"></app-form-corrispondenza>
+          </p-tabPanel>
+          <!--Gestione comunicazione Panel-->
+          <p-tabPanel *ngIf="dettaglio.comunicazioniEnabled === true && dettaglio.stato != rsEnum.WORKING && !dettaglio.statoTrasmissione" 
+            [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'fascicolo.corrispondenzaSection.gestioneCom'|translate}}">
+            <app-form-corrispondenza [fascicolo]="dettaglio" [gestioneComunicazione]="true"></app-form-corrispondenza>
+          </p-tabPanel>
+          <!-- Ulteriore documentazione panel -->
+          <p-tabPanel *ngIf="dettaglio.ultDocEnabled === true && dettaglio.stato != rsEnum.WORKING && !dettaglio.statoTrasmissione" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'documentazione.tabHeader'|translate}}">
+            <app-form-ulteriore-documentazione [idFascicolo]="dettaglio.id"></app-form-ulteriore-documentazione>
+          </p-tabPanel>
+          <!--esito Panel-->
+          <p-tabPanel *ngIf="okEsitoPanel()  && esitoForm" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'fascicolo.esito.esitoPanel'|translate}}">
+            <app-form-esito [dettaglioFascicolo]="dettaglio" [formEsito]="esitoForm" 
+            [prosegui]="prosegui" [mostraLetteraProvvedimento]="mostraLetteraProvvedimento" 
+            (riempimentoTabellaProvvedimentoFinale)="riempimentoTabellaProvvedimentoFinale($event)" 
+            [allegati]="allegatiTabEsito" [disable]="dettaglio.stato==rsEnum.FINISHED"></app-form-esito>
+          </p-tabPanel>
+          <p-tabPanel *ngIf="enableRichiestePostTrasmissionePanel()" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'richiestePostTrasmissione.panel'|translate}}">
+            <app-richieste-post-trasmissione [idFascicolo]="id"></app-richieste-post-trasmissione>
+          </p-tabPanel>
+          <p-tabPanel *ngIf="enableAnnotazioniInterne()" [headerStyleClass]="{true:'disabled-tab',false:''}[false]"
+            header="{{'annotazioniInterne.panel'|translate}}">
+            <app-annotazioni-interne [idFascicolo]="id"></app-annotazioni-interne>
+          </p-tabPanel>
+          <!-- dati Responsabile Panel -->
+        </p-tabView>
+        <!-- <div style="padding-top: .4em;"></div> -->
+        <div class="text-center inner-pulsantiera">
+          <!--salva a seconda dello stato....-->
+          <ng-container *ngIf="validGroup">
+            <button type="button" *ngIf="(dettaglio.stato == rsEnum.WORKING || isEditableOnModify()) && !isAdmin" (click)="onSubmit()"
+              class="bttn btn btn-primary">{{'generic.salva'|translate}}
+              <fa-icon icon="save"></fa-icon>
+            </button>
+            <button type="button" *ngIf="dettaglio.stato == rsEnum.SELECTED && mostraLetteraProvvedimento === false  && !isAdmin && this.esitoForm" (click)="salvaEsitoVerifica()"
+              class="bttn btn btn-primary">{{'generic.prosegui'|translate}}
+              <fa-icon icon="save"></fa-icon>
+            </button>
+            <button type="button" *ngIf="dettaglio.stato == rsEnum.SELECTED && mostraLetteraProvvedimento === true && !isAdmin" (click)="inviaETerminaVerifica()"
+              class="bttn btn btn-primary">Invia comunicazione e termina verifica
+              <fa-icon icon="paper-plane"></fa-icon>
+            </button>
+            <!---->
+            <button type="button" *ngIf="(dettaglio.stato == rsEnum.WORKING  || isEditableOnModify()) && !isAdmin" (click)="salvaConValidazione()"
+              class="bttn btn btn-primary">{{'generic.valida'|translate}}
+              <fa-icon icon="check"></fa-icon>
+            </button>
+          </ng-container>
+          <button type="button" (click)="back()" class="bttn btn btn-primary">
+            {{'generic.indietro'|translate}}
+            <fa-icon icon="arrow-left"></fa-icon>
+          </button>
+          <ng-container *ngIf="validGroup">
+            <button type="button" (click)="reset()" *ngIf="dettaglio.stato==rsEnum.WORKING && !isAdmin"
+              class="bttn btn btn-primary">{{'generic.annulla'|translate}}
+              <fa-icon icon="times"></fa-icon>
+            </button>
+            <button type="button" *ngIf="(dettaglio.stato == rsEnum.WORKING) && !isAdmin" (click)="onImport()"
+              class="bttn btn btn-primary">{{'generic.importa'|translate}}
+              <fa-icon icon="share-square"></fa-icon>
+            </button>
+            <!--annulla a seconda dello stato....-->
+            <button type="button" *ngIf="dettaglio.stato == rsEnum.SELECTED && !isAdmin" (click)="resetEsitoVerifica()"
+              class="bttn btn btn-primary">{{'generic.annulla'|translate}}
+              <fa-icon icon="times"></fa-icon>
+            </button>
+          </ng-container>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="showPage=='MAIL'">
+      <app-mail-compose [dettaglioFascicolo]="dettaglio" (indietroEvent)="showPage='FASCICOLO'"
+        (transmittedEvent)="trasmetti($event)"></app-mail-compose>
+    </div>
+    <!--<div *ngIf="showPage=='IMPORT'">
+      <app-import-provvedimento [idFascicolo]="dettaglio.id" (fineImport)="reloadFascicolo()"></app-import-provvedimento>
+      <div class="text-center inner-pulsantiera">
+        <button type="button" (click)="backToFascicolo()" 
+        class="bttn btn btn-primary">{{'generic.indietro'|translate}}
+        <fa-icon icon="arrow-left"></fa-icon>
+      </button>
+      </div>
+    </div>-->
+  </div>
+</div>  

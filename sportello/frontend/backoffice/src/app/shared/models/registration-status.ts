@@ -1,0 +1,19 @@
+export enum StatoFascicolo 
+{
+	//vedi backend enum StatoFascicolo
+	WORKING="WORKING", 
+	TRANSMITTED="TRANSMITTED", 
+	CANCELLED="CANCELLED",
+	FINISHED="FINISHED", 
+	SELECTED="SELECTED", 
+	ON_MODIFY="ON_MODIFY"
+}
+
+export enum RegistrationStatus
+{
+	SELECTED="SELECTED",
+	FINISHED="FINISHED",
+	CANCELLED="CANCELLED",
+	ON_MODIFY="ON_MODIFY"
+}
+

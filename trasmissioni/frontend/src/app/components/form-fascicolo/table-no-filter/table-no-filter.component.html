@@ -1,0 +1,90 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title" [modal]="false"></app-alert>
+<div class="tableContainerCustom">
+  <p-table [value]="attachmentsPerFileType" class="mb-2" autoLayout="true" [columns]="tableHeadersAttachment">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngIf="colonnaStatus"></th>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th class="fixed-width-row"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr class="small-row">
+        <td class="text-center" *ngIf="colonnaStatus">
+          <span [ngClass]="(rowData.data) !== null ? 'label-success' : 'label-fail'"
+            [class.not-unique]="!isUnique(rowData.descrizione)" data-toggle="tooltip" data-placement="top" title=""
+            class="my-label label label-success" data-original-title="File Caricato">
+          </span>
+        </td>
+        <td *ngFor="let col of columns">
+          <ng-container [ngSwitch]="col.field">
+            <ng-container *ngSwitchCase="'descrizione'">
+                <div *ngIf="rowData['mandatario']===true">
+                    {{rowData[col.field]}}<span style="color:red;">*</span>
+                </div>
+                <div *ngIf="rowData['mandatario']!=true">
+                  <div *ngIf="isMultitipo(rowData[col.field])">
+                        <ul>
+                          <li *ngFor="let tipoContenuto of rowData[col.field]" >{{tipoContenuto}}</li>
+                        </ul>
+                  </div>
+                  <div *ngIf="!isMultitipo(rowData[col.field])">
+                    {{rowData[col.field]}}
+                  </div>
+                </div>
+                
+            </ng-container> 
+            <ng-container *ngSwitchCase="'data'">
+              {{ rowData[col.field] | date: "dd/MM/yyyy h:mm a" }}
+            </ng-container> 
+            <ng-container *ngSwitchDefault>
+              {{rowData[col.field]}}
+            </ng-container> 
+          </ng-container>
+          <!--
+          <ng-container *ngIf="col.field === 'descrizione' && rowData['mandatario'] === true">
+            {{rowData[col.field]}}<span style="color:red;">*</span>
+          </ng-container>
+          <ng-container *ngIf="col.field === 'data'">
+            {{ rowData[col.field] | date: "dd/MM/yyyy h:mm a" }}
+          </ng-container>
+          <ng-container *ngIf="!(col.field === 'descrizione' && rowData['mandatario'] === true) && col.field !== 'data'">
+            {{rowData[col.field]}}
+          </ng-container>
+          -->
+        </td>
+        <td class="text-center" *ngIf="(rowData.data) !== null; else uploadButton">
+          <ng-container *ngIf="downloadEnable">
+            <button [disabled]="false" data-toggle="tooltip" data-placement="top" title="" type="button"
+              class="green-button" data-original-title="Anteprima" pTooltip="{{ 'TABLE_DOWNLOAD_BUTTON' | translate }}"
+              tooltipPosition="left" (click)="download(rowData)">
+              <em class="fa fa-download" aria-hidden="true"></em>
+            </button>
+          </ng-container>
+          <button [disabled]="disableButton" data-toggle="tooltip" data-placement="top" type="button"
+            class="danger-button" [class.blur-button]="disableButton" data-original-title="Elimina"
+            pTooltip="{{ 'TABLE_DELETE_BUTTON' | translate }}" tooltipPosition="left" (click)="deleteFile(rowData['id'])">
+            <em class="fa fa-trash" aria-hidden="true"></em>
+          </button>
+        </td>
+        <ng-template #uploadButton>
+          <td class="text-center">
+            <form [formGroup]="utilsForm">
+              <input accept=".pdf" hidden formControlName="hiddenUpload" type="file" #uploader
+                (change)="uploadFile($event, rowData['type'])" />
+            </form>
+            <button [disabled]="disableButton" data-toggle="tooltip" data-placement="top" title="" type="button"
+              class="green-button" [class.blur-button]="disableButton" pTooltip="{{ 'TABLE_UPLOAD_BUTTON' | translate }}"
+              tooltipPosition="left" data-original-title="Carica file" (click)="uploader.click()">
+              <em class="fa fa-upload" aria-hidden="true"></em>
+            </button>
+          </td>
+        </ng-template>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

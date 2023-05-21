@@ -1,0 +1,260 @@
+<!--<nav id="mainM" [ngbCollapse]="isCollapsed">
+  <div class="innerMenu sidebar overflow-auto">
+    <div>
+      <button class="closeB close" 
+      (click)="isCollapsed = !isCollapsed" 
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="mainM">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <ul class="noStyle mainMitem" *ngIf="menuLoaded | async">
+      <li *ngFor="let item of menuList; let i = index;">
+        <a (click)="loadLinkMenu(item.link)" [routerLink]="item.link" routerLinkActive="active">
+          <fa-icon [icon]="item.icon"></fa-icon>
+          {{item.name|translate}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>-->
+
+<nav id="mainM">
+	<div
+		class="innerMenu sidebar overflow-auto"
+		[ngClass]="{ 'sidebar-show': !isCollapsed, 'sidebar-hide': isCollapsed }"
+  >
+  <div>
+    <button class="closeB close" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="mainM">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  	<!--<div>
+			<button
+				class="closeB close"
+				(click)="isCollapsed = !isCollapsed"
+				[attr.aria-expanded]="!isCollapsed"
+				aria-controls="mainM"
+			>
+				<span aria-hidden="true">
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+				</span>
+			</button>
+    </div>-->
+
+    <ul class="noStyle mainMitem" *ngIf="menuList">
+      <li *ngFor="let menu of menuList.items; let i = index;">
+         <a (click)="isCollapsed = !isCollapsed" routerLink="{{ menu.routerLink }}" routerLinkActive="active">
+            <em class="{{menu.icon}}"></em>
+            {{menu.label|translate}}
+          </a>
+      </li>
+    </ul>
+
+		<!--<div
+			style="width: 100%; transform: translateY(0px); opacity: 1;"
+			class="clearfix text-left ng-trigger ng-trigger-overlayAnimation ng-tns-c3-0 ui-menu ui-widget ui-widget-content ui-corner-all ng-animate-disabled"
+		>
+			<ul class="ng-tns-c3-0">
+				<li class="ui-submenu-header ui-widget-header ui-corner-all ng-tns-c3-0 ng-star-inserted">{{'headermenu.title'|translate}}</li>
+				<ng-container *ngIf="menuList">
+					<li
+						*ngFor="let menu of menuList"
+						class="ui-menuitem ui-widget ui-corner-all ng-tns-c3-0 ng-star-inserted"
+					>
+						  <ng-container >
+							<a
+								class="ui-menuitem-link ui-corner-all ng-star-inserted ui-state-active"
+								(click)="isCollapsed = !isCollapsed"
+								routerLink="{{ menu.link }}"
+							>
+								<span class="ui-menuitem-icon {{ menu.icon }} ng-star-inserted"></span>
+								<span class="ui-menuitem-text">{{menu.name|translate}}</span>
+							</a>
+						</ng-container>
+					</li>
+				</ng-container>
+			</ul>
+		</div>-->
+	</div>
+</nav>
+
+
+<div class="container-fluid nop">
+  <div id="navigazioneHeader">
+    <a href="https://www.regione.puglia.it">Regione Puglia</a> 
+    <span *ngIf="ente && ente.link && ente.id > 0">&gt;&nbsp;</span>
+    <a href="{{ente.link}}" *ngIf="ente && ente.link && ente.id > 0">
+      {{ente.nome}}
+    </a>
+    <span>&gt;&nbsp;</span><a href="/">Puglia.con</a> 
+   <span>&gt;&nbsp;</span>Presentazione Istanza
+     <div class="headerRight">
+       <a [ngClass]="{ 'opacityTesto': (zoom == zoomMin) }" title="Testo più piccolo" class="carattere" (click)="zoomPagina.emit(false)">
+           <h6 class="my-0">A-</h6>
+       </a>
+       <a [ngClass]="{ 'opacityTesto': (zoom == zoomMax)}" title="Testo più grande" class="carattere" (click)="zoomPagina.emit(true)">
+         <h6 class="my-0">A+</h6>
+        </a>
+      </div>
+      
+  </div>
+
+  <div id="header" class="td_logoName_right">
+    <div id="logoName">
+      <img class="maxH100" src="assets/logo_cmyk.png" />
+      <img class="maxHLogo" [attr.src]="getLogoUrl()" *ngIf="ente && ente.hasLogo" style="padding-left:50px;"
+      pTooltip="{{ente.nome}}"
+      tooltipPosition="bottom"
+      placement="bottom"
+      />
+    </div>
+    <div class="logo-puglia">
+      <a href="http://www.regione.puglia.it" 
+      pTooltip="Regione Puglia"
+      tooltipPosition="bottom"
+      placement="bottom"
+      >
+        <img src="assets/Logo Regione Header.png" />
+      </a>
+    </div>
+  </div>
+
+  <div class="header-dark row nom align-items-center">
+    <div class="burger_wrapper" *ngIf="!isPublic || menuList.items.length>0">
+      <div class="burger_container">
+        <button type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="mainM" 
+            class="btn-trasparente toggle-menu menu-left push-body">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar" style="top:25px"></div>
+          <p>{{'menu'|translate}}</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="col">
+      <h3 [ngClass]="{'noml':  menuList.items.length<=0}">{{'headermenu.title'|translate}}
+        <button placement="bottom" type="button"
+            popoverTitle="{{'generic.info'|translate}}"
+            ngbPopover="{{'template.headerInfo'|translate}}"
+            class="bttn ppover btn btn-primary">i
+        </button>
+      </h3>
+    </div>
+    <div class="col-auto dflex align-items-center">
+      <p *ngIf="user" class="d-none d-md-block text-right nomb userInfo">
+          {{'template.welcome'|translate}} {{user.firstName}} {{user.lastName}}<br/>
+        <small *ngIf="roles!=null&&roles[0]!=null">
+          <!-- <span *ngIf="roles.length == 1">
+            {{roles[0]}}
+          </span> -->
+          <span *ngIf="roles.length > 1">
+              <button type="button" class="rolesButton" aria-label="Open"  (click)="openRoleDialog(userRoles)">
+                Visualizza Ruoli&nbsp;
+                <div class="icon">
+                  <fa-icon style="color:#fff;" icon="info"></fa-icon>
+                </div>
+              </button>
+          </span>
+
+        </small>
+      </p>
+      <div class="text-right right-button nomb">
+        <div class="dflex">
+          <div ngbDropdown class="lista-enti nomr nob-right" *ngIf="!user">
+            <button class="btn btn-outline-primary" id="lista-language" ngbDropdownToggle>
+              <svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 35 35" enable-background="new 0 0 35 35" xml:space="preserve">
+                <g>
+                  <path fill="#0071BC" d="M17.56,3.25c-3.658,0-6.625,2.967-6.625,6.625S13.901,16.5,17.56,16.5s6.625-2.967,6.625-6.625
+                    S21.218,3.25,17.56,3.25z M17.56,14.5c-2.554,0-4.625-2.071-4.625-4.625S15.006,5.25,17.56,5.25s4.625,2.071,4.625,4.625
+                    S20.113,14.5,17.56,14.5z"/>
+                  <path fill="#0071BC" d="M5.019,31c1.308-5.725,6.42-10,12.541-10s11.233,4.275,12.541,10h2.556
+                    c-1.348-7.115-7.589-12.5-15.097-12.5S3.811,23.885,2.463,31H5.019z"/>
+                </g>
+              </svg>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="lista-language" class="text-right">
+              <p *ngIf="user&&!isPublic" class="d-block d-sm-none p20 nopt nopb text-right nomb">
+                {{'benvenuto'|translate}} {{user.firstName}} {{user.lastName}}<br/>
+                <small *ngIf="roles!=null&&roles[0]!=null">
+                  <span *ngFor="let item of roles; let i = index">
+                    <span *ngIf="i>0"> - </span>{{item|translate}}
+                  </span>
+                </small>
+              </p>
+              <a [routerLink]="['/login']" class="p20 nopt nopb full-width text-right btn-trasparente">Accedi</a>
+            </div>
+          </div>
+          <span *ngIf="user" id="closeButton" (click)="closePopup()" title="{{'generic.chiudi' | translate}}">
+	          <fa-icon icon="times"        size="2x" *ngIf="developer == false"></fa-icon>
+            <fa-icon icon="sign-out-alt" size="2x" *ngIf="developer"></fa-icon>
+          </span>
+          <div ngbDropdown *ngIf="multiLang" class="lista-enti nomr nob-right">
+            <button class="btn btn-outline-primary" id="lista-language" ngbDropdownToggle>
+              {{selectedLanguage | uppercase}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="lista-language" class="text-right">
+              <button type="button" (click)="setLanguage(lang)" class="pointer dropdown-item" [ngClass]="{true:'active'}[selectedLanguage == lang.code]" *ngFor="let lang of languageList">{{lang.name}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #userRoles let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ruoli Utente</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body row nom info">
+    <div class="col-auto nop">
+        <div class="icon">
+            <fa-icon icon="info"></fa-icon>
+        </div>
+    </div>
+    <div class="col-md">
+      <ul>
+        <li *ngFor="let item of roles; let i = index">
+            {{item|translate}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="bttn btn btn-primary" (click)="modal.close('')">Chiudi</button>
+  </div>
+</ng-template>
+<ng-template #userEnti let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Enti Utente</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body row nom info">
+    <div class="col-auto nop">
+        <div class="icon">
+            <fa-icon icon="info"></fa-icon>
+        </div>
+    </div>
+    <div class="col-md">
+      <ul>
+        <li *ngFor="let item of enti; let i = index">
+            {{item}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="bttn btn btn-primary" (click)="modal.close('')">Chiudi</button>
+  </div>
+</ng-template>
+<div class="mb-3">
+    <app-breadcrumb></app-breadcrumb>
+</div>

@@ -1,0 +1,12 @@
+<div class="container-fluid mtop50">
+  <div class="row" *ngIf="!errore">
+    <p class="full-width mtop50 p20"><ngb-progressbar value="250"></ngb-progressbar></p>
+    <p class="col-12 text-center">{{'generic.wait'|translate}}</p>
+  </div>
+  <div class="row" *ngIf="errore">
+    <p class="col-12 text-center error-info">
+      <fa-icon icon="exclamation-triangle"></fa-icon>
+      {{'generic.noAccessForUser'|translate}}
+    </p>
+  </div>
+</div>

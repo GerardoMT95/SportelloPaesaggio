@@ -1,0 +1,40 @@
+<form [formGroup]="mainForm.controls['pptr']">
+  <div class="container-fluid">
+    <app-section-header [title]="'PPTR_TAB.PPTR' | translate"></app-section-header>
+    <div class="row pt-3">
+      <div class="col-md-4 ">
+        <app-text-field [label]="('PPTR_TAB.LANDSCAPE_AREA' | translate | uppercase) + '*'" 
+          formControlName="ambitoPaesaggistico" [validation]="validation" [maxlength]="4000"
+          [errors]="pptr.controls.ambitoPaesaggistico.errors">
+        </app-text-field>
+      </div>
+      <div class="col-md-4 pl-5-custom">
+        <app-text-field [label]="('PPTR_TAB.FIGURE' | translate | uppercase) + '*'" [maxlength]="4000"
+          formControlName="figura" [validation]="validation" [errors]="pptr.controls.figura.errors">
+        </app-text-field>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col">
+        <app-checkbox-field [isSingle]="true" [checkboxValue]="1"
+          [checkboxLabel]="'PPTR_TAB.THE_OBJECT_AREA' | translate | lowercase" formControlName="art103">
+        </app-checkbox-field>
+        <app-checkbox-field [isSingle]="true" [checkboxValue]="2" [checkboxLabel]="'PPTR_TAB.OBJECT_AREA' | translate"
+          formControlName="art142"></app-checkbox-field>
+        <!--<app-textarea-field formControlName="descrizione" [id]="'descrizion'" [name]="'descrizione'">
+        </app-textarea-field>-->
+        <div class="borderContainer">
+          <ul>
+            <li *ngFor="let vincolo of vincoliArt38; let i = index"><strong style="font-style: italic;">{{vincolo}}</strong></li>
+           </ul>
+        </div>
+      </div>
+    </div>
+    <app-section-header [title]="'PPTR_TAB.GOODS_AND_FURTHER' | translate"></app-section-header>
+    <app-pptr-contesti-paesaggistici  formControlName="ulteririContestiPaesaggistici" [name]="'ulteririContestiPaesaggistici'" 
+      [errors]="pptr.controls.ulteririContestiPaesaggistici.errors" [validation]="validation" [data]="pptrTable" 
+      (change)="updateValidity()"
+      [disabled]="fascicolo.attivitaDaEspletare!=='COMPILA_DOMANDA'">
+    </app-pptr-contesti-paesaggistici>
+  </div>
+</form>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportElencoAllegati" pageWidth="550" pageHeight="842" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb65a212-6914-4132-a8d5-d9c847f17631">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DichiarazioneTecnicaAdapter"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<style name="FontCustomArial" fontName="CustomArial"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="JasperAllegatoDto" uuid="ed0df2f9-911f-4337-be13-c629ecda1198">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="nomeAllegato" class="java.lang.String"/>
+		<field name="nomeArchivio" class="java.lang.String"/>
+		<field name="tipoDocumento" class="java.lang.String"/>
+		<field name="checksum" class="java.lang.String"/>
+		<field name="strDimensione" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="elenco" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="117" y="0" width="300" height="20" uuid="6e01e686-495d-488b-8745-f8bba9ea2077"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ELENCO ALLEGATI]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="-18" y="20" width="544" height="61" uuid="3d64f7ee-d230-4a09-a959-047ee3d0da47">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JasperAllegatoDto" uuid="952a7a08-c51a-4d8d-bd0a-c0ca031b066b">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{elenco})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="199" uuid="87895697-77c9-45f3-a573-78600057b8f3">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="199" height="30" uuid="ea893ff9-f0a2-4bf5-ab35-b782a5b9a184"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome allegato / Tipo documento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="199" height="30" uuid="8cef157c-fd11-40ca-900f-65ef83941db2"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeAllegato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="147" uuid="7dc2dfb4-120c-49ec-85ea-ce6c1d1c0c42">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="147" height="30" uuid="27a37382-9c9d-4402-85d4-6212d03cd449"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome Archivio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="147" height="30" uuid="03a3dc3a-9afa-48d9-9a02-8609d6f8e261"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{nomeArchivio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="137" uuid="46575180-2409-42d4-8d8e-a17f803a7151">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="137" height="30" uuid="7185e455-08f9-4371-800c-911fbe6d3cf7"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Checksum(SHA256)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="137" height="30" uuid="34f59dc0-226e-4cdf-b01b-bc04e6ea1b17"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{checksum}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61" uuid="f45be423-903b-4b85-8e0f-a4be2184a597">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="61" height="30" uuid="b2afa945-45ff-4135-bbb0-99135e391080"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dimensione]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="61" height="30" uuid="abcd63b6-6503-4e4c-9757-62705944a1c5"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{strDimensione}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

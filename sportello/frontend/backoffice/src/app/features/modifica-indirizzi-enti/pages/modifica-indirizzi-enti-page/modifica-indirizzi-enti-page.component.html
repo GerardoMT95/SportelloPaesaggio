@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <p-accordion
+    expandIcon="fa fa-angle-double-down"
+    collapseIcon="fa fa-angle-double-up"
+  >
+    <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+      <app-indirizzi-enti-search (searchChange)="loadIndirizziEnti($event)" (annullaSearch)="loadIndirizziEnti()"></app-indirizzi-enti-search>
+    </p-accordionTab>
+  </p-accordion>
+  <div class="row mt-3">
+    <div class="col">
+      <app-indirizzi-enti-table [indirizziEntiTableHeaders]="indirizziEntiTableHeaders" [tableData] = "indirizziEntiList" (navigateChange)="navigateToDetails($event)"></app-indirizzi-enti-table>
+    </div>
+  </div>
+
+</div>

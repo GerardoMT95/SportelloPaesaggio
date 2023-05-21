@@ -1,0 +1,110 @@
+<form [formGroup]="form">
+
+  <app-section-header
+    [title]="'DETTAGLIO.FASCICOLO' | translate | titlecase"
+  ></app-section-header>
+  
+  <div class="container-fluid">
+    <div class="form">
+        <div class="row mb-2">
+          <div class="col-md-11">
+            <!--<app-select-field
+              formControlName="enteDelegato"
+              [options]="enteDelegato"
+              [label]="('DETTAGLIO.ENTE-DELEGATO' | translate) + '*'"
+              [name]="'ente'"
+              (change)="cambioEnteDelegato($event)"
+            ></app-select-field>-->
+            <label> 
+              {{'DETTAGLIO.ENTE-DELEGATO' | translate}}*
+              <app-tooltip [hidden]="form.disabled" [message]="('DETTAGLIO-FASCICOLO.CAMBIO_ENTE_DELEGATO' | translate)"></app-tooltip>
+            </label>
+              
+              <p-dropdown class="dflex" 
+              [showClear]="false" 
+              [options]="enteDelegato"
+              appendTo="body" 
+              [autoWidth]="true"
+              formControlName="enteDelegato">
+            </p-dropdown>
+              <!--<select
+                class="form-control"
+                [id]="'enteDelegato'"
+                [name]="'ente'"
+                formControlName="enteDelegato"
+                >
+                <option [value]="option.value" *ngFor="let option of enteDelegato">
+                  <div style="word-wrap: break-word;">{{ option.description }} </div> 
+                  </option>
+              </select>-->
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-11">
+
+            <div class="form-group">
+              <label> 
+                {{'DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO' | translate}}*
+              <app-tooltip [hidden]="form.disabled" [message]="('DETTAGLIO-FASCICOLO.CAMBIO_TIPO_PROCEDIMENTO' | translate)"></app-tooltip></label>
+              <p-dropdown class="dflex" 
+              [showClear]="false" 
+              [options]="typeProcedimento"
+              appendTo="body" 
+              [autoWidth]="true"
+              formControlName="tipoProcedimento">
+            </p-dropdown>
+              <!--<select
+                class="form-control"
+                [id]="'tipoProcedimento'"
+                [name]="'tipoProcedimento'"
+                formControlName="tipoProcedimento"
+                >
+                <option [value]="option.value" *ngFor="let option of typeProcedimento"> 
+                  {{ option.description }}
+                </option>
+              </select>-->
+            </div>
+            <!-- non funziona l'update dal model alla view-->
+            <!--<app-select-field
+              formControlName="tipoProcedimento"
+              [options]="metadata.typeProcedimento"
+              [label]="
+                ('DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO' | translate) + '*'
+              "
+              [name]="'tipoProcedimento'"
+              [tooltip]="('DETTAGLIO-FASCICOLO.CAMBIO_TIPO_PROCEDIMENTO' | translate)"
+            ></app-select-field>-->
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-11">
+            <app-textarea-field
+              formControlName="oggetto"
+              [label]="('DETTAGLIO.OGGETTO' | translate) + '*'"
+              [rows]="3"
+              [maxlength]="300"
+              [name]="'oggetto'"
+            ></app-textarea-field>
+          </div>
+        </div>
+        <div *ngIf="showCodiceSegreto" class="row mb-2">
+          <div class="col-md-11">
+            <app-text-field formControlName="codiceSegreto"
+              disabled
+              [label]="('DETTAGLIO.CODICE_SEGRETO' | translate) + '*'"
+              [name]="'codiceSegreto'" disabld>
+            </app-text-field>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-10" *ngIf="isInSanatoriaEnabled">
+            <app-checkbox-field
+              formControlName="isInSanatoria"
+              [checkboxLabel]="('DETTAGLIO.INSANATORIA' | translate)"
+              [isSingle]="true"
+            ></app-checkbox-field>
+          </div>
+        </div>
+    </div>
+  </div>
+</form>

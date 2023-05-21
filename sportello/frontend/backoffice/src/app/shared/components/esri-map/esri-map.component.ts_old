@@ -1,0 +1,687 @@
+import { CONST } from './../../constants';
+import { BaseMap, basemap } from './../../models/models';
+import { Component, OnInit, OnDestroy, ElementRef, Input, Output, EventEmitter, Renderer2, ViewChild } from '@angular/core';
+import { loadModules } from 'esri-loader';
+
+/*@Component({
+  selector: 'app-esri-map_notused',
+  templateUrl: './esri-map.component.html',
+  styleUrls: ['./esri-map.component.css']
+})*/
+
+export class EsriMapComponent_NOTUSED implements OnInit, OnDestroy 
+{
+  public error:string='';
+  public editorWidget:any;
+  public pFloatingPane:any;
+  public toolbar:any;
+  public graphicLayer:any;
+  public map:any;
+  public polygon:any;
+  public qtPolygon:any;
+  public qPolygon:any;
+  public hasGraphic:boolean = true;
+  public hasLoaded:boolean = false;
+  public basemap:BaseMap[] = basemap;
+  public baseMapLayers:any[] = new Array();
+  public errorLayer:boolean = false;
+  public errorLayerMessage:string = "";
+  public isDraw:boolean = false;
+  public display:boolean = false;
+  public typ:string = "info";
+  public content:string = "";
+  public title:string = "Informazioni";
+  /*public polygonIdentify:any;
+  public identifyParams:any;
+  public layerOption:any;*/
+  @Input() codiceFascicolo:string;
+  @Input() user:string;
+  @Input() externalQuery:string;
+  @Input() hasEditor:boolean;
+  @Output() result = new EventEmitter<any>();
+  @Output() refresh = new EventEmitter<boolean>();
+  @Output() closeMap = new EventEmitter<boolean>();
+  @ViewChild('calcolaButton', {static: false}) public calcolaButton: ElementRef;
+  @ViewChild('cancellaButton', {static: false}) public cancellaButton: ElementRef;
+  @ViewChild('editorContainer', {static: false}) private editorContainer: ElementRef;
+  @ViewChild('mapViewNode', {static: false}) private mapViewEl: ElementRef;
+  @ViewChild('editorDiv', {static: false}) private editorDiv: ElementRef;
+
+  constructor(private renderer: Renderer2) { }
+
+  public ngOnDestroy() 
+  {
+    if(this.editorWidget)
+      this.editorWidget.destroy();
+    if(this.pFloatingPane)
+      this.pFloatingPane.destroy();
+  }
+
+  public ngOnInit() 
+  {
+    const options = {
+      url: 'https://js.arcgis.com/3.26/'
+    };
+
+    loadModules([
+      'esri/map',
+      'esri/renderers/SimpleRenderer',
+      'esri/layers/FeatureLayer',
+      'esri/tasks/QueryTask',
+      'esri/tasks/query',
+      'esri/tasks/IdentifyTask',
+      'esri/tasks/IdentifyParameters',
+      'esri/layers/ArcGISTiledMapServiceLayer',
+      'esri/layers/ArcGISDynamicMapServiceLayer',
+      'esri/geometry/Polygon',
+      'esri/SpatialReference',
+      'esri/geometry/Extent',
+      'esri/layers/GraphicsLayer',
+      'esri/symbols/SimpleFillSymbol',
+      'esri/symbols/SimpleLineSymbol',
+      'esri/Color',
+      'esri/toolbars/draw',
+      'esri/geometry/jsonUtils',
+      'esri/graphic',
+      'esri/dijit/editing/Editor',
+      'dojox/layout/FloatingPane',
+      'dojo/_base/array',
+      'esri/config',
+      'dojo/i18n!esri/nls/jsapi'
+    ], options).then(([
+      EsriMap,
+      SimpleRenderer,
+      FeatureLayer,
+      QueryTask,
+      Query,
+      IdentifyTask,
+      IdentifyParameters,
+      ArcGISTiledMapServiceLayer,
+      ArcGISDynamicMapServiceLayer,
+      Polygon,
+      SpatialReference,
+      Extent,
+      GraphicsLayer,
+      SimpleFillSymbol,
+      SimpleLineSymbol,
+      Color,
+      Draw,
+      jsonUtils,
+      Graphic,
+      Editor,
+      FloatingPane,
+      arrayUtils,
+      esriConfig
+    ]) => 
+    {
+      // CREO PANNELLO PER DRAG EDITING WIDGET
+      if(this.hasEditor)
+      {
+        this.pFloatingPane = new FloatingPane
+        ({
+          title: "Editing",
+          resizable: false,
+          dockable: false,
+          style: "position:absolute;top:20px;right:40px;width:275px;height:390px;visibility:visible;corner:round",
+          id: "pFloatingPane"
+        },this.editorContainer.nativeElement);
+        this.pFloatingPane.startup();
+      }
+
+      var urlLayer = "";
+      // CREO PANNELLO PER DRAG EDITING WIDGET
+      // se si è in fase di editing mostro il layer di editing
+      // altrimenti verifico se l'uente è stato passato allora uso lo stesso il layer dell'editing (ma senza la possibilitò di poterlo modificare)
+      // se invece non sto in editor e l'utente è null allora uso il layer di visualizzazione
+      if(this.hasEditor)
+        urlLayer = CONST.EDIT_LAYER;
+      else if(!this.user || this.user === '')
+          urlLayer = CONST.VIEW_LAYER;
+        else
+          urlLayer = CONST.EDIT_LAYER;
+
+      // INIZIALIZZAZIONE VARIABILI GLOBALI
+      esriConfig.defaults.map.logoLink = "http://www.sit.puglia.it";
+      esriConfig.defaults.io.proxyUrl = "http://webapps.sit.puglia.it/EsriJsViewer/" + "ProxyUtil/proxy.ashx";
+      esriConfig.defaults.io.alwaysUseProxy = false;
+      esriConfig.defaults.io.corsEnabledServers.push("webadaptor.tz.it:6443");
+      esriConfig.defaults.io.corsEnabledServers.push("webadaptor.tz.it");
+      //var graphicLayerParticella;
+      var _self = this;
+      var identifyTask;
+      var identifyParams;
+
+      // CARICO LA PARTICELLA RICHIESTA
+      if(this.externalQuery)
+      {
+        var queryTask = new QueryTask(CONST.CATASTO_LAYER+"/2");
+        var query = new Query();
+        query.where = "("+this.externalQuery+")";
+        query.returnGeometry = true;
+        query.outFields = ["*"];
+        queryTask.execute(query, ShowResults, ErrorCallback);
+      }
+      else
+      {
+        ShowResults(null);
+      }
+
+      function ErrorCallback(error)
+      {
+        _self.hasLoaded = true;
+        _self.hasGraphic = false;
+        if(_self.hasEditor)
+        {
+          _self.renderer.addClass(_self.editorContainer.nativeElement, 'hidden');
+        }
+        _self.error = "Errore nella creazione della mappa, per piacere riprova fra un minuto " + error;
+      }
+
+      // FUNZIONE PER CARICARE I SERVICI
+      function CaricaServizi(customExtentAndSR:any, results?:any, polygon?:any):void 
+      {
+        _self.map = new EsriMap(_self.mapViewEl.nativeElement, 
+        {
+          extent: customExtentAndSR,
+          //center: [-122.45, 37.75],
+          //zoom: 13,
+          showLabels : true
+        });
+        if(_self.hasEditor)
+        {
+          _self.map.on("layers-add-result", initEditor);
+        }
+        _self.map.on("update-start", function() 
+        {
+          _self.hasLoaded = false;
+        });
+        _self.map.on("update-end", function() 
+        {
+          _self.hasLoaded = true;
+        });
+        _self.map.on("load", initToolbar);
+
+        //BaseMap
+        var baseMap2006 = new ArcGISTiledMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/Ortofoto2006/ImageServer");
+        baseMap2006.hide();
+        _self.map.addLayer(baseMap2006);
+        var baseMap2010 = new ArcGISTiledMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/Ortofoto2010/ImageServer");
+        baseMap2010.hide();
+        _self.map.addLayer(baseMap2010);
+        var baseMap2011 = new ArcGISTiledMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/Ortofoto2011/ImageServer");
+        baseMap2011.hide();
+        _self.map.addLayer(baseMap2011);
+        var baseMap2013 = new ArcGISTiledMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/Ortofoto2013/ImageServer");
+        baseMap2013.hide();
+        _self.map.addLayer(baseMap2013);
+        var baseMap2016 = new ArcGISTiledMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/Ortofoto2016/ImageServer");
+        baseMap2016.hide();
+        _self.map.addLayer(baseMap2016);
+        var baseMapTrasparente = new ArcGISDynamicMapServiceLayer("http://webapps.sit.puglia.it/arcgis/rest/services/BaseMaps/SfondoTrasp/MapServer");
+        _self.map.addLayer(baseMapTrasparente);
+
+        _self.baseMapLayers.push(baseMap2006,baseMap2010,baseMap2011,baseMap2013,baseMap2016,baseMapTrasparente);
+
+        var opLayer1 = new ArcGISDynamicMapServiceLayer(CONST.SFONDO_LAYER);
+        _self.map.addLayer(opLayer1);
+
+        var opLayer2 = new ArcGISDynamicMapServiceLayer(CONST.CATASTO_LAYER);
+        _self.map.addLayer(opLayer2);
+
+        console.log(results, polygon);
+
+        if (results) 
+        {
+          if ( results.features.length != 0 ) 
+          {
+            _self.graphicLayer = new GraphicsLayer({opacity:1, id:'bufferGraphicLayerQueryIni'});
+            _self.map.addLayer(_self.graphicLayer);
+
+            if (results.geometryType == "esriGeometryPolygon") 
+            {
+              for(let i in results.features)
+              {
+                var symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, 
+                                                  new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, 
+                                                  new Color([250,0,33]), 2), 
+                                                  new Color([253,246,44,0.25]));
+                var attr = results.features[i].attributes;
+                attr.id_procedura = _self.codiceFascicolo;
+                attr.user_id = _self.user;
+                attr.is_particella = true;
+                attr.is_custom = '0';
+                var graphic = new Graphic(results.features[i].geometry,symbol,attr);
+                _self.graphicLayer.add(graphic);
+                //graphicLayerParticella = graphic;
+              }
+            }
+            //_self.graphicLayer.add(graphic);
+          }
+        }
+
+        var pugliaRenderer = new SimpleRenderer( new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
+                                                 new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, 
+                                                                      new Color([0,128,0]), 2),
+                                                                      new Color([76,175,80,0.45])));
+        var editLayerPolygon = new FeatureLayer(urlLayer,
+        {
+          outFields: ['*'],
+          mode: FeatureLayer.MODE_ONDEMAND,
+          visible:true,
+          id:'EditPolygon'
+        });
+        editLayerPolygon.setRenderer(pugliaRenderer);
+        if(_self.user)
+          editLayerPolygon.setDefinitionExpression("(id_procedura='" + _self.codiceFascicolo+"' AND user_id='"+_self.user+"')");
+        else
+          editLayerPolygon.setDefinitionExpression("(procedura='" + _self.codiceFascicolo+"')");
+
+        _self.map.addLayers([editLayerPolygon]);
+        editLayerPolygon.on("load", function(event: any)
+        {
+          _self.errorLayer = false;
+          _self.errorLayerMessage = "";
+          if(!results || !_self.hasEditor)
+          {
+            var query = new Query();
+            query.where = "1=1";
+            query.outSpatialReference = new SpatialReference(32633);
+
+            editLayerPolygon.queryExtent(query, function(response: any)
+            {
+              if(response && response.count && response.count > 0)
+              {
+                var extent = response.extent;
+                _self.map.setExtent(extent, true);
+              }
+            });
+          }
+        });
+        editLayerPolygon.on("error",function(error: any)
+        {
+          _self.errorLayer = true;
+          _self.errorLayerMessage = error.error.message;
+          console.log("errore",error);
+        });
+
+        editLayerPolygon.on("before-apply-edits", function(geometry: any)
+        {
+          if(geometry && geometry.adds)
+          {
+            var geometryAdds = geometry.adds;
+            for(let i in geometryAdds)
+            {
+              geometryAdds[i].attributes['id_procedura'] = _self.codiceFascicolo;
+              geometryAdds[i].attributes['user_id'] = _self.user;
+              if(geometryAdds[i].attributes['is_custom'] && geometryAdds[i].attributes['is_particella'] && geometryAdds[i].attributes['is_particella'])
+                geometryAdds[i].attributes['is_custom'] = geometryAdds[i].attributes['is_custom'];
+              else
+                geometryAdds[i].attributes['is_custom'] = 1;
+            };
+          }
+        });
+        editLayerPolygon.on("edits-complete", function(event) {
+          //console.log(event);
+        });
+      }
+
+      // INIT TOOLBAR
+      function initToolbar()
+      {
+        _self.toolbar = new Draw(_self.map);
+        _self.isDraw = true;
+        _self.toolbar.on("draw-end", addParticella);
+        _self.hasLoaded = true;
+      }
+
+      _self.qtPolygon = new QueryTask(urlLayer);
+      _self.qPolygon = new Query();
+      /*_self.polygonIdentify = new Polygon(new SpatialReference({wkid:32633}));
+      _self.identifyParams = new IdentifyParameters();
+      _self.layerOption = IdentifyParameters.LAYER_OPTION_VISIBLE;*/
+      if(this.hasEditor)
+      {
+        var calcola = _self.calcolaButton.nativeElement;
+        calcola.onclick = function(){
+          _self.hasLoaded = false;
+          //if(_self.graphicLayer!=null)
+          //  _self.graphicLayer.clear();
+          _self.qPolygon.where = "(id_procedura='" + _self.codiceFascicolo+"' AND is_custom='1')";
+          _self.qPolygon.returnGeometry = true;
+          _self.qPolygon.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
+          _self.qPolygon.outFields = ["*"];
+          //_self.qPolygon.distances = [-1.1] ;
+          _self.qtPolygon.execute(_self.qPolygon,function(results: any)
+          {
+            var polygonIdentify = new Polygon(new SpatialReference({wkid:32633}));
+            if(results.features.length>0)
+            {
+              for(let i in results.features)
+              {
+                polygonIdentify.addRing(results.features[i].geometry.rings[0]);
+              }
+              addParticella(polygonIdentify, true);
+            }else
+            {
+              _self.display = true;
+              _self.typ = "info";
+              _self.content = "Nessuna particella da aggiungere";
+              _self.hasLoaded = true;
+            }
+          },function(error: any)
+          {
+            console.log("Errore in Calcola Particelle", error);
+            _self.display = true;
+            _self.typ = "danger";
+            _self.content = "Errore in Calcola Particelle";
+            _self.hasLoaded = true;
+          });
+        }
+
+        var cancella = _self.cancellaButton.nativeElement;
+        cancella.onclick = function(){
+          _self.map.getLayer("EditPolygon").clearSelection();
+          _self.map.getLayer("EditPolygon").refresh();
+          _self.map.infoWindow.hide();
+          if(_self.graphicLayer!=null)
+            _self.graphicLayer.clear();
+          _self.hasGraphic = false;
+          var i = _self.polygon.rings.length - 1;
+          while (i >= 0) 
+          {
+            //console.log("i prima:" + i);
+            _self.polygon.removeRing(i);
+            i--;
+            //console.log("i dopo:" + i);
+          }
+          _self.toolbar.deactivate();
+          /*debugger;
+          var i = _self.polygon.rings.length - 1;
+          _self.polygon.removeRing(i);
+
+          var symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([250,0,33]), 2), new Color([253,150,44,0.25]));
+          var attr = {};
+          var graphic = new Graphic(jsonUtils.fromJson(_self.polygon),symbol,attr);
+
+          _self.graphicLayer.add(graphic);*/
+        };
+      }
+
+      // ADD PARTICELLA
+      function addParticella(geometry: any, callback: any)
+      {
+        _self.hasLoaded = false;
+        if (geometry.geometry!=null&&geometry.geometry.type != "point") {
+          _self.toolbar.deactivate();
+      }
+
+        //Pulisce il graphicLayer
+        //if (_self.graphicLayer != null) _self.graphicLayer.clear();
+
+        //create identify tasks and setup parameters
+        identifyTask = new IdentifyTask(CONST.CATASTO_LAYER);
+
+        identifyParams = new IdentifyParameters();
+        identifyParams.tolerance = 0;
+        identifyParams.returnGeometry = true;
+        identifyParams.layerIds = [2];
+        identifyParams.layerOption = IdentifyParameters.LAYER_OPTION_VISIBLE;//LAYER_OPTION_ALL;
+        identifyParams.width  = _self.map.width;
+        identifyParams.height = _self.map.height;
+        identifyParams.geometry = geometry.geometry!=null?geometry.geometry:geometry;
+        identifyParams.mapExtent = _self.map.extent;
+        identifyParams.spatialReference = new SpatialReference({wkid:32633});
+
+        identifyTask.execute(identifyParams, function (results: any)
+        {
+          _self.hasLoaded = true;
+          if (_self.polygon == null) _self.polygon = new Polygon(new SpatialReference({wkid:32633}));
+
+          if(callback)
+          {
+            _self.result.emit(results);
+            //_self.display = true;
+            //_self.typ = "success";
+            //_self.content = "Particelle aggiunte con successo";
+          }
+          if(!callback)
+          {
+            for (var i=0; i<results.length; i++) 
+            {
+              //_self.polygon.addRing(results[i].feature.geometry.rings[0]);
+              var symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([250,0,33]), 2), new Color([253,150,44,0.25]));
+              var attr = results[i].feature.attributes;
+              //debugger;
+              if(_self.isDraw)
+              {
+                attr.is_custom = '0';
+                attr.is_particella = true;
+              }
+              var graphic = new Graphic(results[i].feature.geometry,symbol,attr);
+              if (_self.graphicLayer === null)
+              {
+                _self.graphicLayer = new GraphicsLayer({ opacity: 1, id: 'bufferGraphicLayerQueryIni' });
+                _self.map.addLayer(_self.graphicLayer);
+              }
+              /* else 
+              {
+                _self.graphicLayer.clear();
+              } */
+              _self.graphicLayer.add(graphic);
+              _self.hasGraphic = true;
+
+            }
+            //_self.isDraw = false;
+            /*if (_self.polygon.rings.length > 0 ) {
+              var symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([250,0,33]), 2), new Color([253,150,44,0.25]));
+              debugger;
+              var attr = {"USERID":null,"ID_DOMANDA":null,"FROM_CT":"1" };
+              var graphic = new Graphic(jsonUtils.fromJson(_self.polygon),symbol,attr);
+
+              if (_self.graphicLayer != null) _self.graphicLayer.clear();
+              else {
+                _self.graphicLayer = new GraphicsLayer({opacity:1,id:'bufferGraphicLayerQueryIni'});
+                _self.map.addLayer(_self.graphicLayer);
+              }
+
+              _self.graphicLayer.add(graphic);
+            }*/
+          }
+        },function(error: any)
+        {
+          console.log("Errore nel recupero della particella",error);
+          _self.isDraw = false;
+          _self.hasLoaded = true;
+          _self.display = true;
+          _self.typ = "danger";
+          _self.content = "Errore nel recupero della particella";
+        });
+      }
+
+      function initEditor(event: any)
+      {
+        var featureLayerInfos = arrayUtils.map(event.layers, function (layer: any)
+        {
+          return {
+            "featureLayer": layer.layer,
+            'isEditable': false,
+            'showDeleteButton':false,
+            'disableAttributeUpdate': true
+          };
+        });
+
+        var settings = 
+        {
+          map: _self.map,
+          layerInfos: featureLayerInfos,
+          toolbarVisible: true
+        };
+        var params = { settings: settings };
+        _self.editorWidget = new Editor(params, _self.editorDiv.nativeElement);
+        _self.editorWidget.startup();
+        _self.map.enableSnapping();
+      }
+
+      // TROVATA LA PARTICELLA CALCOLA L'EXTENT
+      function ShowResults(results: any):void
+      {
+        var tempExtent:any = [];
+
+        _self.polygon = new Polygon(new SpatialReference({wkid:32633}));
+        if (results && results.features.length != 0) 
+        {
+          for (var i=0; i<results.features.length; i++) 
+          {
+            if (tempExtent == "") tempExtent = results.features[i].geometry.getExtent();
+            else tempExtent = tempExtent.union(results.features[i].geometry.getExtent());
+
+            _self.polygon.addRing(results.features[i].geometry.rings[0]);
+          }
+          var xmin = tempExtent.xmin;
+          var ymin = tempExtent.ymin;
+          var xmax = tempExtent.xmax;
+          var ymax = tempExtent.ymax;
+
+          var customExtentAndSR = new Extent(xmin,ymin,xmax,ymax,new SpatialReference({"wkid":32633}));
+          CaricaServizi(customExtentAndSR,results,_self.polygon);
+        } 
+        else 
+        {
+          var customExtentAndSR = new Extent(450000,4400000,840000,4700000,new SpatialReference({"wkid":32633}));
+          _self.hasGraphic = false;
+          CaricaServizi(customExtentAndSR);
+        }
+      }
+
+    })
+    .catch(err => { console.error(err); });
+  } // ngOnInit
+
+  public close(){ this.closeMap.emit(true); }
+
+  public changeBaseMap(item:any, indice:number):void
+  {
+    for (var i = 0; i < this.baseMapLayers.length; i++) 
+    {
+			this.baseMapLayers[i].hide();
+		}
+    this.baseMapLayers[indice].show();
+  }
+
+  public draw(type:string):void
+  {
+    this.isDraw = true;
+    this.toolbar.activate(type);
+  }
+
+  /*public addParticelle():void{
+    var _self=this;
+    this.qPolygon.where = "( * )";
+    this.qtPolygon.execute(this.qPolygon,function(results){
+      _self.polygonIdentify.addRing(results.features[0].geometry.rings[0]);
+      _self.identifyParams.tolerance = 0;
+      _self.identifyParams.returnGeometry = false;
+      _self.identifyParams.layerIds = [2];
+      _self.identifyParams.layerOption = _self.layerOption;
+      _self.identifyParams.width  = _self.map.width;
+      _self.identifyParams.height = _self.map.height;
+      _self.identifyParams.mapExtent = _self.map.extent;
+      _self.identifyParams.geometry = _self.polygonIdentify;
+
+      var identifyTask = new esri.tasks.IdentifyTask('http://webapps.sit.puglia.it/arcgis/rest/services/Background/Catasto/MapServer');
+
+
+      identifyTask.execute(identifyParams,dojo.hitch( this, function(listObjectId, idResults){
+        var returnWebGis = "";
+
+        for (var i = 0; i < idResults.length; i++) {
+          if (i != (idResults.length-1)) {
+              returnWebGis += idResults[i].feature.attributes.COMUNE+";"+idResults[i].feature.attributes.SEZIONE+";"+idResults[i].feature.attributes.FOGLIO+";"+idResults[i].feature.attributes.NUMERO+"#";
+          } else {
+              returnWebGis += idResults[i].feature.attributes.COMUNE+";"+idResults[i].feature.attributes.SEZIONE+";"+idResults[i].feature.attributes.FOGLIO+";"+idResults[i].feature.attributes.NUMERO;
+          }
+        }
+        returnString = listObjectId + ';' + returnWebGis;
+
+        console.log("Stringa TEMPORANEA sul parent:" + returnString);
+        parent.postMessage(returnString,"*");
+
+      }, listObjectId) );
+    });
+    console.log(this.map.getLayer("EditPolygon"));
+  }*/
+
+  public ricarica():void{ this.refresh.emit(true); }
+  public callbackMappa(event:any){ this.display = false; }
+
+  public addPolygon():void
+  {
+    var _self = this;
+    if (this.graphicLayer && this.graphicLayer.graphics.length > 0) 
+    {
+      var arrayGraphics:any = [];
+      for (let i = 0; i < this.graphicLayer.graphics.length; i++) 
+      {
+        arrayGraphics.push(this.graphicLayer.graphics[i]);
+      }
+      this.map.getLayer("EditPolygon").applyEdits(arrayGraphics, null, null, function(event: any)
+      {
+        if (event && event[0].success) 
+        {
+          var tmp = new Array();
+          for (let i = 0; i < arrayGraphics.length; i++) 
+          {
+            tmp.push({feature:arrayGraphics[i]})
+          }
+          _self.isDraw = false;
+          _self.result.emit(tmp);
+          //_self.display = true;
+          //_self.typ = "success";
+          //_self.content = "Particella aggiunta con successo!";
+
+          _self.map.getLayer("EditPolygon").clearSelection();
+          _self.map.getLayer("EditPolygon").refresh();
+          _self.map.infoWindow.hide();
+          if(_self.graphicLayer!=null)
+            _self.graphicLayer.clear();
+          _self.hasGraphic = false;
+          var i = _self.polygon.rings.length - 1;
+          while (i >= 0) {
+            //console.log("i prima:" + i);
+            _self.polygon.removeRing(i);
+            i--;
+            //console.log("i dopo:" + i);
+          }
+          _self.toolbar.deactivate();
+        } 
+        else 
+        {
+          console.log(event);
+          console.log("Errore inserimento");
+          _self.display = true;
+          _self.content = "Errore durante l'oprerazione, si prega di riprovare";
+          _self.typ = "danger";
+          _self.toolbar.deactivate();
+          _self.isDraw = false;
+        }
+      }, function(event: any)
+      {
+        console.log(event);
+        console.log("Errore inserimento");
+        _self.display = true;
+        _self.content = "Errore durante l'oprerazione, si prega di riprovare";
+        _self.typ = "danger";
+        _self.toolbar.deactivate();
+        _self.isDraw = false;
+      });
+    } 
+    else 
+    {
+      //alert('Nessuna particella selezionata!');
+      _self.display = true;
+      _self.typ = "info";
+      _self.content = "Nessuna particella risulta da aggiungere!";
+    }
+  }
+
+}

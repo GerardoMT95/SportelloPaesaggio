@@ -1,0 +1,143 @@
+<div class="mb-4">
+  <app-rows-number-handler [itemsTotal]="itemsTotal" [totalRecords]="totalRecords" [init-rows]="sortByAndOrder.rows" 
+    [page]="sortByAndOrder.page" [customElement]="customElement" (change)="changeRows($event)">
+      <ng-template #customElement>
+          <!-- <div class="float-right containerBtnAggiuntivi dflex align-items-center mt-3"> -->
+            <div class="dflex align-items-center">
+              <div class="row nop justify-content-end" style="width: 100%">
+                <div class="col-lg-auto col-md-4 col-sm-12">
+                  <button type="button" (click)="export('CSV')"  class="btn bttn btn-success">{{'EXPORT_TO' | translate}} CSV
+                    <fa-icon [icon]="faFileCsv"></fa-icon>
+                  </button>
+                </div>
+                <div class="col-lg-auto col-md-4 col-sm-12">
+                  <button type="button"  (click)="export('PDF')" class="btn bttn btn-danger">{{'EXPORT_TO' | translate}} PDF
+                    <fa-icon [icon]="faFilePdf"></fa-icon>
+                  </button>
+                </div>
+                <!-- &nbsp; -->
+                <div *ngIf="addButton" class="col-lg-auto col-md-4 col-sm-12">
+                  <button type="button" (click)="nuovoItem()" class="btn bttn btn-primary">{{'Nuovo Fascicolo' | translate}}
+                    <fa-icon icon="plus"></fa-icon>
+                  </button>
+                </div>
+              
+              </div>
+          </div>
+      </ng-template>
+  </app-rows-number-handler>
+  <div class="tableContainerCustom" >
+    <p-table #tt [columns]="cols" [value]="tableData ? tableData.list : []" [lazy]="true" 
+      [autoLayout]="true" class="mb-2" (onLazyLoad)="lazyLoad($event)">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th [ngStyle]="{ width: getWidth(col) }" *ngFor="let col of columns"
+            [pSortableColumn]="col.sortableField?col.field:''" [ngSwitch]="col.field"
+            [pSortableColumnDisabled]="col.field === 'id'">
+            {{ col.header | translate }}
+            <p-sortIcon *ngIf="col.sortableField" [field]="col.field" ariaLabel="{{'generic.ordinamento'|translate}}"
+              ariaLabelDesc="{{'generic.ordinamento'|translate}}" ariaLabelAsc="{{'generic.ordinamentoDesc'|translate}}">
+            </p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+        <tr *ngIf="tableData.list && tableData.list.length > 0">
+          <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate">
+            <ng-container [ngSwitch]="col.type">
+              <ng-container *ngSwitchCase="'date'">
+                {{ rowData[col.fieldName] ? (rowData[col.fieldName] | date: "dd/MM/yyyy") : "" }}
+              </ng-container>
+              <ng-container *ngSwitchCase="'light'">
+                <span class="registration-status-color"
+                  [ngStyle]="{ 'background-color': getColor(rowData['stato']) }">{{getStatusLettera(rowData['stato'])}}</span>
+              </ng-container>
+              <ng-container *ngSwitchCase="'array'">
+                <div *ngIf="isArrayType(rowData[col.fieldName])">
+                  <ul class="pl-3">
+                    <li *ngFor="let tipoContenuto of rowData[col.fieldName]">{{tipoContenuto}}</li>
+                  </ul>
+                </div>
+                <div *ngIf="!isArrayType(rowData[col.fieldName])" style="word-wrap: break-word;">
+                  {{rowData[col.fieldName]}}
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'button'">
+                <div class="align-buttons" *ngIf="isPublic">
+                  <button *ngIf="rowData.stato!='WORKING'"
+                  (click)="planAction(rowData, fascicoloAction.DOWNLOAD_PROVVEDIMENTO)" data-toggle="tooltip"
+                  data-placement="top" title="" type="button" class="btn btn-success consultazione"
+                  pTooltip="{{'generic.scaricaAllegato'|translate}}" tooltipPosition="left" placement="left"
+                  delay="500"><em class="fa fa-eye" aria-hidden="true"></em>
+                  </button>
+                  <button *ngIf="showDetailButton(rowData)"
+                      (click)="planAction(rowData, fascicoloAction.VIEW)" data-toggle="tooltip" data-placement="top"
+                      title="" type="button" class="btn bttn bttn-table btn-primary consultazione"
+                      pTooltip="{{'generic.dettagli'|translate}}" tooltipPosition="left" placement="left" delay="500">
+                      <em class="fa fa-ellipsis-h" aria-hidden="true"></em>
+                    </button>
+                </div>
+                <div class="align-buttons" *ngIf="!isPublic">
+                  <button *ngIf="rowData.stato!='WORKING'"
+                    (click)="planAction(rowData, fascicoloAction.DOWNLOAD_PROVVEDIMENTO)" data-toggle="tooltip"
+                    data-placement="top" title="" type="button" class="btn btn-success consultazione"
+                    pTooltip="{{'generic.scaricaAllegato'|translate}}" tooltipPosition="left" placement="left"
+                    delay="500"><em class="fa fa-eye" aria-hidden="true"></em>
+                  </button>
+                  <ng-container *ngIf="!isPublic && showEditButton(rowData)">
+                    <button (click)="planAction(rowData, fascicoloAction.EDIT)" data-toggle="tooltip" data-placement="top"
+                      title="" type="button" class="btn bttn bttn-table btn-primary consultazione"
+                      pTooltip="{{'generic.modifica'|translate}}" tooltipPosition="left" placement="left" delay="500">
+                      <em class="fa fa-pencil" aria-hidden="true"></em>
+                    </button>
+                  </ng-container>
+                  <ng-container *ngIf="!isPublic && isStessaOrganizzazione(rowData.ufficio,gruppoScelto) || gruppoScelto === 'ADMIN'">
+                    <button *ngIf="!isPublic && rowData.stato === 'WORKING'"
+                      (click)="planAction(rowData, fascicoloAction.DELETE, index)" data-toggle="tooltip" data-placement="top"
+                      title="" type="button" class="btn bttn bttn-table btn-danger consultazione"
+                      pTooltip="{{'generic.elimina'|translate}}" tooltipPosition="left" placement="left" delay="500">
+                      <em class="fa fa-trash" aria-hidden="true"></em>
+                    </button>
+                  </ng-container>
+                  <ng-container>
+                    <button *ngIf="!isPublic  && showViewButton(rowData)"
+                      (click)="planAction(rowData, fascicoloAction.VIEW)" data-toggle="tooltip" data-placement="top"
+                      title="" type="button" class="btn bttn bttn-table btn-primary consultazione"
+                      pTooltip="{{'generic.dettagli'|translate}}" tooltipPosition="left" placement="left" delay="500">
+                      <em class="fa fa-ellipsis-h" aria-hidden="true"></em>
+                    </button>
+                  </ng-container>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                {{ col && col.valueOf ? (rowData[col.fieldName]|valueOf:col.valueOf) : (rowData[col.fieldName]) }}
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length">
+            <span style="text-align: center">{{'generic.norows' | translate}}</span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer" let-columns>
+        <tr *ngIf="tableData && tableData.count>0">
+          <td [attr.colspan]="columns.length" style="display: table-cell;">
+            <ngb-pagination [collectionSize]="tableData ? tableData.count : 0" [maxSize]="nRows" 
+              [ellipses]="true" [boundaryLinks]="true" [pageSize]="sortByAndOrder.rows" 
+              (pageChange)="changePage($event)" 
+              [(page)]="sortByAndOrder.page" 
+              aria-label="Default pagination">
+            </ngb-pagination>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div *ngIf="tableData.list && tableData.list.length === 0">
+    <app-no-data [title]="'NO_DATA_FOUND' | translate"></app-no-data>
+  </div>
+</div>

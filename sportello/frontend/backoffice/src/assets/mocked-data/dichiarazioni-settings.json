@@ -1,0 +1,83 @@
+{
+  "settings": [
+    {
+      "typeProcedimento": 1,
+      "selectionType": "multiple",
+      "options": [
+        {
+          "value": "102",
+          "label": "ce le opere/ interventi in progetto non rientrano nei casidi esclusione previsti ai sensi dell'art 149 del D.Lgs 42/2004",          
+          "selectionType": "single"
+        },
+        {
+          "value": "103",
+          "label": "di astenersi dall'avviare i lavori fino a quando non no ha ottenuto la prescritta autorizzazione paesaggistica",          
+          "selectionType": "single"
+        },
+        {
+          "value": "104",
+          "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "di esere a conoscenza...",
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "di esere informato che...",
+          "selectionType": "single"
+        }
+      ]
+    },
+    {
+      "typeProcedimento": 2,
+      "selectionType": "multiple",
+      "options": [
+        {
+          "value": "110",
+          "label": "di essere informato che l'autotizzazione paesaggistica non e atto che legittima l'escuzione dei lavori*",
+          "selectionType": "single"
+        },
+        {
+          "value": "111",
+          "label": "sulla conformita agli strumenti urbanistici adottati o approvati ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di riferimento vigenti*",
+          "selectionType": "single"
+        },
+        {
+          "value": "112",
+          "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo*",
+          "selectionType": "single"
+        },
+        {
+          "value": "105",
+          "label": "di astenersi dall'avviare i lavori fino a quando non ha ottenuto la prescritta autorizzazione paesaggistica*",
+          "selectionType": "single"
+        }
+      ]
+    },
+    {
+      "typeProcedimento": 3,
+      "selectionType": "multiple",
+      "options": [         
+        {
+          "value": "104",
+          "label": "di aver letto l'informativa sui trattamento dei dati personali posta al termine del presente modulo",
+          "selectionType": "single"
+        },
+        {
+          "value": "107",
+          "label": "di esere a informato che l'autorizzazione paesaggistica non e atto che legittimita l'esecuzione dei lavori",
+          "selectionType": "single"
+        },
+        {
+          "value": "106",
+          "label": "di esere informato che l'autorizzazione paesaggistica ha valore esclusivamente per la valutazione ai fini della tutela paesaggistica e non sulla ceagli strumenti urbanistici adottati o approvarti, ai regolamenti edilizi e di settore, per i quali il progetto deve rispettare le norme di referimento vigenti;",
+          "selectionType": "single"
+        }
+        
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+<div class="container-fluid" [formGroup]="dichiarazioni" *ngIf="dichiarazioni">
+    <p class="section-title font-weight-bold py-3">{{'DICHIARAZIONI_TAB.DICHIARAZIONI_MENDACI_CLAUSOLA' | translate }}
+    </p>
+    <p class="section-title text-center font-weight-bold py-3">{{'DICHIARAZIONI_TAB.DICHIARA' | translate |uppercase }}
+    </p>
+    <div class="py-3">
+        <p class="font-weight-bold">{{'DICHIARAZIONI_TAB.DI_AVERE_TITOLO'|translate}}*</p>
+        <div class="d-flex flex-column ml-4">
+            <div class="d-flex flex-column">
+                <div class="d-flex no-flex" *ngFor="let titolaritaOption of titolaritaInQualitaDiOptions">
+                    <app-radio-field formControlName="titolarita" name="titolaritaCheck"
+                        [radioValue]="titolaritaOption.value" [radioLabel]="titolaritaOption.description">
+                    </app-radio-field>
+                    <app-text-field *ngIf="titolaritaOption.linked=='diAvereTitoloRappSpec'" class="col-md-8"
+                        style="display:inline-block" [maxlength]="400"
+                        [prepend]="('DESCRIPTION_TAB.SPECIFIC' | translate | uppercase) + '*'"
+                        formControlName="diAvereTitoloRappSpec"
+                        [validation]="validation" [errors]="dichiarazioni.controls.diAvereTitoloRappSpec.errors"></app-text-field>
+                    <app-text-field *ngIf="titolaritaOption.linked=='diAvereTitoloAltroSpec'" class="col-md-8"
+                        style="display:inline-block" [maxlength]="400"
+                        [prepend]="('DESCRIPTION_TAB.SPECIFIC' | translate | uppercase) + '*'"
+                        formControlName="diAvereTitoloAltroSpec"
+                        [validation]="validation" [errors]="dichiarazioni.controls.diAvereTitoloAltroSpec.errors"></app-text-field>
+                </div>
+                <div *ngIf="validation && dichiarazioni.controls.titolarita.errors" style="color: #dc3545; font-size: 13px;">
+                    Campo obbligatorio
+                </div>
+                <br>
+            </div>
+        </div>
+        <p class="font-weight-bold">{{'DICHIARAZIONI_TAB.E_DI_ESSERE'|translate}}*</p>
+        <div class="d-flex flex-column ml-4">
+            <div class="d-flex flex-column">
+                <app-radio-field formControlName="titolaritaEsclusivaIntervento"
+                    name="titolaritaEsclusivaInterventoCheck" radioValue="S"
+                    [radioLabel]="('DICHIARAZIONI_TAB.TIT_ESCLUSIVA_INTERVENTO' | translate |uppercase)">
+                </app-radio-field>
+                <app-radio-field formControlName="titolaritaEsclusivaIntervento"
+                    name="titolaritaEsclusivaInterventoCheck" radioValue="N"
+                    [radioLabel]="('DICHIARAZIONI_TAB.NON_TIT_ESCLUSIVA_INTERVENTO' | translate |uppercase)"
+                    [radioTooltip]="('DICHIARAZIONI_TAB.ASSENSO_OBBLIGATORIO'|translate)"
+                    [validation]="validation" [errors]="dichiarazioni.controls.titolaritaEsclusivaIntervento.errors"></app-radio-field>
+            </div>
+        </div>
+        <!--<div class="upload-container d-flex justify-content-center"
+            *ngIf="dichiarazioni.get('titolaritaEsclusivaIntervento').value=='N'">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="allega-file"
+                        class="mt-3 font-weight-bold">{{'DICHIARAZIONI_TAB.ALLEGA_DICHIARAZIONE_DI_ASSENSO'|translate|uppercase}}</label>
+                    <p-fileUpload id="allega-file" name="myfile" maxFileSize="50000000" customUpload="true"
+                        [auto]="true" [chooseLabel]="'BUTTONS.CHOOSE' | translate" (uploadHandler)="uploadFile($event)" 
+                        (onRemove)="deleteFile()" [files]="files" [disabled]="files.length > 0">
+                        <ng-template pTemplate="toolbar">
+                        </ng-template>
+                        <ng-template let-file pTemplate="file">
+                        </ng-template>
+                        <ng-template pTemplate="content">
+                        </ng-template>
+                    </p-fileUpload>
+                </div>
+            </div>
+        </div>-->
+        <br>
+        <div *ngIf="dichiarazioni.get('titolaritaEsclusivaIntervento').value=='N'">
+            <app-table-no-filter 
+            [readonly]="this.fascicolo.attivitaDaEspletare!='COMPILA_DOMANDA'" 
+            [types]="types" [files]="files" 
+            (onTableDownload)="downloadFile($event)"
+            (onTableDelete)="deleteFile($event)"
+            (onTableUpload)="uploadFile($event)"
+            [enableDelete]="this.fascicolo.attivitaDaEspletare=='COMPILA_DOMANDA'"></app-table-no-filter>
+            <div *ngIf="validation && files.length === 0" style="color: #dc3545; font-size: 13px;">
+                Campo obbligatorio
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column border-top border-bottom my-4" *ngIf="fascicolo.tipoProcedimento=='2'">
+        <p class="font-weight-bold py-3">{{'DICHIARAZIONI_TAB.NECESSITA_AUTORIZZ'|translate}}</p>
+        <app-hierarchical-field [options]="art136opt" formControlName="art136" [hideDisabledChildren]="true"
+            [validation]="validation" [errors]="dichiarazioni.controls.art136.errors">
+            <!--sempre disabilitata... si attiva sulle scelte in BP Immobili e Aree di notevole...-->
+        </app-hierarchical-field>
+        <br/>
+        <app-hierarchical-field [options]="art142opt" formControlName="art142"
+            [validation]="validation" [errors]="dichiarazioni.controls.art142.errors">
+        </app-hierarchical-field>
+        <br/>
+        <app-checkbox-field formControlName="art134" class="checkbox-font-size mr-3 font-weight-bold"
+                    [isSingle]="true" 
+                    name="art134"
+                    [checkboxLabel]="(art134opt.label|translate)"
+        ></app-checkbox-field>
+        <!--<p-checkbox 
+        [binary]="true"
+        [formControl]="dichiarazioni.get('art134')" 
+        [label]="art134opt.label">
+        </p-checkbox>-->
+    </div>
+    <div class="d-flex flex-column my-3" *ngIf="fascicolo.tipoProcedimento=='2'">
+        <div class="font-weight-bold border-bottom py-3">
+            {{'DICHIARAZIONI_TAB.COMPETENZA_OK'|translate}}
+        </div>
+        <div class="my-3 border-bottom">
+            <div class="d-flex justify-content-center">
+                <app-checkbox-field formControlName="inCasoDiVariante" class="checkbox-font-size mr-3 font-weight-bold"
+                    [isSingle]="true" name="nelCaso"
+                    [checkboxLabel]="('DICHIARAZIONI_TAB.IN_CASO_DI_VARIANTE'|translate)"
+                    (on_change)="attivaVariante($event)"></app-checkbox-field>
+            </div>
+            <span class="d-flex justify-content-center font-weight-bold">
+                {{'DICHIARAZIONI_TAB.DICHIARA'|translate|titlecase}}
+            </span>
+            <div class="d-flex justify-content-start font-weight-bold">
+                <span>{{'DICHIARAZIONI_TAB.GIA_AUTORIZZATO'|translate}}</span>
+            </div>
+            <div class="d-flex my-4">
+                <div class="col-md-4">
+                    <app-text-field formControlName="numero" [label]="('numero' | uppercase) + '*'" id="numero"
+                        name="numero" [maxlength]="400" [validation]="validation" 
+                        [errors]="dichiarazioni.controls.numero.errors"></app-text-field>
+                </div>
+                <div class="col-md-4">
+                    <app-text-field formControlName="da" [label]="('da' | uppercase) + '*'" id="da" name="da"
+                    [validation]="validation" [errors]="dichiarazioni.controls.da.errors" [maxlength]="255">
+                    </app-text-field>
+                </div>
+                <div class="col-md-4">
+                    <app-date-picker-field formControlName="inData" [label]="('in data' | translate | uppercase) + '*'"
+                    [validation]="validation" 
+                    [maxDate]="const.TODAY"
+                    [errors]="dichiarazioni.controls.inData.errors">
+                    </app-date-picker-field>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="font-weight-bold border-top border-bottom " *ngIf="disclaimerInner">
+        <div class="font-weight-bold py-3">
+            <p>{{'DICHIARAZIONI_TAB.VOCI_OBBLIGATORIE'|translate}}</p>
+        </div>
+        <ng-container *ngFor="let option of disclaimerInner">
+            <div class="checkbox-container">
+                <p-checkbox [name]="option.label" [value]="option.value" 
+                    [formControl]="dichiarazioni.get('altreOpzioni')"
+                    [label]="option.label"
+                    >
+                </p-checkbox>
+            </div>
+        </ng-container>
+        <div *ngIf="validation && dichiarazioni.controls.altreOpzioni.errors" style="color: #dc3545; font-size: 13px; font-weight: normal;">
+            Campi tutti obbligatori
+        </div>
+    </div>
+    <div class="pt-3 border-bottom" style="font-size:0.8em;" [innerHTML]="fascicolo.privacyText|safeHtml">
+    </div>
+</div>

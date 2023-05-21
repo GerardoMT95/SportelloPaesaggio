@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportClausole" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="8a70c80f-cc0a-4157-bc23-41be6f5bcdd5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DomandaIstanzaJSON"/>
+	<subDataset name="JasperCheckBox" uuid="40519afe-faa1-48c4-bccb-cb99d86cd7ac">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="isChecked" class="java.lang.Boolean"/>
+		<field name="label" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="clausole" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<componentElement>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="550" height="34" uuid="bae77db2-8cbe-4b3c-8918-48c2c7c688a7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="JasperCheckBox" uuid="29aef48a-1b66-4571-8409-ec44a7d35657">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{clausole})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="34" width="550">
+						<textField textAdjust="StretchHeight">
+							<reportElement x="30" y="5" width="510" height="20" uuid="cf024a2f-a5c8-480e-9766-4340d640b5d7"/>
+							<textElement>
+								<font fontName="CustomArial"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{label}]]></textFieldExpression>
+						</textField>
+						<rectangle>
+							<reportElement x="6" y="6" width="15" height="14" uuid="e3829660-13b3-4f73-a688-abd8f371e7a7"/>
+						</rectangle>
+						<staticText>
+							<reportElement x="9" y="8" width="12" height="12" uuid="50bc35e9-ab84-47e0-961b-d412a9278ec5">
+								<printWhenExpression><![CDATA[$F{isChecked}]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font fontName="CustomArial"/>
+							</textElement>
+							<text><![CDATA[X]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

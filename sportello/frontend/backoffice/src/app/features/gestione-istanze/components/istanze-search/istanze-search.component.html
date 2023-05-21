@@ -1,0 +1,75 @@
+<div class="ml-3 mr-3">
+  <form class="text-left" [formGroup]="searchForm">
+    <div class="row">
+      <div class="col-md-12">
+        <app-select-field
+          [label]="'FASCIOLO_FIELDS.PROCEDURE_TYPE' | translate"
+          id="tipoProcedimento"
+          name="tipoProcedimento"
+          [options]="meta.typeProcedimento"
+          formControlName="tipoProcedimento"
+        ></app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <app-text-field
+          [label]="'FASCIOLO_FIELDS.FILE_CODE' | translate | uppercase"
+          id="codiceFascicolo"
+          name="codiceFascicolo"
+          formControlName="codiceFascicolo"
+        ></app-text-field>
+      </div>
+      <div class="col-md-4">
+        <app-select-field [label]="'FASCIOLO_FIELDS.COMMON' | translate | uppercase">
+        </app-select-field>
+      </div>
+      <div class="col-md-4">
+        <app-text-field
+          [label]="'FASCIOLO_FIELDS.OBJECT' | translate | uppercase"
+          id="oggetto"
+          name="oggetto"
+          formControlName="oggetto"
+        ></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <app-select-field
+          *ngIf="!roles.EnteTerritoriale"
+          [label]="'FASCIOLO_FIELDS.STATE' | translate | uppercase"
+          id="stato"
+          name="stato"
+          [options]="activitiesToBePerformedList"
+          formControlName="stato"
+        ></app-select-field>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4 mt-3">
+        <app-text-field
+          *ngIf="!roles.EnteTerritoriale"
+          [label]="'FASCIOLO_FIELDS.USER' | translate | uppercase"
+          id="codiceFascicolo"
+          name="codiceFascicolo"
+          formControlName="codiceFascicolo"
+        ></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-12 align-button">
+        <button type="button" class="bttn btn btn-primary" (click)="onSubmit()">
+          {{'BUTTONS.SEARCH_BUTTON'|translate}}
+          <fa-icon icon="search"></fa-icon>
+        </button>
+        <button type="button" class="bttn btn btn-primary" (click)="onClose()">
+          {{'BUTTONS.CANCEL_BUTTON'|translate}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

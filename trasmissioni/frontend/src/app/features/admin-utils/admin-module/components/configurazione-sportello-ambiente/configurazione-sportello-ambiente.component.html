@@ -1,0 +1,38 @@
+<!-- DIALOG-->
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<!----------------------------------------------------------------------------------------------------->
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div class="mtop20" *ngIf="loaded">
+      <form [formGroup]="form" (ngSubmit)="confirmSave()" class="text-left" >
+        <div class="row ml-3 nomr">
+          <div class="col-md-12 col-sm-12">
+              <div class="form-group">
+                  <label for="tipoCaricaDocumento">
+                      {{'configSportello.tipiDocumento'|translate}}</label>
+                  <app-tooltip [message]="'configSportello.helpTipiDocumento'"></app-tooltip>
+                  <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}"
+                      class="dflex text-left" [options]="opzioniSelezionabili"
+                      formControlName="tipoCaricaDocumento" optionLabel="label"
+                      [defaultLabel]="'generic.selezionaunavoce'|translate"></p-multiSelect>
+              </div>
+          </div>
+      </div>
+        <div class="ricercaPulsantieraContainer relative">
+          <div class="pulsantiera clearfix">
+            <button type="submit" [disabled]="!(form.dirty && form.valid)" class="bttn btn btn-primary">Salva<fa-icon
+                icon="save"></fa-icon></button>
+            <button type="button" [disabled]="!form.dirty" (click)="resetForm()" class="bttn btn btn-primary">Annulla
+              <fa-icon icon="times"></fa-icon>
+            </button>
+            <button type="button" (click)="back()" class="bttn btn btn-primary">{{'generic.indietro'|translate}}
+              <fa-icon icon="arrow-left"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

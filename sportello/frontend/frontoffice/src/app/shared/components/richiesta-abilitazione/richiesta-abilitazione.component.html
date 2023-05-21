@@ -1,0 +1,124 @@
+<div class="container-fluid nop mtop50">
+	<div class="portlet-content-container">
+		<form [formGroup]="formRichiesta">
+			<div class="col-md-12">
+				<p>
+					{{'abilitazione.saluto'|translate}} {{userLogged.lastName}} {{userLogged.firstName}}.&nbsp;
+					{{'abilitazione.nonRisultano'|translate}}
+					<br /><b>
+						<i>{{'headermenu.title'|translate}}</i></b>
+					<br />{{'abilitazione.compilare'|translate}}
+				</p>
+			</div>
+			<app-section-header [title]="'abilitazione.dati_anagrafici' | translate | titlecase"></app-section-header>
+			<div class="row">
+				<div class="col-md-12">
+					<app-stato-citta-prov-field [formGroupSet]="formRichiesta" [nazionalita]="'stato'"
+						[provincia]="'provincia'" [comune]="'comune'" [comuneEstero]="'citta'"
+						[label]="('OTHER_OWNER_TAB.LOCATION_RESIDENCE' | translate | uppercase) + '*'"
+						[submitted]="submitted">
+					</app-stato-citta-prov-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<app-text-field formControlName="via" 
+						[label]="('REQUESTER_TAB.ADDRESS' | translate | uppercase) + '*'"
+						[errors]="formRichiesta.get('via').errors" [validation]="submitted && !formRichiesta.get('via').valid && 
+						  (formRichiesta.get('via').dirty || 
+						   formRichiesta.get('via').touched)"></app-text-field>
+				</div>
+				<div class="col-md-2">
+					<app-text-field formControlName="n" [prepend]="'REQUESTER_TAB.N' | translate | lowercase"
+						[label]="'&nbsp;'" 
+						[maxlength]="const.MAX_LEN_NCIVICO" 
+						[errors]="formRichiesta.get('n').errors" [validation]="submitted && !formRichiesta.get('n').valid && 
+						  (formRichiesta.get('n').dirty || 
+						   formRichiesta.get('n').touched)">
+					</app-text-field>
+				</div>
+				<div class="col-md-2">
+					<app-text-field formControlName="cap" [prepend]="'REQUESTER_TAB.CAP' | translate | uppercase"
+						[label]="'&nbsp;'" [maxlength]="const.MAX_LEN_CAP" 
+						[errors]="formRichiesta.get('cap').errors" [validation]="submitted && !formRichiesta.get('cap').valid && 
+						  (formRichiesta.get('cap').dirty || 
+						   formRichiesta.get('cap').touched)"></app-text-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<app-text-field formControlName="pec" [label]="('REQUESTER_TAB.PEC' | translate | uppercase) + '*'"
+						[errors]="formRichiesta.get('pec').errors" [validation]="submitted && !formRichiesta.get('pec').valid && 
+						  (formRichiesta.get('pec').dirty || 
+						   formRichiesta.get('pec').touched)">
+					</app-text-field>
+				</div>
+			</div>
+			<app-section-header [title]="'REQUESTER_TAB.APPROVAL_RECOGNITION_DOCUMENT' | translate">
+			</app-section-header>
+			<div class="row">
+				<div class="offset-md-4 col-md-4">
+					<app-select-field formControlName="tipo" [label]="
+				  ('REQUESTER_TAB.TIP' | translate | uppercase) + '*'
+				" id="tipo" name="tipo" [options]="(tipoDocumentoOptions$ | async)" 
+				[optionLabel]="'description'"
+						[errors]="formRichiesta.get('tipo').errors" [validation]="submitted && !formRichiesta.get('tipo').valid && 
+						  (formRichiesta.get('tipo').dirty || 
+						   formRichiesta.get('tipo').touched)"></app-select-field>
+				</div>
+			</div>
+
+			<div class="row justify-content-md-center pt-3">
+				<div class="col-md-2">
+					<app-text-field formControlName="numero"
+						[label]="('REQUESTER_TAB.NUMBER' | translate | uppercase) + '*'"
+						[errors]="formRichiesta.get('numero').errors" [validation]="submitted && !formRichiesta.get('numero').valid && 
+						  (formRichiesta.get('numero').dirty || 
+						   formRichiesta.get('numero').touched)">
+					</app-text-field>
+				</div>
+				<div class="col-md-3">
+					<app-date-picker-field formControlName="rilasciatoIl" [label]="('REQUESTER_TAB.RELEASED' | translate | titlecase) + 
+						'*'" [id]="'rilasciatoIl'" 
+						[name]="'rilasciatoIl'" [errors]="formRichiesta.get('rilasciatoIl').errors"
+						[maxDate]="today"
+						[validation]="submitted && !formRichiesta.get('rilasciatoIl').valid && 
+						  (formRichiesta.get('rilasciatoIl').dirty || 
+						   formRichiesta.get('rilasciatoIl').touched)"></app-date-picker-field>
+				</div>
+				<div class="col-md-4">
+					<app-text-field formControlName="rilasciatoDa"
+						[label]="('REQUESTER_TAB.RELEASED_BY' | translate | titlecase) + '*'"
+						[errors]="formRichiesta.get('rilasciatoDa').errors" [validation]="submitted && !formRichiesta.get('rilasciatoDa').valid && 
+						  (formRichiesta.get('rilasciatoDa').dirty || 
+						   formRichiesta.get('rilasciatoDa').touched)"></app-text-field>
+				</div>
+				<div class="col-md-3">
+					<app-date-picker-field formControlName="dataScadenza" [label]="('REQUESTER_TAB.EXPIRY_DATE' | translate | titlecase) + 
+						'*'" [id]="'dataScadenza'" [name]="'dataScadenza'" [yearRange]="'2019:2020'"
+						[errors]="formRichiesta.get('dataScadenza').errors" [validation]="submitted && !formRichiesta.get('dataScadenza').valid && 
+						  (formRichiesta.get('dataScadenza').dirty || 
+						   formRichiesta.get('dataScadenza').touched)"
+						   [minDate]="today"></app-date-picker-field>
+				</div>
+			</div>
+			<div>
+				<div class="form-group">
+					<label
+						for="exampleFormControlFile1">{{'TECHNICIAN_IN_CHARGE.ATTACHED_RECOGNITION_DOCUMENT'|translate|titlecase}}* ({{'generic.max-size'|translate}}:{{const.MAX_1MB|filesize:'MB':0}})</label>
+					<input type="file" class="form-control" id="exampleFormControlFile1" formControlName="allegatoName"
+						(change)="onFileChange($event)"
+						[ngClass]="{'is-invalid': submitted && formRichiesta.get('allegatoName').errors }">
+					<app-input-error [errors]="formRichiesta.get('allegatoName').errors" [validation]="!formRichiesta.get('allegatoName').valid && 
+						  (formRichiesta.get('allegatoName').dirty || 
+						   formRichiesta.get('allegatoName').touched)">
+					</app-input-error>
+				</div>
+			</div>
+			<div class="text-center inner-pulsantiera">
+				<button type="button" (click)="richiediAbilitazione()"
+					class="bttn btn btn-primary">{{'abilitazione.button' | translate}}</button>
+			</div>
+		</form>
+	</div>
+</div>

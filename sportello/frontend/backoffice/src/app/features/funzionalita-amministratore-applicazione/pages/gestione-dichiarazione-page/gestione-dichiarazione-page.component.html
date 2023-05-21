@@ -1,0 +1,43 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title" [modal]="false"></app-alert>
+<div class="container-fluid">
+  <div class="portlet-content-container">
+    <div *ngIf="(loadedFormData|async) as caricato">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="form-group col-md-12" >
+              <label>{{'dichiarazione.testo'|translate|uppercase}}</label>
+              <p-editor name="testo" [style]="{'height':'320px'}" formControlName="testo">
+              </p-editor>
+              <div *ngIf="submitted && form.get('testo').errors" class="invalid-feedback">
+                <div *ngIf="form.get('testo').errors.required">
+                    {{'generic.required'|translate}}
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <app-text-field 
+              formControlName="labelCb" [label]="
+              ('dichiarazione.labelCb' | translate | uppercase) + '*'
+            " id="labelCb" name="labelCb" [validation]="submitted"
+              [errors]="form.get('labelCb').errors"></app-text-field>
+            </div>
+          </div>
+        </form>
+    </div>
+  <div class="text-center inner-pulsantiera">
+    <button type="submit" class="bttn btn btn-primary" (click)="openSalva()">{{'generic.salva'|translate}}
+      <fa-icon icon="save"></fa-icon>
+    </button>
+    <button (click)="back()" class="bttn btn btn-primary">{{'generic.chiudi'|translate}}<fa-icon icon="times">
+      </fa-icon>
+    </button>
+  </div>
+
+</div>
+</div>
+
+

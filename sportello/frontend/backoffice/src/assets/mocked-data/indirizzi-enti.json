@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "denominazione": "Accadia",
+    "tipologia": "Comuni",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "2",
+    "denominazione": "Adelfia",
+    "tipologia": "Comuni",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "3",
+    "denominazione": "Alezio",
+    "tipologia": "Comuni",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "4",
+    "denominazione": "Alberona",
+    "tipologia": "Regione Puglia",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "5",
+    "denominazione": "Acquarica del Capo",
+    "tipologia": "Comuni",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "6",
+    "denominazione": "Alquaviva delle Fonti",
+    "tipologia": "Provincia di Foggia",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "7",
+    "denominazione": "Alberobello",
+    "tipologia": "Comuni",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  },
+  {
+    "id": "8",
+    "denominazione": "Alessano",
+    "tipologia": "Regione Puglia",
+    "pec": "xxx@pec.it",
+    "mail": "xxx@mail.it"
+  }
+]

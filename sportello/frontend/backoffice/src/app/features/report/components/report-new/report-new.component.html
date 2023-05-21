@@ -1,0 +1,109 @@
+<div class="row text-right" *ngIf="caricato">
+    <div class="col-md-12">
+        <button class="btn bttn btn-primary" (click)="nuovoReport();">
+            {{'report.nuovo' | translate}}
+            <fa-icon icon="plus"></fa-icon>
+        </button>
+    </div>
+</div>
+<p-dialog 
+[(visible)]="showNew" 
+[modal]="true" 
+[draggable]="false" 
+[resizable]="false"
+[closable] = "false" 
+styleClass="info report"
+>
+<p-header [innerHTML]="('report.nuovo' | translate)"></p-header>
+<div class="row nom">
+    <div class="col-md-12">
+        <form [formGroup]='form'>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{{ 'report.label.tipo' | translate }} *</label>
+                        <div class="input-group flex-nowrap" >
+                            <p-dropdown [options]="reportSelect" 
+                                formControlName="tipo"
+                                    optionLabel="description"
+                                    [showClear]="true"
+                                    [placeholder]="'generic.selezionaunavoce' | translate"
+                                    (onChange)="updateFormati($event)"
+                            ></p-dropdown>
+                        </div>
+                    </div>
+                    <app-input-error [errors]="form.get('tipo').errors" [validation]="validation">
+                    </app-input-error>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{{ 'report.label.formato' | translate }} *</label>
+                        <div class="input-group flex-nowrap" >
+                            <p-dropdown [options]="formati" 
+                                formControlName="formato"
+                                    optionLabel="label"
+                                    [showClear]="true"
+                                    [placeholder]="'generic.selezionaunavoce' | translate"
+                            ></p-dropdown>
+                        </div>
+                    </div>
+                    <app-input-error [errors]="form.get('formato').errors" [validation]="validation">
+                    </app-input-error>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{ 'report.label.procedimenti' | translate }}</label>
+                        <div class="input-group flex-nowrap" >
+                            <p-multiSelect [options]="procedimenti" 
+                                    formControlName="procedimenti"
+                                    [filter]="true"
+                                    optionLabel="description"
+                                    selectedItemsLabel="{0} procedimenti selezionate"
+                                    defaultLabel="{{'generic.selezionavoci' | translate}}"
+                                    [panelStyle]="{'width':'280px'}"
+                            ></p-multiSelect>
+                        </div>
+                    </div>
+                    <app-input-error [errors]="form.get('procedimenti').errors" [validation]="validation">
+                    </app-input-error>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-date-picker-field
+                        formControlName="dataDa"
+                        [label]="'report.label.dataDa' | translate"
+                        ></app-date-picker-field>
+                </div>
+                <div class="col-md-6">
+                    <app-date-picker-field
+                        formControlName="dataA"
+                        [label]="'report.label.dataA' | translate"
+                        ></app-date-picker-field>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<p-footer>
+  <button data-toggle="tooltip"
+          data-placement="top"  
+          type="button"
+          class="bttn btn btn-primary" 
+          placement="left" 
+          (click)="nuovo()"
+  >
+    {{'report.save' | translate}}
+    <fa-icon icon="save" ></fa-icon>
+  </button>
+  <button type="button"
+          class="bttn btn btn-primary" 
+          (click)="chiudi()"
+  >
+    {{'generic.chiudi' | translate}}
+    <fa-icon icon="times" ></fa-icon>
+  </button>
+</p-footer>
+</p-dialog>

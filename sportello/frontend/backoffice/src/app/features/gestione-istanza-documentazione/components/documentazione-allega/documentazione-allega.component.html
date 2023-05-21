@@ -1,0 +1,127 @@
+<div class="container-fluid" [formGroup]="documentazioniForm">
+  <div class="row">
+    <div class="col-md-4">
+      <app-text-field
+        [label]="'ULTERIORE_DOCUMENTAZIONE.ALLEGA.TITOLO_DOCUMENTO' | translate | uppercase"
+        [id]="'titoloDocumento'"
+        [name]="'titoloDocumento'"
+        formControlName="titoloDocumento"
+      ></app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <app-textarea-field
+        [label]="'ULTERIORE_DOCUMENTAZIONE.ALLEGA.DESCRIZIONE' | translate | uppercase"
+        [id]="'descrizioneContenuto'"
+        [name]="'descrizioneContenuto'"
+        formControlName="descrizioneContenuto"
+      ></app-textarea-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="allega-file" class="mt-3 font-weight-bold">{{
+          'ULTERIORE_DOCUMENTAZIONE.ALLEGA.ALLEGA_FILE' | translate | uppercase
+        }}</label>
+        <div class="file-upload-box">
+          <p-fileUpload
+            id="allega-file"
+            mode="basic"
+            name="myfile"
+            customUpload="true"
+            accept=".pdf,.rar,.zip"
+            [auto]="true"
+            [chooseLabel]="'BUTTONS.CHOOSE' | translate"
+            (onSelect)="upload($event)"
+          ></p-fileUpload>
+          <div>
+            {{ documentazioniForm.get('allegati').value }}
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <app-section-header
+    [title]="'ULTERIORE_DOCUMENTAZIONE.ALLEGA.CONDIVIDI' | translate"
+  ></app-section-header>
+
+  <div class="row">
+    <div class="col-md-3 documenti">
+      <label for="allega-file" class="mt-3 font-weight-bold">{{
+        'ULTERIORE_DOCUMENTAZIONE.ALLEGA.DOCUMENTI_VISUALIZZABILI_DA' | translate | uppercase
+      }}</label>
+    </div>
+    <div class="col-md-3 mt-3">
+      <app-multiselect-field
+        [label]="''"
+        formControlName="visualizzabiliDa"
+        [name]="'visualizzabiliDa'"
+        [options]="options"
+        [dropdown]="false"
+      >
+      </app-multiselect-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <app-text-field
+        [label]="'ULTERIORE_DOCUMENTAZIONE.ALLEGA.NOTIFICA_A' | translate | uppercase"
+        [id]="'destinatarioNotifica'"
+        [name]="'destinatarioNotifica'"
+        formControlName="destinatarioNotifica"
+      ></app-text-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <ng-container
+        formArrayName="anguigiMailPEC"
+        *ngFor="let mailPec of getAnguigiMailPEC['controls']; let i = index"
+      >
+        <ng-container [formGroupName]="i">
+          <app-text-field
+            [id]="'recepient'"
+            [name]="'recepient'"
+            formControlName="recepient"
+          ></app-text-field>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <!--<button
+    pButton
+    type="button"
+    label="{{ 'ULTERIORE_DOCUMENTAZIONE.ALLEGA.ANGUIGI_PEC' | translate }}"
+    (click)="addAnguigiMailPEC()"
+  ></button>-->
+  <button type="button" class="bttn btn btn-primary" (click)="addAnguigiMailPEC()">
+    {{'ULTERIORE_DOCUMENTAZIONE.ALLEGA.ANGUIGI_PEC'|translate}}
+    <fa-icon icon="plus"></fa-icon>
+  </button>
+
+  <br /><br />
+
+  <div class="row clearfix mt-3">
+    <div class="col-md-12 text-center mt-3 mb-1">
+      <button type="button" class="bttn btn btn-primary" (click)="addDocument()">
+        {{ shareDate ? ('BUTTONS.SAVE_BUTTON' | translate) : ('BUTTONS.ATTACH' | translate) }}
+        <fa-icon *ngIf="shareDate" icon="save"></fa-icon>
+        <fa-icon *ngIf="!shareDate" icon="paperclip"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="clearDocument()">
+        {{'BUTTONS.CANCEL_BUTTON'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

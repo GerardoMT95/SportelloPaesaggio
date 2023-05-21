@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportRichiedente" pageWidth="550" pageHeight="842" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="20" uuid="8213740c-2074-45c3-8d8d-813fbad7b93d">
+	<style name="FontCustomArial11" isDefault="true" fontName="CustomArial" fontSize="11"/>
+	<subDataset name="IndirizzoCompleto" uuid="dffb2d9e-0d71-4dbf-99e4-8136b796ffac">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="stato" class="java.lang.String"/>
+		<field name="citta" class="java.lang.String"/>
+		<field name="comune" class="java.lang.String"/>
+		<field name="provincia" class="java.lang.String"/>
+		<field name="via" class="java.lang.String"/>
+		<field name="n" class="java.lang.String"/>
+		<field name="cap" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="JasperDocumentoReferente" uuid="062aa4d3-e5ae-4159-ac3f-71fdf73e5788">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipoDocumento" class="java.lang.Integer"/>
+		<field name="numero" class="java.lang.String"/>
+		<field name="dataRilascio" class="java.util.Date"/>
+		<field name="enteRilascio" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cognome" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="sesso" class="java.lang.String"/>
+	<field name="natoIl" class="java.util.Date"/>
+	<field name="natoStato" class="java.lang.String"/>
+	<field name="natoProvincia" class="java.lang.String"/>
+	<field name="natoComune" class="java.lang.String"/>
+	<field name="natoCitta" class="java.lang.String"/>
+	<field name="residenteIn" class="java.util.List"/>
+	<field name="recapitoTelefonico" class="java.lang.String"/>
+	<field name="indirizzoEmail" class="java.lang.String"/>
+	<field name="pec" class="java.lang.String"/>
+	<field name="nelCaso" class="java.lang.Boolean"/>
+	<field name="inQualitaDi" class="java.lang.Integer"/>
+	<field name="descAltroDitta" class="java.lang.String"/>
+	<field name="societa" class="java.lang.String"/>
+	<field name="partitaIva" class="java.lang.String"/>
+	<field name="societaCodiceFiscale" class="java.lang.String"/>
+	<field name="documento" class="java.util.List"/>
+	<field name="dittaInQualitaDiDescr" class="java.lang.String"/>
+	<field name="codiceIpa" class="java.lang.String"/>
+	<field name="tipoAzienda" class="java.lang.String"/>
+	<variable name="isDitta" class="java.lang.Boolean">
+		<variableExpression><![CDATA[$F{nelCaso} == true && ($F{societa}!= null && $F{societa} != "")]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="366" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="0" y="26" width="510" height="320" uuid="6d4be6f3-0bec-4944-80c4-baaeffc03c71"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="35" width="49" height="15" uuid="33fbba76-dd6d-4ba4-9c04-04e1aa6536eb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cognome]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="80" y="35" width="170" height="15" uuid="a3d809b2-6eca-4f96-ab53-5edae109d259"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="55" width="69" height="15" uuid="609cf10b-eb0a-4372-8e4a-81e51b724dbc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codice fiscale]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="100" y="55" width="130" height="15" uuid="92760388-5a91-456f-86fd-42bde47d136e"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="253" y="35" width="39" height="15" uuid="abf63768-f187-4ca7-a688-3c12fa40b905"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="300" y="35" width="200" height="15" uuid="946681aa-da92-46fd-8506-a081095d8bce"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="11" y="165" width="499" height="60" uuid="3b784a5a-8b51-4a63-8a14-92b6cdb0ed71"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="IndirizzoCompleto" uuid="e332b23f-b871-44bb-a65d-9ccd2de9b3b7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{residenteIn})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="60" width="499">
+						<staticText>
+							<reportElement x="10" y="10" width="60" height="20" uuid="b88063ed-f573-4552-b2a0-4dfbbbfcc780"/>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[residente in]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="74" y="10" width="166" height="20" uuid="2fd650d9-26b0-46d9-a441-0381b16a88ed"/>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{comune} != null ? $F{comune}  : $F{citta}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="244" y="10" width="30" height="20" uuid="6ba887b1-1042-469e-8da3-2db20179873d">
+								<printWhenExpression><![CDATA[$F{provincia} != null && $F{provincia}.trim() != ""]]></printWhenExpression>
+							</reportElement>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Prov.]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="279" y="10" width="50" height="20" uuid="fdf6509c-9cfa-406f-afc6-d83baa77509e">
+								<printWhenExpression><![CDATA[$F{provincia} != null && $F{provincia}.trim() != ""]]></printWhenExpression>
+							</reportElement>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{provincia}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="340" y="10" width="30" height="20" uuid="dc655c69-0ea2-42c3-b5a9-e86d87437c86"/>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Stato]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="373" y="10" width="106" height="20" uuid="40bb059f-f6e4-4ca6-bbfe-2d0e3d980af6"/>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{stato}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="10" y="40" width="43" height="20" uuid="8c52376b-53b8-44ac-91e9-23da7a90000e">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Indirizzo]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="60" y="40" width="240" height="20" uuid="d9377e28-cf06-4fab-92f5-1b6e4b46da36"/>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{via}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="304" y="40" width="13" height="20" uuid="ac88ce29-3cdf-46ff-8621-041f0afd498c">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[n]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="322" y="40" width="72" height="20" uuid="ae7ef308-919f-4335-a53f-a74343eea384"/>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{n}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="399" y="40" width="25" height="20" uuid="760b3466-4107-440d-9782-03150e334b90">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement markup="styled">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[CAP]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement x="429" y="40" width="50" height="20" uuid="0f874d63-56fb-4f57-ac37-6ed9652d11dc"/>
+							<textElement>
+								<font fontName="CustomArial" size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{cap}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="51" y="41" width="10" height="10" uuid="ac7235a8-dc6b-4686-b1d2-cba92e657e60"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="269" y="10" width="10" height="10" uuid="216ad8d2-564a-4358-8967-b6702a24f912"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="65" y="10" width="10" height="10" uuid="c7edd094-135a-48f1-bb73-5945564cbfa7"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="365" y="10" width="10" height="10" uuid="66f008ba-6253-4f71-b625-ddb3c48e32f9"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="312" y="38" width="10" height="10" uuid="5a93a142-e032-44b2-b2ca-e0c869fbd5c5"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="FontCustomArial11" x="420" y="39" width="10" height="10" uuid="c5674b1c-a3f5-467a-aaa8-63c6b338f7d6"/>
+							<textElement>
+								<font size="6"/>
+							</textElement>
+							<text><![CDATA[(1)]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="21" y="75" width="58" height="15" uuid="27330f0d-57fd-4dde-86af-d5427a52b7b8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[In qualità di]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="90" y="75" width="120" height="15" uuid="40acb3b2-c483-4e25-b102-1a2ac135661d">
+					<printWhenExpression><![CDATA[$F{inQualitaDi} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dittaInQualitaDiDescr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="FontCustomArial11" x="318" y="75" width="182" height="15" uuid="eff5ed14-966a-4d36-a8bb-87ce04dbd102">
+					<printWhenExpression><![CDATA[$F{inQualitaDi} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{societa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="220" y="75" width="89" height="15" uuid="d95756c0-543c-4e5b-80e6-a554d06dce4d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[della ditta/società]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="95" width="89" height="15" uuid="ef6ef9e4-ca67-4bb2-9fa8-b0b880bfdfca"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[con codice fiscale]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="120" y="95" width="124" height="15" uuid="dc099eb7-0d13-44c5-8af8-11458bb9b7ab">
+					<printWhenExpression><![CDATA[$F{inQualitaDi} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{societaCodiceFiscale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="FontCustomArial11" x="320" y="95" width="180" height="15" uuid="3e9bc0ba-a320-4037-a060-f475eea7ebbb">
+					<printWhenExpression><![CDATA[$F{inQualitaDi} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partitaIva} != null && $F{partitaIva}.length() > 0 ? $F{partitaIva} : $F{codiceIpa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="115" width="39" height="15" uuid="178bbdc7-a8c1-46ee-874d-0bf6aecef0ea">
+					<printWhenExpression><![CDATA[$F{natoIl} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[nato il]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement style="FontCustomArial11" x="60" y="115" width="150" height="15" uuid="0dad8662-fdac-42d7-b3fe-c4c034213dc6">
+					<printWhenExpression><![CDATA[$F{natoIl} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{natoIl}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="145" width="40" height="20" uuid="c6df732e-a962-4c72-80cb-ea50a9427d50"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[nato a]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="FontCustomArial11" x="60" y="145" width="130" height="20" uuid="0373cd31-1b14-45d4-bd3e-9481320b4244"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{natoComune} != null ? $F{natoComune} : $F{natoCitta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="145" width="32" height="20" uuid="6ad9b68c-8a1f-4c6c-a705-ff9bf4f33762">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{natoProvincia} != null && $F{natoProvincia}.trim() != ""]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prov.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="FontCustomArial11" x="237" y="145" width="116" height="20" uuid="3de72a72-58f0-46fb-ae21-5fcab43c72d7">
+					<printWhenExpression><![CDATA[$F{natoProvincia} != null && $F{natoProvincia}.trim() != ""]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{natoProvincia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="145" width="30" height="20" uuid="99ec8006-e81c-4123-adb2-f42a43d7df08">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stato]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="FontCustomArial11" x="386" y="145" width="118" height="20" uuid="43523634-1e46-4d73-9ff8-27c84077b3e7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{natoStato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="235" width="119" height="15" uuid="093c2b7f-83a6-417d-8558-45ae03fdafd8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEC (domicilio digitale)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="150" y="235" width="150" height="15" uuid="39179807-1128-4629-a9ac-3ab4e69340f6"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pec}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="255" width="89" height="15" uuid="a3417461-0f6b-4a45-b580-2a3462a89052"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[posta elettronica]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="121" y="255" width="150" height="15" uuid="d3227f9e-f8e8-4c81-b70b-47ce79e6668e"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoEmail}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="275" width="40" height="15" uuid="5ef6edf6-7770-4121-ab12-4680cd3ef418"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[telefono]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="65" y="275" width="130" height="15" uuid="59819ac9-4827-4840-a4d2-aec0c494acb8"/>
+				<textElement>
+					<font fontName="CustomArial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recapitoTelefonico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="305" width="230" height="20" uuid="86cf7ab0-d8ad-4f0c-acee-54c57ec877a1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[(1) - campo obbligatorio
+(2) - da compilare solo nel caso in cui il titolare sia una ditta o una società]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="107" y="254" width="10" height="10" uuid="d8a0e2d2-8016-45a1-9c62-3dd44d631635"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="136" y="235" width="10" height="10" uuid="d9a98745-256f-4cce-95fc-bdaba27ec7be"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="50" y="145" width="10" height="10" uuid="dca203df-1ae8-4239-bdba-6efe35df5776"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="50" y="115" width="10" height="10" uuid="b0269521-7a1c-451b-93df-ec4972c5f614"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="90" y="55" width="10" height="10" uuid="ec87a2d4-42e2-43f2-a0e5-c03e26486b64"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="287" y="35" width="10" height="10" uuid="a4b8974c-8570-49bf-be37-266aac5dd66a"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="70" y="35" width="10" height="10" uuid="ddc1d11b-833f-44bf-900e-7bf192b6de65"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="308" y="75" width="10" height="10" uuid="65d9c80b-1515-4164-b8d9-196beb554dd6"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="79" y="75" width="10" height="10" uuid="9636c24e-22b5-424e-ba8a-89139dfb8cbe"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="378" y="145" width="10" height="10" uuid="f040ecb5-3503-4997-adc1-9a2e904a0e36"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="308" y="95" width="10" height="10" uuid="f20dae11-6669-465f-91a0-2b4dfa35ffcd"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="107" y="95" width="10" height="10" uuid="823dc8ff-c6c8-493b-9e0d-13a33f1f4373"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="225" y="145" width="10" height="10" uuid="e2b4357b-c35f-4a19-9fb8-3dbf34cc52d3"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FontCustomArial11" x="57" y="273" width="10" height="10" uuid="b17fdd52-3c17-4f6a-903d-f02e7b1cdefb"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FontCustomArial11" x="259" y="95" width="48" height="15" uuid="051d2ca0-ba97-4629-9f54-9e0d984f04af">
+					<printWhenExpression><![CDATA[$F{inQualitaDi} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceIpa} != null && $F{codiceIpa}.length() > 0 ? "codice ipa" : "partita iva"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="7" width="150" height="18" uuid="5d9fd282-0096-45c2-a22f-669e299c4e4c"/>
+				<textElement>
+					<font fontName="CustomArial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a) Dati del richiedente ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="7" width="340" height="18" uuid="6f4a957c-5256-4c1b-a806-4ab87b2d9c43"/>
+				<textElement>
+					<font fontName="CustomArial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(in caso di più titolari va compilata anche la sezione e) altri titolari)]]></text>
+			</staticText>
+		</band>
+		<band height="118">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="0" y="3" width="510" height="108" uuid="8f34cafc-361e-4911-ba98-d0ef093f88ab"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="18" width="209" height="20" uuid="9ec8a610-7540-4418-843e-4009f0f73b55"/>
+				<box topPadding="4" leftPadding="2"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Documento di riconoscimento (allegato)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="38" width="479" height="1" uuid="895505d8-37d7-43f8-9072-4ff04556ba84">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<componentElement>
+				<reportElement x="11" y="49" width="419" height="57" uuid="1fd8b9f6-ceb1-4962-af56-d29aed6efc83"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="JasperDocumentoReferente" uuid="d24e8abf-8da1-44cf-967d-e856905f0eb6">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documento})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="57" width="419">
+						<staticText>
+							<reportElement x="6" y="1" width="32" height="19" uuid="833da573-5ec0-4068-ba9e-7b630f89156a"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Tipo]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="38" y="1" width="192" height="19" uuid="d2bd7137-59ab-4cbd-beaf-8de5c6c56fdf"/>
+							<textFieldExpression><![CDATA[$F{tipoDocumento} == 1 ? "Carta d'identità" :
+$F{tipoDocumento} == 2 ? "Patente di guida" :
+$F{tipoDocumento} == 3 ? "Passaporto" :
+"Altro"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="242" y="0" width="42" height="19" uuid="84b42b89-192c-4377-b75d-5a7efc1794e4"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Numero]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="285" y="0" width="100" height="19" uuid="e3408920-ab35-4956-a0fe-71c029268de2"/>
+							<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="6" y="30" width="62" height="19" uuid="63dc149e-c976-45cd-8fa8-2141a2e372b0"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[Rilasciato il]]></text>
+						</staticText>
+						<textField pattern="dd/MM/yyyy">
+							<reportElement x="68" y="30" width="122" height="19" uuid="af162312-ec4f-489b-8206-50264a3c7a0c"/>
+							<textFieldExpression><![CDATA[$F{dataRilascio}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="208" y="30" width="22" height="19" uuid="3bbd43aa-f2fb-4301-8b7a-1bf19ba30072"/>
+							<textElement>
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[da]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="230" y="30" width="170" height="19" uuid="a2521c78-6aba-4e4a-93c4-92762ab79925"/>
+							<textFieldExpression><![CDATA[$F{enteRilascio}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="60">
+			<staticText>
+				<reportElement style="FontCustomArial11" x="0" y="0" width="510" height="60" uuid="40892271-475d-4a5e-a1e5-dfaa78b5d0bb"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Il richiedente, consapevole delle pene stabilite per false attestazioni e mendaci dichiarazioni ai sensi dell'articolo 76 del D.P.R. 28 dicembre 2000, n.445 e degli articoli 483, 495 e 496 del Codice Penale e che inoltre, qualora dal controllo effettuato emerga la non veridicità del contenuto della dichiarazione resa, decadrà  dai benefici conseguenti al provvedimento conseguito sulla base della dichiarazione non veritiera ai sensi dell'articolo 75 del D.P.R n. 445/2000, sotto la propria responsabilità]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

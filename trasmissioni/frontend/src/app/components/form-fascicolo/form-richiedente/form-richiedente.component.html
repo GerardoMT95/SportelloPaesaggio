@@ -1,0 +1,427 @@
+<!--<p-fieldset legend="{{'fascicolo.datiRichiedente'|translate}}" >-->
+<div [formGroup]="fascicoloFormRichiedente">
+  <!--<div  [formGroupName]="'richiedente'">-->
+  <div [ngClass]="{'cf-error':cfErrorRichiedente}">
+    <span *ngIf="cfErrorRichiedente" class="cf-error-info">{{'generic.fiscalCodeError'|translate}}</span>
+    <div class="row noml nomr">
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="cognome">{{'fascicolo.richiedente.cognome'|translate}} *</label>
+          <input maxlength="{{const.MAX_LEN_COGNOME}}" [disableControl]="disableAndNotEditable" type="text" formControlName="cognome"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].cognome.errors }" />
+          <div *ngIf="submitted && fascicoloFormRichiedente['controls'].cognome.errors" class="invalid-feedback">
+            <div *ngIf="fascicoloFormRichiedente['controls'].cognome.errors.required">{{'generic.required'|translate}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="nome">{{'fascicolo.richiedente.nome'|translate}} *</label>
+          <input maxlength="{{const.MAX_LEN_NOME}}" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'nome'"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].nome.errors }" />
+          <div *ngIf="submitted && fascicoloFormRichiedente['controls'].nome.errors" class="invalid-feedback">
+            <div *ngIf="fascicoloFormRichiedente['controls'].nome.errors.required">
+              {{'generic.required'|translate}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="codiceFiscale">{{'fascicolo.richiedente.cf'|translate}} *</label>
+          <input maxlength="16" (blur)="uppercase('codiceFiscale')" [disableControl]="disableAndNotEditable" type="text"
+            [formControlName]="'codiceFiscale'" class="form-control" style="text-transform: uppercase;"
+            [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].codiceFiscale.errors }" />
+          <div *ngIf="submitted && fascicoloFormRichiedente['controls'].codiceFiscale.errors" class="invalid-feedback">
+            <div *ngIf="fascicoloFormRichiedente['controls'].codiceFiscale.errors.required">
+              {{'generic.required'|translate}}</div>
+            <div *ngIf="fascicoloFormRichiedente['controls'].codiceFiscale.errors.pattern">
+              {{'generic.fiscalCode'|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <div class="col-lg-4 col-sm-12">
+          <div>
+            <div class="form-group">
+              <label for="sesso" class="block">{{'fascicolo.richiedente.sesso'|translate}}</label>
+              <div class="radio inline">
+                <label>
+                  <input [disableControl]="disableAndNotEditable" type="radio" [formControlName]="'sesso'" value="M"
+                    [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].sesso.errors }" />
+                  <span class="cr"><i class="cr-icon"></i></span>
+                  {{'fascicolo.richiedente.m'|translate}}
+                </label>
+              </div>
+              <div class="radio inline">
+                <label>
+                  <input [disableControl]="disableAndNotEditable" type="radio" [formControlName]="'sesso'" value="F"
+                    [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].sesso.errors }" />
+                  <span class="cr"><i class="cr-icon"></i></span>
+                  {{'fascicolo.richiedente.f'|translate}}
+                </label>
+            </div>
+            <div *ngIf="submitted && fascicoloFormRichiedente['controls'].sesso.errors" class="invalid-feedback">
+              <div *ngIf="fascicoloFormRichiedente['controls'].sesso.errors.required">{{'generic.required'|translate}}</div>
+            </div>
+          </div>
+          <div style="padding-top: .8em">
+            <div class="form-group">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                    <label for="dataNascita">{{'fascicolo.richiedente.natoIl'|translate}} </label>
+                  </span>
+                </div>
+                <p-calendar (onBlur)="onBlur(nazionalitaTitolare)" [monthNavigator]="true" [yearNavigator]="true"
+                  yearRange="1900:{{const.MAX_YEAR_MAGGIORENNI}}" dateFormat="{{'generic.dateFormatCalendar'|translate}}" [disableControl]="disableAndNotEditable"
+                  class="form-control nop" [locale]="it" [formControlName]="'dataNascita'" inputStyleClass="form-control"
+                  [maxDate]="const.MAX_DATE_MAGGIORENNI"
+                  showButtonBar="true" [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].dataNascita.errors }">
+                </p-calendar>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <fa-icon icon="calendar"></fa-icon>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dataNascita.errors" class="invalid-feedback">
+                <div *ngIf="fascicoloFormRichiedente['controls'].dataNascita.errors.required">{{'generic.required'|translate}}
+                </div>
+                <div *ngIf="fascicoloFormRichiedente['controls'].dataNascita.errors.minAge">Il richiedente deve essere maggiorenne</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-sm-12">
+        <div class="form-group">
+          <label for="nazionalitaNascitaName">{{'fascicolo.richiedente.nato_in'|translate}} </label>
+          <div class="input-group mb">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <label for="dataNascita">{{'fascicolo.richiedente.stato'|translate}}</label>
+              </span>
+            </div>
+            <p-autoComplete #nazionalitaTitolare [disableControl]="disableAndNotEditable" class="form-control"
+              (onClear)="onClear('comuneNascitaName')" [minLength]="2" [ngStyle]="{'width': '80%'}" appendTo="body"
+              [forceSelection]="true" [formControlName]="'nazionalitaNascitaName'" field="label"
+              [suggestions]="nazionalitaAutocomplete"
+              (onSelect)="setNazionalita($event,'nazionalitaNascitaTitolare','provinciaNascitaName','comuneNascitaName','comuneNascitaEstero')"
+              (completeMethod)="searchNaz($event)"
+              [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].nazionalitaNascitaName.errors }"
+              [maxlength]="const.MAX_LEN_NAZIONE">
+            </p-autoComplete>
+          </div>
+          <div *ngIf="nazionalitaNascitaTitolare" class="input-group" style="padding-top: 1em;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <label for="dataNascita">{{'fascicolo.richiedente.prov'|translate}}</label>
+              </span>
+            </div>
+            <p-autoComplete [disableControl]="disableAndNotEditable" *ngIf="nazionalitaNascitaTitolare" class="form-control"
+              [ngStyle]="{'width': '80%'}" (onClear)="onClear('comuneNascitaName')" [minLength]="2" appendTo="body"
+              [forceSelection]="true" [formControlName]="'provinciaNascitaName'" field="label"
+              [suggestions]="provinciaAutocomplete" (onSelect)="abilitaComune($event,'comuneNascitaName','titolare')"
+              (completeMethod)="searchProv($event)"
+              [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].provinciaNascitaName.errors }"
+              [maxlength]="const.MAX_LEN_PROVINCIA">
+            </p-autoComplete>
+          </div>
+          <div *ngIf="nazionalitaNascitaTitolare" class="input-group" style="padding-top: 1em;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <label for="dataNascita">{{'fascicolo.richiedente.comune'|translate}}</label>
+              </span>
+            </div>
+            <p-autoComplete [disableControl]="disableAndNotEditable" *ngIf="nazionalitaNascitaTitolare" class="form-control" [minLength]="3"
+              appendTo="body" [forceSelection]="true" [formControlName]="'comuneNascitaName'" field="label"
+              [suggestions]="comuneAutocomplete" (completeMethod)="search($event,'provinciaNascitaName')"
+              [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].comuneNascitaName.errors }"
+              [maxlength]="const.MAX_LEN_AUTOCOMPLETE_COMUNE">
+            </p-autoComplete>
+          </div>
+          <div *ngIf="!nazionalitaNascitaTitolare" class="input-group" style="padding-top: 1em;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <label for="">{{'fascicolo.richiedente.citta'|translate}}</label>
+              </span>
+            </div>
+            <input [disableControl]="disableAndNotEditable" *ngIf="!nazionalitaNascitaTitolare" type="text" class="form-control"
+              [formControlName]="'comuneNascitaEstero'" style="width: 80%;"
+              [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].comuneNascitaEstero.errors }" 
+              [maxlength]="const.MAX_LEN_CITTA" />
+          </div>
+          <div *ngIf="submitted && (fascicoloFormRichiedente['controls'].nazionalitaNascitaName.errors||
+                fascicoloFormRichiedente['controls'].provinciaNascitaName.errors||
+                fascicoloFormRichiedente['controls'].comuneNascitaName.errors||
+                fascicoloFormRichiedente['controls'].comuneNascitaEstero.errors)" class="invalid-feedback">
+            <div
+              *ngIf="(fascicoloFormRichiedente['controls'].nazionalitaNascitaName.errors && 
+                      fascicoloFormRichiedente['controls'].nazionalitaNascitaName.errors.required)||
+                     (fascicoloFormRichiedente['controls'].provinciaNascitaName.errors && fascicoloFormRichiedente['controls'].provinciaNascitaName.errors.required)||
+                     (fascicoloFormRichiedente['controls'].comuneNascitaName.errors && fascicoloFormRichiedente['controls'].comuneNascitaName.errors.required)||
+                     (fascicoloFormRichiedente['controls'].comuneNascitaEstero.errors && fascicoloFormRichiedente['controls'].comuneNascitaEstero.errors.required)">
+              {{'generic.allRequired'|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="nazionalitaResidenzaName">{{'fascicolo.richiedente.residenteIn'|translate}}</label>
+        <div class="input-group mb">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <label for="dataNascita">{{'fascicolo.richiedente.stato'|translate}}</label>
+            </span>
+          </div>
+          <p-autoComplete [disableControl]="disableAndNotEditable" class="form-control"
+            (onClear)="onClear('comuneResidenzaName','titolare')" [minLength]="2" appendTo="body" [forceSelection]="true"
+            [formControlName]="'nazionalitaResidenzaName'" field="label" [suggestions]="nazionalitaAutocomplete"
+            (onSelect)="setNazionalita($event,'nazionalitaResidenzaTitolare','provinciaResidenzaName','comuneResidenzaName','comuneResidenzaEstero')"
+            (completeMethod)="searchNaz($event)"
+            [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].nazionalitaResidenzaName.errors }"
+            [maxlength]="const.MAX_LEN_NAZIONE">
+            </p-autoComplete>
+        </div>
+        <div *ngIf="nazionalitaResidenzaTitolare" class="input-group" style="padding-top: 1em;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <label for="dataNascita">{{'fascicolo.richiedente.prov'|translate}}</label>
+            </span>
+          </div>
+          <p-autoComplete [disableControl]="disableAndNotEditable" *ngIf="nazionalitaResidenzaTitolare" class="form-control"
+            (onClear)="onClear('comuneResidenzaName','titolare')" [minLength]="2" appendTo="body" [forceSelection]="true"
+            [formControlName]="'provinciaResidenzaName'" field="label" [suggestions]="provinciaAutocomplete"
+            (onSelect)="abilitaComune($event,'comuneResidenzaName','titolare')" (completeMethod)="searchProv($event)"
+            [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].provinciaResidenzaName.errors }"
+            [maxlength]="const.MAX_LEN_PROVINCIA">
+          </p-autoComplete>
+        </div>
+        <div *ngIf="nazionalitaResidenzaTitolare" class="input-group" style="padding-top: 1em;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <label for="dataNascita">{{'fascicolo.richiedente.comune'|translate}}</label>
+            </span>
+          </div>
+          <p-autoComplete [disableControl]="disableAndNotEditable" *ngIf="nazionalitaResidenzaTitolare" class="form-control" [minLength]="3"
+            appendTo="body" [forceSelection]="true" [formControlName]="'comuneResidenzaName'" field="label"
+            [suggestions]="comuneAutocomplete" (completeMethod)="search($event,'provinciaResidenzaName','titolare')"
+            [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].comuneResidenzaName.errors }"
+            [maxlength]="const.MAX_LEN_AUTOCOMPLETE_COMUNE">
+          </p-autoComplete>
+        </div>
+        <div *ngIf="!nazionalitaResidenzaTitolare" class="input-group" style="padding-top: 1em;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <label for="">{{'fascicolo.richiedente.citta'|translate}}</label>
+            </span>
+          </div>
+          <input [disableControl]="disableAndNotEditable" *ngIf="!nazionalitaResidenzaTitolare" type="text" class="form-control"
+            [formControlName]="'comuneResidenzaEstero'"
+            [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].comuneResidenzaEstero.errors }" 
+            [maxlength]="const.MAX_LEN_CITTA" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <label for="viaResidenza">{{'fascicolo.richiedente.indirizzo'|translate}}</label>
+      <div>
+        <div class="form-group" style="width: 100%;">
+          <div class="input-group">
+            <div class="input-group-text nobr">
+              <label>{{'fascicolo.richiedente.via'|translate}}</label>
+            </div>
+            <input [maxlength]="const.MAX_LEN_VIA" [disableControl]="disableAndNotEditable" type="text" class="form-control"
+              [formControlName]="'viaResidenza'" />
+          </div>
+        </div>     
+      </div>
+      <div>
+        <div class="form-group" style="width: 100%;">
+          <div class="input-group">
+            <div class="input-group-text nobr">
+              <label>{{'fascicolo.richiedente.civico'|translate}}</label>
+            </div>
+            <input [maxlength]="const.MAX_LEN_CIVICO" [disableControl]="disableAndNotEditable" type="text" class="form-control"
+              [formControlName]="'numeroResidenza'" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-group" style="width: 100%;">
+          <div class="input-group">
+            <div class="input-group-text nobr">
+              <label>{{'fascicolo.richiedente.cap'|translate}}</label>
+            </div>
+            <input maxlength="5" [ngClass]="{'is-invalid': submitted && fascicoloFormRichiedente['controls'].cap.errors }"
+              [disableControl]="disableAndNotEditable" type="text" class="form-control" [formControlName]="'cap'" />
+          </div>
+        </div>
+      </div>
+      <div *ngIf="submitted && fascicoloFormRichiedente['controls'].cap.errors" class="invalid-feedback">
+        <div *ngIf="fascicoloFormRichiedente['controls'].cap.errors.pattern">
+          {{'generic.badFormat'|translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="telefono">{{'fascicolo.richiedente.telefono'|translate}}</label>
+        <input type="text" [maxlength]="const.MAX_LEN_TELEFONO" [disableControl]="disableAndNotEditable" class="form-control"
+          [formControlName]="'telefono'"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].telefono.errors }" />
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="email">{{'fascicolo.richiedente.email'|translate}} </label>
+        <input [maxlength]="const.MAX_LEN_EMAIL_PEC" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'email'"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].email.errors }" />
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].email.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].email.errors.required">{{'generic.required'|translate}}</div>
+          <div *ngIf="fascicoloFormRichiedente['controls'].email.errors.email">{{'generic.badValueEmail'|translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="pec">{{'fascicolo.richiedente.pec'|translate}} *</label>
+        <input [maxlength]="const.MAX_LEN_EMAIL_PEC" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'pec'"
+          class="form-control" [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].pec.errors }"/>
+        <div>
+          (in caso in cui non sia reperibile la pec del richiedente, inserire la pec dell'ufficio tecnico del comune)
+        </div>
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].pec.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].pec.errors.required">{{'generic.required'|translate}}</div>
+          <div *ngIf="fascicoloFormRichiedente['controls'].pec.errors.email">{{'generic.badValuePec'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 offset-md-4 col-sm-12">
+      <div class="form-group text-center">
+        <label for="ditta">{{'fascicolo.richiedente.titolareDitta'|translate}}</label>
+        <div class="checkbox">
+          <label>
+            <input [disableControl]="disableAndNotEditable" type="checkbox" (change)="activeExtraField()"
+              [formControlName]="'ditta'" />
+            <span class="cr"><i class="cr-icon"></i></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 offset-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="dittaQualitaDi">{{'fascicolo.richiedente.inQualitaDi'|translate}} *</label>
+        <p-dropdown (onChange)="activeAltroDitta($event)" [disableControl]="disableAndNotEditable" class="dflex text-left"
+          [options]="tipi_ditta" [formControlName]="'dittaInQualitaDi'" [autoWidth]="false" [placeholder]="'generic.selezionaunavoce' | translate"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].dittaInQualitaDi.errors }">
+        </p-dropdown>
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dittaInQualitaDi.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaInQualitaDi.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr" *ngIf="fascicoloFormRichiedente['controls'].dittaInQualitaDi.value && 
+    fascicoloFormRichiedente['controls'].dittaInQualitaDi.value=='ALTRO'">
+    <div class="col-md-4 offset-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="dittaQualitaAltro">{{'fascicolo.richiedente.descAltro'|translate}} *</label>
+        <textarea maxlength="{{const.MAX_LEN_RUOLO_DITTA}}" [disableControl]="disableAndNotEditable" class="form-control" rows="5"
+          formControlName="dittaQualitaAltro"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].dittaQualitaAltro.errors}"></textarea>
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dittaQualitaAltro.errors"
+          class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaQualitaAltro.errors.required">
+            {{'generic.required'|translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="nomeDitta">{{'fascicolo.richiedente.dellaDitta'|translate}} *</label>
+        <input [maxlength]="const.MAX_LEN_DESCRIZIONE_DITTA" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'dittaSocieta'"
+          class="form-control" id="dittaEnte"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].dittaSocieta.errors }" />
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dittaSocieta.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaSocieta.errors.required">{{'generic.required'|translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="dittaCf">{{'fascicolo.richiedente.cfDitta'|translate}} *</label>
+        <input maxlength="16" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'dittaCodiceFiscale'" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].dittaCodiceFiscale.errors }" style="text-transform: uppercase;" />
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dittaCodiceFiscale.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaCodiceFiscale.errors.required">{{'generic.required'|translate}}
+          </div>
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaCodiceFiscale.errors.pattern">{{'generic.fiscalCode'|translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="dittaPartitaIva">{{'fascicolo.richiedente.pivaDitta'|translate}} *</label>
+        <input [maxlength]="const.MAX_LEN_PARTITA_IVA" [disableControl]="disableAndNotEditable" type="text" [formControlName]="'dittaPartitaIva'"
+          class="form-control" [ngClass]="{ 'is-invalid': submitted && fascicoloFormRichiedente['controls'].dittaPartitaIva.errors }" />
+        <div *ngIf="submitted && fascicoloFormRichiedente['controls'].dittaPartitaIva.errors" class="invalid-feedback">
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaPartitaIva.errors.required">
+            {{'generic.required'|translate}}</div>
+          <div *ngIf="fascicoloFormRichiedente['controls'].dittaPartitaIva.errors.pattern">
+            {{'generic.badValuePiva'|translate}}</div>
+        </div>
+      </div>
+    </div>
+
+  <div *ngIf="pareri" style="width: 100%;padding-left: 1em; padding-right: 1em;">
+    <!-- <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="Dati del responsabile comunale per l'istanza">
+        <app-form-dati-responsabile 
+        [dettaglioFascicolo]="dettaglioFascicolo" 
+        [formRichiedente]="fascicoloFormRichiedente" 
+        [disable]="disable"
+        [disableAndNotEditable]="disableAndNotEditable"
+        [praticaId]="praticaId" 
+        [submitted]="submitted"></app-form-dati-responsabile>
+      </p-accordionTab>
+    </p-accordion> -->
+    <ngb-accordion #acc="ngbAccordion" class="ricerca full-width" [activeIds]="activeIds">
+      <ngb-panel id="responsabile">
+        <ng-template ngbPanelTitle>
+          {{'fascicolo.richiedente.dati-responsabile'|translate}}
+          <fa-icon *ngIf="acc.isExpanded('responsabile')" icon="angle-double-up"></fa-icon>
+          <fa-icon *ngIf="!acc.isExpanded('responsabile')" icon="angle-double-down"></fa-icon>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="pl-3 pr-3">
+            <app-form-dati-responsabile [dettaglioFascicolo]="dettaglioFascicolo" [formRichiedente]="fascicoloFormRichiedente"
+              [disable]="disable" [disableAndNotEditable]="disableAndNotEditable" [praticaId]="praticaId" [submitted]="submitted">
+            </app-form-dati-responsabile>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+
+  </div>
+</div>

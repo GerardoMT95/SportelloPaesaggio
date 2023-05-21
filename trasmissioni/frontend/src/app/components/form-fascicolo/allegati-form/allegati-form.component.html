@@ -1,0 +1,87 @@
+<app-delete-allegati-dialog [sezione]='sezione' (emitPlanAllegatiDeletion)="deleteAllegati($event)">
+</app-delete-allegati-dialog>
+<form class="row" *ngIf="uploadForm && dettaglioFascicolo" [formGroup]="uploadForm" class="m-3">
+  <div class="col-md-12">
+    <div class="form-group">
+      <ng-template [ngIf]="sezione=='allegati'" >
+        <label class="mb-3" for="file-type">{{ 'fascicolo.tipoContenuto' | translate}}</label>
+        <!-- quelle senza doppio asterisco-->
+          <ng-container  *ngFor="let option of fileTypeList">
+          <div class="form-row mb-1" *ngIf="option.label.lastIndexOf('**')<0">
+              <p-checkbox
+              name="uploadType"
+              [disabled]="disable"
+              [value]="option.value"
+              [formControl]="this.uploadForm.get('uploadType')"
+              [label]="(optionLabelWithStar(option))"
+              (onChange)="selectFileType()"
+              labelstyleclass="labelLungaCheckBox"
+              class="dflex">
+              </p-checkbox>
+          </div>  
+        </ng-container>
+        <div class="form-row mb-2">
+          <label>* {{'generic.required'|translate}}</label>
+        </div>
+        <!-- quelle con doppio asterisco-->
+        <ng-container  *ngFor="let option of fileTypeList">
+          <div class="form-row mb-1" *ngIf="option.label.lastIndexOf('**')>0">
+              <p-checkbox
+              name="uploadType"
+              [disabled]="disable"
+              [value]="option.value"
+              [formControl]="this.uploadForm.get('uploadType')"
+              [label]="(option.label | translate)"
+              (onChange)="selectFileType()"
+              labelstyleclass="labelLungaCheckBox"
+              class="dflex">
+              </p-checkbox>
+          </div>  
+        </ng-container>
+        <div *ngIf="hasItemEndingWith(fileTypeList,'**')" class="form-row mb-2">
+          <label>** {{'fascicolo.tableAllegati.obbligatori'|translate}}</label>
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="sezione!='allegati' && sezione!='provvedimento'" >
+        <p-dropdown [placeholder]="'generic.selezionaunavoce' | translate" id="file-type" 
+        [options]="fileTypeList"
+        [autoWidth]="false" [style]="{ width: '100%' }" formControlName="uploadType" 
+        (onChange)="selectFileType()"
+        [showClear]="true" [disabled]="disable">
+        <ng-template let-type pTemplate="item">
+          <div class="ui-helper-clearfix" style="position: relative;">
+            <div style="font-size:14px;">
+              {{type.label}}<span *ngIf="type.title === 'mandatario'" style="color:red">*</span>
+            </div>
+          </div>
+        </ng-template>
+        </p-dropdown>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group" *ngIf="sezione!='provvedimento'">
+      <p-fileUpload id="allega-file" name="myfile" 
+      
+      customUpload="true" [auto]="true"
+        (uploadHandler)="onFileSelect($event)" [chooseLabel]="'fascicolo.allegaFile' | translate" [disabled]="disabled">
+        <ng-template pTemplate="toolbar">
+        </ng-template>
+        <ng-template let-file pTemplate="file">
+        </ng-template>
+        <ng-template pTemplate="content">
+        </ng-template>
+      </p-fileUpload>
+    </div>
+    <div class="form-group" *ngIf="attachmentsPerFileType.length > 0">
+      <app-table-no-filter (deleteEmitter)="deleteFileFromTable($event)" 
+      (fileEmitter)="uploadFileFromTable($event)"
+        [disableButton]="disable" [attachmentsPerFileType]="attachmentsPerFileType"
+        [tableHeadersAttachment]="tableHeadersAttachment"
+        [filterFileToUploadFn]="checkFileType"
+        [idFascicolo]="dettaglioFascicolo.id"
+        (downloadEmitter)="download($event)">
+      </app-table-no-filter>
+    </div>
+  </div>
+</form>

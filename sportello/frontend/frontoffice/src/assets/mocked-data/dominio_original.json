@@ -1,0 +1,1281 @@
+{
+  "typeProcedimento": [
+    {
+      "value": 1,
+      "description": "AUTORIZZAZIONE PAESAGGISTICA art. 146, D. Lgs. 42/2004 – art. 90, NTA PPTR (ORDINARIA)"
+    },
+    {
+      "value": 2,
+      "description": "AUTORIZZAZIONE PAESAGGISTICA SEMPLIFICATA D.P.R. 31/2017– art. 90, NTA PPTR PER INTERVENTI E OPERE DI LIEVE ENTITA’ SOGGETTI AL PROCEDIMENTO AUTORIZZATORIO SEMPLIFICATO A NORMA DELL’ARTICOLO 146 C.9 DEL D.LGS 42/2004"
+    },
+    {
+      "value": 3,
+      "description": "ACCERTAMENTO DI COMPATIBILITA’ PAESAGGISTICA Art. 167 e 181, D. Lgs. 42/2004 (PER OPERE IN DIFFORMITA’ O ASSENZA DI AUTORIZZAZIONE PAESAGGISTICA)"
+    },
+    {
+      "value": 4,
+      "description": "ACCERTAMENTO DI COMPATIBILITÀ PAESAGGISTICA art. 91, NTA PPTR [IN VIGENZA D.P.R. 31/2017] (PER INTERVENTI CHE COMPORTINO MODIFICA DELLO STATO DEI LUOGHI NEGLI ULTERIORI CONTESTI COME INDIVIDUATI NELL'ART. 38 C. 3.1 NTA PPTR).",
+      "linked":"isInSanatoria"
+    }
+  ],
+  "enteDelegato": [
+    {
+      "value": 1,
+      "description": "Regione Puglia"
+    },
+    {
+      "value": 2,
+      "description": "Comune di Bari"
+    }
+  ],
+  "tipoDocumento": [
+    {
+      "value": 1,
+      "description": "Carta d’Identità"
+    },
+    {
+      "value": 2,
+      "description": "Patente di guida"
+    },
+    {
+      "value": 3,
+      "description": "Passaporto"
+    }
+  ],
+  "titolaritaInQualitaDi": [
+    {
+      "value": 1,
+      "description": "proprietario/comproprietario"
+    },
+    {
+      "value": 2,
+      "description": "nudo proprietario"
+    },
+    {
+      "value": 3,
+      "description": "usufruttuario"
+    },
+    {
+      "value": 4,
+      "description": "altro"
+    }
+  ],
+  "bpParchuEReserve": [
+    {
+      "value": 1,
+      "description": "Intervento ricade in BP - Parchi e riserve."
+    },
+    {
+      "value": 2,
+      "description": "Intervento ricade in BP - Immobili e aree di notevole interesse pubblico."
+    },
+    {
+      "value": 3,
+      "description": "Intervento ricade in UCP - Paesaggi rurali."
+    }
+  ],
+  "descrizioneAmministrativaArt146": [
+    {
+      "value": 1,
+      "description": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi"
+    },
+    {
+      "value": 2,
+      "description": "Eventuali titoli edilizi già rilasciati"
+    },
+    {
+      "value": 3,
+      "description": "Eventuali provvedimenti paesaggistici già rilasciati"
+    },
+    {
+      "value": 4,
+      "description": "Eventuali atti di assenso già acquisiti"
+    },
+    {
+      "value": 5,
+      "description": "Atti relativi a eventuali procedimenti di contenzioso in atto"
+    },
+    {
+      "value": 6,
+      "description": "Eventuali pareri di natura paesaggistica ambientale"
+    },
+    {
+      "value": 7,
+      "description": "Parere di conformità edilizia-urbanistica, se già acquisito"
+    }
+  ],
+  "descrizioneAmministrativaArt90": [
+    {
+      "value": 1,
+      "description": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi"
+    },
+    {
+      "value": 2,
+      "description": "Eventuali titoli edilizi già rilasciati"
+    },
+    {
+      "value": 3,
+      "description": "Eventuali provvedimenti paesaggistici già rilasciati"
+    },
+    {
+      "value": 4,
+      "description": "Eventuali atti di assenso già acquisiti"
+    },
+    {
+      "value": 5,
+      "description": "Atti relativi a eventuali procedimenti di contenzioso in atto"
+    },
+    {
+      "value": 6,
+      "description": "Eventuali pareri di natura paesaggistica ambientale"
+    }
+  ],
+  "descrizioneAmministrativaArt91": [
+    {
+      "value": 1,
+      "description": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi"
+    },
+    {
+      "value": 2,
+      "description": "Eventuali titoli edilizi già rilasciati"
+    },
+    {
+      "value": 3,
+      "description": "Eventuali provvedimenti paesaggistici già rilasciati"
+    },
+    {
+      "value": 4,
+      "description": "Eventuali atti di assenso già acquisiti"
+    },
+    {
+      "value": 5,
+      "description": "Atti relativi a eventuali procedimenti di contenzioso in atto"
+    },
+    {
+      "value": 6,
+      "description": "Eventuali pareri di natura paesaggistica ambientale"
+    }
+  ],
+  "descrizioneAmministrativaArt167": [
+    {
+      "value": 1,
+      "description": "Attestazione conformità a prescrizioni urb/edil rilasciate da Comune- Asseverazioni art 23 DPR 380/01"
+    },
+    {
+      "value": 2,
+      "description": "Planimetria con individuazione delle parti realizzate con precedenti titoli edilizi"
+    },
+    {
+      "value": 3,
+      "description": "Eventuali titoli edilizi già rilasciati"
+    },
+    {
+      "value": 4,
+      "description": "Eventuali provvedimenti paesaggistici già rilasciati"
+    },
+    {
+      "value": 5,
+      "description": "Eventuali atti di assenso già acquisiti"
+    },
+    {
+      "value": 6,
+      "description": "Atti relativi a eventuali procedimenti di contenzioso in atto"
+    },
+    {
+      "value": 7,
+      "description": "Eventuali pareri di natura paesaggistica ambientale"
+    },
+    {
+      "value": 8,
+      "description": "Parere di conformità edilizia-urbanistica, se già acquisito"
+    }
+  ],
+  "descrizioneTecnicaArt146": [
+    {
+      "value": 1,
+      "description": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO [rif. punto 3.1.A.1 dell'allegato al DPCM 12/12/2005]:(scale 1:10.000, 1:5000, 1:2000)"
+    },
+    {
+      "value": 2,
+      "description": "STRALCI ED ESTRATTI PPTR [rif. punto 3.1.A.2 dell’allegato al DPCM 12/12/2005]"
+    },
+    {
+      "value": 3,
+      "description": "DOCUMENTAZIONE FOTOGRAFICA [rif. punto 3.1.A.3 dell'allegato al DPCM 12/12/2005]"
+    },
+    {
+      "value": 4,
+      "description": "ELABORATI GRAFICI STATO DI FATTO [rif. punto 3.1.A dell'allegato al DPCM 12/12/2005]"
+    },
+    {
+      "value": 5,
+      "description": "SCHEDA CONOSCITIVA DEL MANUFATTO E DEL CONTESTO RURALE [rif. capitolo 2 dell'elaborato del PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali]"
+    },
+    {
+      "value": 6,
+      "description": "ELABORATI GRAFICI DI PROGETTO [rif. punto 3.1.B dell'allegato al DPCM 12/12/2005]"
+    },
+    {
+      "value": 7,
+      "description": "SCHEDA DI PROGETTO [rif. capitolo 3 dell' elaborato del PPTR 4.4.6 - Linee guida per il recupero, la manutenzione e il riuso dell'Edilizia e dei Beni Rurali]"
+    },
+    {
+      "value": 8,
+      "description": "SIMULAZIONI [rif. punto 3.1.B e 3.2 dell'allegato al DPCM 12/12/2005]"
+    }
+  ],
+  "descrizioneTecnicaArt90": [
+    {
+      "value": 1,
+      "description": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)"
+    },
+    {
+      "value": 2,
+      "description": "STRALCI ED ESTRATTI PPTR"
+    },
+    {
+      "value": 3,
+      "description": "DOCUMENTAZIONE FOTOGRAFICA DELLO STATO ATTUALE DELLO STATO ATTUALE"
+    },
+    {
+      "value": 4,
+      "description": "ELABORATI GRAFICI STATO DI FATTO"
+    },
+    {
+      "value": 5,
+      "description": "ELABORATI GRAFICI DI PROGETTO"
+    },
+    {
+      "value": 6,
+      "description": "SIMULAZIONI"
+    }
+  ],
+  "descrizioneTecnicaArt91": [
+    {
+      "value": 1,
+      "description": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO"
+    },
+    {
+      "value": 2,
+      "description": "STRALCI ED ESTRATTI PPTR"
+    },
+    {
+      "value": 3,
+      "description": "DOCUMENTAZIONE FOTOGRAFICA DELLO STATO ATTUALE"
+    },
+    {
+      "value": 4,
+      "description": "ELABORATI GRAFICI STATO DI FATTO"
+    },
+    {
+      "value": 5,
+      "description": "SCHEDA CONOSCITIVA DEL MANUFATTO E DEL CONTESTO RURALE"
+    },
+    {
+      "value": 6,
+      "description": "ELABORATI GRAFICI DI PROGETTO"
+    },
+    {
+      "value": 7,
+      "description": "SIMULAZIONI"
+    }
+  ],
+  "descrizioneTecnicaArt167": [
+    {
+      "value": 1,
+      "description": "UBICAZIONE DELL'OPERA E/O DELL'INTERVENTO (individuazione area d'intervento (nelle scale 1:10.000, 1:5000, 1:2000)"
+    },
+    {
+      "value": 2,
+      "description": "STRALCI ED ESTRATTI PPTR"
+    },
+    {
+      "value": 3,
+      "description": "DOCUMENTAZIONE FOTOGRAFICA"
+    },
+    {
+      "value": 4,
+      "description": "ELABORATI GRAFICI STATO DI FATTO PRECEDENTE ALL' ESECUZIONE DEGLI INTERVENTI OGGETTO DI ACCERTAMENTO"
+    },
+    {
+      "value": 5,
+      "description": "ELABORATI GRAFICI STATO DI FATTO SUCCESSIVO ALL' ESECUZIONE DEGLI INTERVENTI OGGETTO DI ACCERTAMENTO"
+    },
+    {
+      "value": 6,
+      "description": "SIMULAZIONI"
+    },
+    {
+      "value": 7,
+      "description": "DIMOSTRAZIONE AMMISSIBILITA' AD ACCETAMENTO DI COMPATIBILITA' PAESAGGISTICA"
+    }
+  ],
+  "ambitoPaesaggistico": [
+    {
+      "value": 1,
+      "description": "Gargano"
+    },
+    {
+      "value": 2,
+      "description": "MONTI DAUNI"
+    },
+    {
+      "value": 3,
+      "description": "Board"
+    },
+    {
+      "value": 4,
+      "description": "Ofanto"
+    },
+    {
+      "value": 5,
+      "description": "CENTRAL PUGLIA"
+    },
+    {
+      "value": 6,
+      "description": "HIGH MURGIA"
+    },
+    {
+      "value": 7,
+      "description": "MURGIA DEI TRULLI"
+    },
+    {
+      "value": 8,
+      "description": "ARCO JONICO TARANTINO"
+    },
+    {
+      "value": 9,
+      "description": "THE BRINDISIN PLAIN"
+    },
+    {
+      "value": 10,
+      "description": "TAVOLIERE SALENTINO"
+    },
+    {
+      "value": 11,
+      "description": "SALT OF GREENHOUSES"
+    }
+  ],
+  "figura1": [
+    {
+      "value": 1,
+      "description": " Anfiteatro laghi costieri"
+    },
+    {
+      "value": 2,
+      "description": "Altopiano carsico"
+    },
+    {
+      "value": 3,
+      "description": "Costa Alta"
+    },
+    {
+      "value": 4,
+      "description": "Manfredonia"
+    }
+  ],
+  "figura2": [
+    {
+      "value": 5,
+      "description": "La bassa valle del Fortore e il sistema dunale"
+    },
+    {
+      "value": 6,
+      "description": "La Media valle del Fortore e la diga di Occhito"
+    },
+    {
+      "value": 7,
+      "description": "Il Subappennino settentrionale"
+    },
+    {
+      "value": 8,
+      "description": "Il Subappennino meridionale"
+    }
+  ],
+  "figura3": [
+    {
+      "value": 9,
+      "description": "La piana foggiana della riforma"
+    },
+    {
+      "value": 10,
+      "description": "Il mosaico di San Severo"
+    },
+    {
+      "value": 11,
+      "description": "Il mosaico di Cerignola"
+    },
+    {
+      "value": 12,
+      "description": "Le saline di Margherita di Savoia"
+    },
+    {
+      "value": 13,
+      "description": "Lucera e le serre del subappennino"
+    },
+    {
+      "value": 14,
+      "description": "Le Marane (Ascoli Satriano)"
+    }
+  ],
+  "figura4": [
+    {
+      "value": 15,
+      "description": "La bassa Valle dell’Ofanto"
+    },
+    {
+      "value": 16,
+      "description": " La media Valle dell’Ofanto"
+    },
+    {
+      "value": 17,
+      "description": " La valle del torrente Locone"
+    }
+  ],
+  "figura5": [
+    {
+      "value": 18,
+      "description": "La piana olivicola del nord barese"
+    },
+    {
+      "value": 19,
+      "description": "La conca di Bari ed il sistema radiale delle lame"
+    },
+    {
+      "value": 20,
+      "description": " Il sud-est barese ed il paesaggio del frutteto"
+    }
+  ],
+  "figura6": [
+    {
+      "value": 21,
+      "description": " L’Altopiano murgiano"
+    },
+    {
+      "value": 22,
+      "description": "La Fossa Bradanica"
+    },
+    {
+      "value": 23,
+      "description": " La sella di Gioia"
+    }
+  ],
+  "figura7": [
+    {
+      "value": 24,
+      "description": "La Valle d’Itria"
+    },
+    {
+      "value": 25,
+      "description": "La piana degli uliveti secolari"
+    },
+    {
+      "value": 26,
+      "description": "I boschi di fragno della Murgia bassa"
+    }
+  ],
+  "figura8": [
+    {
+      "value": 27,
+      "description": "L’anfiteatro e la piana tarantina"
+    },
+    {
+      "value": 28,
+      "description": "Il paesaggio delle gravine ioniche"
+    }
+  ],
+  "figura9": [
+    {
+      "value": 29,
+      "description": "La campagna irrigua della piana brindisina"
+    },
+    {
+      "value": 30,
+      "description": "Puglia grande"
+    }
+  ],
+  "figura10": [
+    {
+      "value": 31,
+      "description": "La campagna leccese del ristretto e il sistema di ville suburbane"
+    },
+    {
+      "value": 32,
+      "description": "Il paesaggio del vigneto d’eccellenza"
+    },
+    {
+      "value": 33,
+      "description": "Il paesaggio costiero profondo da S. Cataldo agli Alimini"
+    },
+    {
+      "value": 34,
+      "description": "La campagna a mosaico del Salento centra le"
+    },
+    {
+      "value": 35,
+      "description": "Nardò e le ville storiche delle Cenate"
+    },
+    {
+      "value": 36,
+      "description": "Il paesaggio dunale costiero ionico"
+    },
+    {
+      "value": 37,
+      "description": "La Murgia salentina"
+    },
+    {
+      "value": 38,
+      "description": "Nardò e le ville storiche delle cenate"
+    }
+  ],
+  "figura11": [
+    {
+      "value": 39,
+      "description": "Le serre ioniche"
+    },
+    {
+      "value": 40,
+      "description": "La costa alta da Otranto a S.M. di Leuca"
+    }
+  ],
+  "bpParchiERiserve": [
+    {
+      "value": "EUAP0580",
+      "description": "Salina di Punta della Contessa"
+    },
+    {
+      "value": "EUAP1167",
+      "description": "Porto Selvaggio e Palude del Capitano"
+    },
+    {
+      "value": "EUAP0225",
+      "description": "Lama Balice"
+    },
+    {
+      "value": "EUAP1191",
+      "description": "Isola di S.Andrea e litorale di punta Pizzo"
+    },
+    {
+      "value": "EUAP0683",
+      "description": "Bosco e paludi di Rauccio"
+    },
+    {
+      "value": "EUAP1192",
+      "description": "Costa Otranto-S.Maria di Leuca e Bosco di Tricase"
+    },
+    {
+      "value": "EUAP1194",
+      "description": "Litorale di Ugento"
+    },
+    {
+      "value": "EUAP1132",
+      "description": "Palude del conte e duna costiera - Porto Cesareo"
+    },
+    {
+      "value": "EUAP0543",
+      "description": "Boschi di Santa Teresa e dei Lucci"
+    },
+    {
+      "value": "EUAP0579",
+      "description": "Bosco di Cerano"
+    },
+    {
+      "value": "EUAP0894",
+      "description": "Terra delle Gravine"
+    },
+    {
+      "value": "EUAP1188",
+      "description": "Bosco Incoronata"
+    },
+    {
+      "value": "EUAP0459",
+      "description": "Bosco delle Pianelle"
+    },
+    {
+      "value": "EUAP1190",
+      "description": "Laghi di Conversano e Gravina di Monsignore"
+    },
+    {
+      "value": "n\/p",
+      "description": "Medio Fortore"
+    },
+    {
+      "value": "EUAP0580",
+      "description": "Parco nazionale del Gargano"
+    },
+    {
+      "value": "EUAP0580",
+      "description": "Parco nazionale dell'Alta Murgia"
+    },
+    {
+      "value": "EUAP0577",
+      "description": "Riserve del Litorale Tarantino Orientale"
+    },
+    {
+      "value": "EUAP1189",
+      "description": "Palude La Vela"
+    },
+    {
+      "value": "EUAP1195",
+      "description": "Fiume Ofanto"
+    },
+    {
+      "value": "EUAP1193",
+      "description": "Dune costiere da Torre Canne a Torre S.Leonardo"
+    }
+  ],
+  "bpImmobiliEAree": [
+    {
+      "value": "PAE0001",
+      "description": "ZONA TIPICA DEI TRULLI."
+    },
+    {
+      "value": "PAE0002",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL TERRITORIO DEI COMUNI DI ANDRIA E CORATO. CASTEL DEL MONTE."
+    },
+    {
+      "value": "PAE0003",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DEL PORTO E DEI LITORALI PROSPICIENTI IL CASTELLO ANGIOINO, IN COMUNE DI BARLETTA."
+    },
+    {
+      "value": "PAE0005",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA  ZONA IN COMUNE DI CASTELLANA GROTTE."
+    },
+    {
+      "value": "PAE0006",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLA VALLE D`ITRIA E DEL CENTRO ABITATO DEL COMUNE DI LOCOROTONDO."
+    },
+    {
+      "value": "PAE0007",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA E DEL CENTRO STORICO NEL COMUNE DI MOLFETTA (BARI)."
+    },
+    {
+      "value": "PAE0008",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA COSTIERA DI POLIGNANO A MARE."
+    },
+    {
+      "value": "PAE0009",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DEL PARCO DEL CASTELLO DENTICE DEL FRASSO NEL COMUNE DI CAROVIGNO (BRINDISI)."
+    },
+    {
+      "value": "PAE0010",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI CAROVIGNO."
+    },
+    {
+      "value": "PAE0011",
+      "description": "BOSCO CURTO PETRIZZI (D.M. NON PUBBLICATO SU G.U. POICHE` NOTIFICATO DIRETTAMENTE AL PROPRIETARIO)."
+    },
+    {
+      "value": "PAE0012",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI CISTERNINO (VALLE D`ITRIA)."
+    },
+    {
+      "value": "PAE0013",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI FASANO."
+    },
+    {
+      "value": "PAE0014",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI FASANO (COLLINARE DEI TRULLI SELVA LAURETO)."
+    },
+    {
+      "value": "PAE0015",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA NEL COMUNE DI OSTUNI (BRINDISI). ZONA A MONTE SS16."
+    },
+    {
+      "value": "PAE0016",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA A VALLE DELLA STRADA STATALE N. 16, SITA NELL`AMBITO DEL COMUNE DI OSTUNI."
+    },
+    {
+      "value": "PAE0017",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ALCUNE ZONE IN COMUNE DI OSTUNI. ZONA A VALLE SS379."
+    },
+    {
+      "value": "PAE0018",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA DEI LAGHI DI LESINA E VARANO SITE NEI COMUNI DI CAGNANO VARANO E ZONA COSTIERA DEI LAGHI LESINA E VARANO."
+    },
+    {
+      "value": "PAE0019",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI CARPINO (ZONA DEI LAGHI DI LESINA E VARANO)."
+    },
+    {
+      "value": "PAE0020",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA DEI IAGHI DI LESINA E VARANO DEL COMUNE DI CHIEUTI."
+    },
+    {
+      "value": "PAE0021",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI FOGGIA. ZONA BOSCO INCORONATA."
+    },
+    {
+      "value": "PAE0022",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI ISCHITELLA. ZONE COSTIERE DEI LAGHI DI LESINA E VARANO."
+    },
+    {
+      "value": "PAE0023",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO DEL COMUNE DI ISOLE TREMITI."
+    },
+    {
+      "value": "PAE0024",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI LESINA."
+    },
+    {
+      "value": "PAE0025",
+      "description": "DICHIARAZLONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA CIRCOSTANTE IL CASTELLO ANGIOINO E L`ABITATO DI LUCERA."
+    },
+    {
+      "value": "PAE0026",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DELLA PINETA DI SAN DOMINO NELLE ISOLE TREMITI."
+    },
+    {
+      "value": "PAE0027",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI MATTINATA."
+    },
+    {
+      "value": "PAE0028",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI MONTE SANT`ANGELO."
+    },
+    {
+      "value": "PAE0029",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO DEL COMUNE DI PESCHICI."
+    },
+    {
+      "value": "PAE0031",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI POGGIO IMPERIALE."
+    },
+    {
+      "value": "PAE0032",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI RODI GARGANICO."
+    },
+    {
+      "value": "PAE0033",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA CONTRADA LAMALUNGA NEL TERRITORIO DEL COMUNE DI ALTAMURA."
+    },
+    {
+      "value": "PAE0034",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI SANNICANDRO GARGANICO."
+    },
+    {
+      "value": "PAE0035",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI SERRACAPRIOLA."
+    },
+    {
+      "value": "PAE0036",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA LOCALITA` SAN MENAIO NEL COMUNE DI VICO DEL GARGANO."
+    },
+    {
+      "value": "PAE0037",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI CEGLIE MESSAPICA."
+    },
+    {
+      "value": "PAE0038",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO DEL COMUNE DI VIESTE."
+    },
+    {
+      "value": "PAE0039",
+      "description": "DICHIARAZLONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE  DEL TERRITORIO COMUNALE DI ACQUARICA DEL CAPO."
+    },
+    {
+      "value": "PAE0040",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO DEL COMUNE DI ALESSANO."
+    },
+    {
+      "value": "PAE0041",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI ALEZIO."
+    },
+    {
+      "value": "PAE0042",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI ALLISTE."
+    },
+    {
+      "value": "PAE0043",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E PARTE DEL TERRITORIO COMUNALE DI ANDRANO."
+    },
+    {
+      "value": "PAE0044",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI BAGNOLO DEL SALENTO."
+    },
+    {
+      "value": "PAE0045",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI CANNOLE."
+    },
+    {
+      "value": "PAE0046",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI CARPIGNANO SALENTINO."
+    },
+    {
+      "value": "PAE0047",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI CASTRIGNANO DEL CAPO."
+    },
+    {
+      "value": "PAE0048",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI S. MARIA DI LEUCA NEL COMUNE DI CASTRIGNANO DEL CAPO (LECCE)."
+    },
+    {
+      "value": "PAE0049",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL TERRITORIO DEL COMUNE DI CASTRO."
+    },
+    {
+      "value": "PAE0050",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI CASTRO."
+    },
+    {
+      "value": "PAE0051",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO COMUNALE DI CORSANO."
+    },
+    {
+      "value": "PAE0052",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI GAGLIANO DEL CAPO."
+    },
+    {
+      "value": "PAE0053",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI GALATONE."
+    },
+    {
+      "value": "PAE0054",
+      "description": "LI FOGGI STRADA DI ALLEGG. DELLA LITORANEA."
+    },
+    {
+      "value": "PAE0055",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA NEL COMUNE DI GIUGGIANELLO."
+    },
+    {
+      "value": "PAE0056",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNE DI GIURDIGNANO."
+    },
+    {
+      "value": "PAE0057",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ALCUNE ZONE IN COMUNE DI LECCE."
+    },
+    {
+      "value": "PAE0058",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI VILLA FRISARI."
+    },
+    {
+      "value": "PAE0059",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI LIZZANELLO."
+    },
+    {
+      "value": "PAE0060",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI MELENDUGNO."
+    },
+    {
+      "value": "PAE0061",
+      "description": "BOSCO PROPRIETA` EPISCOPO - MIGGIANO."
+    },
+    {
+      "value": "PAE0062",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI MINERVINO DI LECCE."
+    },
+    {
+      "value": "PAE0063",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI MORCIANO DI LEUCA."
+    },
+    {
+      "value": "PAE0064",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DELLA RIVIERA SITA NELL`AMBITO DEL COMUNE DI NARDO`."
+    },
+    {
+      "value": "PAE0065",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI NARDO`."
+    },
+    {
+      "value": "PAE0066",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLA RIVIERA NERETINA IN COMUNE DI NARDO`."
+    },
+    {
+      "value": "PAE0067",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ALCUNE ZONE IN COMUNE DI NARDO`."
+    },
+    {
+      "value": "PAE0068",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI ORTELLE."
+    },
+    {
+      "value": "PAE0069",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI OTRANTO."
+    },
+    {
+      "value": "PAE0070",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI PALMARIGGI."
+    },
+    {
+      "value": "PAE0071",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO COMUNALE DI PATU`, ESCLUSO IL CENTRO ABITATO."
+    },
+    {
+      "value": "PAE0072",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI POGGIARDO."
+    },
+    {
+      "value": "PAE0073",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI PRESICCE."
+    },
+    {
+      "value": "PAE0074",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI RACALE."
+    },
+    {
+      "value": "PAE0075",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI PARTE DEL TERRITORIO COMUNALE DI SANNICOLA."
+    },
+    {
+      "value": "PAE0076",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI SALVE."
+    },
+    {
+      "value": "PAE0077",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E PARTE DEL TERRITORIO COMUNALE DI SANTA CESAREA TERME."
+    },
+    {
+      "value": "PAE0078",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI TAVIANO."
+    },
+    {
+      "value": "PAE0079",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI TIGGIANO."
+    },
+    {
+      "value": "PAE0080",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI TRICASE."
+    },
+    {
+      "value": "PAE0081",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI UGENTO."
+    },
+    {
+      "value": "PAE0082",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA PARTE DEL TERRITORIO COMUNALE DI UGGIANO LA CHIESA."
+    },
+    {
+      "value": "PAE0083",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA E DI PARTE DEL TERRITORIO COMUNALE DI VERNOLE."
+    },
+    {
+      "value": "PAE0084",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA A VALLE DELLA STRADA STATALE N. 7 SITA NELL`AMBITO DEL COMUNE DI CASTELLANETA (TARANTO)."
+    },
+    {
+      "value": "PAE0085",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ZONE SITE IN COMUNE DI LATERZA."
+    },
+    {
+      "value": "PAE0086",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DEI TRULLI NELLA VALLE D`ITRIA, SITA NELL`AMBITO DEL COMUNE DI MARTINA FRANCA (TARANTO)."
+    },
+    {
+      "value": "PAE0087",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA PERCORSA DALLA STRADA NAZIONALE MARTINA FRANCA-TARANTO, NEL COMUNE DI MARTINA FRANCA (TARANTO)."
+    },
+    {
+      "value": "PAE0088",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ZONE SITE NEL COMUNE DI MASSAFRA."
+    },
+    {
+      "value": "PAE0089",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI MASSAFRA."
+    },
+    {
+      "value": "PAE0090",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA POSTA A VALLE DEL VIALE TURI, DEL CENTRO ABITATO, DEL BELVEDERE AMMIRAGLIO SANSONETTI E DELLA STRADA STATALE GIOIA-TARANTO, NEL COMUNE DI MOTTOLA (TARANTO)."
+    },
+    {
+      "value": "PAE0091",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA LOCALITA` DI CASALROTTO E DI PARTE DEL TERRITORIO COMUNALE DI MOTTOLA."
+    },
+    {
+      "value": "PAE0092",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DENOMINATA SERRE DI SANT`ELIA, SITA NEL COMUNE DI CAMPI SALENTINA IN PROVINCIA DI LECCE."
+    },
+    {
+      "value": "PAE0093",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI AREE E VILLE SIGNIFICATIVE PER IL LORO INTERESSE PAESISTICO SITE NEL COMUNE DI BARI."
+    },
+    {
+      "value": "PAE0094",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA A VALLE DELLA STRADA STATALE N. 7 SITA NELL`AMBITO DEL COMUNE DI ORIA."
+    },
+    {
+      "value": "PAE0095",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA A VALLE DELLA STRADA STATALE N. 7 SITA NELL`AMBITO DEL COMUNE DI TREPUZZI."
+    },
+    {
+      "value": "PAE0096",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA A VALLE DELLA STRADA STATALE N. 7 SITA NELL`AMBITO DEL COMUNE DI BRINDISI."
+    },
+    {
+      "value": "PAE0097",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DEL TRATTO DI COSTA COMPRESO TRA LA FOCE VARANO E IL CONFINE CON IL MOLISE SITA NEI COMUNI DI ISCHITELLA, CAGNANO VARANO, CARPINO, SANNICANDRO GARGANICO, LESINA, SERRACAPRIOLA E CHIEUTI."
+    },
+    {
+      "value": "PAE0098",
+      "description": "INTEGRAZIONE DELLA DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DEL TRATTO DI COSTA AD OVEST DELL`ABITATO DI RODI GARGANICO SITA NEL COMUNE DI RODI GARGANICO."
+    },
+    {
+      "value": "PAE0099",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DEL TRATTO DI COSTA TRA RODI GARGANICO E VIESTE."
+    },
+    {
+      "value": "PAE0100",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DEL TRATTO DI COSTA ED ENTROTERRA DEL GARGANO TRA VIESTE E IL TERRITORIO COMUNALE DI MONTE S. ANGELO NEI COMUNI DI VIESTE, MATTINATA E MONTE S. ANGELO."
+    },
+    {
+      "value": "PAE0101",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO DEL COMUNE DI ISOLE TREMITI."
+    },
+    {
+      "value": "PAE0102",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA CIRCOSTANTE LA CITTA` MEDIEVALE DI FIORENTINO RICADENTE NEL COMUNE DI TORREMAGGIORE."
+    },
+    {
+      "value": "PAE0103",
+      "description": "INTEGRAZIONE DELLA DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA CIRCOSTANTE IL CASTELLO ANGIOINO E L`ABITATO DI LUCERA SITA NEL COMUNE DI LUCERA."
+    },
+    {
+      "value": "PAE0104",
+      "description": "INTEGRAZIONE DELLA DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DEL BOSCO DELL`INCORONATA SITA NEL COMUNE DI FOGGIA."
+    },
+    {
+      "value": "PAE0105",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DENOMINATA MONTE SACRO SITA NEI COMUNI DI MATTINATA E MONTE S. ANGELO."
+    },
+    {
+      "value": "PAE0106",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DENOMINATA VALLONE DI PULSANO SITA NEI COMUNI DI MONTE SANT`ANGELO E MANFREDONIA."
+    },
+    {
+      "value": "PAE0107",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO."
+    },
+    {
+      "value": "PAE0108",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUUBBLICO DI UNA ZONA DENOMINATA VALLEVERDE STA NEL COMUNE DI BOVINO."
+    },
+    {
+      "value": "PAE0109",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI LAMA PATERNO SITA NEI COMUNI DI BISCEGLIE E TRANI."
+    },
+    {
+      "value": "PAE0110",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DI LAMA SANTACROCE SITA NEL COMUNE DI BISCEGLIE."
+    },
+    {
+      "value": "PAE0111",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA COSTIERA A SUD DI BISCEGLIE SITA NEI COMUNI DI BISCEGLIE E MOLFETTA."
+    },
+    {
+      "value": "PAE0112",
+      "description": "INTEGRAZIONE DELLA DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA CIRCOSTANTE E A VALLE DI CASTEL DEL MONTE NEI COMUNI DI ANDRIA E CORATO."
+    },
+    {
+      "value": "PAE0113",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLE ZONE BOSCHIVE RICADENTI NEL COMUNE DI RUVO DI PUGLIA."
+    },
+    {
+      "value": "PAE0114",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI GRAVINA DI PUGLIA."
+    },
+    {
+      "value": "PAE0115",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DEL TERRITORIO DELLE LAME AD OVEST E A SUD-EST DI BARI."
+    },
+    {
+      "value": "PAE0116",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI ALCUNE ZONE NEI COMUNI DI ALTAMURA E CASSANO MURGE."
+    },
+    {
+      "value": "PAE0117",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLA FASCIA COSTIERA O DELLE LAME SITA NEI COMUNI DI POLIGNANO A MARE E MONOPOLI."
+    },
+    {
+      "value": "PAE0118",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO RIGUARDANTE UNA ZONA SITA NEL COMUNE DI CASTELLANA GROTTE."
+    },
+    {
+      "value": "PAE0119",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN LOCALITA` BARSENTO SITA NEI TERRITORI DEI COMUNI DI NOCI, ALBEROBELLO E PUTIGNANO."
+    },
+    {
+      "value": "PAE0120",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DEL CANALE DI PIRRO SITO NEI COMUNI DI FASANO, MONOPOLI E ALBEROBELLO."
+    },
+    {
+      "value": "PAE0121",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA LOGGIA DI PILATO SITA NEL COMUNE DI MONOPOLI."
+    },
+    {
+      "value": "PAE0122",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLE LAME DI FASANO SITA NEL COMUNE DI FASANO."
+    },
+    {
+      "value": "PAE0123",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA TORRE CANNE-PILONE SITA NEI COMUNI DI FASANO E OSTUNI."
+    },
+    {
+      "value": "PAE0124",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COMPRENDENTE LA VALLE D`ITRIA SITA NEI COMUNI DI MARTINA FRANCA, LOCOROTONDO, CISTERNINO E OSTUNI."
+    },
+    {
+      "value": "PAE0125",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA DI VILLANOVA NEL COMUNE DI OSTUNI."
+    },
+    {
+      "value": "PAE0126",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DEI COLLI DI OSTUNI."
+    },
+    {
+      "value": "PAE0127",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI COLLE DI CEGLIE SITA NEL COMUNE DI CEGLIE MESSAPICA."
+    },
+    {
+      "value": "PAE0128",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI TORRE GUACETO SITA NEI COMUNI DI CAROVIGNO E BRINDISI."
+    },
+    {
+      "value": "PAE0129",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA APANI-PUNTA PENNA SITA NEL COMUNE DI BRINDISI."
+    },
+    {
+      "value": "PAE0130",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COSTIERA DI CERANO, RICADENTE NEI COMUNI DI S. PIETRO VERNOTICO E BRINDISI."
+    },
+    {
+      "value": "PAE0131",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI S. SUSANNA."
+    },
+    {
+      "value": "PAE0132",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA DENOMINATA TRE COLLI DI ORIA SITA NEL COMUNE DI ORIA."
+    },
+    {
+      "value": "PAE0133",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI ORIA."
+    },
+    {
+      "value": "PAE0134",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA SALENTINA RICADENTE NEI COMUNI DI LECCE, VERNOLE, MELENDUGNO E OTRANTO."
+    },
+    {
+      "value": "PAE0135",
+      "description": "INTEGRAZIONE DI DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO RIGUARDANTE IL TRATTO DI COSTA ADRIATICA E IONICA DAL LIMITE SUD DELL`ABITATO DI OTRANTO (MARE ADRIATICO) AL CONFINE CON LA PROVINCIA DI TA."
+    },
+    {
+      "value": "PAE0136",
+      "description": "INTEGRAZIONE DELLA DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI ACAIA SITA NEL COMUNE DI VERNOLE."
+    },
+    {
+      "value": "PAE0137",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COLLINA DELLA MADONNA DELLA CAMPANA SITA NEL COMUNE DI CASARANO."
+    },
+    {
+      "value": "PAE0138",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLA SERRA MUCORONE SITA NEI COMUNI DI SUPERSANO E RUFFANO."
+    },
+    {
+      "value": "PAE0139",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA COSTA OCCIDENTALE JONICA RICADENTE NEI COMUNI DI GINOSA, CASTELLANETA, PALAGIANO, MASSAFRA E TARANTO."
+    },
+    {
+      "value": "PAE0140",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA DEL MAR PICCOLO NEL COMUNE DI TARANTO."
+    },
+    {
+      "value": "PAE0141",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA JONICA RICADENTE NEL COMUNE DI TARANTO."
+    },
+    {
+      "value": "PAE0142",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA FASCIA COSTIERA ORIENTALE JONICA-SALENTINA SITA NEI COMUNI DI TARANTO, LEPORANO, PULSANO, LIZZANO, TORRICELLA, MARUGGIO E MANDURIA."
+    },
+    {
+      "value": "PAE0143",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELL`INTERO TERRITORIO DELLE ISOLE CHERADI."
+    },
+    {
+      "value": "PAE0144",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COLLINARE DI MONTE S. ANGELO SITA NEI COMUNI DI TARANTO E CRISPIANO."
+    },
+    {
+      "value": "PAE0145",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COLLINARE FAGGIANO-SAN GIORGIO JONICO SITA NEI COMUNI DI SAN GIORGIO JONICO, FAGGIANO E ROCCAFORZATA."
+    },
+    {
+      "value": "PAE0146",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA COMPRENDENTE LA GRAVINA DI GINOSA SITA NEI COMUNI DI GINOSA E LATERZA."
+    },
+    {
+      "value": "PAE0147",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA COMPRENDENTE LA GRAVINA DI LATERZA."
+    },
+    {
+      "value": "PAE0148",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COMPRENDENTE LA GRAVINA DI PALAGIANELLO E DI SAN BIAGIO. SITA NEI COMUNI DI PALAGIANELLO E MOTTOLA."
+    },
+    {
+      "value": "PAE0149",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DI GRAVINA DI CASTELLANETA RICADENTE NEI COMUNI DI CASTELLANETA E MOTTOLA."
+    },
+    {
+      "value": "PAE0150",
+      "description": "INTEGRAZIONE DELLE DICHIARAZIONI DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLE GRAVINE DI PETRUSCIO, CAPO GAVITO, GIULIENO, PORTICO DEL LADRO, COLOMBATO, MADONNA DELLA SCALA E S. MARCO SITA NEI COMUNI DI MASSAFRA E MOTTOLA."
+    },
+    {
+      "value": "PAE0151",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA COMPRENDENTE LA GRAVINA DI MAZZARACCHIO SITA NEL COMUNE DI TARANTO."
+    },
+    {
+      "value": "PAE0152",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA COMPRENDENTE LE GRAVINE DI LEUCASPIDE, TRIGLIE E AMASTUOLA, RICADENTI NEI COMUNI DI TARANTO E CRISPIANO."
+    },
+    {
+      "value": "PAE0153",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DELLA ZONA DELLA GRAVINA LAMA DI PENSIERO SITA NEL COMUNE DI GROTTAGLIE."
+    },
+    {
+      "value": "PAE0154",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO PER PARTE DELLA FASCIA COSTIERA E DELLE LAME A SUD IN LOCALITA` CAPITOLO NEL COMUNE DI MONOPOLI."
+    },
+    {
+      "value": "PAE0155",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA SITA NEL COMUNE DI BARI - VILLA ROMANAZZI."
+    },
+    {
+      "value": "PAE0156",
+      "description": "DICHIARAZIONE DI NOTEVOLE INTERESSE PUBBLICO DI UNA ZONA IN COMUNE DI CORIGLIANO D`OTRANTO."
+    }
+  ],
+  "ucpPaesaggio": [
+    {
+      "value": "PAERUR0002",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione della Valle dei Trulli"
+    },
+    {
+      "value": "PAERUR0003",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione delle Serre Salentine"
+    },
+    {
+      "value": "PAERUR0004",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione Li Paduli"
+    },
+    {
+      "value": "PAERUR0005",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione delle Torri e dei Casali del Nord barese"
+    },
+    {
+      "value": "PAERUR0006",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione degli Ulivi Monumentali"
+    },
+    {
+      "value": "PAERUR0001",
+      "description": "Parco Agricolo Multifunzionale di Valorizzazione del Cervaro"
+    }
+  ],
+  "ruoloDitta": [
+    {
+      "value": 1,
+      "description": "Rappresentante legale"
+    },
+    {
+      "value": 3,
+      "description": "Altro"
+    }
+  ]
+}

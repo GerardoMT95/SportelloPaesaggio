@@ -1,0 +1,108 @@
+ <app-rows-number-handler
+  [itemsTotal]="totalRecords" [totalRecords]="tableData.length"
+  [init-rows]="tableSearch.limit"
+   [page]="tableSearch.page" 
+   (change)="loadLazy($event)"
+   [customElement]="customElement"
+   ><ng-template #customElement>
+     <div class="float-right">
+       <b (click)="navigateToCreate()" class="bttn btn btn-primary">{{ 'BUTTONS.REGISTER_NEW_FASCICOLO' | translate }}
+           <fa-icon icon="plus"></fa-icon></b>
+       
+     </div>
+   </ng-template>
+ </app-rows-number-handler>
+
+
+<!--<div class="containerBtnAggiuntivi mtop20 dflex align-items-center">
+  <div class="col text-right nop">
+    <b (click)="navigateToCreate()" class="bttn btn btn-primary">{{ 'BUTTONS.REGISTER_NEW_FASCICOLO' | translate }}
+      <fa-icon icon="plus"></fa-icon></b>
+  </div>
+</div>-->
+<div class="row tableContainer">
+  <p-table #tt [columns]="fascioloTableHeaders" 
+  [value]="tableData" [paginator]="false" 
+  [rows]="tableSearch.limit" 
+  class="mb-2"
+    [lazy]="true" [totalRecords]="totalRecords" 
+    [loading]="loading" 
+    [(first)]="first"
+    (onLazyLoad)="loadLazyFromPtable($event)"
+    >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th [ngStyle]="{ width: col.width ? col.width + '%' : '' }" *ngFor="let col of columns"
+          [pSortableColumn]="col.field" [ngSwitch]="col.field" 
+          [pSortableColumnDisabled]="col.field === 'displayButton' || col.field === 'enteDelegato' ">
+          {{ col.header | translate }}
+          <p-sortIcon *ngIf="col.field !== 'displayButton' && col.field !== 'enteDelegato' " [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+      <tr *ngIf="tableData.length > 0">
+        <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate">
+          <ng-container
+            *ngIf="col.field !== 'displayButton' && col.field !== 'tipoProcedimento' && col.field !== 'attivitaDaEspletare' && col.field !== 'enteDelegato'">
+            {{rowData[col.field]}}
+          </ng-container>
+          <ng-container *ngIf="col.field === 'enteDelegato'">
+            {{getEnteDelegatoFromMetadata(rowData[col.field])}}
+          </ng-container>
+          <ng-container *ngIf="col.field === 'tipoProcedimento'">
+            {{getTipoProcedimentoFromMetadata(rowData[col.field])}}
+          </ng-container>
+          <ng-container *ngIf="col.field === 'attivitaDaEspletare'">
+            {{ attivitaDaEspletareEnumLabels.get(rowData[col.field])}}
+            <!-- qui dettaglio anche la vera attività da espletare mettendo le label dei 3 stati degli endoprocessi-->
+            <ul style="padding-left: 0.7em;" *ngIf="rowData['statoRelazioneEnte'] && statiLavorazione.includes(rowData['attivitaDaEspletare'])">
+              <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoSedutaCommissione.'+rowData['statoSedutaCommissione']|translate}}</li>
+              <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoRelazioneEnte.'+rowData['statoRelazioneEnte']|translate}}</li>
+              <li class="small" style="word-break: normal;">{{ 'ENDOSTATI.statoParereSoprintendenza.'+rowData['statoParereSoprintendenza']|translate}}</li>
+            </ul>
+          </ng-container>
+          <ng-container *ngIf="col.field === 'displayButton'">
+            <div class="align-buttons">
+              <ng-container *ngIf="canEdit(rowData)">
+                <button data-toggle="tooltip" data-placement="top" type="button" class="bttn bttn-table btn btn-edit" tooltipPosition="left"
+                  placement="left" delay="500" (click)="navigate(rowData)">
+                  <em class="fa fa-pencil" aria-hidden="true"></em>
+                </button>
+                <button data-toggle="tooltip" data-placement="top" type="button" class="bttn bttn-table btn btn-danger" tooltipPosition="left"
+                  placement="left" delay="500" (click)="delete(rowData['codicePraticaAppptr'])">
+                  <em class="fa fa-trash" aria-hidden="true"></em>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="!canEdit(rowData)">
+                <button data-toggle="tooltip" data-placement="top" class="bttn bttn-table btn btn-success" type="button" placement="left"
+                  delay="500" (click)="navigate(rowData)">
+                  <em class="fa fa-eye" aria-hidden="true"></em>
+                </button>
+                
+              </ng-container>
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns>
+      <tr>
+          <td [attr.colspan]="columns.length">
+              <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="tableSearch.limit" (pageChange)="loadLazy({page: $event})"
+                  [(page)]="tableSearch.page" aria-label="Default pagination">
+              </ngb-pagination>
+          </td>
+      </tr>
+  </ng-template>
+  </p-table>
+  <!-- <p-paginator
+#paginator
+[rows]="5"
+[totalRecords]="tableData ? tableData.count : 0"
+[rowsPerPageOptions]="[5, 10, 20]"
+(onPageChange)="paginate($event)"
+*ngIf="tableData.list.length > 0"
+></p-paginator> -->
+</div>

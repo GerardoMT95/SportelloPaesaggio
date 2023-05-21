@@ -1,0 +1,10 @@
+<ng-container *ngIf="richieste && richieste.length > 0">
+    <div *ngFor="let item of richieste" style="padding-bottom: 2.2em;">
+        <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up"><!-- "ATTIVAZIONE" | "SOSPENSIONE" | "ARCHIVIAZIONE"; -->
+            <p-accordionTab header="{{ (item.type === 'ATTIVAZIONE' ? ('fascicolo.storico_sa.dettAtt' | translate) : item.type === 'ARCHIVIAZIONE' ? 
+                            ('fascicolo.storico_sa.dettArc' | translate) : ('fascicolo.storico_sa.dettSosp' | translate)) + ' ' + (item.data | date: 'dd/MM/yyyy') }}">
+                <app-gestione-stato-pratica [disabled]="true" [data]="item" (download)="downloadAttachment($event)"></app-gestione-stato-pratica>
+            </p-accordionTab>
+        </p-accordion>
+    </div>
+</ng-container>

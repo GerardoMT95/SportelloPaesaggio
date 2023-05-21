@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Istanza_Pratica" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="3ac069af-c8d9-4c82-9c22-2422e0491a89">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="DefaultFontStyle" isDefault="true" fontName="CustomArial"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="descrizione" class="java.lang.String">
+		<fieldDescription><![CDATA[descrizione]]></fieldDescription>
+	</field>
+	<field name="codice" class="java.lang.String">
+		<fieldDescription><![CDATA[codice]]></fieldDescription>
+	</field>
+	<field name="descrstampatitolo" class="java.lang.String">
+		<fieldDescription><![CDATA[descrstampatitolo]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="230" splitType="Immediate">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="313" y="5" width="210" height="149" uuid="75ae6095-53f9-40f7-90db-8e951308115f">
+					<property name="local_mesure_unitheight" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="5" width="313" height="149" uuid="95407415-88ba-4d41-b65b-2aafe4e1ac01">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="321" y="85" width="186" height="23" uuid="842c3182-855f-4bbb-b7e2-b4359957f50e">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[protocollo ___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="112" width="294" height="29" forecolor="#544E4E" uuid="91b9e6c2-4dac-49d2-8f30-6b6ae92fabf2">
+					<property name="local_mesure_unity" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[!$F{codice}.equals( "2" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[da compilare a cura del richiedente solo nel caso di intervento non soggetto a procedura edilizia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="39" width="186" height="23" uuid="ec8cc557-1d6f-4fcc-b39f-22e51ac0f441">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[n. _________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="85" width="276" height="23" uuid="291723b3-106e-442d-ad7b-e4e2a67a34ce"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[P E C  _______________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="62" width="276" height="23" uuid="6c80183e-9665-4816-8dda-fc52ac569412"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Indirizzo _____________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="108" width="186" height="29" forecolor="#544E4E" uuid="371911bb-0d1e-4512-b056-f2519f6dc6c0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[da compilare a cura dell'ente delegato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="39" width="276" height="23" uuid="98bc2cf0-3c96-41b0-b88a-8641ec555bdd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[_____________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="9" width="143" height="30" uuid="2c2b2f3d-a676-4a6f-a77f-4aa5892aa609">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Destinatario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="62" width="186" height="23" uuid="4e6bc54d-d78e-4b65-8e8f-6b14522a2030">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[del ________________________________]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="42" y="179" width="452" height="50" uuid="741b5197-e669-4e58-8ac8-5e7dd820957f">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="html">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descrizione}.replace( "PER INTERVENTI ED OPERE", "<br/><font size='1'><i>PER INTERVENTI ED OPERE" ).replace("42/2004","42/2004</i><br/>").replace("]","]</font>")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="9" width="193" height="30" uuid="ec312d73-da5b-4536-ba1f-ef17da6eb808">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descrstampatitolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="223" y="158" width="90" height="20" uuid="1f8836e4-944c-4ac4-8066-3553922a7b8d">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ISTANZA DI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="108" width="306" height="46" forecolor="#544E4E" uuid="dc50a73b-90f8-4725-8403-7e5579d02fe1">
+					<property name="local_mesure_unity" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{codice}.equalsIgnoreCase( "2" )]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="html">
+					<font size="8" isItalic="true" isUnderline="true" pdfEncoding=""/>
+				</textElement>
+				<text><![CDATA[Ai sensi dell'art 9 del Dpr 31/2017 l'istanza va presentata:<BR> - al SUE nel caso di interventi edilizi ai sensi del Dpr 380/2001;<BR>- al SUAP nel caso di interventi per attività produttive di cui al Dpr160/2010;<BR>- all'amministrazione delegata all'esercizio delle funzioni paesaggistiche nei restanti casi]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

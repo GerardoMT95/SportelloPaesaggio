@@ -1,0 +1,29 @@
+.margin-top{
+    margin-top: 35px;
+  }
+  .div-style{
+    background-color: #F3F3F3;
+    display: inline-block;
+    position: relative;
+    padding: 8px 15px;
+    color: #383838;
+    top: -38px;
+    left: 15px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .inline-text{
+    display: inline-block !important;
+  }
+  .inline{
+    display: inline-flex !important;
+  }
+  .label-style{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  

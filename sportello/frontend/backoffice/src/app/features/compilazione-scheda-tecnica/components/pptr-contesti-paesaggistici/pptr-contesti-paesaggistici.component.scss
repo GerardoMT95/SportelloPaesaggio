@@ -1,0 +1,54 @@
+.ui-table table {
+  table-layout: auto;
+}
+
+.table {
+  table-layout: fixed;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+
+  td, th {
+      vertical-align: middle;
+  }
+}
+.parent-container {
+  padding: 0;
+  border: 0;
+  width: 100.1%;
+  > table {
+    border: none;
+    margin: 0;
+    width: 100.1%;
+    thead {
+      th {
+        border-bottom-width: 0 !important;
+      }
+    }
+  }
+}
+
+.table-bordered thead th {
+  border-bottom-width: 0;
+}
+
+.table-bordered {
+  border: 0;
+}
+
+.parent-title {
+  background: #eaeaea;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  > td {
+    border: 0;
+  }
+}
+
+.child-title {
+  background: whitesmoke;
+}
+
+thead {
+  background: #dfdfdf;
+}

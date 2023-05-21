@@ -1,0 +1,229 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+    [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+    [title]="alertData.title">
+</app-alert>
+<div class="container-fluid nop mtop50">
+    <div *ngIf="formConfigurazione" [formGroup]="formConfigurazione">
+        <div class="row noml nomr mb10">
+            <div class="bordered full-width ">
+                <div class="bordered-title ">
+                    {{'admin.attCamp'|translate}}:
+                    <p-toggleButton formControlName="campionamentoAttivo" offLabel="Off" onLabel="On"
+                        [onIcon]="'fa fa-check'" offIcon="fa fa-times" iconPos="right" (onChange)="evaluateDetails()"></p-toggleButton>
+                </div>
+                <div class="bordered-body">
+                    <ul class="mtop10" *ngIf="dettCampionamento">
+                        <li>
+                            <div class="form-group form-inline">
+                                <label for="campionamentoIntervalloGG">
+                                    {{'admin.intCamp'|translate}}</label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <input class="form-control" type="number" min="0"
+                                        maxlength="5" formControlName="intervalloCampionamento">
+                                    <div class="input-group-text nobr">Giorni</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group form-inline">
+                                <label for="verificaIntervalloGG">
+                                    {{'admin.intVer'|translate}}</label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <input class="form-control" type="number" min="0" maxlength="5" formControlName="intervalloVerifica">
+                                    <div class="input-group-text nobr">Giorni</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group form-inline">
+                                <label for="giorniNotificaCampionamento">
+                                    {{'admin.notCamp'|translate}}</label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <input class="form-control" type="text" formControlName="giorniNotificaCampionamento">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group form-inline">
+                                <label for="giorniNotificaVerifica">
+                                    {{'admin.notVer'|translate}}</label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <input class="form-control" type="text" formControlName="giorniNotificaVerifica">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label>{{'admin.campSucc'|translate}}</label>
+                            <div class="form-group">
+                                <div class="radio inline row" style="margin-left: 0;" *ngFor="let item of campSuccessivo">
+                                    <label class="nouppercase-text col-md-12">
+                                        <input type="radio" value="{{item.value}}"
+                                            [ngClass]="{'is-invalid': formConfigurazione['controls'].tipoCampionamentoSuccessivo.errors }"
+                                            formControlName="tipoCampionamentoSuccessivo" />
+                                        <span class="cr"><i class="cr-icon"></i></span>
+                                        {{item.label}}
+                                    </label>
+                                </div>
+                                <div *ngIf=" formConfigurazione['controls'].tipoCampionamentoSuccessivo.errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="formConfigurazione['controls'].tipoCampionamentoSuccessivo.errors.required">
+                                        {{'generic.required'|translate}}</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group form-inline">
+                                <label for="campionamentoPercentuale">
+                                    {{'admin.percIst'|translate}} </label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <input class="form-control" type="number" min="0"
+                                        max="100" maxlength="5" formControlName="percentualeIstanze">
+                                    <div class="input-group-text nobr">%</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group dflex">
+                                <label for="campionamentoPubblico">
+                                    {{'admin.campPubb'|translate}} </label>&nbsp;&nbsp;
+                                <div class="input-group">
+                                    <p-checkbox [formControl]="formConfigurazione['controls'].esitoPubblico" [binary]="true"></p-checkbox>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row noml nomr mb10">
+            <div class="bordered full-width ">
+                <div class="bordered-title ">
+                    {{'admin.attComunic'|translate}}
+                    <p-toggleButton formControlName="comunicazioniAttivo" offLabel="Off" onLabel="On"
+                        [onIcon]="'fa fa-check'" offIcon="fa fa-times" iconPos="right" (onChange)="evaluateDetails()"></p-toggleButton>
+                </div>
+                <div class="bordered-body">
+                    <div class="row ml-3 nomr">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group" *ngIf="dettComunicazioni">
+                                <label for="listaAbilitatiComunicazioni">
+                                    {{'admin.abilitatoPer'|translate}}</label>
+                                <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}"
+                                    class="dflex text-left" [options]="groups"
+                                    formControlName="comunicazioni" optionLabel="label"
+                                    [defaultLabel]="'generic.selezionaunavoce'|translate"></p-multiSelect>
+                                <div *ngIf="formConfigurazione['controls'].comunicazioni.errors"
+                                    class="invalid-feedback">
+                                    <div
+                                        *ngIf="formConfigurazione['controls'].comunicazioni.errors.required">
+                                        {{'generic.required'|translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="false" class="row noml nomr mb10">
+            <div class="bordered full-width ">
+                <div class="bordered-title ">
+                    {{'admin.attOsserv'|translate}}:
+                    <p-toggleButton formControlName="osservazioniAttivo" offLabel="Off" onLabel="On"
+                        [onIcon]="'fa fa-check'" offIcon="fa fa-times" iconPos="right" (onChange)="evaluateDetails()"></p-toggleButton>
+                </div>
+                <div class="bordered-body">
+                    <div class="row ml-3 nomr">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group" *ngIf="dettOsservazioni">
+                                <label for="listaAbilitatiOsservazioni">
+                                    {{'admin.abilitatoPer'|translate}}</label>
+                                <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}"
+                                    class="dflex text-left" [options]="groups"
+                                    formControlName="osservazioni" optionLabel="label"
+                                    [defaultLabel]="'generic.selezionaunavoce'|translate"></p-multiSelect>
+                                <div *ngIf="formConfigurazione['controls'].osservazioni.errors"
+                                    class="invalid-feedback">
+                                    <div
+                                        *ngIf="formConfigurazione['controls'].osservazioni.errors.required">
+                                        {{'generic.required'|translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row noml nomr mb10">
+            <div class="bordered full-width ">
+                <div class="bordered-title ">
+                    {{'admin.attUltDoc'|translate}}:
+                    <p-toggleButton formControlName="documentazioneAttivo" offLabel="Off" onLabel="On" [onIcon]="'fa fa-check'"
+                        offIcon="fa fa-times" iconPos="right" (onChange)="evaluateDetails()"></p-toggleButton>
+                </div>
+                <div class="bordered-body">
+                    <div class="row ml-3 nomr">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group" *ngIf="dettUltDoc">
+                                <label for="listaAbilitatiUltDocum">
+                                    {{'admin.abilitatoPer'|translate}}</label>
+                                <p-multiSelect selectedItemsLabel="{0} {{'generic.itemsSelezionati'|translate}}"
+                                    class="dflex text-left" [options]="groups"
+                                    formControlName="documentazione" optionLabel="label"
+                                    [defaultLabel]="'generic.selezionaunavoce'|translate"></p-multiSelect>
+                                <div *ngIf="formConfigurazione['controls'].documentazione.errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="formConfigurazione['controls'].documentazione.errors.required">
+                                        {{'generic.required'|translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row noml nomr mb10">
+            <div class="bordered full-width ">
+                <div class="bordered-title ">
+                    {{'admin.area_pubblica'|translate}}:
+                </div>
+                <div class="bordered-body">
+                    <div class="row ml-3 nomr">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group dflex">
+                                <label for="statoRegistrazione">
+                                    {{'admin.statoRegistrazione'|translate}} </label>&nbsp;&nbsp;
+                                <p-checkbox [formControl]="formConfigurazione['controls'].statoRegistrazione" [binary]="true"></p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-3 nomr">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group dflex">
+                                <label for="esitoVerifica">
+                                    {{'admin.esitoVerifica'|translate}} </label>&nbsp;&nbsp;
+                                <p-checkbox [formControl]="formConfigurazione['controls'].esitoVerifica" [binary]="true"></p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row noml nomr mb10" style="height:50px">
+            <!--serve per colmare lo spazio della pulsantiera-->
+        </div>
+        <div class="row noml nomr">
+            <div class="text-center inner-pulsantiera">
+                <button type="button" (click)="doSalva()"
+                    class="bttn btn btn-primary">{{'generic.salva'|translate}}</button>
+                <button type="button" (click)="reset()"
+                    class="bttn btn btn-primary">{{'generic.annulla'|translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

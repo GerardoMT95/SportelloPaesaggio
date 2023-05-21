@@ -1,0 +1,40 @@
+<form [formGroup]="mainForm.controls['eventualiProcedimenti']" *ngIf="mainForm.controls['eventualiProcedimenti'] as fgEp">
+<div class="pt-4 pb-3 ml-3 mr-3">
+  
+  <div class="row">
+    <div class="col-md-6 mt-1">
+      <app-radio-field
+        [label]="('PROCEEDINGS_TAB.PROCEEDINGS_RADIO_LABEL' | translate) + '*'"
+        [tooltip]="('PROCEEDINGS_TAB.PROCEEDINGS_TOOLTIP' | translate)"
+        [radioLabel]="'PROCEEDINGS_TAB.NO' | translate | uppercase"
+        [radioValue]="false"
+        [name]="'contenzisoAtto'"
+        class="mt-1"
+        formControlName="contenzisoAtto"
+      ></app-radio-field>
+      <app-radio-field
+        [radioLabel]="'PROCEEDINGS_TAB.YES' | translate | uppercase"
+        [radioValue]="true"
+        [name]="'contenzisoAtto'"
+        class="mt-1"
+        formControlName="contenzisoAtto"
+        [validation]="validation"
+              [errors]="fgEp.get('contenzisoAtto').errors"
+      ></app-radio-field>
+    </div>
+  </div>
+  
+  <div class="row" *ngIf="showDescrizione">
+    <div class="col">
+      <app-textarea-field
+        id="descrizione"
+        [name]="'descrizione'"
+        [label]="('PROCEEDINGS_TAB.DESCRIPTION' | translate) + '*'"
+        formControlName="descrizione"
+        [validation]="validation"
+        [errors]="fgEp.get('descrizione').errors"
+      ></app-textarea-field>
+    </div>
+  </div>
+</div>
+</form>

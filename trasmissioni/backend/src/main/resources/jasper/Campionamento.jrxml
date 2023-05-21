@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ComunicazionePianiSelezionati" pageWidth="595" pageHeight="841" columnWidth="437" leftMargin="83" rightMargin="75" topMargin="37" bottomMargin="22" whenResourceMissingType="Empty" uuid="7b058aa2-4c4c-4e3e-b897-38f0a61506b6">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["jasper/"]]></defaultValueExpression>
+	</parameter>
+	<field name="destinatariTO" class="java.util.List"/>
+	<field name="destinatariCC" class="java.util.List"/>
+	<field name="listAll" class="java.util.List"/>
+	<field name="listSelected" class="java.util.List"/>
+	<field name="listNotSelected" class="java.util.List"/>
+	<field name="footerFields" class="java.util.List"/>
+	<field name="firmaFields" class="java.util.List"/>
+	<field name="numeroProtocolo" class="java.lang.String"/>
+	<field name="dataRegistrazionePrimoPiano" class="java.lang.String"/>
+	<field name="dataRegistrazionePrimoPiano28" class="java.lang.String"/>
+	<field name="dataProtocolo" class="java.lang.String"/>
+	<field name="dipartimento" class="java.lang.String"/>
+	<field name="sezione" class="java.lang.String"/>
+	<field name="dirigente" class="java.lang.String"/>
+	<field name="sezionaleProtocollo" class="java.lang.String"/>
+	<field name="sezioniDinamiche" class="java.util.Map"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="49" width="437" height="18" isPrintWhenDetailOverflows="true" uuid="e20f0bd4-a6d7-4a8f-840d-07a94528d451">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="CustomArial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGIONE PUGLIA]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="0" y="67" width="437" height="11" uuid="2a64c5ac-66df-4e84-abcb-b8ca892a3313"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Dipartimento")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="0" y="79" width="437" height="11" uuid="f5cc32dd-5637-4c4a-81a7-80f13827b7be"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Intestazione")]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="184" y="-10" width="60" height="52" uuid="45be0630-dd5a-4cd0-8b9b-b5d07e148255"/>
+				<imageExpression><![CDATA[javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode((String)$F{sezioniDinamiche}.get("Logo"))));]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="596" splitType="Stretch">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="2" width="437" height="20" uuid="d2a340d1-bb80-495f-99e9-1d482927ee46"/>
+				<textElement>
+					<font fontName="CustomTimes" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Protocollo uscita: "+$F{numeroProtocolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="30" width="138" height="50" uuid="f5473cb0-90d7-47e5-908e-303d337d1582"/>
+				<box padding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9"/>
+				</textElement>
+				<text><![CDATA[Si trasmette esclusivamente per via telematica ai sensi dell'art. 43 del 
+d.p.r. 445/2000 e s.m.i. e dell'art. 47 del d.lgs. 82/2005 e s.m.i.]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="426" width="437" height="75" uuid="e5b5cea2-09d4-4252-832b-d717378eb420"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="CustomTimes" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Introduzione")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="510" width="437" height="47" uuid="79e464ea-4314-42db-95e8-f0ff7ecdc021"/>
+				<textElement textAlignment="Justified">
+					<font fontName="CustomTimes" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("IntroTabella1")]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="320" width="437" height="97" isRemoveLineWhenBlank="true" uuid="3532ec46-e1f2-4868-8bb2-129ab8896847"/>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement positionType="Float" mode="Transparent" x="60" y="0" width="377" height="97" uuid="a0116c92-efa0-491e-a758-532969e114c9"/>
+					<textElement textAlignment="Justified" markup="html">
+						<font fontName="CustomTimes" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Oggetto")]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement positionType="Float" mode="Transparent" x="0" y="0" width="60" height="30" isPrintWhenDetailOverflows="true" uuid="a76957d6-18f8-4f5e-a8a1-d5d90fe5bf86"/>
+					<textElement>
+						<font fontName="CustomTimes" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Oggetto:"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport overflowType="Stretch">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="120" width="437" height="40" uuid="54d31e14-22c4-4680-aaa8-8c94cc1d5f33">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{destinatariTO})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Campionamento_destinatariList.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="197" width="437" height="40" uuid="8011dae4-ca83-4136-933a-36bb4e0b9db0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{destinatariCC})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Campionamento_destinatariList.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="177" width="437" height="20" uuid="0d7bee13-5165-49a6-af51-8aea4326caf4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="CustomTimes" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["p.c."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="728">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport isUsingCache="false">
+				<reportElement mode="Transparent" x="0" y="31" width="437" height="62" uuid="04ab1709-4067-450d-ae51-0e8af8aad83e"/>
+				<subreportParameter name="onlycheckedRows">
+					<subreportParameterExpression><![CDATA[true]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listAll})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Campionamento_listaFascicoli.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="112" width="437" height="100" uuid="fb1309f9-bb26-4db5-8750-f43babf42ddf">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="CustomTimes" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("IntroParametriSelezione")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="242" width="437" height="70" uuid="a24cdb48-7c7e-4768-9dd4-a21254adbd80"/>
+				<textElement textAlignment="Justified">
+					<font fontName="CustomTimes" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("IntroTabella2")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="-34" width="62" height="65" uuid="d5cc3110-c7ea-4761-b2f5-5e250f364b00">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Codice Pratica"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="124" y="-34" width="62" height="65" uuid="1612d2cf-e2a7-47ee-9313-3901a7488107">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oggetto Intervento"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="186" y="-34" width="62" height="65" uuid="e29e9cbe-e633-495e-a2dc-85fa8e0f4caf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tipo Procedimento"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" mode="Transparent" x="248" y="-34" width="65" height="65" uuid="2b8d1e7e-ed20-4fdd-b7e5-b1ef3bb3ecda">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Provvedimento ed Esito"]]></textFieldExpression>
+			</textField>
+			<subreport isUsingCache="false" overflowType="Stretch">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="385" width="437" height="70" uuid="5741a529-8c5b-488d-8e83-eeca4fda5a48">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listSelected})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Campionamento_listaFascicoli.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="472" width="437" height="58" uuid="272a9856-3492-454d-a8e9-c6447e76cc70"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="CustomTimes" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("FraseAvvioVerifiche");]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="62" y="-34" width="62" height="65" uuid="9a204d3a-5380-4ba6-9322-66d2562c4664">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Autorita' Procedente"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="313" y="-34" width="62" height="65" uuid="30057679-879b-4573-9793-deda9a7c0f7a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RUP"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="375" y="-34" width="62" height="65" uuid="225cf223-04ad-49d2-a99a-14955480c949">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Trasmesso in data"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="320" width="62" height="65" uuid="a8811af8-848c-4482-9cf2-199fef2b9757">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Codice Pratica"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="124" y="320" width="62" height="65" uuid="44083bf1-6e9b-4d02-9037-f87bfb23dda6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oggetto Intervento"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="186" y="320" width="62" height="65" uuid="3de08bcb-dcac-4220-b829-38949a871ed2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tipo Procedimento"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" mode="Transparent" x="248" y="320" width="65" height="65" uuid="dee26584-5dec-474f-823d-9d5b54a5e33e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Provvedimento ed Esito"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="62" y="320" width="62" height="65" uuid="249e0751-f9df-470a-8d07-52f69589d293">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Autorita' Procedente"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="313" y="320" width="62" height="65" uuid="8896926d-8e8b-4c20-9b1d-8ec583a8b1ca">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RUP"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="375" y="320" width="62" height="65" uuid="852396e3-16ea-4403-a13b-656495f7f75d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Trasmesso in data"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="488">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="-177" width="437" height="48" uuid="31e21277-9dc4-41b0-9638-f2af42188593"/>
+				<textElement>
+					<font fontName="CustomTimes" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("IntroNonSelezionate")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="240" width="437" height="60" uuid="e5775672-8e2e-465a-95e3-92fbd6656d03"/>
+				<textElement>
+					<font fontName="CustomTimes" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("IntroTabella3")]]></textFieldExpression>
+			</textField>
+			<subreport isUsingCache="false">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="369" width="437" height="70" uuid="f16aa885-33b2-4646-8b9c-c4e8ba5d3c29">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listNotSelected})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Campionamento_listaFascicoli.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="304" width="62" height="65" uuid="4a7ab198-b252-4c1d-b106-9da5de3feb29">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Codice Pratica"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="124" y="304" width="62" height="65" uuid="ef181e02-429f-418d-97d6-99d71e5abeca">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oggetto Intervento"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="186" y="304" width="62" height="65" uuid="d641adc4-b001-43d6-b522-be78f9271f9a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tipo Procedimento"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" mode="Transparent" x="248" y="304" width="65" height="65" uuid="882d8014-6a51-4e2b-8113-1c7d1508f87b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Provvedimento ed Esito"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="62" y="304" width="62" height="65" uuid="834a6d0e-1b45-4356-b977-19fa2a32fc22">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Autorita' Procedente"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="313" y="304" width="62" height="65" uuid="e07f2aed-9c27-43b5-95af-6360ca6fdcce">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RUP"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="375" y="304" width="62" height="65" uuid="6776d68b-fec9-44c9-92c1-344af5c967a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomTimes" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Trasmesso in data"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="102">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="12" y="40" width="411" height="20" uuid="8828619f-48d7-4b31-8b7a-447044c7a73a"/>
+				<textElement textAlignment="Right">
+					<font fontName="CustomTimes" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("TitoloDirigente")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="8" width="401" height="21" uuid="89c893c3-f0ff-454b-bf56-2ab4535611c6"/>
+				<textElement>
+					<font fontName="CustomTimes"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("RestandoaDisposizione")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="60" width="191" height="21" uuid="3e6b9c89-1baa-4b81-8e4f-18adab90aa12"/>
+				<textElement textAlignment="Right">
+					<font fontName="CustomTimes" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("Dirigente")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="81" width="423" height="21" uuid="a9ce292e-5ad5-46e2-bff2-68c0c6c38fd1"/>
+				<textElement textAlignment="Left">
+					<font fontName="CustomTimes" isBold="false" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezioniDinamiche}.get("FraseFirmaAutografa")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="4" y="0" width="110" height="20" uuid="5c6ec055-0ad3-41c4-9624-06b9d1e408ad"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.regione.puglia.it]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="3" width="36" height="20" uuid="d64ed694-7096-4533-ad99-d3905d4e3144"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["pag. " + $V{PAGE_NUMBER} ]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="34" width="260" height="20" uuid="8bab74d3-496d-4639-b537-add637214d43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servizio Osservatorio e Pianificazione Paesaggistica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="19" width="355" height="19" uuid="f9caa1d7-ebb1-4930-9382-daa8c4895079"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<text><![CDATA[Via Gentile, 52 - 70126 Bari  pec: sezione.paesaggio@pec.rupar.puglia.it]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="400" y="3" width="36" height="20" uuid="190e37c1-141c-48a6-9b10-e7d9fe97cbd1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["/" + $V{PAGE_NUMBER} ]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

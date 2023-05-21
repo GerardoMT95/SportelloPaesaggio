@@ -1,0 +1,28 @@
+{
+  "casellaPostale": {
+    "indirizzoMail": "test_trasmissioni_pptr_collaudoaet@pec.rupar.puglia.it",
+    "nomeVisualizzato": "TEST TRASMISSIONE AUTORIZZAZIONI PPTR",
+    "password": "kuolYJffJJxZP75ah7oY0tcrGlMowPzv",
+    "pec": true,
+    "username": "test_trasmissioni_pptr_collaudoaet@pec.rupar.puglia.it"
+  },
+  "configurazioneMailIngresso": {
+    "host": "imaps.pec.rupar.puglia.it",
+    "imap": true,
+    "porta": 993,
+    "protocollo": "IMAP",
+    "richiedeSsl": true,
+    "richiedeStarttsl": false,
+    "richiedeAutenticazione" : true
+  },
+  "configurazioneMailUscita": {
+    "host": "mail.pec.rupar.puglia.it",
+    "portaSsl": 465,
+    "portaTls": 587,
+    "protocollo": "SMTP",
+    "richiedeSsl": true,
+    "richiedeTls": false,
+    "richiedeStarttsl": false,
+    "richiedeAutenticazione" : true
+  }
+}

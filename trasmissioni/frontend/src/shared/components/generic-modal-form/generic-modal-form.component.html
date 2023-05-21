@@ -1,0 +1,55 @@
+<p-dialog [visible]="visible" (onHide)="close()" [modal]="true" 
+  [draggable]="false" [width]="300" [resizable]="false" [closable]="false">
+  <p-header [innerHTML]="title|translate"></p-header>
+  <div *ngIf="errorMessage && errorMessage != ''">
+    <div class="invalid-feedback">{{errorMessage|translate}}</div><br/>
+  </div>
+  <div class="row nom" [formGroup]="form">
+    <ng-container *ngFor="let input of formConfiguration">
+      <div [ngClass]="{'col-lg-6 col-md-6 col-sm-12': nFields > 1 && input.type != 'hidden', 'col-12': nFields <= 1 && input.type != 'hidden'}">
+          <label for="{{input.formControlName}}">{{input.label|translate}}</label>
+          <span [ngSwitch]="input.type">
+              <p *ngSwitchCase="'hidden'"></p>
+              <p *ngSwitchCase="'checkbox'">
+                  <p-checkbox label="" [binary]="true" [formControl]="form.controls[input.formControlName]"
+                      [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></p-checkbox>
+                  <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                  </app-input-error>
+              </p>
+              <p *ngSwitchCase="'dropdown'">
+                  <!-- <p-dropdown [options]="input.options ? input.options : []" [formControlName]="input.formControlName" 
+                      placeholder="{{'-- Seleziona un elemento --'|translate}}" class="dflex" [readonly]="input.readonly"
+                      [filter]="input.filter" [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}">  
+                  </p-dropdown> -->
+                  <app-dropdown-field [formControlName]="input.formControlName" [label]="null" key="value" [options]="input.options ? input.options : []" 
+                    [filter]="true" [validation]="validation" optionLabel="label" [errors]="form.get(input.formControlName).errors">
+                  </app-dropdown-field>
+                  <!-- <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                  </app-input-error> -->
+              </p>
+              <p *ngSwitchCase="'date'">
+                  <app-date-picker-field [formControlName]="input.formControlName" [validation]="validation" [minDate]="input.mindate"
+                    [maxDate]="input.maxdate" [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}" 
+                    [errors]="form.get(input.formControlName).errors" [yearRange]="input.yearRange ? input.yearRange : '1900:2100'"></app-date-picker-field>
+              </p>
+              <p *ngSwitchDefault>
+                  <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                      [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                  <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                  </app-input-error>
+              </p>
+          </span>
+      </div>
+    </ng-container>
+  </div>
+  <p-footer >
+    <div class="footer-style">
+      <button type="button" class="bttn btn btn-primary" (click)="save()">{{'generic.salva'|translate}}
+        <fa-icon icon="check"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary" (click)="close()">{{'generic.chiudi'|translate}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+  </div>
+  </p-footer>
+</p-dialog>

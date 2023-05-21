@@ -1,0 +1,59 @@
+.inner-menu {
+  background: #fff;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  bottom: 0;
+  min-width: 300px;
+  transition: all 0.2s;
+  z-index: 1000;
+  box-shadow: 2px 7px 10px 0px rgba(0, 0, 0, 0.5);
+
+  > div {
+    background-color: #fbfbfb;
+    height: 37px;
+    text-align: right;
+  }
+
+  .close-btn {
+    background: transparent;
+    border: 0px solid;
+    font-size: 2rem !important;
+    line-height: 35px;
+    width: 40px;
+    vertical-align: middle;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  transition: all 0.4s;
+}
+.sidebar-show {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.sidebar-hide {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.menu-section-title {
+  padding: 0.5rem;
+  color: #fff;
+  background-color: green;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .inner-menu {
+    right: 0;
+    overflow: auto;
+  }
+
+  #closeButton {
+    color: #fff !important;
+    cursor: pointer;
+  }
+}

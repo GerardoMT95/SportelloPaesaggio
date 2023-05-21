@@ -1,0 +1,93 @@
+/* .esri-view {height: 500px;position: relative;}
+.mapLoader {position: absolute;top: 25px;left: 0;right: 0;background-color: rgba(255,255,255,0.5);z-index: 998;}
+.mapLoader p {position: absolute;top: 50%;left: 50%;background-color: #333;padding: 15px;color: #fff;width: 150px;height: 50px;margin-top: -25px;margin-left: -75px;text-align: center;}
+div#toolContainer {font-size: 0.8em;}
+.erroreLayer {position: absolute;top: 151px;left: 0px;z-index: 100;padding: 4px 8px;background-color: #F44336;color: #fff;font-size: 1.2em;width: 36px;}
+.closeMap {position: absolute;top: 111px;left: 0;z-index: 100;border-top: 1px solid #484848;}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.loader 
+{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 4px solid;
+    margin: -20px 10px -20px -20px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border-top-color: transparent;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+} */
+
+.esri-view {height: 500px;position: relative;}
+.mapLoader {position: absolute;top: 25px;left: 0;right: 0;background-color: rgba(255,255,255,0.5);z-index: 998;}
+.mapLoader p {position: absolute;top: 50%;left: 50%;background-color: #333;padding: 15px;color: #fff;width: 150px;height: 50px;margin-top: -25px;margin-left: -75px;text-align: center;}
+div#toolContainer {font-size: 0.8em;}
+.erroreLayer {position: absolute;top: 151px;left: 0px;z-index: 100;padding: 4px 8px;background-color: #F44336;color: #fff;font-size: 1.2em;width: 36px;}
+.closeMap {position: absolute;top: 111px;left: 0;z-index: 100;border-top: 1px solid #484848;}
+ 
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+ 
+.loader {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 4px solid;
+    margin: -20px 10px -20px -20px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border-top-color: transparent;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+ 
+.file-upload {
+    overflow: hidden;
+    display: inline-block;
+    position: relative; 
+    vertical-align: middle;
+    text-align: center;
+    background: #656565;
+    color: #fff;
+    cursor:pointer;
+    text-transform: none;
+  }
+    
+.file-upload:hover { 
+    background-color: #454545;
+    }
+ 
+.file-upload input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 70px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  z-index:2;
+    }
+ 
+.file-upload strong { 
+    font: normal 1em arial,sans-serif; 
+    }   
+    
+.file-upload span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+ 
+    padding-top: .45em;
+    }
+ 
+.file-upload { height: 3em; line-height: 25px;}
+.file-upload,.file-upload span {width: 100%; } 

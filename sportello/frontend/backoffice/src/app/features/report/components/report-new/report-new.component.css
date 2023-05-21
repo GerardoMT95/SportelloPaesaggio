@@ -1,0 +1,7 @@
+body div.ui-dialog.report{width:90% !important;}
+html body div.ui-dialog.report p-multiselect{width: 100% !important;}
+html body div.ui-dialog.report .ui-multiselect{width: 100% !important;}
+
+:host ::ng-deep p-dropdown, :host ::ng-deep p-dropdown .ui-dropdown, :host ::ng-deep p-multiselect, :host ::ng-deep p-multiselect .ui-multiselect {
+    width: 100%;
+}

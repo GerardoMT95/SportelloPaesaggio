@@ -1,0 +1,117 @@
+<div class="container-fluid mt-3">
+  <form [formGroup]="comunicazioneForm">
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-select-field
+        [label]="'SUPERINTENDENT_OPINION_TAB.COMUNICATION_MODAL.TYPE' | translate | uppercase"
+        [id]="'descrizione'"
+        [name]="'descrizione'"
+        formControlName="descrizione"
+        [options]="tipoComunicazioneList"
+      ></app-select-field>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-6">
+        <app-text-field
+        [label]="'SUPERINTENDENT_OPINION_TAB.COMUNICATION_MODAL.A' | translate | uppercase"
+        [id]="'a'"
+        [name]="'a'"
+        formControlName="a"
+      ></app-text-field>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-md-4">
+        <ng-container formArrayName="aggiungiDestinario" *ngFor="let destinatario of comunicazioneForm.get('aggiungiDestinario')['controls']; let i=index">
+          <ng-container [formGroupName]="i">
+      <app-text-field
+        [label]="'SUPERINTENDENT_OPINION_TAB.COMUNICATION_MODAL.OTHER_RECEPIENT' | translate | uppercase"
+        [id]="'recepient'"
+        [name]="'recepient'"
+        formControlName="recepient"
+      ></app-text-field>
+    </ng-container>
+    </ng-container>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <button [hidden]="mode==='VIEW'" type="button" class="bttn btn btn-primary" (click)="addAggiungiDestinario()">
+          {{'BUTTONS.ADD_RECEPIENT'|translate|uppercase}}
+          <fa-icon icon="plus"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <app-text-field
+        [label]="'FASCIOLO_FIELDS.FILE_CODE' | translate | uppercase"
+        [id]="'codiceFascicolo'"
+        [name]="'codiceFascicolo'"
+        formControlName="codiceFascicolo"
+      ></app-text-field>
+      </div>
+      <div class="col-md-9">
+        <app-text-field
+        [label]="'SUPERINTENDENT_OPINION_TAB.COMUNICATION_MODAL.SUBJECT' | translate | uppercase"
+        [id]="'oggetto'"
+        [name]="'oggetto'"
+        formControlName="oggetto"
+      ></app-text-field>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-textarea-field
+          [label]="'SUPERINTENDENT_OPINION_TAB.COMUNICATION_MODAL.TEXT' | translate | uppercase"
+          [id]="'testoTemplate'"
+          [name]="'testoTemplate'"
+          formControlName="testoTemplate"
+        ></app-textarea-field>
+        </div>
+      </div>
+      <div class="row">
+        <button
+        data-toggle="tooltip"
+        data-placement="top"
+        title=""
+        type="button"
+        class="btn btn-success ml-3"
+        pTooltip="{{ 'SUPERINTENDENT_OPINION_TAB.PREVIEW_BUTTON_TEXT' | translate }}"
+        tooltipPosition="right"
+        placement="left"
+        delay="500"
+      >
+        <em
+          class="fa fa-eye"
+          aria-hidden="true"
+        ></em>
+      </button>
+      </div>
+    <div class="row clearfix mt-3">
+      <div class="col-md-12 text-center mt-3 mb-1">
+      <button [hidden]="mode==='VIEW'" type="button" class="bttn btn btn-primary" (click)="saveDraft()">
+        {{'BUTTONS.SAVE_DRAFT'|translate|uppercase}}
+        <fa-icon icon="save"></fa-icon>
+      </button>
+      <button [hidden]="mode==='VIEW'" type="button" class="bttn btn btn-primary" (click)="sendMailWithoutProtocol()">
+        {{'BUTTONS.SEND_MAIL_WITHOUT_PROTOCOL'|translate|uppercase}}
+        <fa-icon icon="paper-plan"></fa-icon>
+      </button>
+      <button [hidden]="mode==='VIEW'" type="button" class="bttn btn btn-primary" (click)="sendMailAndProtocol()">
+        {{'BUTTONS.SEND_MAIL_AND_PROTOCOL'|translate|uppercase}}
+        <fa-icon icon="paper-plan"></fa-icon>
+      </button>
+      <button [hidden]="mode==='VIEW'" type="button" class="bttn btn btn-primary" (click)="sendMailAndProtocol()">
+        {{'BUTTONS.CANCEL_BUTTON'|translate|uppercase}}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+

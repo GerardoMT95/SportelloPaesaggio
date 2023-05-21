@@ -1,0 +1,2 @@
+CREATE UNIQUE INDEX tno_pptr_strumenti_urbanistici_istat_6_prov_idx ON 
+presentazione_istanza.tno_pptr_strumenti_urbanistici (istat_6_prov,tipo_strumento,data_modifica);

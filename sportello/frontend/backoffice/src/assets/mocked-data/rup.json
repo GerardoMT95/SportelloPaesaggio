@@ -1,0 +1,10 @@
+[
+    {
+        "codiceGruppo": "ED_TEST",
+        "username": [ "ente_delegato" ] 
+    },
+    {
+        "codiceGruppo": "REG_PU",
+        "username": [ "gestore_regione" ] 
+    }
+]

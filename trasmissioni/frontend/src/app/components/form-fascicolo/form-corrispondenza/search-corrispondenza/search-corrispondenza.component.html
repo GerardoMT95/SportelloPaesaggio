@@ -1,0 +1,99 @@
+<p-accordion [activeIndex]="index"  expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up" >
+  <p-accordionTab header="{{'generic.ricerca'|translate}}"  >
+    <div class="new-plan-form">
+      <form (ngSubmit)="onSubmit()" *ngIf="searchForm" 
+      [formGroup]="searchForm" class="text-left">
+        <div class="row noml nomr">
+          <div class="col-md-4 col-sm-12">
+            <div class="form-group">
+              <label for="mittente">{{'search.mittente'|translate}}</label>
+              <p-autoComplete class="form-control" 
+              (onClear)="onClearControl($event,'mittente')"
+                [minLength]="4" appendTo="body" [forceSelection]="false" 
+                [formControlName]="'mittente'"
+                field="label" [suggestions]="mittenteAutocomplete"
+                (completeMethod)="searchMittente($event)"></p-autoComplete>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 ci">
+            <div class="form-group">
+              <label for="destinatario">{{'search.destinatario'|translate}}</label>
+              <p-autoComplete class="form-control" 
+              (onClear)="onClearControl($event,'destinatario')"
+                [minLength]="4" appendTo="body" [forceSelection]="false" 
+                [formControlName]="'destinatario'"
+                field="label" [suggestions]="destinatarioAutocomplete"
+                (completeMethod)="searchDestinatario($event)"></p-autoComplete>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 ci">
+            <div class="form-group">
+              <label for="oggetto">{{'search.oggetto'|translate}}</label>
+              <p-autoComplete class="form-control" 
+              (onClear)="onClearControl($event,'oggetto')"
+                [minLength]="4" appendTo="body" [forceSelection]="false" 
+                [formControlName]="'oggetto'"
+                field="label" [suggestions]="oggettoAutocomplete"
+                (completeMethod)="searchOggetto($event)"></p-autoComplete>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="form-group">
+             
+            </div>
+          </div>
+        </div>
+        <div class="row noml nomr">
+          <div class="col-md-4 col-sm-12">
+            <div class="form-group">
+              <label for="dataInvioDa">{{'search.dataInvioDa'|translate}}</label>
+              <div class="input-group">
+                <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+                 yearRange="1900:{{MAX_YEAR}}"
+                  dateFormat="{{'generic.dateFormatCalendar'|translate}}" 
+                  class="form-control nop"
+                  formControlName="dataInvioDa"
+                   inputStyleClass="form-control" showButtonBar="true">
+                </p-calendar>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <fa-icon icon="calendar"></fa-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="form-group">
+              <label for="dataInvioA">{{'search.dataInvioA'|translate}}</label>
+              <div class="input-group">
+                <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+                 yearRange="1900:{{MAX_YEAR}}"
+                  dateFormat="{{'generic.dateFormatCalendar'|translate}}" 
+                  class="form-control nop"
+                  formControlName="dataInvioA"
+                   inputStyleClass="form-control" showButtonBar="true">
+                </p-calendar>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <fa-icon icon="calendar"></fa-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="ricercaPulsantieraContainer relative">
+          <div class="pulsantiera clearfix">
+            <button type="submit" class="bttn btn btn-primary">{{'generic.ricerca'|translate}}<fa-icon
+                icon="search"></fa-icon></button>
+            <button type="button" (click)="onReset()"
+             class="bttn btn btn-primary">{{'generic.annulla'|translate}}
+              <fa-icon icon="times"></fa-icon></button>
+          </div>
+        </div>
+      </form>
+</div>
+</p-accordionTab>
+</p-accordion>

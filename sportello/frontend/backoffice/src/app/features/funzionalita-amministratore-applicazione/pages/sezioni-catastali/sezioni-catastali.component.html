@@ -1,0 +1,147 @@
+<div class="container-fluid">
+  <!-- CONFIGURAZIONE SEZIONI CATASTALI -->
+  <div class="portlet-content-container" [hidden]="selected">
+    <div class="mtop20">
+      <!-- accordion form di ricerca-->
+      <p-accordion [activeIndex]="index" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+        <p-accordionTab header="{{'generic.ricerca'|translate}}">
+          <app-form-search [configuration]="configuration" [nColumns]="1" 
+            (onSearch)="ricerca($event)" (onReset)="resetFiltri()"></app-form-search>
+        </p-accordionTab>
+      </p-accordion>
+      <!--TABELLA  -->
+      <div class="dflex flex-wrap align-items-center" style="padding-top: 1.6em;">
+        <div class="nop">
+          <div class="input-group paginazione">
+            <div class="input-group-prepend">
+              <div class="input-group-text pretendColor">{{'generic.paginazione' | translate}}</div>
+            </div>
+            <p-dropdown class="dflex max100" (onChange)="changeRows($event.value)" [ngModel]="rowsOnPage"
+              [options]="pages" [autoWidth]="false"></p-dropdown>
+          </div>
+        </div>
+        <div class="" *ngIf="filters && itemsTotal > 0">
+          <p class="nom">{{'generic.da' | translate}} {{((filters.limit * filters.page) - filters.limit) + 1}}
+            {{'generic.a' | translate}}
+            <span *ngIf="filters.limit * filters.page < itemsTotal">{{filters.limit * filters.page}}</span>
+            <span *ngIf="filters.limit * filters.page >= itemsTotal">{{itemsTotal}}</span> di
+            {{itemsTotal}}</p>
+        </div>
+        <div class="flex-grow-1">
+        <div class="float-right containerBtnAggiuntivi dflex align-items-center">
+          <div class="col text-right nop">
+            <button type="button" (click)="addItem()"
+              class="btn bttn btn-primary">{{'generic.nuovo' | translate}}
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row tableContainer mbottom20">
+        <p-table [value]="data" [lazy]="true" [rows]="filters.limit" [responsive]="true">
+          <ng-template pTemplate="header" let-columns>
+            <tr style="background-color: gray!important;">
+              <th>
+                {{'sezioniCatastali.codCatastale'|translate}}
+              </th>
+              <th >
+                {{'sezioniCatastali.sezione'|translate}}
+              </th>
+              <th>
+                {{'sezioniCatastali.descrSezione'|translate}}
+              </th>
+              <th style="width: 100px"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData>
+            <tr>
+              <td>{{ rowData.value | uppercase}}</td>
+              <td>{{ rowData.linked | uppercase}}</td>
+              <td>{{ rowData.description }}</td>
+              <td class="nowrap text-center">
+                <span ngbTooltip="Modifica">
+                  <button class="bttn bttn-table btn btn-primary" (click)="openDettaglio(rowData)">
+                    <fa-icon icon="edit"></fa-icon>
+                  </button>
+                </span>
+                <span ngbTooltip="Elimina">
+                  <button class="bttn bttn-table btn btn-danger" (click)="askDelete(rowData)">
+                    <fa-icon icon="trash"></fa-icon>
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="4">
+                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="footer" let-columns="columns">
+            <tr>
+              <td [attr.colspan]="4">
+                <ngb-pagination [collectionSize]="itemsTotal" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="filters.limit" (pageChange)="pageChangedAction($event)" [page]="filters.page"
+                  aria-label="Default pagination"></ngb-pagination>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+  <!--dettaglio-->
+  <div *ngIf="selected">
+  <!-- <div class="mtop20"> -->
+    <form [formGroup]="form" class="text-left">
+      <div class="row noml nomr">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="codCatastale">{{'sezioniCatastali.codCatastale'|translate}}</label>
+            <div class="input-group">
+              <input type="text" pInputText name="codCatastale" class="form-control" formControlName="value" maxlength="4" 
+                [ngClass]="{'is-invalid': valida && form.controls['value'].errors}"/>
+            </div>
+            <div *ngIf="valida && form.controls['value'].errors">
+              <small *ngIf="form.controls['value'].errors.required" class="invalid-feedback">{{'generic.required'|translate}}</small>
+              <small *ngIf="form.controls['value'].errors.pattern" class="invalid-feedback">{{'SEZIONI_CATASTALI.CODCATASTALEERRATO'|translate}}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="sezione">{{'sezioniCatastali.sezione'|translate}}</label>
+            <div class="input-group">
+              <input type="text" pInputText name="sezione" class="form-control" formControlName="linked"  maxlength="1"
+                [ngClass]="{'is-invalid': valida && form.controls['linked'].errors}"/>
+            </div>
+            <div *ngIf="valida && form.controls['linked'].errors">
+              <small *ngIf="form.controls['value'].errors.required" class="invalid-feedback">{{'generic.required'|translate}}</small>
+              <small *ngIf="form.controls['value'].errors.pattern" class="invalid-feedback">{{'SEZIONI_CATASTALI.SEZIONEERRATA'|translate}}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="descrSezione">{{'sezioniCatastali.descrSezione'|translate}}</label>
+            <div class="input-group">
+              <input type="text" pInputText name="descrSezione" class="form-control" formControlName="description" 
+                [ngClass]="{'is-invalid': valida && form.controls['description'].errors}" maxlength="40"/>
+            </div>
+            <div *ngIf="valida && form.controls['description'].errors">
+              <small class="invalid-feedback">{{'generic.required'|translate}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="text-center inner-pulsantiera">
+      <button type="button" class="bttn btn btn-primary" (click)="openSalva()">{{'generic.salva'|translate}}<fa-icon icon="save"></fa-icon></button>
+      <button type="button" class="bttn btn btn-primary" (click)="back()">{{'generic.annulla'|translate}}<fa-icon
+          icon="times"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

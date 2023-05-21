@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="form">
+    <form [formGroup]="form">
+      <p-tabView class="step" [activeIndex]="activeIndex">
+        <p-tabPanel>
+          <ng-template pTemplate="header">
+            <div class="intestazione">
+              {{'TABS_CREA.DATI'|translate}}
+            </div>
+          </ng-template>
+          <app-warning-message [messageKey]="'REQUESTER_TAB.WARN_DELEGATO'" *ngIf="delegato"></app-warning-message>
+          <div class="row" style="margin-left: .6em; margin-right: .6em;">
+            <div class="col-md-3">
+              <app-select-field formControlName="ruoloPratica" [options]="ruoliPratica" (change)="changeRuolo()"
+                [label]="('CREATION.RUOLO_PRATICA' | translate | uppercase) + '*'"></app-select-field>
+            </div>
+          </div>
+          <div class="row" style="margin-left: .6em; margin-right: .6em;">
+            <div class="col-md-4">
+              <app-select-field formControlName="enteDelegato" [options]="enteDelegato"
+                [label]="('CREATION.ENTITY' | translate | uppercase) + '*'"></app-select-field>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-left: .6em; margin-right: .6em;">
+            <div class="col-md-11">
+              <app-select-field formControlName="tipoProcedimento" [options]="typeProcedimento"
+                [label]="('CREATION.TIP' | translate | uppercase) + '*'"></app-select-field>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-left: .6em; margin-right: .6em;">
+            <div class="col">
+              <app-textarea-field formControlName="oggetto" [label]="('CREATION.OBJECT' | translate | uppercase) + '*'"
+                [rows]="5">
+              </app-textarea-field>
+            </div>
+          </div>
+          <div class="row" style="margin-left: .6em; margin-right: .6em;">
+            <div class="col" *ngIf="isInSanatoriaEnabled">
+              <app-checkbox-field formControlName="isInSanatoria" [checkboxLabel]="('DETTAGLIO.INSANATORIA' | translate)"
+                [isSingle]="true"></app-checkbox-field>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel *ngIf="delegato">
+          <ng-template pTemplate="header">
+            <div class="intestazione">
+              {{'TABS_CREA.DELEGATO'|translate}}
+            </div>
+          </ng-template>
+          <div style="margin-left: .6em; margin-right: .6em;">
+            <app-delegato [delegato]="delegatoPratica" [mainForm]="form" [disabled]="false">
+            </app-delegato>
+          </div>
+          <div class="col-md-12">
+            <div class="row" style="margin-left: .6em; margin-right: .6em;">
+              <!--
+                    <div class="col-md-12 pt20 pb20">
+                      <label>{{'CREATION.DELEGA' | translate | uppercase}} *</label>
+                      <br/>
+                      <button (click)="downloadTemplateDelega()" class="bttn btn btn-primary" >
+                        <fa-icon icon="download"></fa-icon>
+                        {{'CREATION.MODELLO' | translate}}
+                      </button>
+                      <br/>
+                    </div>
+                    -->
+              <div class="col-md-12">
+                <label>{{'CREATION.DELEGA' | translate | uppercase}} *</label>
+                <!-- <app-file-upload (onChoose)="onSelectFile($event)" (onClearFileChoose)="onCancelFile($event)" fileLimit="1"
+                  [multiple]="false" [mimeTypeForScansioni]="acceptedFiles" [showUploadButton]="false" [showCancelButton]="true"
+                  (onRemoveFileChoose)="onRemoveFile($event)" [auto]="false" #fileUpload></app-file-upload> -->
+                <app-file-upload (onChoose)="onSelectFile($event)" (onRemoveFileChoose)="onCancelFile($event)" 
+                  [showUploadButton]="false" [showCancelButton]="true" [multiple]="false">
+                </app-file-upload>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+      <div class="d-flex justify-content-center">
+        <button
+          pButton
+          type="submit"
+          label="{{ 'CREATION.CREATE' | translate | titlecase }} "
+          class="bttn btn-group mr-2"
+          [disabled]="!form.valid || (delegato && !file)"
+          (click)="create()"
+        ></button>
+        <button pButton (click)="back()" class="bttn" label="{{ 'CREATION.BACK' | translate | titlecase }}"></button>
+      </div>
+
+    </form>
+  </div>
+</div>

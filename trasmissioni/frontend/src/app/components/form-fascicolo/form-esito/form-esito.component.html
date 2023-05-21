@@ -1,0 +1,198 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<!-- esito verifica -->
+<div [formGroup]="formEsito">
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'fascicolo.esito.titolo' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="row noml nomr">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="specificaEsitoVerifica">SPECIFICARE ESITO VERIFICA*:</label>
+        <div class="input-group">
+          <div class="p-grid" style="width:250px;margin-bottom:10px">
+            <div class="p-col-12">
+              <p-radioButton name="specificaEsitoVerifica" value="POSITIVE" label="Positivo"
+                formControlName="esitoVerifica" [ngClass]="{'is-invalid':  formEsito['controls'].esitoVerifica.errors && prosegui}">
+              </p-radioButton>
+            </div>
+            <div class="p-col-12">
+              <p-radioButton name="specificaEsitoVerifica" value="NEGATIVE" label="Negativo"
+                formControlName="esitoVerifica" [ngClass]="{'is-invalid':  formEsito['controls'].esitoVerifica.errors && prosegui}">
+              </p-radioButton>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="formEsito['controls'].esitoVerifica.errors && prosegui" class="invalid-feedback">
+          <div *ngIf="formEsito['controls'].esitoVerifica.errors.required">{{'generic.required'|translate}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dataProvvedimentoConclusivo">DATA PROVVEDIMENTO CONCLUSIVO*:</label>
+        <div class="input-group">
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true"
+            dateFormat="{{'generic.dateFormatCalendar'|translate}}" [locale]="it" yearRange="1900:{{MAX_YEAR}}"
+            [maxDate]="NOW_DATE" class="form-control nop" inputStyleClass="form-control" showButtonBar="true"
+            [ngClass]="{'is-invalid':  formEsito['controls'].dataProvvedimentoConclucisvo.errors && prosegui}"
+            formControlName="dataProvvedimentoConclucisvo">
+          </p-calendar>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <fa-icon icon="calendar"></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="formEsito['controls'].dataProvvedimentoConclucisvo.errors && prosegui" class="invalid-feedback">
+        <div *ngIf="formEsito['controls'].dataProvvedimentoConclucisvo.errors.required">{{'generic.required'|translate}}</div>
+      </div>
+      <div class="form-group">
+        <label for="numeroProvvedimento">NUMERO PROVVEDIMENTO*:</label>
+        <input type="text" class="form-control" formControlName="numeroProvvedimento"
+           maxlength="{{const.MAX_LEN_PROVVEDIMENTO}}"
+          [ngClass]="{'is-invalid':  formEsito['controls'].numeroProvvedimento.errors && prosegui}" />
+      </div>
+      <div *ngIf="formEsito['controls'].numeroProvvedimento.errors && prosegui" class="invalid-feedback">
+        <div *ngIf="formEsito['controls'].numeroProvvedimento.errors.required">{{'generic.required'|translate}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- allega file -->
+  <div class="row noml nomr journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        ALLEGA FILE
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="d-flex justify-content-center">
+      <label class="text-center">{{'generic.trascinaFile'|translate}}</label>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p-fileUpload chooseLabel="{{'generic.carica'|translate}}" (onSelect)="uploadFile($event)"
+        [showCancelButton]="false" cancelLabel="Annulla" [auto]="true" [showUploadButton]="false" 
+        [disabled]="mostraLetteraProvvedimento">
+      </p-fileUpload>
+    </div>
+  </div>
+
+  <!-- tabella provvedimento finale -->
+  <div class="row noml nomr">
+    <div class="col-md-12 tableContainerCustom">
+      <p-table [value]="listProvvedimentoFinale" [columns]="colonneTabellaProvvedimentoFinale">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em;"></th>
+            <th class="uppercase" *ngFor="let col of columns">
+              {{col.header| translate}}
+            </th>
+            <th class="uppercase" style="width: 9em">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+          <tr>
+            <td>{{index+1}}</td>
+            <td>{{rowData.tipo}}</td>
+            <td>{{rowData.nome}}</td>
+            <td>{{rowData.dataCaricamento | date: 'dd-MM-yyyy'}}</td>
+            <td>
+              <button *ngIf="rowData.id" type="button" (click)="download(rowData.id, rowData.tipo)" placement="top" container="body"
+                ngbTooltip="{{'generic.scaricaAllegato'|translate}}" class="bttn bttn-table btn btn-success">
+                <fa-icon icon="download"></fa-icon>
+              </button>
+              <button *ngIf="mostraLetteraProvvedimento === false" type="button" (click)="delete(rowData.id)" placement="top" container="body"
+                ngbTooltip="{{'generic.elimina'|translate}}" class="bttn bttn-table btn btn-danger">
+                <fa-icon icon="trash"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 2">
+              <span style="text-align: center">{{'generic.norows' | translate}}</span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div *ngIf="formEsito['controls'].tabellaProvvedimentoFinale.errors && prosegui" class="invalid-feedback">
+        <div *ngIf="formEsito['controls'].tabellaProvvedimentoFinale.errors.required">{{'generic.required'|translate}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<!-- tabella trasmissione provvedimento -->
+<div class="col-md-3" *ngIf="mostraLetteraProvvedimento">
+  <label for="">LETTERA TRASMISSIONE PROVVEDIMENTO</label>
+</div>
+<div class="row noml nomr" *ngIf="mostraLetteraProvvedimento">
+  <div class="col-md-12 tableContainerCustom">
+    <p-table [value]="listLetteraTrasmissioneProvvedimento" [columns]="colonneTabellaTrasmissioneProvvedimento">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 3em;"></th>
+          <th class="uppercase" *ngFor="let col of columns">
+            {{col.header| translate}}
+          </th>
+          <th class="uppercase" style="width: 9em">
+          </th>
+          <th class="uppercase" style="width: 9em">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+        <tr>
+          <td>{{index+1}}</td>
+          <td>{{rowData.tipo}}</td>
+          <td style="text-align: center;">
+            <!-- questo button è per l'anteprima -->
+            <button type="button" (click)="download(rowData.id, rowData.tipo)" placement="top" container="body"
+              ngbTooltip="{{'generic.anteprima'|translate}}" class="bttn bttn-table btn btn-primary">
+              <fa-icon icon="file"></fa-icon>
+            </button>
+          </td>
+          <td>
+            <button type="button" (click)="uploader.click()" placement="top" container="body"
+              ngbTooltip="{{'generic.carica'|translate}}" class="bttn bttn-table btn btn-success"
+              [disabled]="disable">
+              <fa-icon icon="upload"></fa-icon>
+            </button>
+            <button type="button" (click)="ripristina()" placement="top" container="body"
+              ngbTooltip="{{'generic.ripristina'|translate}}" class="bttn bttn-table btn btn-danger"
+              [disabled]="disable">
+              <fa-icon icon="redo"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length + 3">
+            <span style="text-align: center">{{'generic.norows' | translate}}</span>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="d-flex justify-content-center">
+    <input hidden type="file" #uploader accept="application/pdf"
+    (change)="uploadLettera($event)" />
+  </div>
+</div>

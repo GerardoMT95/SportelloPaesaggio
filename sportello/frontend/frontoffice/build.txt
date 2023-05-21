@@ -1,0 +1,4 @@
+#Ambiente Test
+ng build --base-href /template/ --prod --configuration=test
+#Ambiente Produzione
+ng build --base-href /template/ --prod --configuration=prod

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "TRASM_AVVIO",
+    "nome": "Trasmissione relazione tecnica - con avvio",
+    "oggetto": "{TIPO PROCEDIMENTO} - TRASMISSIONE RELAZIONE TECNICO ILLUSTRATIVA e proposta di provvedimento Comune di {COMUNE} - Ditta: {DITTA} - {TIPO PROCEDIMENTO} -  AVVIO DEL PROCEDIMENTO - trasmissione relazione tecnica illustrativa e proposta di provvedimento della domanda (L.n. 241/90, art. 146 c. 7 del D.Lgs. n. 42/2004 e art. 90 co. 4 NTA PPTR). ",
+    "descrizione": "Relazione tecnica con avvio descrizione",
+    "destinatari": [{"email": "test@test.it"}],
+    "testoTemplate": "Con la presente si fa riferimento alla richiesta di rilascio di autorizzazione paesaggistica relativa al progetto per ''(inserire qui l’oggetto / es. la realizzazione di.....'', acquisita al protocollo di questo servizio con n. AOO_145- .. del ../../.... Pertanto si trasmette la relazione tecnica illustrativa unitamente alla proposta di accoglimento della domanda di competenza dello scrivente Servizio, alla Soprintendenza per i provvedimenti di competenza, ai sensi del co. 7 art. 146 del D.Lgs. 42/04 e, contestualmente, si comunica, il solo avvio del procedimento istruttoria al ''(inserire ditta o Comune o)'', indicando nella persona del ''(inserire il responsabile...)'' (xxxxxxxxx@regione.puglia.it) il Responsabile del Procedimento.Il Responsabile del Procedimento (arch./ing./ geom. .... ) Il dirigente ad interim del Servizio Attuazione Pianificazione Paesaggistica () La firma autografa del dirigente del Servizio e del Responsabile del Procedimento è sostituita a mezzo stampa ai sensi dell' art. 3 comma 2 del D.L. 39/1993 e ss.mm.ii. "
+  },
+  {
+    "id": "TRASM_NO_AVVIO",
+    "nome": "Trasmissione relazione tecnica - senza avvio",
+    "oggetto": "Ricezione- {TIPO PROCEDIMENTO} - {CODICE FASCICOLO} ",
+    "descrizione": "Relazione tecnica senza avviodescrizione",
+    "destinatari": [],
+    "testoTemplate": "Con la presente si fa riferimento alla richiesta di rilascio di autorizzazione paesaggistica relativa al progetto per ''(inserire qui l'oggetto / es. la realizzazione di…)'', acquisita al protocollo di questo servizio con n. AOO_145- ...... del .../../....Pertanto si trasmette la relazione tecnica illustrativa unitamente alla proposta di accoglimento della domanda di competenza dello scrivente Servizio, alla Soprintendenza per i provvedimenti di competenza, ai sensi del co. 7 art. 146 del D.Lgs. 42/04.Il Responsabile del Procedimento (arch./ing./ geom. .......) Il dirigente ''ad interim''del Servizio Attuazione Pianificazione Paesaggistica() La firma autografa del dirigente del Servizio e del Responsabile del Procedimento è sostituita a mezzo stampa ai sensi dell' art. 3 comma 2 del D.L. 39/1993 e ss.mm.ii."
+  },
+  {
+    "id": "COM_IMM_PAR_SOP_10",
+    "nome": "Trasmissione parere soprintendenza BA",
+    "oggetto": "Invio parere soprintendenza per fascicolo {CODICE FASCICOLO} ",
+    "descrizione": "Relazione tecnica senza avviodescrizione",
+    "destinatari": [],
+    "testoTemplate": "Comunicazione immissione parere Soprintendenza {CODICE FASCICOLO} con oggetto {OGGETTO}"
+  },
+  {
+    "id": "COM_IMM_PAR_SOP_11",
+    "nome": "Trasmissione parere soprintendenza LE",
+    "oggetto": "Invio parere soprintendenza per fascicolo {CODICE FASCICOLO} ",
+    "descrizione": "Relazione tecnica senza avviodescrizione",
+    "destinatari": [],
+    "testoTemplate": "Comunicazione immissione parere Soprintendenza {CODICE FASCICOLO}"
+  },
+  {
+    "id": "ud-ar",
+    "nome": "Ulteriore Documentazione per Ente Delegato",
+    "oggetto": "Ente Territoriale Fascicolo  {CODICE FASCICOLO}  documentazione allegata",
+    "descrizione": "Ulteriore Documentazione per Ente Delegato descrizione",
+    "destinatari": [],
+    "testoTemplate": "Si comunica che &egrave disponibile la seguente documentazione:per ogni files. Si prega di non rispondere a questa e-mail in quanto la stessa &egrave prodotta in automatico dal sistema SIT Puglia (www.sit.puglia.it)."
+  },
+  {
+    "id": "ps",
+    "nome": "Invio parere soprintendenza",
+    "oggetto": "Invio parere soprintendenza per fascicolo",
+    "descrizione": "Invio parere soprintendenza descrizione",
+    "destinatari": [],
+    "testoTemplate": "invio parere soprintendenza per fascicolo con Oggetto: Invio parere soprintendenza per fascicolo"
+  },
+  {
+    "id": "ud-aet",
+    "nome": "Ulteriore Documentazione per Ente Territoriale",
+    "oggetto": "Ente Territoriale Fascicolo  + codicePraticaApPptr +  documentazione allegata",
+    "descrizione": "Ulteriore Documentazione per Ente Territoriale descrizione",
+    "destinatari": [],
+    "testoTemplate": "Si comunica che &egrave disponibile la seguente documentazione:per ogni files. Si prega di non rispondere a questa e-mail in quanto la stessa &egrave prodotta in automatico dal sistema SIT Puglia (www.sit.puglia.it)."
+  },
+  {
+    "id": "tpf",
+    "nome": "Trasmissione provvedimento finale",
+    "descrizione": "Trasmissione provvedimento finale descrizione",
+    "oggetto": "[TIPO PROCEDIMENTO] – [COMUNE]– [RICHIEDENTE]",
+    "destinatari": [],
+    "testoTemplate": "Si informa che l’Ente Delegato REGIONE PUGLIA ha effettuato la trasmissione della pratica [codicePratica] • tipologia di procedura : [tipoProcedimento] • richiedente : [richiedente] • oggetto : [oggetto]• comune/i di intervento : [comune] • data rilascio : [DataRilascioAutorizzazione] Al seguente link è disponibile il provvedimento finale:Provedimento finale.Si prega di non rispondere a questa e-mail in quanto la stessa è prodotta in automatico dal sistema SIT Puglia (www.sit.puglia.it)."
+  },
+  {
+    "id": "tp",
+    "nome": "Trasmissione parere",
+    "descrizione": "Trasmissione parere descrizione",
+    "oggetto": "Invio parere soprintendenza per fascicolo [CODICE FASCICOLO]",
+    "destinatari": [],
+    "testoTemplate": "invio parere soprintendenza per fascicolo [CODICE FASCICOLO] con Oggetto: Invio parere soprintendenza per fascicolo [CODICE FASCICOLO]."
+  }
+]

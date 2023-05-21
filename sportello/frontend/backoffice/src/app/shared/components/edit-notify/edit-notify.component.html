@@ -1,0 +1,50 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+	[hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+	[title]="alertData.title"></app-alert>
+<!--dialog segnalazione all'amministratore applicazione-->
+<p-dialog [(visible)]="display" [resizable]="false" 
+[draggable]="false" [modal]="true" (onShow)="onShow()" (onHide)="close()">
+	<p-header style="font-size: 1rem;">
+		{{titolo|translate}}
+	</p-header>
+	<form [formGroup]="formSegnalazione">
+		<div class="form-group">
+			<div class="form-group ">
+				<label for="nome">{{'abilitazione.userName'|translate}} </label>
+				<input type="text" formControlName="username" disabled	class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group ">
+				<label for="nome">{{'abilitazione.nome'|translate}} </label>
+				<input type="text" formControlName="nome" disabled	class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group ">
+				<label for="nome">{{'abilitazione.cognome'|translate}} </label>
+				<input type="text" formControlName="cognome" disabled	class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group ">
+				<label for="nome">{{labelNotifica|translate}} *</label>
+				<textarea type="text" formControlName="notifica" 
+				[maxLength]="const.MAX_LENGTH_TEXTAREA_1000"
+				rows="5"
+				class="form-control"></textarea>
+			</div>
+		</div>
+		<app-input-error [errors]="formSegnalazione.controls.notifica.errors"
+			[validation]="segnalazioneSubmitted && !formSegnalazione.valid">
+		</app-input-error>
+		<p-footer>
+			<div class="footer-style">
+				<button type="button" (click)="sendSegnalazione()"
+          class="bttn btn btn-primary">{{ 'abilitazione.inviaSegnalazione' | translate }}</button>
+        <button type="button" (click)="close()"
+					class="bttn btn btn-primary">{{ 'generic.annulla' | translate }}</button>
+			</div>
+		</p-footer>
+	</form>
+</p-dialog>

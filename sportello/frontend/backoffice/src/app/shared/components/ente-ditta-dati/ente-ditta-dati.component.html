@@ -1,0 +1,80 @@
+<div [formGroup]="formGroupSet">
+    <div class="row noml nomr">
+        <div class="col-md-4 offset-md-4 col-sm-12">
+            <div class="form-group text-center">
+                <label for="ditta">{{'REQUESTER_TAB.NEL_CASO_DI' | translate|uppercase}}</label>
+                <div class="checkbox">
+                    <label>
+                        <input [disableControl]="disable" type="checkbox" (change)="activeExtraField()"
+                            [formControlName]="nelCaso" />
+                        <span class="cr"><i class="cr-icon"></i></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row noml nomr">
+        <div class="col-md-4 offset-md-4 col-sm-12">
+            <div class="form-group">
+                <label for="dittaQualitaDi">{{'REQUESTER_TAB.AS' | translate | uppercase}} *</label>
+
+                <app-select-field [name]="inQualitaDi" 
+                   [options]="(tipi_ditta$|async)" 
+                    formControlName="inQualitaDi"
+                    (change)="activeAltroDitta()" [validation]="validation"
+                    [errors]="formGroupSet.controls.inQualitaDi.errors"></app-select-field>
+            </div>
+        </div>
+    </div>
+    <div class="row noml nomr" *ngIf="formGroupSet.get('inQualitaDi').value==3">
+        <div class="col-md-4 offset-md-4 col-sm-12">
+            <div class="form-group">
+                <label for="descAltroDitta">{{'REQUESTER_TAB.DESCR_ALTRO'|translate|uppercase}} *</label>
+                <app-textarea-field [disabled]="disable" [rows]="5" formControlName="descAltroDitta"
+                    [validation]="validation" [errors]="formGroupSet.controls.descAltroDitta.errors">
+                </app-textarea-field>
+            </div>
+        </div>
+    </div>
+    <div class="row noml nomr align-items-end">
+        <div class="col-md-3 col-sm-12">
+            <div class="form-group">
+              <label for="tipoAzienda">{{'REQUESTER_TAB.TIPO_AZIENDA'|translate|uppercase}} *</label>
+                  <app-text-field *ngIf="disable" [disabled]="true" formControlName="tipoAzienda" [validation]="validation"
+                    [errors]="formGroupSet.controls.tipoAzienda.errors"></app-text-field>
+            </div>
+          </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="form-group">
+                <label
+                    for="societa">{{'REQUESTER_TAB.OF_THE_COMPANY/COMPANY/PUBLIC_BODY/ASSOCIATION'|translate|uppercase}}
+                    *</label>
+                <app-text-field [maxlength]="100" [disabled]="disable" [formControlName]="societa"
+                    [validation]="validation" [errors]="formGroupSet.controls.societa.errors"></app-text-field>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="form-group">
+                <label for="societaCodiceFiscale">{{'REQUESTER_TAB.TAX_CODE'|translate|uppercase}} *</label>
+                <app-text-field [maxlength]="16" [disabled]="disable" [formControlName]="societaCodiceFiscale"
+                    [validation]="validation" [errors]="formGroupSet.controls.societaCodiceFiscale.errors">
+                </app-text-field>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="form-group" *ngIf="tipoAziendaPrivato || (formGroupSet.controls.partitaIva.value && formGroupSet.controls.partitaIva.value.length && disable)
+            || ((!formGroupSet.controls.codiceIpa.value || !formGroupSet.controls.codiceIpa.value.length) && disable)"
+            >
+              <label for="partitaIva">{{'REQUESTER_TAB.VAT_NUMBER'|translate}} *</label>
+              <app-text-field [maxlength]="20" [disabled]="true" [formControlName]="partitaIva"
+              [validation]="validation" [errors]="formGroupSet.controls.partitaIva.errors"></app-text-field>
+            </div>
+            <div class="form-group" *ngIf="tipoAziendaPublic || (formGroupSet.controls.codiceIpa.value && formGroupSet.controls.codiceIpa.value.length && disable)">
+              <label for="codiceIpa">{{'REQUESTER_TAB.C_IPA'|translate}} *</label>
+              <app-text-field  [disabled]="true" formControlName="codiceIpa" [validation]="validation" 
+              [errors]="formGroupSet.controls.codiceIpa.errors"></app-text-field>
+            </div>
+          </div>
+    </div>
+</div>

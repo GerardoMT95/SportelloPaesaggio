@@ -1,0 +1,35 @@
+.ui-fileupload-choose.ui-button,
+.ui-fileupload-choose.ui-button .ui-widget,
+.ui-fileupload-choose.ui-button .ui-state-default {
+  background-color: #0275d8;
+  border: 1px solid #0275d8;
+  color: #ffffff;
+}
+
+.ui-fileupload-choose.ui-button.ui-state-hover,
+.ui-fileupload-choose.ui-button.ui-state-focus,
+.ui-fileupload-choose.ui-button.ui-state-active {
+  background-color: #025aa5;
+  border-color: #01549b;
+}
+.table th:first-child {
+  border-top-left-radius: 6px;
+}
+.table th:last-child {
+  border-top-right-radius: 6px;
+}
+.ui-fileupload .ui-fileupload-buttonbar, .modal-body .ui-fileupload .ui-fileupload-buttonbar {
+  position: absolute;
+  z-index: 999;
+  left: calc(50% - 61px);
+  top: calc(50% - 20px);
+}
+
+.ui-fileupload .ui-widget {
+    position: relative;
+}
+.green-button {
+  background-color: #337533;
+}
+
+

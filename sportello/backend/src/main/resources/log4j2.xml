@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [presentazione-istanza] [%X{USER_ID}] [%logger{1.}] %m %n" />
+        </Console>
+    </Appenders>
+    
+    <Loggers>
+    
+<!-- 
+FOR ASYNC -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+ -->
+        <Root level="info" additivity="false">
+            <AppenderRef ref="CONSOLE" />
+        </Root>
+    </Loggers>
+</Configuration>

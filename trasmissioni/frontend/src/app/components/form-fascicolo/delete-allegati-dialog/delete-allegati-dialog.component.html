@@ -1,0 +1,24 @@
+<p-dialog [(visible)]="displayPrompt" 
+(onHide)="close()" 
+[resizable]="false" [draggable]="false" [modal]="true">
+  <p-header>
+    {{'ALERT_DIALOG_HEADER' | translate}}
+  </p-header>
+  <div class="display-elements">
+    <div class="float-left">
+      <i class="fa info fa-info style-info"></i>
+    </div>
+    <div class="float-left">
+      <p>
+        {{'DELETE_PROMPT_BUTTON_MESSAGE' | translate}}
+      </p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <p-footer>
+    <div class="footer-style">
+         <button (click)="confirm()" type="button" class="bttn btn btn-primary" >{{ 'generic.ok' | translate }}</button>
+         <button type="button" class="bttn btn btn-primary" (click)="close()">{{ 'generic.annulla' | translate }}</button>
+    </div>
+  </p-footer>
+</p-dialog>

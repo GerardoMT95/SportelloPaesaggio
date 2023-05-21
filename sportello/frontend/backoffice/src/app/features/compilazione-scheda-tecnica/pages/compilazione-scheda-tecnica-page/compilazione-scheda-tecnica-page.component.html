@@ -1,0 +1,153 @@
+<div *ngIf="fascicolo && fascicolo.schedaTecnica" class="pt-1 px-3 mb-3" [formGroup]="mainForm" style="padding-bottom: 2em;">
+  <p-tabView class="step" [(activeIndex)]="activeIndex">
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.DESCRIPTION'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['descrizione']">
+            <strong>{{numberOfErrorsOnthePage['descrizione']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-descrizione [mainForm]="mainForm" [descrizione]="descrizione" [validation]="validation"
+        [options]="descOptions" [tipoProcedimento]="fascicolo.tipoProcedimento">
+      </app-descrizione>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.URBAN_DESTINATION'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['destinazione']">
+            <strong>{{numberOfErrorsOnthePage['destinazione']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-destinazione-urbanistica [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [destinazioneUrbanistica]="destinazioneUrbanistica" [validation]="validation">
+      </app-destinazione-urbanistica>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.URBAN_LEGITIMACY'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['legittimita']">
+            <strong>{{numberOfErrorsOnthePage['legittimita']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-legittimita-urbanistica [mainForm]="mainForm" [fascicolo]="fascicolo" 
+              [legittimita]="legittimita" [validation]="validation"></app-legittimita-urbanistica>
+    </p-tabPanel>
+
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.BUILDING_PROCEDURES'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['procedureEdilizie']">
+            <strong>{{numberOfErrorsOnthePage['procedureEdilizie']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-procedure-edilize [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [procedureEdilizie]="procedureEdilizie" [validation]="validation">
+      </app-procedure-edilize>
+    </p-tabPanel>
+
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']"
+      *ngIf="fascicolo.tipoProcedimento == '2'">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.FRAMING'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['inquadramento']">
+            <strong>{{numberOfErrorsOnthePage['inquadramento']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-inquadramento [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [inquadramento]="inquadramento" [validation]="validation"></app-inquadramento>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']"
+      *ngIf="fascicolo.tipoProcedimento == '2'">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.MITIGATION_CONS_EFFECTS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['effetiMitigazione']">
+            <strong>{{numberOfErrorsOnthePage['effetiMitigazione']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-effetti-cons-mitigazione [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [effettiMitigazione]="effettiMitigazione" [validation]="validation">
+      </app-effetti-cons-mitigazione>
+    </p-tabPanel>
+
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.PROCEEDINGS'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['eventualiProcedimenti']">
+            <strong>{{numberOfErrorsOnthePage['eventualiProcedimenti']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-eventuali-procedimenti [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [eventualiProcedimenti]="eventualiProcedimenti" [validation]="validation">
+      </app-eventuali-procedimenti>
+    </p-tabPanel>
+
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.PARERI'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['parreriEAtti']">
+            <strong>{{numberOfErrorsOnthePage['parreriEAtti']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-pareri-e-atti [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [pareriEAtti]="pareriEAtti" [validation]="validation"></app-pareri-e-atti>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.PPTR'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['pptr']">
+            <strong>{{numberOfErrorsOnthePage['pptr']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-pptr [mainForm]="mainForm" [fascicolo]="fascicolo" [pptrTable]="pptrTable" 
+        [validation]="validation" [pptr]="pptr"></app-pptr>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.CONSTRAINT'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['vincolistica']">
+            <strong>{{numberOfErrorsOnthePage['vincolistica']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-vincolistica [mainForm]="mainForm" [fascicolo]="fascicolo" [vincolistica]="vincolistica" 
+        [casella]="casellaDiControllo" [validation]="validation"></app-vincolistica>
+    </p-tabPanel>
+    <p-tabPanel
+      [headerStyleClass]="{true:'disabled-tab',false:''}[this.fascicolo.attivitaDaEspletare=='ISTANZA_PRESENTATA']">
+      <ng-template pTemplate="header">
+        <div class="intestazione">{{'TAB_TITLE.DECLARATION'|translate}}
+          <div class="badge" *ngIf="numberOfErrorsOnthePage['dichiara']">
+            <strong>{{numberOfErrorsOnthePage['dichiara']}}</strong>
+          </div>
+        </div>
+      </ng-template>
+      <app-dichiarazione [mainForm]="mainForm" [fascicolo]="fascicolo" 
+        [dichiarazione]="dichiarazione" [validation]="validation"></app-dichiarazione>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+<div class="text-center inner-pulsantiera" *ngIf="(loadedFascicolo|async) as caricato">
+  <button type="button" class="bttn btn btn-primary" (click)="indietro()">
+    {{'BACK_BUTTON'|translate}}
+    <fa-icon icon="arrow-left"></fa-icon>
+  </button>
+</div>

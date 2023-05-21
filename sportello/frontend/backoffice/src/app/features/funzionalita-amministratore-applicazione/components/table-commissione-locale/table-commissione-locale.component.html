@@ -1,0 +1,61 @@
+<app-rows-number-handler [itemsTotal]="totalRecords" [totalRecords]="totalRecords" (change)="pagingChange($event)"
+    [page]="paging.page" [customElement]="customElement">
+    <ng-template #customElement>
+        <div class="float-right containerBtnAggiuntivi dflex align-items-center mt-3">
+            <div class="col text-right nop">
+                <button type="button" (click)="openEdit()"
+                    class="btn bttn btn-primary">{{'COMMISSIONE_LOCALE.CREA' | translate}}
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</app-rows-number-handler>
+<div class="tableContainerCustom">
+    <p-table [columns]="header" [value]="data" [responsive]="true" [lazy]="true" [lazyLoadOnInit]="false"
+        (onSort)="pagingChange($event)">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header | translate}}
+                </th>
+                <th style="width: 10.5em;">
+                    <!-- EMPTY -->
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+            <tr>
+                <td>{{rowData.denominazione}}</td>
+                <td>{{rowData.dataCreazione|date:'dd/MM/yyyy'}}</td>
+                <td>{{rowData.dataTermine|date:'dd/MM/yyyy'}}</td>
+                <td style="text-align: center;">
+                    <button tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}"
+                        class="bttn bttn-table btn btn-primary" (click)="openEdit(rowData)">
+                        <fa-icon icon="pen"></fa-icon>
+                    </button>
+                    <button pTooltip="{{'COMMISSIONE_LOCALE.THEAD.MEMBERS'|translate}}"
+                        class="bttn bttn-table btn btn-success" (click)="showMembers(rowData)">
+                        <fa-icon icon="users"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    {{'generic.norows'|translate}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="footer" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true"
+                        [boundaryLinks]="true" [pageSize]="paging.limit" (pageChange)="pagingChange({page: $event})"
+                        [(page)]="paging.page" aria-label="Default pagination">
+                    </ngb-pagination>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

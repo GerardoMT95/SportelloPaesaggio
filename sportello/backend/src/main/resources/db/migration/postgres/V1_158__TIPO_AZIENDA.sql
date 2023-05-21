@@ -1,0 +1,2 @@
+update presentazione_istanza.tipo_azienda set nome = 'Ente Pubblico' where nome = 'Organizzazione Pubblica';
+update presentazione_istanza.tipo_azienda set nome = 'Impresa/Professionista' where nome = 'Organizzazione Privata';

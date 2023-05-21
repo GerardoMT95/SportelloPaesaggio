@@ -1,0 +1,48 @@
+.float-left { float: left; }
+.square
+{
+  height: 23px;
+  width: 23px;
+  border-radius: 3px;
+  /* float: left; */
+  /* margin-top: 4px; */
+  /* margin-right: .8em; */
+  text-align: center;
+  color: white;
+  font-size: small;
+
+  &-daAssegnare { @extend .square; background-color: #DC3545; }
+  &-protocollazione { @extend .square; background-color: #eeb448; }
+  &-preistruttoria { @extend .square; background-color: #757070; }
+  &-inLavorazione { @extend .square; background-color: #007BFF; }
+  &-daTrasmettere { @extend .square; background-color: #e8da0a; }
+  &-trasmessa { @extend .square; background-color: #08eb14; }
+  &-sospesa { @extend .square; background-color: #bd1ada; }
+  &-archiviata { @extend .square; background-color: #000; }
+}
+
+.status-list 
+{
+  list-style: none;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding-top:15px; 
+
+  & li  { display: inline-block!important; }
+}
+.status-bar-name 
+{
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+.status-bar-count 
+{
+  border-radius: 5px;
+  padding: 3px 9px;
+  color: #fff;
+  font-weight: bold;
+}

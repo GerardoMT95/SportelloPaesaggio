@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [${sys:microservice}] [%X{TOKEN_ID}][%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+<!-- 
+FOR ASYNC -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+ -->
+        <Root level="info" additivity="false">
+            <AppenderRef ref="CONSOLE" />
+        </Root>
+    </Loggers>
+</Configuration>

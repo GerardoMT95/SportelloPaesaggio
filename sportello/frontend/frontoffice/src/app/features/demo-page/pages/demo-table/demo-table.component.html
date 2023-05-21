@@ -1,0 +1,120 @@
+<app-alert 
+[extraData]="alertInputData.extraData"
+[hasConfirm]="alertInputData.hasConfirm"
+[visible]="alertInputData.visible"
+[title]="alertInputData.title"
+[type]="alertInputData.type"
+[content]="alertInputData.content"
+[extraData]="alertInputData.extraData"
+(action)="callback($event)"
+></app-alert>
+
+<div class="mb-4">
+  <p-table
+    #tt
+    [columns]="cols"
+    [value]="tableData ? tableData.list : []"
+    [lazy]="true"
+    [paginator]="true"
+    class="mb-2"
+    [rows]="5"
+    [totalRecords]="tableData ? tableData.count : 0"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    (onLazyLoad)="updateData($event)"
+    [customSort]="true"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th
+          [ngStyle]="{ width: col.width ? col.width + '%' : '' }"
+          *ngFor="let col of columns"
+          [pSortableColumn]="col.field"
+          [ngSwitch]="col.field"
+          [pSortableColumnDisabled]="col.field === 'id'"
+        >
+          {{ col.header | translate }}
+          <p-sortIcon
+            *ngIf="col.field !== 'id'"
+            [field]="col.field"
+          ></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-index="rowIndex"
+      let-columns="columns"
+    >
+      <tr *ngIf="tableData.list.length > 0">
+        <td
+          *ngFor="let col of columns; let i = index"
+          [attr.data-label]="columns[i].header "
+        >
+          <ng-container
+            *ngIf="col.field !== 'data' && 
+            col.field !== 'id'"
+          >
+            {{ rowData[col.field] }}
+          </ng-container>
+          <ng-container *ngIf="col.field === 'data'">
+            {{ rowData[col.field] | date: "dd/MM/yyyy" }}
+          </ng-container>
+       
+          <ng-container *ngIf="col.field === 'id'">
+            <div class="align-buttons">
+              <button
+                (click)="planAction(rowData, azioniRiga.VIEW)"
+                data-toggle="tooltip"
+                data-placement="top"
+                title=""
+                type="button"
+                class="btn btn-success consultazione"
+                pTooltip="Visualizza"
+                tooltipPosition="left"
+                placement="left"
+                delay="500"
+              >
+                <em class="fa fa-eye" aria-hidden="true"></em>
+              </button>
+  
+              <button
+                (click)="planAction(rowData, azioniRiga.EDIT)"
+                data-toggle="tooltip"
+                data-placement="top"
+                title=""
+                type="button"
+                class="btn btn-edit consultazione"
+                pTooltip="Modifica"
+                tooltipPosition="left"
+                placement="left"
+                delay="500"
+              >
+                <em class="fa fa-pencil" aria-hidden="true"></em>
+              </button>
+              <button
+                (click)="planAction(rowData, azioniRiga.DELETE)"
+                data-toggle="tooltip"
+                data-placement="top"
+                title=""
+                type="button"
+                class="btn btn-delete consultazione"
+                pTooltip="{{ 'generic.eliminaAllegato' | translate }}"
+                tooltipPosition="left"
+                placement="left"
+                delay="500"
+              >
+                <em
+                  class="fa fa-trash"
+                  aria-hidden="true"
+                ></em>
+              </button>
+            
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+   
+  </div>

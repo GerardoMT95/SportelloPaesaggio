@@ -1,0 +1,1 @@
+INSERT INTO tipo_allegato ("type", "descrizione") VALUES ('PDF_PRE_TIMBRATURA'		   			 , 'Documento inviato a protocollazione');

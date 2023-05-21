@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportLegittimita" pageWidth="550" pageHeight="842" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b33e778c-17d8-4acd-8949-d8a2de40199b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DichiarazioneTecnicaAdapter"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="FontCustomArial" isDefault="true" fontName="CustomArial"/>
+	<subDataset name="TipologiaDettaglio" uuid="25975ed8-1c20-4149-98e8-aeebdafccf58">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="tipologia" class="java.lang.String"/>
+		<field name="rialisciatoDa" class="java.lang.String"/>
+		<field name="noProtocollo" class="java.lang.String"/>
+		<field name="dataRilascio" class="java.util.Date"/>
+		<field name="intestinario" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tipoLegittimitaUrbanistica" class="java.lang.Integer"/>
+	<field name="legittimitaUrbanstica" class="java.lang.String"/>
+	<field name="legittimitaInfo" class="java.util.List"/>
+	<field name="tipoLegittimitaPaesaggistica" class="java.lang.Integer"/>
+	<field name="tipologiaVincolo" class="java.lang.String"/>
+	<field name="dataIntervento" class="java.util.Date"/>
+	<field name="dataImposizioneVincolo" class="java.util.Date"/>
+	<field name="autorizzatoPaesaggisticamenteInfo" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="380" height="20" uuid="b4d69d6b-2491-4ee8-9cce-414e60c41d24"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Con riferimento alla legittimità urbanistica, l'immobile oggetto dei lavori risulta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="20" width="500" height="30" uuid="b8fae996-518f-46e8-a67a-80b96f3ef971"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoLegittimitaUrbanistica} == 1 ? "privo di titolo edilizio: " + $F{legittimitaUrbanstica} : "dotato di titolo edilizio:"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="10" y="50" width="500" height="60" isRemoveLineWhenBlank="true" uuid="2fab7f19-b066-444c-a1ba-5992f8444984">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="TipologiaDettaglio" uuid="ad074ece-234c-4687-aa24-5d01114e383d">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{legittimitaInfo})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="bbfe3874-796c-4b00-ba0b-e5ad2a2d150c">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="3765239f-3ede-47ce-afbf-1f671dfae3a8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipologia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="2839c2ca-972f-446c-a20e-0e712db15f80"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipologia}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="97b298ce-1372-46ac-98f7-61b41309da16">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="a602d3c6-cd84-4b6f-843d-54ba182b36d4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rilasciato Da]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="c53566da-83fc-423b-9e47-5572747e69df"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{rialisciatoDa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="d1c5b8e4-a392-419c-a1ef-9d434a5edb6f">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="65c218ab-53e6-4750-866b-f110758a97f7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Numero Protocollo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="416e69af-0c6e-4a1b-af67-e5da219669fe"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{noProtocollo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="35b740b8-0222-4d02-837c-fe839a03a3af">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="a166b263-0e20-4557-bd6a-2f5c0d2bef90"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data Rilascio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField pattern="dd/MM/yyyy">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="720d0198-2c14-4f60-add1-3844f11716df"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dataRilascio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="13d96dcd-7865-4176-83bb-9b19fa35d66b">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="cfb16f77-edad-4d93-8efe-cdd19b27c263"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Intestatario]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="98c5d7cd-a6cd-49e8-8e0e-f77339f126d1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{intestinario}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="166">
+			<staticText>
+				<reportElement x="0" y="0" width="390" height="20" uuid="f1877282-c056-43f7-a8c2-d33d47fd6ae3"/>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Con riferimento alla legittimità paesaggistica, l'immobile oggetto dei lavori risulta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="20" width="500" height="20" uuid="f2ace856-7dbe-40fd-8379-fa745c9fa99a"/>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1 ? "realizzato prima dell'imposizione del vincolo:" : "autorizzato paesaggisticamente"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="20" isRemoveLineWhenBlank="true" uuid="1f7249fd-7340-48bf-b4d9-a3ca91d5f5d7">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[tipologia del vincolo:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="110" y="40" width="400" height="20" isRemoveLineWhenBlank="true" uuid="e9eb8259-bdd0-4e1a-95da-f8383d0cd7f1">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipologiaVincolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="60" width="100" height="20" isRemoveLineWhenBlank="true" uuid="58929692-dd60-49be-aed9-29c76e27826b">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[data dell'intervento:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="110" y="60" width="400" height="20" isRemoveLineWhenBlank="true" uuid="2c8b362a-425b-4557-bef9-f48dc1082475">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataIntervento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="80" width="160" height="20" isRemoveLineWhenBlank="true" uuid="fadb4aa6-aba9-4561-8d3d-17b5da8bc39f">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[data dell'imposizione del vincolo:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="170" y="80" width="340" height="20" isRemoveLineWhenBlank="true" uuid="f668a014-9e25-4f70-8471-c8e5485d0695">
+					<printWhenExpression><![CDATA[$F{tipoLegittimitaPaesaggistica} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataImposizioneVincolo}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement stretchType="ElementGroupHeight" x="10" y="100" width="500" height="60" uuid="331dfca4-98a4-46b0-a7fd-e2176c98f817">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="TipologiaDettaglio" uuid="c6a0aa5b-2fc8-4581-ba6f-a763165b87ad">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{autorizzatoPaesaggisticamenteInfo})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="e7cd6ef4-3b30-48c7-bdd4-4eb31c9f164e">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="109a498e-341c-4126-a426-b108adaab9df"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tipologia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="49c6e30c-4934-4b11-8a53-a1ed6e311daa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipologia}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="a60eceaa-f854-4d3a-9670-eae887692c17">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="5d0b0ea4-08bc-4daa-8e96-315f7dd51412"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Rilasciato da]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="c41961cf-c9b6-45dc-9698-e875e4bbe577"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{rialisciatoDa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="b1c295bf-5e5e-4f4d-867a-6b37ec42f6d3">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="9599233e-f24c-4170-bdd3-5e32daa91191"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Numero Protocollo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="491511f8-0522-48a3-809f-a698d5ecae1b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{noProtocollo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="3b8c7f53-4752-4e32-b53d-80a8d60913d8">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="2daf59fc-8d62-4848-9965-e8607b0a54fb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data Rilascio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField textAdjust="StretchHeight" pattern="dd/MM/yyyy">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="6fb6f0da-e1e5-41a4-a338-c78f99c26856"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dataRilascio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="a8e681e1-1dfc-46ee-aaad-0cb00c61c307">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="2dfaf826-5622-4f02-833a-01c1bd8e24d8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Intestatario]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField textAdjust="StretchHeight">
+								<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="bcb59c9b-f825-46c6-be98-f101c5ded168"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="CustomArial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{intestinario}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

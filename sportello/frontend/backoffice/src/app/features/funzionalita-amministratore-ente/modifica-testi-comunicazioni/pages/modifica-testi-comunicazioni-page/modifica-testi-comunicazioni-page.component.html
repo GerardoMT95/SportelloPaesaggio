@@ -1,0 +1,18 @@
+<div class="portlet-content-container">
+  <div class="portlet-body">
+  <p-tabView class="step" [(activeIndex)]="activeIndex">
+    <!--Fascicolo Panel-->
+    <p-tabPanel
+      header="{{'templateComunicazioni.panel.templateComunicazioni'|translate}}">
+      <app-testi-comunicazioni-table [cancellabile]="true">
+      </app-testi-comunicazioni-table>
+    </p-tabPanel>
+    <p-tabPanel
+      header="{{'templateComunicazioni.panel.templateComunicazioniConfig'|translate}}">
+      <app-testi-comunicazioni-table [cancellabile]="false">
+      </app-testi-comunicazioni-table>
+    </p-tabPanel>
+    </p-tabView>
+  </div>
+
+</div>

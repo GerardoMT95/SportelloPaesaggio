@@ -1,0 +1,22 @@
+/*.labelLungaCheckBox {
+    display: inline-block;
+    width: 90%;
+    white-space: pre-line;
+}*/
+
+.pcheckBox {
+    display: flex!important;
+    
+}
+
+p-radiobutton
+{
+    display: flex!important;
+}
+
+/*body .ui-chkbox{
+    vertical-align: top!important;
+}*/
+
+
+

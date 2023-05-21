@@ -1,0 +1,39 @@
+<p-dialog  
+  [(visible)]="display"
+  [modal]="true"
+  [responsive]="true"
+  [style]="styleDialog"
+  [class]="dialogTypeClass"
+  [minY]="70"
+  [baseZIndex]="10000"
+  [closable]="false"
+> 
+<p-header >{{ title | translate }}</p-header>
+  <div class="d-flex align-items-center mx-0 my-3" *ngIf="isLarge">    
+    <div class="col-12 justify-content-center" >
+      <p  [innerHTML]="(message | translate:messageTranslateParams)" >
+      <!-- {{ message }} -->
+      </p>
+    </div>
+  </div>
+  <div class="d-flex align-items-center mx-0 my-3" *ngIf="!isLarge">    
+    <div class="col-2" >
+      <i [class]="iconClass" ></i>
+    </div>
+    <div class="col-10 justify-content-center" >
+      <p  [innerHTML]="(message | translate:messageTranslateParams)" >
+      <!-- {{ message }} -->
+      </p>
+    </div>
+  </div>
+  <p-footer>
+    <div class="d-flex justify-content-center" *ngIf="buttons">
+      <div class="d-flex flex-row-reverse" >
+        <button *ngFor="let btnInfo of buttons" class="bttn btn btn-primary dialog-button" type="button" pButton (click)="buttonClicked(btnInfo)">
+          {{ btnInfo.label | translate | titlecase }} <i [class]="btnInfo.icon"></i>
+        </button>
+      </div>
+    </div>  
+  </p-footer>
+</p-dialog>
+

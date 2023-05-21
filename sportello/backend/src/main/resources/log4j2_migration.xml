@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [sportello_autpae_migration] [%X{TOKEN_ID}][%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+        </Console>
+        <RollingRandomAccessFile name="FILE"
+                 fileName="logs/sportello_autpae_migration.log"
+              filePattern="logs/sportello_autpae_migration.%d{yyyy-MM-dd}.%i.log.gz"
+         ignoreExceptions="false"
+           immediateFlush="true"
+         >
+         <MarkerFilter marker="INFO_MIGRAZIONE" onMatch="ACCEPT" onMismatch="DENY" />
+                <PatternLayout pattern="[%d{dd-MM-yyyy HH:mm:ss.SSS}] [%5p] [sportello_autpae_migration] [%X{TOKEN_ID}] [%X{USER_ID}] [%X{REMOTE_HOST_ID}] [%X{UUID_ID}] [%X{REQUEST_PATH_ID}] [%logger{35}] %m %n" />
+                <Policies>
+                    <OnStartupTriggeringPolicy />
+                    <SizeBasedTriggeringPolicy size="5 MB" />
+                    <TimeBasedTriggeringPolicy />
+                </Policies>
+                <!--
+                <DefaultRolloverStrategy max="5" />
+                 -->
+                 <DefaultRolloverStrategy>
+                        <Delete basePath="logs">
+                            <IfFileName glob="sportello_autpae_migration.*.log.gz" />
+                            <IfLastModified age="999d" />
+                        </Delete>
+                </DefaultRolloverStrategy>
+                </RollingRandomAccessFile>
+        
+    </Appenders>
+    <Loggers>
+<!-- 
+FOR ASYNC -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+ -->
+        <Root level="info" additivity="false">
+            <AppenderRef ref="CONSOLE" />
+            <AppenderRef ref="FILE" />
+        </Root>
+    </Loggers>
+</Configuration>

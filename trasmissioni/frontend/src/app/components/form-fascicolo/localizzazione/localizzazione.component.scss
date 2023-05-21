@@ -1,0 +1,57 @@
+
+.btn.btn-edit {
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border: 3px solid #fff;
+  background-color: #007ad9;
+}
+
+.btn-close {
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border: 3px solid #fff;
+  background-color: rgb(184, 0, 0);
+}
+.btn-download {
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    border: 3px solid #fff;
+    background-color:green;
+  }
+
+.number {
+  width: 80px;
+}
+
+.change-icon{
+    width: 60px;
+}
+
+.icon {
+  width: 85px;
+}
+
+.allega-shape-file {
+  margin-top: 50px;
+}
+
+/*classe utilizzata nelle intestazioni dei tabbed per indicare il numero di errori di validazione*/
+.badge {
+  text-align: center;
+  border: 0;
+  display: inline-block;
+  border-radius: 15%;
+  color: white;
+  background-color: red;
+  min-width: 15px;
+  margin-left: 5px;
+}

@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-md-12">
+      <app-dropdown-field formControlName="organizzazioneId" [label]="('Organizzazione'|translate) + '*'"  key="value" [options]="options" 
+      [filter]="true"
+      placeholder="-- Seleziona un'organizzazione --" [validation]="submitted" optionLabel="label" 
+      [errors]="form.controls.organizzazioneId.errors" (change)="changeOrganizzazione($event.value)"></app-dropdown-field>
+      <!--<app-select-field formControlName="organizzazioneId" [label]="('Organizzazione'|translate) + '*'" 
+        placeholder="-- Seleziona un'organizzazione --" [options]="options" [validation]="submitted" optionLabel="label" 
+        [errors]="form.controls.organizzazioneId.errors" (change)="changeOrganizzazione($event.value)"
+        ></app-select-field>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-text-field formControlName="email" [label]="('Indirizzo Email/PEC'|translate) + '*'" 
+        [validation]="submitted" [errors]="form.controls.email.errors" [maxlength]="200"></app-text-field>
+    </div>
+    <div class="col-md-6">
+      <app-checkbox-field [isSingle]="true" formControlName="pec" [label]="('pec'|translate) + '*'"
+      [validation]="submitted" [errors]="form.controls.pec.errors"></app-checkbox-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-dropdown-field formControlName="enteId" [label]="'Territorio associato'|translate" key="value" [options]="enti" [filter]="true"
+      placeholder="-- Seleziona un territorio --" [validation]="submitted" optionLabel="label" 
+      [errors]="form.controls.enteId.errors"></app-dropdown-field>
+    </div>
+    <div class="col-md-6">
+      <app-text-field formControlName="denominazione" [label]="('Denominazione'|translate) + '*'" 
+        [validation]="submitted" [errors]="form.controls.denominazione.errors" [maxlength]="200">
+      </app-text-field>
+    </div>
+  </div>
+</form>
+<div class="ricercaPulsantieraContainer relative text-center inner-pulsantiera" style="border-bottom: 0px solid #bebebe; margin-top: 2em;">
+  <div class="pulsantiera clearfix">
+      <button class="btn bttn btn-primary" (click)="done()">{{'generic.salva'|translate}}</button>
+      <button class="btn bttn btn-primary" (click)="close()">{{'generic.indietro'|translate}}</button>
+  </div>
+</div>

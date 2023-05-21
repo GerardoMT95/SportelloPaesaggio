@@ -1,0 +1,80 @@
+<app-rows-number-handler *ngIf="paginator" [itemsTotal]="totalRecords" 
+  [totalRecords]="items.length" (change)="emitPagingEvent($event)"
+  [init-rows]="rows"
+  [page]="page" [customElement]="customElement">
+</app-rows-number-handler>
+<div class="tableContainerCustom">
+  <p-table [columns]="tableHeader" [value]="items" [responsive]="true" 
+    [lazy]="true" (onSort)="emitPagingEvent($event)">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header | translate}}
+        </th>
+        <th style="width: 10.5em;" *ngIf="!readonly">
+          <!-- EMPTY -->
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          <ng-container [ngSwitch]="col.type">
+            <ng-container *ngSwitchCase="'optionWithColor'">
+              <app-circle  [backgroundColor]="processingOptionWithColor(rowData[col.field],col).color"
+              [status]="processingOptionWithColor(rowData[col.field],col).label"></app-circle>
+              {{ processingOptionWithColor(rowData[col.field],col).label }} 
+            </ng-container>
+            <ng-container *ngSwitchCase="'currency'">
+              <div class="currency">{{ rowData[col.field] |currency: 'EUR':'symbol'  }}</div>
+            </ng-container>
+            <ng-container *ngSwitchCase="'data'">
+              {{ rowData[col.field] | date: "dd/MM/yyyy" }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'datetime'">
+              {{ rowData[col.field] | date: "dd/MM/yyyy HH:mm:ss" }}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ rowData[col.field] }}
+            </ng-container>
+          </ng-container>
+        </td>
+        <td style="text-align: center;" *ngIf="!readonly">
+          <button *ngIf="!disableEditButton" type="button"
+            tooltipPosition="top" pTooltip="{{'generic.modifica'|translate}}" (click)="emitEditEvent(rowData)"
+            class="bttn bttn-table btn btn-primary">
+            <fa-icon icon="pen"></fa-icon>
+          </button>
+          <button *ngIf="!disableDeleteButton" (click)="emitRemoveEvent(rowData)"
+            tooltipPosition="top" pTooltip="{{'generic.elimina'|translate}}" class="bttn bttn-table btn btn-danger">
+            <fa-icon icon="trash"></fa-icon>
+          </button>
+          <button *ngIf="!disableSelectButton" (click)="emitSelectEvent(rowData)"
+            tooltipPosition="top" pTooltip="{{'generic.aggiungiRiga'|translate}}" class="bttn bttn-table btn btn-success">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+          <button *ngIf="customButton" class="{{customButton.class}}" 
+             tooltipPosition="top" pTooltip="{{customButton.label|translate}}" (click)="customEvent(rowData)">
+            <fa-icon [icon]="customButton.icon"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="readonly ? columns.length : columns.length + 1">
+          {{'generic.norows'|translate}}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template *ngIf="paginator" pTemplate="footer" let-columns>
+      <tr>
+        <td [attr.colspan]="readonly ? columns.length : columns.length + 1">
+          <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+            [pageSize]="rows" (pageChange)="pageChangedAction($event)" [(page)]="page" aria-label="Default pagination">
+          </ngb-pagination>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,2 @@
+ALTER TABLE common.paesaggio_organizzazione_competenze
+    RENAME paeseaggio_organizzazione_id TO paesaggio_organizzazione_id;

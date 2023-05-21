@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <div class="pt-1 pb-3 ml-3 mr-3">
+    <app-section-header [title]="'SEZIONI.ALLEGATI' | translate | uppercase"></app-section-header>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <app-select-field [label]="'ADMINISTRATIVE_DOCUMETATION_TAB.ATTACHMENT_TYPE' | translate" id="tipoAllegato"
+          name="tipoAllegato" [options]="documentTypeOptions" formControlName="tipoAllegato"></app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="allega-file" class="mt-3 font-weight-bold">
+            {{'ADMINISTRATIVE_DOCUMETATION_TAB.UPLOAD_FILE_LABEL' | translate | uppercase}}
+          </label>
+          <p-fileUpload id="allega-file" name="myfile" customUpload="true" [auto]="true"
+            [chooseLabel]="'BUTTONS.CHOOSE' | translate" (uploadHandler)="onFileSelect($event)"
+            [disabled]="userRole !== role.GestoreRegione || form.disabled"></p-fileUpload>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-3"></div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <app-document-table [disabled]="userRole !== role.GestoreRegione || form.disabled"
+          [tableHeaders]="documentTableHeaders" [tableData]="tableData" [fascicolo]="fascicolo"
+          (emitDeletion)="deleteFile($event)" (fileUpload)="uploadFile($event)"></app-document-table>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,4 @@
+INSERT INTO "presentazione_istanza"."configurazione"("chiave", "valore", "user_create")
+VALUES ('it.eng.tz.puglia.aet.paesaggio.presentazioneistanza.dto.config.ReportConfigBean',
+		'{"reportMaxTime":"12","reportMailOggetto":"Puglia.con - Notifica report", "reportMailTesto":"Salve, si comunica che il report di tipo {TIPO}  è disponibile all''indirizzo {URL DOWNLOAD}.<br/>Il link di download sarà disponibile per {NUMERO ORE}, dopo questo termine sarà cancellato.<br/><br/><small>La presente comunicazione è stata generata automaticamente, si chiede pertanto di non rispondere al messaggio.</small>"}', 
+		'INITVALUE')

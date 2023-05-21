@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Dichiarazione_Tecnica_Pratica" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="3ac069af-c8d9-4c82-9c22-2422e0491a89">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="DefaultFontStyle" isDefault="true" fontName="CustomArial"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="descrstampatitolo" class="java.lang.String">
+		<fieldDescription><![CDATA[descrstampatitolo]]></fieldDescription>
+	</field>
+	<field name="descrstampa" class="java.lang.String">
+		<fieldDescription><![CDATA[descrstampa]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="132" splitType="Immediate">
+			<rectangle>
+				<reportElement x="311" y="5" width="215" height="125" uuid="75ae6095-53f9-40f7-90db-8e951308115f">
+					<property name="local_mesure_unitheight" value="cm"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="5" width="310" height="125" uuid="95407415-88ba-4d41-b65b-2aafe4e1ac01">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="323" y="85" width="186" height="23" uuid="842c3182-855f-4bbb-b7e2-b4359957f50e">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[protocollo ___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="39" width="186" height="23" uuid="ec8cc557-1d6f-4fcc-b39f-22e51ac0f441">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[n. _________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="108" width="186" height="22" forecolor="#544E4E" uuid="371911bb-0d1e-4512-b056-f2519f6dc6c0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[da compilare a cura dell'ente delegato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="62" width="186" height="23" uuid="4e6bc54d-d78e-4b65-8e8f-6b14522a2030">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[del ________________________________]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="323" y="10" width="186" height="20" uuid="790e6624-4538-421d-b888-39871e0673d8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descrstampatitolo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="11" y="7" width="289" height="121" uuid="5b4f1b18-1419-4e94-8f45-9b22d711c217"/>
+				<textElement textAlignment="Center" markup="html"/>
+				<textFieldExpression><![CDATA[$F{descrstampa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

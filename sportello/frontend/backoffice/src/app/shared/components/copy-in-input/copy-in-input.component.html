@@ -1,0 +1,40 @@
+<label>
+  {{label | translate}}<span *ngIf="required">&nbsp;(*)</span>
+  &nbsp;
+  <span style="color:#337AB7;cursor:pointer;" (click)="open()" pTooltip="{{'generic.TOOLTIP_COPY' | translate}}">
+    <fa-icon icon="clipboard"></fa-icon>
+  </span>
+  <i *ngIf="showInfo"
+     class="pi pi-info-circle pi-info-circle-blu"
+     style="padding-left:0.3em;"
+  pTooltip="Clicca per info aggiuntive"
+  (click)="clickInfo()"
+  ></i>
+</label>
+
+<p-dialog 
+[(visible)]="visible" 
+[styleClass]="'info'" 
+[modal]="true" 
+[draggable]="false" 
+[width]="300" 
+[resizable]="false"
+>
+  <p-header [innerHTML]="title"></p-header>
+  <div class="row nom">
+        <label>{{'generic.TEXT_TO_COPY' | translate}}</label>
+        <textarea [(ngModel)]="valore" rows="10" class="form-control">
+
+        </textarea>
+  </div>
+  <p-footer>
+    <button type="button" class="bttn btn btn-primary" (click)="closeOk()">
+      {{'BUTTONS.OK_BUTTON' | translate}}
+      <fa-icon icon="copy"></fa-icon>
+    </button>
+    <button type="button" class="bttn btn btn-primary" (click)="closeKo()">
+        {{'BUTTONS.CHIUDI_BUTTON' | translate}}
+      <fa-icon icon="times"></fa-icon>
+    </button>
+  </p-footer>
+</p-dialog>

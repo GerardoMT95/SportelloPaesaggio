@@ -1,0 +1,104 @@
+<app-rows-number-handler [itemsTotal]="totalObject" [totalRecords]="totalObject" [page]="tableSearch.page"
+    (change)="pagingChanges($event)"></app-rows-number-handler>
+<div class="tableContainerCustom">
+    <p-table *ngIf="ready" [value]="fascicoli" [autoLayout]="true" [responsive]="true" [columns]="tableHeaders"
+        (onSort)="sortElements($event)">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th [ngStyle]="{ width: col.width ? col.width + ((col.field === 'stato' && col.header === '') || col.field === 'displayButton' ? 'em' : '%') : '' }"
+                    *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field"
+                    [pSortableColumnDisabled]="true">
+                    {{ col.header | translate }}
+                    <!-- <p-sortIcon *ngIf="col.field !== 'displayButton'" [field]="col.field"></p-sortIcon> -->
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns; let i = index" [attr.data-label]="columns[i].header | translate"
+                    class="text-center">
+                    <ng-container *ngIf="col.field === 'stato' && col.header === ''">
+                        <app-circle *ngIf="rowData['stato']"
+                            [backgroundColor]="processingStatus(rowData['stato']).color" [status]="rowData['stato']">
+                        </app-circle>
+                    </ng-container>
+                    <ng-container
+                        *ngIf="col.field !== 'displayButton' && col.field !== 'stato' && col.field !== 'comuni' && col.field !== 'tipoProcedimento' && col.field !== 'denominazioneFunzionario' && col.field !== 'denominazioneRup' && col.field !== 'riassegnazioni' && col.field !== 'ultimaOperazione' && col.header !== ''">
+                        {{ rowData[col.field] }}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'stato' && col.header !== ''">
+                        <!--{{('FASCIOLO_FIELDS.' + rowData.stato)|translate}}-->
+                        {{(processingStatus(rowData['stato']).label)|translate}}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'denominazioneFunzionario'">
+                        {{ rowData.denominazioneFunzionario }}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'comuni'">
+                        <ul class="pl-2">
+                            <li *ngFor="let com of rowData.comuni">
+                                <span style="word-wrap:break-word">{{com}}</span><br />
+                            </li>
+                        </ul>
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'denominazioneRup'">
+                        {{ rowData.denominazioneRup }}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'ultimaOperazione'">
+                        {{ rowData.ultimaOperazione | date: 'dd/MM/yyyy'}}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'riassegnazioni'">
+                        <!-- Button per il contatore -->
+                        <label for="props">
+                            <ul class="noStyle text-center">
+                                <ng-container *ngIf="rowData.riassegnazioni > 1; else noValues">
+                                    <li class="legend-container" (click)="storicoAsegnazioni(rowData);">
+                                        {{rowData.riassegnazioni}}
+                                    </li>
+                                </ng-container>
+                                <ng-template #noValues>
+                                    <li class="legend-container">1</li>
+                                </ng-template>
+                            </ul>
+                        </label>
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'tipoProcedimento'">
+                        {{ getTipoProcedimentoFromMetadata(rowData[col.field]) }}
+                    </ng-container>
+                    <ng-container *ngIf="col.field === 'displayButton'">
+                        <div class="align-buttons text-center">
+                            <button class="btn bttn"  style="z-index: 1072;"
+                                pTooltip="{{fascicoliAssegnati ? ('fascicolo.assegnazione.riassegna' | translate) : ('fascicolo.assegnazione.assegna'|translate)}}"
+                                [ngClass]="{'btn-success': !fascicoliAssegnati, 'btn-danger': fascicoliAssegnati}"
+                                type="button" placement="left" delay="500" (click)="assegna(rowData)">
+                                <em class="fa fa-user" aria-hidden="true"></em>
+                            </button>
+                            <button *ngIf="fascicoliAssegnati" class="btn bttn btn-danger" style="z-index: 1072;"
+                                type="button" placement="left" delay="500" (click)="rimuovi(rowData)" tooltipPosition="top"
+                                pTooltip="{{'fascicolo.assegnazione.revoca'|translate}}">
+                                <em class="fa fa-trash" aria-hidden="true"></em>
+                            </button>
+                        </div>
+                    </ng-container>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="footer" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length">
+                    <ngb-pagination [collectionSize]="totalObject" [maxSize]="10" [ellipses]="true"
+                        [boundaryLinks]="true" [pageSize]="tableSearch.limit"
+                        (pageChange)="pagingChanges({page: $event}, 'da_assegnare')" [(page)]="tableSearch.page"
+                        aria-label="Default pagination">
+                    </ngb-pagination>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length">
+                    <span style="text-align: center">{{'generic.norows' | translate}}</span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

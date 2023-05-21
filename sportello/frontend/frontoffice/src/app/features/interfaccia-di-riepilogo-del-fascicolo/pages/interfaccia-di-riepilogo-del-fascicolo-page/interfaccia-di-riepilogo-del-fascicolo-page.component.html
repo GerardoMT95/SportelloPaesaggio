@@ -1,0 +1,99 @@
+<app-alert 
+[(visible)]="display" 
+[extraData]="extraData" 
+[type]="typ" 
+[hasConfirm]="isConfirm" 
+(action)="callback($event)" 
+[content]="content" 
+[title]="title"
+></app-alert>
+
+<form [formGroup]="form" *ngIf="(loadedFascicolo|async) as fascicoloCaricato">
+  <div class="container-fluid">
+    <div class="portlet-content-container">
+      <ng-container *ngIf="!inIstruttoria; else istruttoria">
+        <div class="">
+          <app-dettaglio-fascicolo [fascicolo]="fascicolo" [typeProcedimento]="tipiProcedimento">
+          </app-dettaglio-fascicolo>
+          <!--<app-fascicolo [form]="form" [typeProcedimento]="tipiProcedimento" [enteDelegato]="entiDelegati"
+            [fascicolo]="fascicolo"></app-fascicolo>-->
+            <!--<app-fascicolo [form]="form" 
+            [typeProcedimento]="tipiProcedimento" 
+            [enteDelegato]="entiDelegati"
+            (cambioEnte)="cambioEnte($event)"
+            (cambioTipoProcedimento)="cambioTipoProcedimento($event)"
+            [pagamentiRegistrati]="this.fascicolo.totPagamenti"
+            ></app-fascicolo>-->
+            <app-fascicolo [currentUserOwner]="fascicolo.currentUserOwner"
+            [form]="form" 
+            [showCodiceSegreto]="fascicolo.codiceSegreto != null"
+            [typeProcedimento]="tipiProcedimento" 
+            [enteDelegato]="entiDelegati"
+            (cambioEnte)="cambioEnte($event)"
+            (cambioTipoProcedimento)="cambioTipoProcedimento($event)"
+            [pagamento]="pagamento"
+            ></app-fascicolo>
+          <app-sezioni [fascicolo]="fascicolo" [schedaTecnicaValidato]="fascicolo? fascicolo.validatoSchedaTecnica: false"  
+            [istanzaValidato]="fascicolo? fascicolo.validatoIstnza: false" [allegatiValidato]="fascicolo? fascicolo.validatoAllegati: false"
+            [richiedenteValidato]="fascicolo ? fascicolo.validatoRichiedente : false" (navigateChange)="sezioniDetails($event)"></app-sezioni>
+          <div class="ml-3 mt-3">
+            <button *ngIf="validato && fascicolo.currentUserOwner" pButton (click)="generaStampa()"
+              label="{{ 'BUTTONS.GENERATE_PRINT_BUTTON'|translate|titlecase }}"></button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #istruttoria>
+        <p-tabView class="step">
+          <p-tabPanel header="Fascicolo">
+            <div class="ml-3 mr-3">
+              <app-dettaglio-fascicolo [fascicolo]="fascicolo" [typeProcedimento]="tipiProcedimento"
+              >
+              </app-dettaglio-fascicolo >
+              <app-allega-documenti-sottoscritti [inIstruttoria]="true"
+                [fascicolo]="fascicolo"></app-allega-documenti-sottoscritti>
+              <app-fascicolo [form]="form" [typeProcedimento]="tipiProcedimento" [enteDelegato]="entiDelegati"
+                ></app-fascicolo>
+              <app-sezioni [fascicolo]="fascicolo" [schedaTecnicaValidato]="fascicolo? fascicolo.validatoSchedaTecnica: false"
+                [istanzaValidato]="fascicolo? fascicolo.validatoIstnza: false" [allegatiValidato]="fascicolo? fascicolo.validatoAllegati: false" 
+                (navigateChange)="sezioniDetails($event)"></app-sezioni>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="Comunicazioni">
+            <div class="ml-3 mr-3">
+              <app-form-corrispondenza [fascicolo]="fascicolo" [gestioneComunicazione]="false"></app-form-corrispondenza>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="{{'SEZIONI.INTEGRAZIONE'|translate}}">
+            <app-riepilogo-integrazione-documentale [currentUserOwner]="fascicolo.currentUserOwner" [integrazioni]="integrazioni" [statoPratica]="fascicolo.attivitaDaEspletare"
+              (nuovaIntegrazione)="creaNuovaIntegrazione()" (visualizzaDettaglio)="visualizzaDettaglio($event)"
+              (cancellaIntegrazione)="cancellaIntegrazione($event)" (downloadRiepilogo)="downloadRiepilogo($event)">
+            </app-riepilogo-integrazione-documentale>
+          </p-tabPanel>
+        </p-tabView>
+      </ng-template>
+      <div *ngIf="isDevelMode" class="col">
+        <p-accordion *ngIf="true" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up"
+              [multiple]="false">
+          <p-accordionTab header="{{ 'clona pratica' }}">
+            <label>inserisci il file che verrà utilizzato per i vari documenti di riconoscimento</label>
+            <app-file-upload (onChoose)="onSelezioneMockFile($event)" 
+                  [showUploadButton]="false" [showCancelButton]="true" [multiple]="false">
+                </app-file-upload>
+            <button (click)="clonaPratica()" type="button"
+            class="bttn btn btn-primary">Clona pratica</button>
+          </p-accordionTab>
+          </p-accordion>
+        
+      </div>
+      <div class="action-footer">
+        <app-action-footer *ngIf="!inIstruttoria && fascicolo.currentUserOwner" (salvaChange)="save()" (validaChange)="valida()" 
+          [enableAnnulla]="false" (enableSollevaIncaricoChange)="sollevaIncarico()" 
+          [enableValida]="!validato" [enableSollevaIncarico]="enableSollevaIncarico" (indietroChange)="indietro()">
+        </app-action-footer>
+        <app-action-footer *ngIf="inIstruttoria  || !fascicolo.currentUserOwner" [isDisabled]="true" [enableAnnulla]="false"
+        [enableSollevaIncarico]="enableSollevaIncarico" (enableSollevaIncaricoChange)="sollevaIncarico()"
+        (indietroChange)="indietro()"></app-action-footer>
+      </div>
+    </div>
+  </div>
+</form>

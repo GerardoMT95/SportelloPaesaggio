@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="portlet-content-container">
+        <form [formGroup] = 'form'>
+            <div class="row nom">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>{{ 'GESTIONE_CDS.LABEL.TIPO' | translate }} (*)</label>
+                        <p-multiSelect 
+                        class="dflex" 
+                        [options]="tipi"  formControlName="tipo"
+                        defaultLabel="{{'generic.selezionavoci' | translate}}"      
+                        selectedItemsLabel="{0} Tipologie selezionate"
+                        optionLabel="label"  
+                        [filter]="true"
+                        maxSelectedLabels="3"
+                        >
+                      </p-multiSelect>
+                        <app-input-error [validation]="validation" [errors]="form.controls.tipo.errors"></app-input-error>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>{{ 'GESTIONE_CDS.LABEL.ATTIVITA' | translate }} (*)</label>
+                        <p-multiSelect 
+                        class="dflex" 
+                        [options]="attivita"  formControlName="attivita"
+                        defaultLabel="{{'generic.selezionavoci' | translate}}"      
+                        selectedItemsLabel="{0} Attività selezionate"
+                        optionLabel="label"  
+                        (onChange)="changeAttivita($event)"
+                        [filter]="true"
+                        maxSelectedLabels="3"
+                        >
+                      </p-multiSelect>
+                        <app-input-error [validation]="validation" [errors]="form.controls.attivita.errors"></app-input-error>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>{{ 'GESTIONE_CDS.LABEL.AZIONE' | translate }} (*)</label>
+                        <p-multiSelect 
+                        class="dflex" 
+                        [options]="azioni"  formControlName="azione"
+                        defaultLabel="{{'generic.selezionavoci' | translate}}"      
+                        selectedItemsLabel="{0} Azioni selezionate"
+                        optionLabel="label"
+                        [filter]="true"
+                        maxSelectedLabels="3"
+                        >
+                      </p-multiSelect>
+                        <app-input-error [validation]="validation" [errors]="form.controls.azione.errors"></app-input-error>
+                      </div>
+                </div>
+                
+              </div>
+        </form>
+    </div>
+  </div>
+  <div class="text-center inner-pulsantiera ">
+      <button class="bttn btn btn-primary " (click)="salva()">
+        {{ 'BUTTONS.SAVE_BUTTON' | translate }}
+        <fa-icon icon="save"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary " (click)="annulla()">
+        {{ 'generic.annulla' | translate }}
+        <fa-icon icon="times"></fa-icon>
+      </button>
+      <button type="button" class="bttn btn btn-primary " (click)="indietro()">
+        {{ 'generic.indietro' | translate }}
+        <fa-icon icon="arrow-left"></fa-icon>
+      </button>
+    </div>

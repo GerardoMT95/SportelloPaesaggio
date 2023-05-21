@@ -1,0 +1,21 @@
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{ width: '60%', minWidth: '250px' }"
+    [baseZIndex]="10000" (onHide)="close()" [blockScroll]="true">
+    <p-header>Fascicoli associati a al documento della seduta {{nomeSeduta}}</p-header>
+    <app-tabella-fascicoli-verbale [data]="fascicoliData"></app-tabella-fascicoli-verbale>
+    <p-footer>
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-row-reverse">
+                <button class="dialog-button" type="button" pButton (click)="close()"
+                    label="{{ 'generic.chiudi' | translate }}"></button>
+            </div>
+        </div>
+    </p-footer>
+</p-dialog>
+<ng-container *ngIf="files && files.length > 0; else noFiles">
+    <app-section-header title="ALLEGATI"></app-section-header>
+    <app-table-no-filter [disabled]="true" [readonly]="true" [types]="types" [files]="files" [headers]="headers"
+        (onTableDownload)="download($event)" (onTableCustomEvent)="mostraIstanze($event.file)"></app-table-no-filter>
+</ng-container>
+<ng-template #noFiles>
+    <p>La presente sezione non contiene documenti</p>
+</ng-template>

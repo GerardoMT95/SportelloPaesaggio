@@ -1,0 +1,24 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div>
+      <app-search-accordion [isPublic]="false" (searchChange)="searchFascicoli($event)"></app-search-accordion>
+    </div>
+    <app-status-list-bar *ngIf="registrationStatusSummaries$ | async as registrationStatusSummaries"
+      [registrationStatusSummaries]="registrationStatusSummaries"></app-status-list-bar>
+    <div class="clearfix"></div>
+    <div class="mt-3">
+      <div class="mb-4">
+        <app-data-table [tableData]="fascicoli" [cols]="cols" [isPublic]="false"
+          (updateDataChange)="orderByAndPaging($event)" (actionChange)="azioniRiga($event)" 
+          (exportEmitter)="export($event)"
+          (newItemEmitter)="nuovoFascicolo()"
+          [initPageAndRows]="{ page: filters.page, rows: filters.limit }"
+          [addButton]="isAbilitatoATrasmissione && validGroup">
+        </app-data-table>
+      </div>
+    </div>
+  </div>
+</div>

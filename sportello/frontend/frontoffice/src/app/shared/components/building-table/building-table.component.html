@@ -1,0 +1,55 @@
+<div *ngIf="form" [formGroup]="form">
+  <!--{{ tableData | json }}-->
+  <div class="pb-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <ng-container *ngFor="let col of tableHeaders">
+            <th *ngIf="col.type!='hidden'" scope="col"> {{col.header | translate}} </th>
+          </ng-container>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr formArrayName="{{formArrayName}}" *ngFor="let item of form.get(formArrayName)['controls']; let i=index">
+          <ng-container [formGroupName]="i">
+            <td class="align-row-number">
+              <app-tooltip *ngIf="item.invalid && submitted" message="Errore, riga non valida" type="error"></app-tooltip>
+              {{i+1}}
+              <!-- <app-input-error [errors]="item.errors" [validation]="true && submitted"></app-input-error> -->
+            </td>
+            <ng-container *ngFor="let col of tableHeaders">
+              <td *ngIf="col.type!='hidden'">
+                <app-text-field [disabled]="disabled" formControlName="{{col.field}}" *ngIf="col.type === 'text-field'"
+                  name="{{col.field}}" [validation]="true && submitted" [errors]="item.get(col.field).errors">
+                </app-text-field>
+                <app-date-picker-field [disabled]="disabled"  [maxDate]="currentDate" formControlName="{{col.field}}"
+                  *ngIf="col.type === 'date-picker-field'" [validation]="true && submitted"
+                  [errors]="item.get(col.field).errors"></app-date-picker-field>
+                <app-select-field [disabled]="disabled" formControlName="{{col.field}}" *ngIf="col.type === 'select'"
+                  [options]="col.optionSelect" [optionLabel]="'description'" [validation]="true && submitted"
+                  [errors]="item.get(col.field).errors"></app-select-field>
+              </td>
+            </ng-container>
+            <td class="align-buttons" *ngIf="!disabled">
+              <button type="button" class="ibtnDel btnClose" (click)="deleteFiledValue(i)">
+                <em class="fa fa-close" aria-hidden="true"></em>
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="7" class="text-center" *ngIf="!disabled">
+            <button type="button" class="bttn btn btn-primary" (click)="addItem()" >
+              {{ 'BUTTONS.ADD_ROW' | translate }}
+            </button>
+            <button type="button" class="ml-1 bttn btn btn-primary" (click)="deleteAll()" >
+              {{ 'BUTTONS.DELETE_ALL' | translate }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

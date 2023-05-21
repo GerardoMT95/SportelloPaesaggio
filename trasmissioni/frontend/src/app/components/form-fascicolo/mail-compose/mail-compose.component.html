@@ -1,0 +1,148 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="row noml nomr journal-content-article">
+  <div class="text-left clearfix w100">
+    <hr class="divisore">
+    <div class="text-center">
+      {{'fascicolo.mailCompose.elencoDestinatari' | translate}}
+    </div>
+  </div>
+</div>
+<div class="row noml nomr">
+  <div class="col-md-8 col-xs-12">
+    <h5>{{'fascicolo.mailCompose.utDest'|translate}}</h5>
+  </div>
+</div>
+<app-tabella-indirizzi [addresses]="destinatariFissi" [paginator]="false"
+  [deletable]="false" [selectable]="false" [editable]="false">
+</app-tabella-indirizzi>
+<!-- <div class="row noml nomr">
+  <div class="col-md-8 col-xs-12">
+    <p-table [value]="destinatariFissi" class="mb-2" autoLayout="true" [columns]="tableHeadersAttachment">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <ng-container *ngIf="!(col.field === 'to')">
+              <th [ngStyle]="{ width: col.width ? col.width + '%' : '' }">
+                {{ col.header|translate }}
+              </th>
+            </ng-container>
+          </ng-container>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr class="small-row">
+          <ng-container *ngFor="let col of columns">
+            <ng-container *ngIf="!(col.field === 'to')">
+              <td>{{rowData[col.field]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div> -->
+<!-- <div class="row noml nomr journal-content-article">
+  <div class="text-left clearfix w100">
+    <hr class="divisore">
+    <div class="text-center">
+      {{'fascicolo.mailCompose.ulterioriDestinatari' | translate}}
+    </div>
+  </div>
+</div> -->
+<div style="margin-top: 2em;">
+  <app-aggiunti-destinatario [addresses]="destinatariUlteriori" (onChangeType)="cambiaTipologia($event)"
+    (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)">
+  </app-aggiunti-destinatario>
+</div>
+<!-- <div class="row noml nomr">
+  <div class="col-lg-8 col-xs-12">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-lg-4" [formGroup]="mailForm">
+          <label for="denominazione">{{'fascicolo.mailCompose.denominazione'|translate}}</label>
+          <input [formControlName]="'denominazione'" id="denominazione" class="form-control"
+            [ngClass]="{ 'is-invalid': daMarcare('denominazione') }" />
+          <div *ngIf="daMarcare('denominazione')" class="invalid-feedback">
+            <div *ngIf="mailForm['controls'].denominazione.errors.required">
+              {{'generic.required'|translate}}</div>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4" [formGroup]="mailForm">
+          <label for="mailAddress">{{'fascicolo.mailCompose.pecPeo'|translate}}</label>
+          <input [formControlName]="'mailAddress'" id="mailAddress" class="form-control"
+            [ngClass]="{ 'is-invalid': daMarcare('mailAddress')}" />
+          <div *ngIf="daMarcare('mailAddress')" class="invalid-feedback">
+            <div *ngIf="mailForm['controls'].mailAddress.errors.required">
+              {{'generic.required'|translate}}</div>
+            <div *ngIf="mailForm['controls'].mailAddress.errors.email">
+              {{'generic.badValueEmail'|translate}}</div>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4 mt-4">
+          <button type="submit" id="btnTr" (click)="addDestinatario()" class="bttn btn btn-primary mt3">
+            {{'AGGIUNGI_BUTTON'|translate}}
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+          <button type="reset" class="bttn btn btn-primary">
+            {{'TABLE_CANCEL_BUTTON'|translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row noml nomr">
+  <div class="col-md-8 col-xs-12">
+    <p-table [value]="destinatariUlteriori" class="mb-2" autoLayout="true" [columns]="tableHeadersAttachment">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header|translate }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr class="small-row">
+          <td *ngFor="let col of columns">
+            <ng-container *ngIf="!(col.field === 'to')">
+              {{rowData[col.field]}}
+            </ng-container>
+            <ng-container *ngIf="(col.field === 'to')">
+              <button (click)="editDestinatario(rowData)" data-toggle="tooltip" data-placement="top" title=""
+                type="button" class="btn bttn bttn-table btn-primary" pTooltip="{{'generic.modifica'|translate}}" tooltipPosition="left"
+                placement="left" delay="500">
+                <em class="fa fa-pencil" aria-hidden="true"></em>
+              </button>
+              <button (click)="deleteDestinatario(rowData)" data-toggle="tooltip" data-placement="top" title=""
+                type="button" class="btn bttn bttn-table btn-danger" pTooltip="{{'generic.elimina'|translate}}" tooltipPosition="left"
+                placement="left" delay="500">
+                <em class="fa fa-trash" aria-hidden="true"></em>
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div> -->
+<div class="row noml nomr ">
+  <div class="col-md-8 col-xs-12 mtop10">
+    <label>
+      {{'fascicolo.mailCompose.visualizzaAnteprima'|translate}}
+      <button (click)="downloadAnteprima()" data-toggle="tooltip" data-placement="top" title="" type="button"
+        class="bttn btn btn-primary " pTooltip="{{'fascicolo.mailCompose.visualizzaAnteprima'|translate}}"
+        tooltipPosition="left" placement="left" delay="500">
+        <em class="fa fa-download" aria-hidden="true"></em>
+      </button>
+    </label>
+  </div>
+</div>
+<div class="row noml nomr">
+  <div class="text-center inner-pulsantiera">
+    <button type="button" (click)="trasmetti()" class="bttn btn btn-primary">{{'generic.trasmetti'|translate}}</button>
+    <button type="button" (click)="back()" class="bttn btn btn-primary">{{'generic.indietro'|translate}}</button>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-section-header
+        [title]="'SEZIONI.SEZIONI' | translate | titlecase"
+      ></app-section-header>
+    </div>
+    <div class="col-md-12">
+      <div
+        *ngIf="fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA'"
+        class="green"
+      >
+        <label>{{
+          "SEZIONI.COMPILATE-E-VALIDATE" | translate | titlecase
+        }}</label>
+        <div class="green-square"></div>
+      </div>
+
+      <div
+        *ngIf="fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA'"
+        class="red"
+      >
+        <label>{{ "SEZIONI.NON-COMPILATE" | translate | titlecase }}</label>
+        <div class="red-square"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p-table [value]="sezioni">
+        <ng-template pTemplate="header">
+          <tr>
+            <th
+              *ngIf="fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA'"
+              class="red-botton-th"
+              pColumn=""
+            ></th>
+            <th class="sezioni-th" pColumn="sezioni">Sezioni</th>
+            <th class="edit-th" pColumn=""></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sezioni>
+          <tr>
+            <td *ngIf="fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA'">
+              <button
+                data-toggle="tooltip"
+                data-placement="top"
+                type="button"
+                class="bttn-table btn"
+                [class.btn-danger]="!sezioni.valid"
+                [class.btn-success]="sezioni.valid"
+                tooltipPosition="left"
+                placement="left"
+                delay="500"
+              ></button>
+            </td>
+            <td>{{ sezioni.sezioni }}</td>
+            <td>
+              <button
+                *ngIf="sezioni.canEdit"
+                data-toggle="tooltip"
+                data-placement="top"
+                type="button"
+                [ngClass]="
+                  fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA' && fascicolo.currentUserOwner
+                    ? 'btn btn-edit'
+                    : 'btn btn-view'
+                "
+                class="bttn-table btn btn-edit"
+                tooltipPosition="left"
+                placement="left"
+                delay="500"
+                (click)="navigate(sezioni.value)"
+              >
+                <em
+                  *ngIf="fascicolo.attivitaDaEspletare === 'COMPILA_DOMANDA' && fascicolo.currentUserOwner"
+                  class="fa fa-pencil"
+                  aria-hidden="true"
+                ></em>
+                <em
+                  *ngIf="fascicolo.attivitaDaEspletare !== 'COMPILA_DOMANDA' || !fascicolo.currentUserOwner"
+                  class="fa fa-eye"
+                  aria-hidden="true"
+                ></em>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <!--<div *ngIf="fascicolo.attivitaDaEspletare!=='Istanza Presentata'" class="green">-->
+
+  <!-- <div class="row pt-5">
+    <div class="col">
+      <p-table [value]="sezioni" [style]="{ width: '600px' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="sezioni-th" pColumn="sezioni">Sezioni</th>
+            <th class="edit-th" pColumn=""></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sezioni>
+          <tr>
+            <td>{{ sezioni.sezioni }}</td>
+            <td>
+              <button
+                data-toggle="tooltip"
+                data-placement="top"
+                type="button"
+                class="btn btn-view"
+                tooltipPosition="right"
+                placement="left"
+                delay="500"
+              >
+                <em class="fa fa-eye" aria-hidden="true"></em>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div> -->
+</div>

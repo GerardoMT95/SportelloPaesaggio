@@ -1,0 +1,96 @@
+.dialog-icon {
+  margin-top: -10px;
+  font-size: 3em;  
+  color: #fff;  
+  padding-top: 4px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-right: 20px;
+  float: left;
+  border-radius: 50%;
+}
+
+.style-success {
+  font-size: 1.5em;
+  border: 2px solid #28a745;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 50%;
+  padding-top: 4px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin-right: 20px;
+  float: left;
+}
+
+.button-style{
+  font-size: 1.1em;
+  background-color: #616161;
+  font-weight: bold;
+  border: 0px solid;
+  padding: 7px 15px;
+  color: #fff;
+  border-radius: 0;
+}
+
+.success-message .dialog-icon {
+  border: 2px solid #4CAF50;
+  background-color: #28a745;
+}
+.information-message .dialog-icon {
+  border: 2px solid #007BFF;
+  background-color: #007BFF;
+}
+.warning-message .dialog-icon {
+  border: 2px solid #db9c15;
+  background-color: #db9c15;
+  font-size: 2.8em;
+}
+
+button {
+  margin: 0 5px;
+}
+
+.error-message .dialog-icon {
+  border: 2px solid #dc3545;
+  background-color: #dc3545;
+}
+
+.p{
+  padding: 15px;
+}
+.dialog-button {
+  margin: 0 5px;
+}
+
+:host {
+  ::ng-deep .bttn {
+    padding: 5px 15px;
+    font-size: 1em;
+    background-color: #2b86c2;
+    border: 0px solid;
+    line-height: 20px;
+    margin: 0 0.5em 0 0;
+    width: auto;
+  }
+}
+
+:host{
+  ::ng-deep .ui-dialog::ng-deep.ui-dialog-footer{
+    background-color: #e6e7e8;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+
+:host{
+  ::ng-deep.ui-button-text{
+    display: none !important;
+  }
+}
+
+

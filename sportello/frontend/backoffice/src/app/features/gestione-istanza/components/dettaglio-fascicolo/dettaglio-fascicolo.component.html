@@ -1,0 +1,56 @@
+<div class="dettagglio-fascioclo">
+  <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+    <p-accordionTab [selected]="true">
+      <p-header>
+        <div class="d-flex">
+          <div class="col-md-5"></div>
+          <div class="col-md-2 mt-2">
+            {{ 'DETTAGLIO-FASCICOLO.HEADER' | translate | titlecase }}
+            {{ fascicolo.codicePraticaAppptr }}
+          </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-2" *ngIf="this.fascicolo.attivitaDaEspletare != statoEnum.Trasmessa">
+            <button pButton [label]="status?.label | translate" [style.background]="status?.color"></button>
+          </div>
+        </div>
+      </p-header>
+      <div class="d-flex row">
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.TIPO-PROCEDIMENTO' | translate | titlecase }}</strong>
+          <p>{{ tipoProcedimento }}</p>
+          <p></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.COMUNE' | translate | titlecase }}</strong>
+          <ul class="pl-3">
+            <li *ngFor="let comune of comuniIntervento">{{comune}}</li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.RICHIEDENTE' | translate | titlecase }}</strong>
+          <p>{{ richiedente }}</p>
+        </div>
+      </div>
+      <div class="d-flex row">
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.FUNZIONARIO' | translate | titlecase }}</strong>
+          <p>{{ funzionario }}</p>
+          <p></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.RUP' | translate | titlecase }}</strong>
+          <p>{{ rup }}</p>
+          <p></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <strong>{{ 'DETTAGLIO-FASCICOLO.CODICE-TRASMISSIONE' | translate | titlecase }}</strong>
+          <p>{{ codiceTrasmissione }}</p>
+          <p></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+        </div>
+      </div>
+      <app-timeline [data]="timeline"></app-timeline>
+    </p-accordionTab>
+  </p-accordion>
+</div>

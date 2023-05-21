@@ -1,0 +1,95 @@
+<form [formGroup]="form" *ngIf="ready">
+  <div *ngFor="let rows of _organizedFormData" class="row" style="padding-top: .7em;">
+    <div *ngFor="let col of rows" [ngClass]="{'col-lg': true, 'col-md-6': nColumns > 1, 'col-sm-12': true}">
+      <label for="{{col.formControlName}}">{{col.label}}</label>
+      <div [ngSwitch]="col.type">
+        <div *ngSwitchCase="textarea">
+          <textarea class="{{col.className}}" formControlName="{{col.formControlName}}"></textarea>
+        </div>
+        <div *ngSwitchCase="checkbox">
+          <div *ngFor="let opt of col.extra.options">
+            <p-checkbox label="{{opt[col.extra.optionLabel]}}" labelStyleClass="{{col.labelStyleClass}}"
+              value="{{opt[col.extra.valueLabel]}}" [formControl]="form.controls[col.formControlName]"
+              class="{{col.className}}">
+            </p-checkbox><br />
+          </div>
+        </div>
+        <div *ngSwitchCase="radio">
+          <p-radioButton *ngFor="let opt of col.extra.options" value="{{opt[col.extra.valueLabel]}}"
+            formControlName="{{col.formControlName}}" label="{{opt[col.extra.optionLabel]}}">
+          </p-radioButton>
+        </div>
+        <div *ngSwitchCase="dropdown">
+          <p-dropdown [placeholder]="col.extra.defaultLabel" [filter]="col.extra.filter" class="{{col.className}}"
+            filterPlaceholder="{{col.extra.filterPlaceholder}}" [options]="col.extra.options"
+            optionLabel="{{col.extra.optionLabel}}" [autoWidth]="false" [group]="col.extra.isGroup"
+            formControlName="{{col.formControlName}}" [showClear]="true" [style]="{ width: '100%' }">
+          </p-dropdown>
+        </div>
+        <div *ngSwitchCase="multiselect">
+          <p-multiSelect class="dflex" [options]="col.extra.options" [filter]="col.extra.filter"
+            [showToggleAll]="col.extra.showToggleAll" formControlName="{{col.formControlName}}"
+            class="{{col.className}}" defaultLabel="{{col.extra.defaultLabel}}"
+            maxSelectedLabels="{{col.extra.maxSelectedLabels}}">
+          </p-multiSelect>
+        </div>
+        <div *ngSwitchCase="date">
+          <p-calendar formControlName="{{col.formControlName}}" dateFormat="{{col.extra.format}}"
+            class="{{col.className}}" inputStyleClass="form-control" [locale]="col.extra.locale"
+            [maxDate]="col.extra.maxDate" [minDate]="col.extra.minDate" showButtonBar="true">
+          </p-calendar>
+        </div>
+        <div *ngSwitchCase="dateRange">
+          <div class="form-group">
+            <div class="dflex double-input">
+              <div class="input-group col">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">{{'search.simple-from'|translate}}</div>
+                </div>
+                <p-calendar [monthNavigator]="col.extra.monthNavigator" [yearNavigator]="col.extra.yearNavigator"
+                  yearRange="col.extra.yearRange" dateFormat="{{col.extra.format}}" class="form-control nop" [locale]="col.extra.locale"
+                  [maxDate]="form.controls[col.formControlName + 'A'].value ? form.controls[col.formControlName + 'A'].value : col.extra.maxDate"
+                  [minDate]="col.extra.minDate" formControlName="{{col.formControlName}}Da"
+                  inputStyleClass="form-control" showButtonBar="true">
+                </p-calendar>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <fa-icon icon="calendar"></fa-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group col">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">{{'search.simple-to'|translate}}</div>
+                </div>
+                <p-calendar [monthNavigator]="col.extra.monthNavigator" [yearNavigator]="col.extra.yearNavigator"
+                  yearRange="col.extra.yearRange" dateFormat="{{col.extra.format}}" class="form-control nop" [locale]="col.extra.locale"
+                  [minDate]="form.controls[col.formControlName + 'Da'].value ? form.controls[col.formControlName + 'Da'].value : col.extra.minDate"
+                  [maxDate]="col.extra.maxDate" formControlName="{{col.formControlName}}A"
+                  inputStyleClass="form-control" showButtonBar="true">
+                </p-calendar>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <fa-icon icon="calendar"></fa-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchDefault>
+          <input class="{{col.className}}" formControlName="{{col.formControlName}}"
+            maxlength="{{col.extra.maxlength ? col.extra.maxlength : null}}" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 2em; padding-bottom: .6em;">
+    <div class="col-12 text-center">
+      <button *ngIf="showSearchButton" class="bttn btn btn-primary"
+        (click)="search()">{{searchLabel ? searchLabel : 'generic.ricerca'|translate}}</button>
+      <button *ngIf="showResetButton" class="bttn btn btn-danger"
+        (click)="reset()">{{resetLabel ? resetLabel : 'generic.reset'|translate}}</button>
+    </div>
+  </div>
+</form>

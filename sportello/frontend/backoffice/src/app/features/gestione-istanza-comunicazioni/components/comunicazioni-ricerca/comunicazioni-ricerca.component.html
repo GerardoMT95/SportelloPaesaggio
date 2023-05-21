@@ -1,0 +1,101 @@
+<div class="container-fluid pb-5">
+  <form class="text-left" [formGroup]="searchForm">
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <app-text-field
+          formControlName="mittente"
+          name="mittente"
+          id="mittente"
+          [label]="'COMMUNICATIONS.SENDER' | translate | uppercase"
+        ></app-text-field>
+      </div>
+
+      <div class="col-md-4">
+        <app-text-field
+          formControlName="oggetto"
+          name="oggetto"
+          id="oggetto"
+          [label]="'COMMUNICATIONS.OBJECT' | translate | uppercase"
+        ></app-text-field>
+      </div>
+
+      <div class="col-md-4">
+        <app-text-field
+          formControlName="destinatario"
+          name="destinatario"
+          id="destinatario"
+          [label]="'COMMUNICATIONS.RECIPIENT' | translate | uppercase"
+        ></app-text-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 d-flex flex-row justify-content-left mr-5" *ngIf="currentUser.role !== roles.EnteTerritoriale">
+        <app-radio-field
+          formControlName="riservata"
+          radioValue="SI"
+          name="riservata"
+          [radioLabel]="'SI'"
+          [label]="'COMMUNICATIONS.RESERVED' | translate | uppercase"
+          class="flex-fill"
+        ></app-radio-field>
+
+        <app-radio-field
+          formControlName="riservata"
+          radioValue="NO"
+          name="riservata"
+          [radioLabel]="'NO'"
+          [label]="'&nbsp;'"
+          class="flex-fill"
+        ></app-radio-field>
+      </div>
+      <!--non è previsto il campo....-->
+      <div class="col-md-2 d-flex flex-row justify-content-left mr-5" *ngIf="currentUser.role !== roles.EnteTerritoriale && false">
+        <app-radio-field
+          formControlName="comunicazioneInterna"
+          radioValue="SI"
+          name="comunicazioneInterna"
+          [radioLabel]="'SI'"
+          [label]="'interna' | uppercase"
+          class="flex-fill"
+        ></app-radio-field>
+
+        <app-radio-field
+          formControlName="comunicazioneInterna"
+          radioValue="NO"
+          name="comunicazioneInterna"
+          [radioLabel]="'NO'"
+          [label]="'&nbsp;'"
+          class="flex-fill"
+        ></app-radio-field>
+      </div>
+      <div class="col-md-3">
+        <app-date-picker-field
+          formControlName="dataInvioDa"
+          [label]="'data invio da' | uppercase"
+        ></app-date-picker-field>
+      </div>
+      <div class="col-md-3">
+        <app-date-picker-field
+          formControlName="dataInvioA"
+          [label]="'data invio a' | uppercase"
+        ></app-date-picker-field>
+      </div>
+      <div class="col-md-5">
+        <app-date-picker-field *ngIf="!roles.EnteTerritoriale" formControlName="dataInvioA" [label]="'&nbsp;'"></app-date-picker-field>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-12 align-button">
+        <button type="button" class="bttn btn btn-primary" (click)="onSubmit()">
+          {{'BUTTONS.SEARCH_BUTTON'|translate}}
+          <fa-icon icon="search"></fa-icon>
+        </button>
+        <button type="button" class="bttn btn btn-primary" (click)="onClose()">
+          {{'BUTTONS.CANCEL_BUTTON'|translate}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

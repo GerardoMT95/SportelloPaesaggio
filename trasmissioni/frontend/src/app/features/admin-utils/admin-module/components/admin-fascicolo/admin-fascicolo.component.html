@@ -1,0 +1,98 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="row noml nomr">
+  <div class="col-md-12">
+    <!-- ricerca -->
+    <!-- <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+      <p-accordionTab header="{{'generic.ricerca'|translate}}">
+        <label for="">Codice Fascicolo:</label>
+        <p-autoComplete class="form-control" [(ngModel)]="codiceDaCercare" [suggestions]="results" (completeMethod)="autocompleteCodice($event)">
+        </p-autoComplete>
+        <div class="row" style="padding-top: 2em; padding-bottom: .6em;">
+          <div class="col-12 text-center">
+            <button class="bttn btn btn-primary"
+              (click)="ricerca()">{{'generic.ricerca'|translate}}</button>
+            <button class="bttn btn btn-danger"
+              (click)="reset($event)">{{'generic.reset'|translate}}</button>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion> -->
+    <ngb-accordion #acc="ngbAccordion" class="ricerca full-width">
+      <ngb-panel id="ricerca">
+        <ng-template ngbPanelTitle>
+          {{'generic.ricerca'|translate}}
+          <fa-icon *ngIf="acc.isExpanded('ricerca')" icon="angle-double-up"></fa-icon>
+          <fa-icon *ngIf="!acc.isExpanded('ricerca')" icon="angle-double-down"></fa-icon>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div style="margin: .6em;">
+            <label for="">Codice Fascicolo:</label>
+            <p-autoComplete class="form-control" [(ngModel)]="codiceDaCercare" [suggestions]="results"
+              maxlength="{{const.MAX_LEN_AUTOCOMPLETE_CODICE}}"
+              (completeMethod)="autocompleteCodice($event)">
+            </p-autoComplete>
+            <div class="row" style="padding-top: 2em; padding-bottom: .6em;">
+              <div class="col-md-12 text-center">
+                <button class="bttn btn btn-primary" (click)="ricerca()">{{'generic.ricerca'|translate}}</button>
+                <button class="bttn btn btn-danger" (click)="reset($event)">{{'generic.reset'|translate}}</button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
+    <br><br>
+
+    <!-- tabella -->
+    <div class="tableContainerCustom">
+      <p-table [value]="fascicoliDaAnnullare" [columns]="colonneTabella" [autoLayout]="true">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em;"></th>
+            <th class="uppercase" *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+            <th class="uppercase" style="width: 9em">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+          <tr>
+            <td>{{index+1}}</td>
+            <td>{{rowData.codice}}</td>
+            <td>{{rowData.oggettoIntervento}}</td>
+            <td>{{getTipoProcedimento(rowData.tipoProcedimento)}}</td>
+            <td>
+              <ul>
+                <li *ngFor="let comune of rowData.comuni">{{comune}}</li>
+              </ul>
+            </td>
+            <td>{{rowData.rup}}</td>
+            <td>{{rowData.numeroProvvedimento}}</td>
+            <td>{{rowData.dataRilascioAutorizzazione | date: 'dd-MM-yyyy'}}</td>
+            <td>{{getEsitoAutorizzazione(rowData.esito)}}</td>
+            <td>
+              <button type="button" (click)="annulla(rowData.id)" placement="top" container="body"
+                ngbTooltip="{{'generic.annulla'|translate}}" class="bttn bttn-table btn btn-danger">
+                <fa-icon icon="trash"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 2">
+              <span style="text-align: center">{{'generic.norows' | translate}}</span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<br><br>

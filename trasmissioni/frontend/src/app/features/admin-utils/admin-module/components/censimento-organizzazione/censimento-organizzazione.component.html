@@ -1,0 +1,111 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<app-generic-modal-form *ngIf="openPopupAttiva" [configuration]="attivaConf" [init]="init" title="Attivazione organizzazione"
+  (complete)="attivaAggiorna($event)" (close)="openPopupAttiva = false; init = null;"></app-generic-modal-form>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div *ngIf="!inEditing">
+      <ngb-accordion #acc="ngbAccordion" styleClass="ricerca full-width" destroyOnHide="false" [activeIds]="activeIds">
+        <ngb-panel id="add">
+          <ng-template ngbPanelTitle>
+            <span>{{'generic.ricerca'|translate}}</span>
+            <fa-icon *ngIf="acc.isExpanded('add')" icon="angle-double-up"></fa-icon>
+            <fa-icon *ngIf="!acc.isExpanded('add')" icon="angle-double-down"></fa-icon>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <app-form-search *ngIf="configuration" [configuration]="configuration" [nColumns]="3"
+              (onSearch)="setFiltri($event); ricerca()" (onReset)="reset($event)">
+            </app-form-search><!-- [triggerSearchEvent]="triggerSearch"  -->
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <app-rows-number-handler [itemsTotal]="totalRecords" [totalRecords]="totalRecords" (change)="pagingChange($event)"
+          [page]="search.page" [customElement]="customElement">
+          <ng-template #customElement>
+              <div class="float-right containerBtnAggiuntivi dflex align-items-center mt-3">
+                  <div class="col text-right nop">
+                      <button type="button" (click)="openDetail()" class="btn bttn btn-primary">
+                        {{'Nuova organizzazione'|translate}}
+                      </button>
+                  </div>
+              </div>
+          </ng-template>
+      </app-rows-number-handler>
+      <div class="tableContainerCustom">
+        <p-table [value]="listOrganizzazioni" [columns]="columns" [lazy]="true" [autoLayout]="true"
+          (onSort)="onSort($event)" [lazyLoadOnInit]="false">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th class="uppercase text-center" style="width: 4em"></th>
+              <th class="uppercase" *ngFor="let col of columns" [pSortableColumn]="col.sortableField ? col.field : null">
+                {{col.header}}<p-sortIcon *ngIf="col.sortableField" [field]="col.field"></p-sortIcon>
+              </th>
+              <th class="uppercase text-center" style="width: 12.5em"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+            <tr>
+              <td class="text-center">
+                <!-- <p-inputSwitch [ngModel]="rowData.enabled" readonly="true"></p-inputSwitch> statusTab -->
+                <app-circle *ngIf="rowData.enabled" [backgroundColor]="statusTab['true'].color" [status]="statusTab['true'].status"></app-circle>
+                <app-circle *ngIf="!rowData.enabled" [backgroundColor]="statusTab['false'].color" [status]="statusTab['false'].status"></app-circle>
+              </td>
+              <td>{{rowData.denominazione}}</td>
+              <!-- <td>{{rowData.tipoOrganizzazione == 'ED' ? 'Ente delegato' : 'Ente territorialmente interessato'}}</td> -->
+              <td>{{toPrint[rowData.tipoOrganizzazione]}}</td>
+              <td>{{rowData.tipoOrganizzazioneSpecifica}}</td>
+              <td>{{rowData.dataCreazione | date: 'dd/MM/yyyy'}}</td>
+              <td>{{rowData.dataTermine | date: 'dd/MM/yyyy'}}</td>
+              <td>
+                <!-- <button placement="top" placement="top" container="body" class="bttn bttn-table btn btn-primary"
+                  (click)="openDetail(true, rowData.id)">
+                  <fa-icon icon="eye"></fa-icon>
+                </button> -->
+                <button placement="top" placement="top" container="body" class="bttn bttn-table btn btn-primary"
+                  (click)="openDetail(true, rowData.id)">
+                  <fa-icon *ngIf="rowData.tipoOrganizzazioneSpecifica != 'Regione'" icon="pencil-alt"></fa-icon>
+                  <fa-icon *ngIf="rowData.tipoOrganizzazioneSpecifica == 'Regione'" icon="eye"></fa-icon>
+                </button>
+                <button *ngIf="!rowData.enabled && rowData.tipoOrganizzazioneSpecifica != 'Regione'" placement="top" placement="top" container="body" class="bttn bttn-table btn btn-success"
+                  pTooltip="Attiva organizzazione" (click)="openPopup(rowData.id)"><fa-icon icon="check"></fa-icon>
+                </button>
+                <button *ngIf="rowData.enabled && rowData.tipoOrganizzazioneSpecifica != 'Regione'" placement="top" placement="top" container="body" class="bttn bttn-table btn btn-primary"
+                pTooltip="Modifica scadenza organizzazione" (click)="openPopup(rowData.id, rowData.dataScadenzaAbilitazione)"><fa-icon icon="calendar"></fa-icon>
+                </button>
+                <button *ngIf="rowData.enabled && rowData.tipoOrganizzazioneSpecifica != 'Regione'" placement="top" placement="top" container="body" class="bttn bttn-table btn btn-danger"
+                  pTooltip="Disattiva organizzazione" (click)="disattivaPopup(rowData)"><fa-icon icon="times"></fa-icon>
+                </button>
+                <!-- <button type="button" placement="top" container="body" class="bttn bttn-table btn btn-danger"
+                  (click)="eliminaTipologia(rowData)" *ngIf="!rowData.procedureCollegate">
+                  <fa-icon icon="trash-alt"></fa-icon>
+                </button> -->
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="columns.length + 2">
+                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="footer" let-columns>
+            <tr>
+              <td [attr.colspan]="columns.length + 2">
+                <ngb-pagination [collectionSize]="totalRecords" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="search.limit" (pageChange)="pagingChange({page: $event, limit: search.limit})" [(page)]="search.page" aria-label="Default pagination">
+                </ngb-pagination>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div *ngIf="inEditing">
+      <app-form-creazione-organizzazione [init]="editOrg" (complete)="editComplete($event)" (close)="editOrg = null; inEditing = false; ricerca();"></app-form-creazione-organizzazione>
+    </div>
+    
+  </div>
+</div>

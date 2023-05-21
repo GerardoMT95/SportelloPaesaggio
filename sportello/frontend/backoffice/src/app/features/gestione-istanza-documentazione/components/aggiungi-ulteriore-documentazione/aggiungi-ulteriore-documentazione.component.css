@@ -1,0 +1,4 @@
+body app-root .ui-fileupload .ui-fileupload-content, body .modal-body .ui-fileupload .ui-fileupload-content
+{
+    display: inline!important;
+}

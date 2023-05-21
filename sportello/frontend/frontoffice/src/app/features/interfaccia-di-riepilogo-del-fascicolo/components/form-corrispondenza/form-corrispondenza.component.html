@@ -1,0 +1,290 @@
+<ng-container [ngSwitch]="statoComponent">
+    <div *ngSwitchCase="'RIEPILOGO'">
+      <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+        <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+          <app-comunicazioni-ricerca (searchChange)="updateQuery($event)" (annullaSearch)="updateQuery()"
+            [currentUser]="currentUser" 
+            ></app-comunicazioni-ricerca>
+        </p-accordionTab>
+      </p-accordion>
+      <div class="row clearfix mb-5 mt-5">
+        <div class="col-md-12 align-right" *ngIf="fascicolo.currentUserOwner && visibilitaMailDefault">
+          <!--<button label="{{ 'BUTTONS.NEW_DRAFT' | translate | uppercase }}" icon="fa fa-plus" iconPos="left"
+            class="mx-1  ui-clickable ui-button-icon-left ng-star-inserted" type="button"
+            class="bttn btn btn-primary"
+            (click)="inviaComunicazioneTrue()">
+        </button>-->
+        <button (click)="inviaComunicazioneTrue()" type="button" label=""
+                class="bttn btn btn-primary">{{ 'BUTTONS.NEW_DRAFT' | translate | uppercase }} <fa-icon
+                        icon="plus"></fa-icon></button>
+        </div>
+      </div>
+  
+      <app-comunicazione-table [tableData]="comunicazioni" 
+      [tableSearch]="corrispondenzaSearch"
+      [tableHeader]="comunicazioniTableHeaders"
+      [totalItems]="numeroTotaleOggetti"
+      [numeroOggettiRestituiti]="numeroOggettiRestituiti"
+        [currentUser]="currentUser" 
+        (navigateChange)="azioni($event)"
+        (pagingOrOrderBy)="updateQuery($event)">
+        ></app-comunicazione-table>
+  
+    </div>
+    <div *ngSwitchCase="'COMPOSIZIONE'">
+      <app-nuova-comunicazione 
+      [templates]="null"
+      [placeHolderSelezioneTemplate]=""
+      [requiredTipoComunicazione]="false"
+      [hasProtocollo]="false"
+      (sendData)="sendData($event,false)" 
+      (sendDataWithProto)="sendData($event,true)" 
+      (showPreview)="showPreview($event)" 
+      (uploadFile)="uploadFile($event)"
+        (deleteFile)="deleteFile($event)" 
+        (downloadFile)="downloadFile($event)"
+        (canceled)="chiusoDettaglio($event)"
+        [showPreviewButton]="true"
+        [idComunicazione]="idComunicazione" 
+        [init]="dettaglioCorrispondenzaDTO"
+        [codiceFascicolo]="fascicolo.codicePraticaAppptr"
+        [indirizziMailDefault]="indirizziMailDefault">
+      </app-nuova-comunicazione>
+    </div>
+    <div *ngSwitchCase="'DETTAGLIO'">
+      <app-dettaglio-com [dettaglioComunicazione]="dettaglioOpened" 
+      (action)="chiusoDettaglioView($event)"
+      [idPratica]="this.fascicolo.id">
+      </app-dettaglio-com>
+    </div>
+  </ng-container>
+
+<!--old template-->
+<!--<ng-template #noSearch let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{'generic.errore' | translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeReg()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Non Puoi cercare comunicazioni non Regionali
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="bttn btn btn-primary" (click)="closeReg()">{{'generic.ok'|translate}}</button>
+    </div>
+</ng-template>-->
+<!-- <p-dialog [(visible)]="display" [style]="{width: '70%', height:'70%', maxHeight: '80%'}" [modal]="true" [blockScroll]="true" (onHide)="hide()"
+    [contentStyle]="{height:'100%', maxHeight:'100%', 'overflow-y': 'auto'}">
+    <p-header>
+        {{!toEdit ? ('dettaglioComunicazione.add'|translate) : ('dettaglioComunicazione.modify'|translate)}}
+    </p-header>
+    <app-nuova-comunicazione *ngIf="display" (sendData)="inviaComunicazione($event)" (canceled)="display=false"
+        [forceReset]="forceReset" [forceSubmit]="forceSubmit" [showButtonBar]="false" [init]="toEdit"
+        [idFascicolo]="dettaglio.id">
+    </app-nuova-comunicazione>
+    <p-footer>
+        <div class="col-12 text-center">
+            <button class="bttn btn btn-primary" (click)="emettiSubmit(true)">Salva in bozza</button>
+            <button class="bttn btn btn-primary" (click)="emettiSubmit(false)">Invia</button>
+            <button class="bttn btn btn-primary" (click)="hide()">Annulla</button>
+        </div>
+    </p-footer>
+</p-dialog> -->
+<!--<div class="portlet-content-container">
+    <div class="portlet-body">
+        <div *ngIf="!display">
+            <div [hidden]="!isPermiss">
+                <div [hidden]="isDettaglio">
+                    <div class="container-fluid nop mtop50">
+                        <p-accordion expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+                            <p-accordionTab header="{{'generic.ricerca'|translate}}">
+                                <app-form-search *ngIf="configuration" [configuration]="configuration" [nColumns]="3"
+                                    [triggerSearchEvent]="triggerSearch" (onSearch)="ricerca($event)"
+                                    (onReset)="reset($event)">
+                                </app-form-search>
+                            </p-accordionTab>
+                        </p-accordion>
+                        <div class="" style="padding-top: 2em;">
+                            
+                            <div class="dflex align-items-center">
+                                <div class="col-auto nop">
+                                    <div class="input-group paginazione">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">{{'generic.elementiPerPagina' | translate}}</div>
+                                        </div>
+                                        <p-dropdown class="dflex max100 no-min-width" (onChange)="changeRows($event.value)"
+                                            [ngModel]="rowsOnPage" [options]="pages" [autoWidth]="false"></p-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-auto" *ngIf="itemsTotal > 0">
+                                    <p class="nom">{{'generic.da' | translate}} {{((rowsOnPage * page) - rowsOnPage) + 1}}
+                                        {{'generic.a' | translate}}
+                                        <span *ngIf="rowsOnPage * page<itemsTotal">{{rowsOnPage
+                                                * page}}</span><span
+                                            *ngIf="rowsOnPage * page>=itemsTotal">{{itemsTotal}}</span>
+                                        di {{itemsTotal}}</p>
+                                </div>
+                                <div class="col" *ngIf="!gestioneComunicazione">
+                                    <div class="align-right">
+                                        <label class="marginRight6 vmiddle">Esito con Errore</label><span _ngcontent-c16=""
+                                            class="my-label label label-danger ng-star-inserted align-middle"
+                                            placement="right">&nbsp;&nbsp;</span>
+                                        <label class="marginRight6 marginLeft15 vmiddle">Esito Positivo</label><span
+                                            _ngcontent-c16=""
+                                            class="my-label label label-success ng-star-inserted align-middle"
+                                            placement="right">&nbsp;&nbsp;</span>
+                                        <label class="marginRight6  marginLeft15 vmiddle">Inviata</label><span
+                                            _ngcontent-c16=""
+                                            class="my-label label label-primary ng-star-inserted align-middle"
+                                            placement="right">&nbsp;&nbsp;</span>
+                                    </div>
+                                </div>
+                                <div class="col text-right" *ngIf="gestioneComunicazione">
+                                    <button class="bttn btn btn-primary" (click)="createAndDisplay()">
+                                        {{'dettaglioComunicazione.invia'|translate}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row tableContainerCustom">
+                                <p-table tableStyleClass="bordoTabellaNew" [columns]="cols" [value]="listaComunicazioni"
+                                    dataKey="corrispondenza.id" (onLazyLoad)="customSort($event) " [lazy]="true"
+                                    [rows]="rowsOnPage" #tab [responsive]="true" [lazyLoadOnInit]="false">
+                                    <ng-template pTemplate="header" let-columns>
+                                        <tr style="background-color: gray!important;">
+                                            <th style="width: 45px;"></th>
+                                            <th [pSortableColumn]="'mittente'" class="uppercase">
+                                                {{'dettaglioComunicazione.mittente'|translate}}
+                                                <p-sortIcon [field]="'mittente'" ariaLabel="Activate to sort"
+                                                    ariaLabelDesc="Activate to sort in descending order"
+                                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                            </th>
+                                            <th [pSortableColumn]="'destinatario'" class="uppercase">
+                                                {{'dettaglioComunicazione.listaDestinatari'|translate}}
+                                                <p-sortIcon [field]="'destinatario'" ariaLabel="Activate to sort"
+                                                    ariaLabelDesc="Activate to sort in descending order"
+                                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                            </th>
+                                            <th style="width: 368px!important;" [pSortableColumn]="'oggetto'"
+                                                class="uppercase">
+                                                Oggetto
+                                                <p-sortIcon [field]="'oggetto'" ariaLabel="Activate to sort"
+                                                    ariaLabelDesc="Activate to sort in descending order"
+                                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                            </th>
+                                            <th [pSortableColumn]="'dataInvio'" class="uppercase">
+                                                {{'dettaglioComunicazione.onlyData'|translate}}
+                                                <p-sortIcon [field]="'dataInvio'" ariaLabel="Activate to sort"
+                                                    ariaLabelDesc="Activate to sort in descending order"
+                                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-expanded="expanded"
+                                        let-columns="columns">
+                                        <tr href="#" [pRowToggler]="!rowData.corrispondenza.bozza ? rowData : null"
+                                            style="height: 47px!important;">
+                                            <td style="padding-left: 15px;padding-top: 10px">
+                                                <a *ngIf="!rowData.corrispondenza.bozza">
+                                                    <i [ngClass]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></i>
+                                                </a>
+                                            </td>
+                                            <td style="word-wrap:break-word">
+                                                {{rowData.corrispondenza.mittenteEmail | uppercase}}
+                                            </td>
+                                            <td>
+                                                <div *ngFor="let destinatario of rowData.destinatari">
+                                                    <span>{{destinatario.email | uppercase}}</span><br />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{rowData.corrispondenza.oggetto.length>108 ? (rowData.corrispondenza.oggetto | slice:0:108)+'..':(rowData.corrispondenza.oggetto)}}
+                                            </td>
+                                            <td>{{rowData.corrispondenza.dataInvio ? (rowData.corrispondenza.dataInvio | date : "dd/MM/yyyy") : ''}}
+                                            </td>
+                                            <td class="text-center">
+                                                <a style="padding-top: 1.4px" *ngIf="!rowData.corrispondenza.bozza"
+                                                    container="body" class="bttn bttn-table btn btn-primary"
+                                                    (click)="open(rowData)">
+                                                    <div data-placement="top" data-toggle="tooltip"
+                                                        pTooltip="Visualizza Dettaglio">
+                                                        <fa-icon icon="ellipsis-h"></fa-icon>
+                                                    </div>
+                                                </a>
+                                                <a style="padding-top: 1.4px" *ngIf="rowData.corrispondenza.bozza"
+                                                    container="body" class="bttn bttn-table btn btn-primary"
+                                                    (click)="edit(rowData)">
+                                                    <div data-placement="top" data-toggle="tooltip"
+                                                        pTooltip="Visualizza Dettaglio">
+                                                        <fa-icon icon="edit"></fa-icon>
+                                                    </div>
+                                                </a>
+                                                <a style="padding-top: 1.4px" *ngIf="rowData.corrispondenza.bozza"
+                                                    container="body" class="bttn bttn-table btn btn-danger"
+                                                    (click)="deleteBozza(rowData.corrispondenza.id, index)">
+                                                    <div data-placement="top" data-toggle="tooltip"
+                                                        pTooltip="Visualizza Dettaglio">
+                                                        <fa-icon icon="trash-alt"></fa-icon>
+                                                    </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+                                        <tr>
+                                            <td colspan="6">
+                                                <div style="padding-left: 40px;margin:8px;"
+                                                    *ngFor="let destinatario of rowData.destinatari">
+                                                    <span *ngIf="destinatario.stato ==='ACCETTATA'" _ngcontent-c16=""
+                                                        class="my-label label label-success ng-star-inserted align-middle"
+                                                        style="margin-right: 10px; margin-bottom: 2px"
+                                                        placement="right">&nbsp;&nbsp;</span>
+                                                    <span *ngIf="destinatario.stato === 'ERRORE'" _ngcontent-c16=""
+                                                        class="my-label label label-danger ng-star-inserted align-middle"
+                                                        style="margin-right: 10px; margin-bottom: 2px"
+                                                        placement="right">&nbsp;&nbsp;</span>
+                                                    <span *ngIf="destinatario.stato === 'INVIATA'" _ngcontent-c16=""
+                                                        class="my-label label label-primary ng-star-inserted align-middle"
+                                                        style="margin-right: 10px; margin-bottom: 2px"
+                                                        placement="right">&nbsp;&nbsp;</span>
+                                                    <span>{{destinatario.email}}</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage" let-columns>
+                                        <tr>
+                                            <td [attr.colspan]="6">
+                                                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="footer" let-columns="columns">
+                                        <tr>
+                                            <td [attr.colspan]="6">
+                                                <ngb-pagination [collectionSize]="itemsTotal" [maxSize]="10"
+                                                    [ellipses]="true" [boundaryLinks]="true" [pageSize]="rowsOnPage"
+                                                    (pageChange)="pageChangedAction($event)" [(page)]="page"
+                                                    aria-label="Default pagination"></ngb-pagination>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <app-dettaglio-com *ngIf="isDettaglio" (action)="closeDettaglio($event)"
+                    [idFascicolo]="dettaglio.id" [dettaglioComunicazione]="dettaglioCom" 
+                    [itemsTotal]="countAllegati" #dett></app-dettaglio-com>
+            </div>
+        </div>
+        
+        <app-nuova-comunicazione *ngIf="display" (sendData)="inviaComunicazione($event)" (canceled)="chiudiNuovaComunicazione()"
+            [forceReset]="forceReset" [forceSubmit]="forceSubmit" [showButtonBar]="true" [init]="toEdit"
+            [idFascicolo]="dettaglio.id">
+        </app-nuova-comunicazione>
+    </div>
+</div>-->

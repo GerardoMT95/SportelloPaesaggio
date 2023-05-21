@@ -1,0 +1,178 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+<div class="container-fluid mtop50" style="padding: .8em">
+    <div *ngIf="form" [formGroup]="form" class="bordered full-width mb2em" style="margin-bottom: 5em;">
+        <div class="bordered-title ">
+            {{'confpec.header'|translate}}:&nbsp;
+            <!-- <p-toggleButton formControlName="sistemaPec" offLabel="Esterno" onLabel="Interno">
+            </p-toggleButton> -->
+        </div>
+        <div class="bordered-body" style="padding-bottom: 2em;" style="padding: 1em;">
+            <div class="row">
+                <div class="col-md-12" style="font-weight: bold;">{{'confpec.caspost'|translate}}</div>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let input of caspost">
+                    <div class="col-md-6">
+                        <label for="{{input.formControlName}}">{{input.label|translate}}</label>
+                        <span [ngSwitch]="input.type">
+                            <div *ngSwitchCase="'checkbox'">
+                                <p-checkbox label="" [binary]="true" [formControl]="form.controls[input.formControlName]"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></p-checkbox>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'dropdown'">
+                                <p-dropdown [options]="input.options ? input.options : []" [formControlName]="input.formControlName" 
+                                    placeholder="{{'FUNZIONI_ADMIN.DEFAULT-PROT'|translate}}" class="dflex" 
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}">  
+                                </p-dropdown>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'date'">
+                                <app-date-picker-field [formControlName]="input.formControlName" [validation]="validation"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></app-date-picker-field>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'password'">
+                                <!--<div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span (click)="switchPassword()" class="input-group-text" *ngIf="tipo != 'password'"><i class ='fa fa-eye-slash'></i></span>
+                                      <span (click)="switchPassword()" style="cursor:pointer;" class="input-group-text" *ngIf="tipo == 'password'"><i class ='fa fa-eye'></i></span>
+                                    </div>
+                                    <input class="form-control" [type]="tipo" [formControlName]="input.formControlName"
+                                        [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"
+                                    />
+                                </div>-->
+                                <app-password-field [formControlName]="input.formControlName" 
+                                       [validation]="validation" [errors]="form.get(input.formControlName).errors" ></app-password-field>
+                            </div>
+                            <div *ngSwitchDefault>
+                                <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+            <!-- CONF MAIL IN -->
+            <div class="row" style="margin-top: 2em;">
+                <div class="col-md-12" style="font-weight: bold;">{{'confpec.confmainin'|translate}}</div>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let input of mailIn">
+                    <div class="col-md-6">
+                        <label for="{{input.formControlName}}">{{input.label|translate}}</label>
+                        <span [ngSwitch]="input.type">
+                            <div *ngSwitchCase="'checkbox'">
+                                <p-checkbox label="" [binary]="true" [formControl]="form.controls[input.formControlName]"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></p-checkbox>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'dropdown'">
+                                <p-dropdown [options]="input.options ? input.options : []" [formControlName]="input.formControlName" 
+                                    placeholder="{{'FUNZIONI_ADMIN.DEFAULT-PROT'|translate}}" class="dflex" 
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}">  
+                                </p-dropdown>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'date'">
+                                <app-date-picker-field [formControlName]="input.formControlName"
+                                [validation]="validation"
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></app-date-picker-field>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'password'">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span (click)="switchPassword()" class="input-group-text" *ngIf="tipo != 'password'"><i class ='fa fa-eye-slash'></i></span>
+                                      <span (click)="switchPassword()" style="cursor:pointer;" class="input-group-text" *ngIf="tipo == 'password'"><i class ='fa fa-eye'></i></span>
+                                    </div>
+                                    <input class="form-control" [type]="tipo" [formControlName]="input.formControlName"
+                                        [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"
+                                    />
+                                </div>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchDefault>
+                                <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+            <!-- CONF MAIL OUT -->
+            <div class="row" style="margin-top: 2em;">
+                <div class="col-md-12" style="font-weight: bold;">{{'confpec.confmainout'|translate}}</div>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let input of mailOut">
+                    <div class="col-md-6">
+                        <label for="{{input.formControlName}}">{{input.label|translate}}</label>
+                        <span [ngSwitch]="input.type">
+                            <div *ngSwitchCase="'checkbox'">
+                                <p-checkbox label="" [binary]="true" [formControl]="form.controls[input.formControlName]"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></p-checkbox>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'dropdown'">
+                                <p-dropdown [options]="input.options ? input.options : []" [formControlName]="input.formControlName" 
+                                    placeholder="{{'FUNZIONI_ADMIN.DEFAULT-PROT'|translate}}" class="dflex" 
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}">  
+                                </p-dropdown>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'date'">
+                                <app-date-picker-field [formControlName]="input.formControlName"
+                                [validation]="validation"
+                                [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"></app-date-picker-field>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchCase="'password'">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span (click)="switchPassword()" class="input-group-text" *ngIf="tipo != 'password'"><i class ='fa fa-eye-slash'></i></span>
+                                      <span (click)="switchPassword()" style="cursor:pointer;" class="input-group-text" *ngIf="tipo == 'password'"><i class ='fa fa-eye'></i></span>
+                                    </div>
+                                    <input class="form-control" [type]="tipo" [formControlName]="input.formControlName"
+                                        [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"
+                                    />
+                                </div>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                            <div *ngSwitchDefault>
+                                <input class="form-control" [type]="input.type" [formControlName]="input.formControlName"
+                                    [ngClass]="{'is-invalid': form.get(input.formControlName).errors && validation}"/>
+                                <app-input-error [errors]="form.get(input.formControlName).errors" [validation]="validation">
+                                </app-input-error>
+                            </div>
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="ricercaPulsantieraContainer relative text-center inner-pulsantiera" style="border-bottom: 0px solid #bebebe; margin-top: 2em;">
+        <div class="pulsantiera clearfix">
+            <button class="btn bttn btn-primary" (click)="salva()">{{'generic.salva'|translate}}</button>
+            <button class="btn bttn btn-primary" (click)="resetDefault()">{{'confpec.default'|translate}}</button>
+        </div>
+    </div>
+</div>
+

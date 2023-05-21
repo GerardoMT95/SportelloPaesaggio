@@ -1,0 +1,8 @@
+<app-cds-edit *ngIf="idCds"
+[idPratica]="id"
+[idCds]="idCds"
+[fascicolo]="fascicolo"
+[comitato]="true"
+(salva)="salva($event)"
+(avvia)="avvia($event)"
+></app-cds-edit>

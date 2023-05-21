@@ -1,0 +1,42 @@
+<!-- <div class="container-fluid" style="padding-top: .8em;">
+  <div *ngIf="havePermission" class="float-left mr-3">
+    <label>{{ legend?.daAssegnare.label | translate }}</label>
+    <div class="square-daAssegnare">{{data.n_non_assegnata}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.inProtocollazione.label | translate }}</label>
+    <div class="square-protocollazione">{{data.n_in_attesa_di_protocollazione}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.inPreistruttoria.label | translate }}</label>
+    <div class="square-preistruttoria">{{data.n_in_preistruttoria}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.inLavorazione.label | translate }}</label>
+    <div class="square-inLavorazione">{{data.n_in_lavorazione}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.daTrasmettere.label | translate }}</label>
+    <div class="square-daTrasmettere">{{data.n_in_trasmissione}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.trasmessa.label | translate }}</label>
+    <div class="square-trasmessa">{{data.n_transmitted}}</div>
+  </div>
+  <div class="float-left mr-3">
+    <label>{{ legend?.sospesa.label | translate }}</label>
+    <div class="square-sospesa">{{data.n_sospesa}}</div>
+  </div>
+  <div>
+    <label>{{ legend?.archiviata.label | translate }}</label>
+    <div class="square-archiviata">{{data.n_archiviata}}</div>
+  </div>
+</div> -->
+
+<ul class="status-list">
+	<li *ngFor="let item of countersArray">
+		<span class="status-bar-count {{item.class}}">{{ item.value }}</span>
+		<p class="status-bar-name">{{ item.label | translate }}</p>
+	</li>
+</ul>
+

@@ -1,0 +1,29 @@
+<p-accordion [activeIndex]="index" expandIcon="fa fa-angle-double-down" collapseIcon="fa fa-angle-double-up">
+  <p-accordionTab header="{{ 'SEARCH_TITLE' | translate }}">
+    <!-- <app-form-search *ngIf="configuration" [configuration]="configuration" [nColumns]="3"
+        (onSearch)="search($event)"
+        #formSearch
+        >
+      </app-form-search> -->
+    <form [formGroup]='formSearch'>
+      <div class="row">
+        <div class="col-md-6">
+          <app-date-picker-field formControlName="dataDa" [label]="'report.label.dataDa' | translate">
+          </app-date-picker-field>
+        </div>
+        <div class="col-md-6">
+          <app-date-picker-field formControlName="dataA" [label]="'report.label.dataA' | translate">
+          </app-date-picker-field>
+        </div>
+      </div>
+      <div class="row" style="padding-top: 2em; padding-bottom: .6em;">
+        <div class="col-12 text-center">
+          <button class="bttn btn btn-primary"
+            (click)="search()">{{'generic.ricerca'|translate}}</button>
+          <button class="bttn btn btn-danger"
+            (click)="reset()">{{'generic.reset'|translate}}</button>
+        </div>
+      </div>
+    </form>
+  </p-accordionTab>
+</p-accordion>

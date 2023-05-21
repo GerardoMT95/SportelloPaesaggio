@@ -1,0 +1,72 @@
+.display-elements{
+    display: inline-block;
+    
+}
+.footer-style{
+    background-color: #e6e7e8;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+  
+  .style-warning {
+    font-size: 1.5em;
+    border: 2px solid #dc3545;
+    color: #fff;
+    border-radius: 50%;
+    padding-top: 4px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 20px;
+    float: left;
+    background-color: #dc3545;
+  }
+
+  .warning-message .dialog-icon {
+    color: #db9c15;  
+  }
+  
+  button {
+    margin: 0 5px;
+  }
+  
+  .p{
+    padding: 15px;
+  }
+  .dialog-button {
+    margin: 0 5px;
+  }
+  
+  :host {
+    ::ng-deep .bttn {
+      padding: 5px 15px;
+      font-size: 1em;
+      background-color: #2b86c2;
+      border: 0px solid;
+      line-height: 20px;
+      margin: 0 0.5em 0 0;
+      width: auto;
+    }
+  }
+  
+  :host{
+    ::ng-deep .ui-dialog::ng-deep.ui-dialog-footer{
+      background-color: #e6e7e8;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  
+  
+  :host{
+    ::ng-deep.ui-button-text{
+      display: none !important;
+    }
+  }
+  
+
+.fakeLink {cursor:pointer;background: transparent;border: 0px solid;color: #337ab7;}
+.fakeLink:hover {text-decoration: underline;}
+.allegatoIcon .icon, .allegatiList li .icon, .destinatariList li .icon {margin-right: 9px;color: #fff;background: #337ab7;padding: 0;line-height: 25px;border-radius: 50%;font-size: 0.9em;width: 25px;height: 25px;display: inline-block;text-align: center;}

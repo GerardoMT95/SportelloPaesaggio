@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "destinatari":
+        [
+            "cltest@test.it"
+        ],
+        "nomeCommissioneLocale": "Convocazione N. 110730/2020",
+        "codiceCommissioneLocale": "CL_TEST",
+        "dataSedutaCommissioneLocale": "2020/04/12 12:00:00",
+        "fascicoliDaEsaminare": 
+        [
+            "9634",
+            "9635"
+        ],
+        "fascicoliEsaminati":
+        [
+            "9634",
+            "9635"
+        ],
+        "sedutaChiusa": true,
+        "pubblica": true,
+        "utenteCreazione": "ente_delegato",
+        "allegati": 
+        [
+            {
+                "id": 1,
+                "name": "VERBALE_20200408",
+                "type": "VERBALE",
+                "labelType": "Verbale commissione locale",
+                "uploadDate": "2020/04/20",
+                "utenteCreazione": "ente_delegato",
+                "path": null,
+                "fascicoli": [
+                    "9634",
+                    "9635"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "destinatari": [
+            "cltest@test.it",
+            "richiedente@mail.it"
+        ],
+        "nomeCommissioneLocale": "Convocazione N. 110731/2020",
+        "codiceCommissioneLocale": "CL_TEST",
+        "dataSedutaCommissioneLocale": "2020/05/13 9:30:00",
+        "fascicoliDaEsaminare": [ "9634" ],
+        "fascicoliEsaminati": null,
+        "sedutaChiusa": false,
+        "pubblica": false,
+        "utenteCreazione": "ente_delegato",
+        "allegati": []
+    }
+]

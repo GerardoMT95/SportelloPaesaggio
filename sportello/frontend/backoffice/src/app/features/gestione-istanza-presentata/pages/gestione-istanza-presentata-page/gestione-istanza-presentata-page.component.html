@@ -1,0 +1,13 @@
+<!-- <app-istanza-presentata [generatedDocuments]="generatedDocuments" [stato]="statoFascicolo"
+    [files]="files" (download)="download($event)" ></app-istanza-presentata> -->
+<div class="container-fluid">
+    <div class="wrapper">
+        <app-section-header [title]="'ISTANZA_PRESENTATA.ISTANZA_PRESENTATA' | translate | titlecase"></app-section-header>
+        <p *ngIf="fascicolo.numeroProtocollo">
+            {{ "ISTANZA_PRESENTATA.LISTANZA_ACQUISTICA" | translate:{proto:fascicolo.numeroProtocollo} }}</p>
+        <app-table-no-filter [files]="files" [types]="types" [readonly]="true" [headers]="headers"
+            (onTableDownload)="downloadFile($event)"></app-table-no-filter>
+        <app-fascicolo *ngIf="loaded" [form]="form" [entiDelegati]="entiDelegati"></app-fascicolo>
+        <app-sezioni [fascicolo]="fascicolo" (navigateChange)="sezioniDetails($event)"></app-sezioni>
+    </div>
+</div>

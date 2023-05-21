@@ -1,0 +1,16 @@
+:host ::ng-deep .ui-fileupload .ui-fileupload-content {
+  border: 1px solid #000;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .ui-fileupload .ui-fileupload-content .ui-fileupload-row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+:host ::ng-deep .ui-fileupload .ui-fileupload-content .ui-fileupload-files {
+  width: 100%;
+}

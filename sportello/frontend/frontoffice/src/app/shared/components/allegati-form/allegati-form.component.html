@@ -1,0 +1,48 @@
+
+<form *ngIf="uploadForm" [formGroup]="uploadForm">
+  <div clas="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="file-type">{{ 'fascicolo.tipoFile' | translate}}*</label>
+        <ng-container>
+          <p-dropdown [placeholder]="'generic.selezionaunavoce' | translate" id="file-type" [options]="documntTypes"
+            [autoWidth]="false" [style]="{ width: '100%' }" formControlName="uploadType" (onChange)="selectFileType()"
+            [showClear]="true" [disabled]="disable" optionLabel="label" dataKey="type" class="dflex">
+            <ng-template let-type pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;">
+                <div style="font-size:14px;">
+                  {{type.label}}<span *ngIf="type.title === 'mandatario'" style="color:red">*</span>
+                </div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group" style="padding-top: 1em;">
+        <p-fileUpload id="allega-file" name="myfile" [maxFileSize]="maxSizeAccepted" [accept]="acceptedMime"
+          customUpload="true" class="basicUpload" (uploadHandler)="onFileSelect($event)" [auto]="true"
+          [chooseLabel]="'fascicolo.allegaFile' | translate" [disabled]="disabled || disable">
+          <ng-template pTemplate="toolbar">
+          </ng-template>
+          <ng-template let-file pTemplate="file">
+          </ng-template>
+          <ng-template pTemplate="content">
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="enableTable" class="row" style="padding-top: 3.3em; margin: 0; width: 100%;">
+    <div class="col-12">
+      <div class="form-group" *ngIf="documntTypes.length > 0">
+        <app-table-no-filter (onTableDelete)="deleteFileFromTable($event)" (onTableUpload)="uploadFileFromTable($event)"
+          (onTableDownload)="downloadFormTable($event)" [disabled]="disable" [readonly]="readonly" [files]="files" 
+          [types]="documntTypes" [headers]="tableHeadersAttachment" (onTableCustomEvent)="throwsCustomEvent($event)" 
+          [enableDelete]="enableDelete">
+        </app-table-no-filter>
+      </div>
+    </div>
+  </div>
+</form>

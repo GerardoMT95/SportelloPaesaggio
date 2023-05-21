@@ -1,0 +1,27 @@
+ALTER TABLE presentazione_istanza.disclaimer ADD ordine integer NOT NULL DEFAULT 1;
+ALTER TABLE presentazione_istanza.disclaimer ADD required boolean NOT NULL DEFAULT false;
+UPDATE presentazione_istanza.disclaimer set required=true;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=1 ;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=2 ;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=3 ;
+UPDATE presentazione_istanza.disclaimer set ordine=4 WHERE id=4 ;
+UPDATE presentazione_istanza.disclaimer set ordine=5 WHERE id=5 ;
+UPDATE presentazione_istanza.disclaimer set ordine=6 WHERE id=16 ;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=6 ;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=7 ;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=8 ;
+UPDATE presentazione_istanza.disclaimer set ordine=4 WHERE id=9 ;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=10;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=11;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=12;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=13;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=14;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=15;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=17;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=18;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=19;
+UPDATE presentazione_istanza.disclaimer set ordine=4 WHERE id=20;
+UPDATE presentazione_istanza.disclaimer set ordine=1 WHERE id=21;
+UPDATE presentazione_istanza.disclaimer set ordine=2 WHERE id=22;
+UPDATE presentazione_istanza.disclaimer set ordine=3 WHERE id=23;
+

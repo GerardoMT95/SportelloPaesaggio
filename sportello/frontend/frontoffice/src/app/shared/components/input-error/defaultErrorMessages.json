@@ -1,0 +1,15 @@
+{
+    "required": "errors.required",
+    "email": "errors.email",
+    "minlength": "errors.minlength",
+    "maxlength": "errors.maxlength",
+    "textRequired": "errors.required",
+    "valueRequired": "errors.required",
+    "particellaRequired": "errors.particellaRequired",
+    "pattern": "errors.patternErrato",
+    "stradeRequired": "errors.stradeRequired",
+    "indirizzoRequired":"errors.indirizzoRequired",
+    "numCivicoRequired":"errors.numCivicoRequired",
+    "requiredAllOrNone":"errors.requiredAllOrNone",
+    "dateError":"errors.dateError"
+}

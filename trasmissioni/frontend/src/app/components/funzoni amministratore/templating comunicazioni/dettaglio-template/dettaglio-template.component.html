@@ -1,0 +1,108 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title" [modal]="false"></app-alert>
+<!---------------------------------------------------------------> 
+<div class="portlet-content-container">
+  <!-- FORM DETTAGLIO TEMPLATE-->
+  <form [formGroup]="form" class="text-left">
+    <!-- NOME , TITOLO DETTAGLIO-->
+    <div class="row journal-content-article">
+      <div class="text-left clearfix w100">
+        <hr class="divisore">
+        <div class="text-center">
+          <span class="dett"> <b>{{dettaglio.nome}} </b></span>
+        </div>
+      </div>
+    </div>
+    <div class="row noml nomr">
+      <!-- DESCRIZIONE-->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="mesi">{{'templateComunicazioni.label.descrizione'|translate}}:*</label>
+          <div class="input-group">
+            <input type="text" pInputText name="descrizione" class="form-control" formControlName="descrizione" 
+              maxlength="{{const.MAX_LEN_DESCRIZIONE_DOCUMENTO}}"
+              [ngClass]="{'is-invalid': form.controls['descrizione'].touched && form.controls['descrizione'].errors}"/>
+          </div>
+          <div *ngIf="form.controls['descrizione'].errors && form.controls['descrizione'].touched">
+            <small *ngIf="form.controls['descrizione'].errors.required"
+              class="invalid-feedback">{{'templateComunicazioni.error.required'|translate}}</small>
+            <small *ngIf="form.controls['descrizione'].errors.maxlength"
+              class="invalid-feedback">{{'templateComunicazioni.error.maxLength'|translate}} 200</small>
+          </div>
+        </div>
+      </div>
+      <!-- OGGETTO-->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="oggetto">
+            <span class="hyperlink" (click)="openInfo()">{{'templateComunicazioni.label.oggetto'|translate}}:*<fa-icon
+                icon="link"></fa-icon></span>
+          </label>
+          <div class="input-group">
+            <input type="text" pInputText name="oggetto" class="form-control" formControlName="oggetto" 
+               maxlength="{{const.MAX_LEN_OGGETTO_EMAIL}}"
+              [ngClass]="{'is-invalid': form.controls['oggetto'].touched && form.controls['oggetto'].errors}"/>
+          </div>
+          <div *ngIf="form.controls['oggetto'].errors && form.controls['oggetto'].touched">
+            <small *ngIf="form.controls['oggetto'].errors.required"
+              class="invalid-feedback">{{'templateComunicazioni.error.required'|translate}}</small>
+            <small *ngIf="form.controls['oggetto'].errors.maxlength"
+              class="invalid-feedback">{{'templateComunicazioni.error.maxLength'|translate}} 200</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EDITOR TESTO-->
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="testo">
+          <span class="hyperlink" (click)="openInfo()">{{'templateComunicazioni.label.testo'|translate}}:*
+            <fa-icon icon="link"></fa-icon>
+          </span>
+        </label>
+        <div *ngIf="form.controls['testo'].errors">
+          <small *ngIf="form.controls['testo'].errors.maxlength && form.controls['testo'].touched"
+            class="invalid-feedback">{{'templateComunicazioni.error.maxLength'|translate}} 4000</small>
+          <small *ngIf="form.controls['testo'].errors.required && form.controls['testo'].touched"
+            class="invalid-feedback">{{'templateComunicazioni.error.required'|translate}}</small>
+        </div>
+        <p-editor pInputTextarea name="sblocco" [style]="{'height':'320px'}" formControlName="testo"
+          [ngClass]="{'is-invalid': form.controls['testo'].touched && form.controls['testo'].errors}"></p-editor>
+      </div>
+    </div>
+  </form>
+  
+  <!-- info su destinatari aggiunti a runtime da sistema-->
+  <div style="padding-top: 1.3em;" *ngIf="destinatariFissi">
+     <!-- {{destinatariFissi|json}}  -->
+    <span>
+      <label>Destinatari fissi:</label>&nbsp;
+      <fa-icon icon="info-circle" (mouseenter)="op1.toggle($event)" (mouseleave)="op1.toggle($event)"></fa-icon>
+    </span>
+  <p-overlayPanel #op1 [appendTo]="'body'" [style]="{'max-width':'600px'}">
+    <ul>
+      <li *ngFor="let item of destinatariFissi">
+        <b>{{item}}</b></li>
+    </ul>
+  </p-overlayPanel>
+  </div>
+  <!--Fine Info destinatari-->
+
+  <!-- SCELTA DESTINATARI -->
+  <div class="sezione-destinatario" style="padding-top: 1em;">
+    <app-aggiunti-destinatario [addresses]="addresses" (onChangeType)="cambiaTipologia($event)"
+      (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)"
+       titleAdresses="templateComunicazioni.label.destinatari">
+    </app-aggiunti-destinatario>
+  </div>
+  <!-- PULSANTIERA AZIONI SALVA E ANNULLA-->
+  <div class="text-center inner-pulsantiera" style="margin-top: 2em;">
+    <button type="submit" class="bttn btn btn-primary" (click)="openSalva()">{{'generic.salva'|translate}}<fa-icon icon="save"></fa-icon></button>
+    <button type="button" class="bttn btn btn-primary" (click)="resetTemplate()">{{'templateComunicazioni.buttons.reset'|translate}}<fa-icon icon="undo"></fa-icon></button>
+    <button type="button" class="bttn btn btn-primary" (click)="resetDestinatari()">Reset destinatari<fa-icon icon="undo"></fa-icon></button>
+    <button type="button" class="bttn btn btn-primary" (click)="back()" >{{'generic.annulla'|translate}}<fa-icon icon="times">
+      </fa-icon>
+    </button>
+  </div>
+</div>

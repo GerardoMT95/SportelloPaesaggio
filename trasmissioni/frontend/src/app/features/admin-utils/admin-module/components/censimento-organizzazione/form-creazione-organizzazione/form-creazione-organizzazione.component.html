@@ -1,0 +1,119 @@
+<app-generic-modal-form *ngIf="openAssociaEnte" [configuration]="formConf" [init]="initEnte" 
+  title="Associazione nuovo ente" [error]="errorMessage" (complete)="associaEnte($event)" 
+  (close)="openAssociaEnte = false"></app-generic-modal-form>
+
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title"></app-alert>
+
+<form [formGroup]="form"><!-- *ngIf="entiAssOptions && entiAssOptions.length > 0"  -->
+  <div class="row">
+    <div class="col-md-12">
+      <app-dropdown-field formControlName="enteId" [label]="'Ente associato'|translate" key="value" 
+        [options]="entiAssOptions" [filter]="true" placeholder="-- Seleziona un ente --" optionLabel="label" 
+        [validation]="submitted" [errors]="form.controls.enteId.errors" (change)="chooseEnte($event.value)">
+      </app-dropdown-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-select-field [disabled]="disable" 
+       formControlName="tipoOrganizzazione" 
+       [label]="('Tipo organizzazione'|translate) + '*'" 
+        placeholder="-- Seleziona tipologia di organizzazione --" [options]="tipoOrgOptions" 
+         [validation]="submitted" optionLabel="label"
+        [errors]="form.controls.tipoOrganizzazione.errors" (change)="tipoOrganizzazioneChange($event.value)"></app-select-field>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-select-field  [disabled]="disable" 
+        formControlName="tipoOrganizzazioneSpecifica" [label]="('Tipo organizzazione specifica'|translate)" 
+        placeholder="-- Seleziona tipologia di organizzazione specifica --" 
+        [options]="tipoOrgSOptions" [validation]="submitted" optionLabel="label" 
+        [errors]="form.controls.tipoOrganizzazioneSpecifica.errors"></app-select-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-text-field formControlName="denominazione" [label]="('Denominazione'|translate) + '*'" [disabled]="disable" 
+        [validation]="submitted" [errors]="form.controls.denominazione.errors" [maxlength]="200"></app-text-field>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-text-field formControlName="codiceCivilia" [label]="('Codice generatore'|translate) + '*'" [disabled]="disable" 
+        [validation]="submitted" [errors]="form.controls.codiceCivilia.errors" [maxlength]="20"></app-text-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-date-picker-field formControlName="dataCreazione" [label]="('Data inizio validità'|translate) + '*'" [maxDate]="maxdate"
+        [disabled]="disable" [validation]="submitted" [errors]="form.controls.dataCreazione.errors" (change)="evaluateConstraints($event, 'dataCreazione')">
+      </app-date-picker-field>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-date-picker-field formControlName="dataTermine" [label]="('Data fine validità'|translate) + '*'" [minDate]="mindate"
+        [disabled]="disable" [validation]="submitted" [errors]="form.controls.dataTermine.errors" yearRange="2000:9999"
+        (change)="evaluateConstraints($event, 'dataTermine')">
+      </app-date-picker-field>
+    </div>
+  </div>
+  <br/>
+  <div class="row journal-content-article">
+    <div class="text-left clearfix w100">
+      <hr class="divisore">
+      <div class="text-center">
+        {{'Territori associati' | translate}} <span class="dett">
+          <!-- <b>{{dettaglio.codiceComunicazione}} </b> --></span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="entiList && entiList.length > 0 && !isRegione" class="row dflex align-items-center mt-3" style="margin-right: 2em; margin-bottom: 2em;">
+    <div class="col text-right nop">
+        <button type="button" (click)="openEdit()" class="btn bttn btn-primary">
+          {{'Associa territorio'|translate}}
+        </button><!--  -->
+    </div>
+  </div>
+  <!-- <div class="tableContainerCustom" style="overflow-y: clip!important;"> -->
+    <p-table [value]="form.controls.enti.value" [columns]="columnsEnti" [paginator]="true" [(rows)]="rowsOnPage"
+      [rowsPerPageOptions]="[5,10,15,20]" [autoLayout]="true">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="uppercase" *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th class="uppercase" *ngIf="!isRegione" style="width: 8.5em">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+        <tr>
+          <td>{{rowData.idEnte|valueOf: entiList}}</td>
+          <td>{{rowData.dataTermine | date: 'dd/MM/yyyy'}}</td>
+          <td *ngIf="!isRegione">
+            <!-- Buttons -->
+            <button placement="top" placement="top" container="body" class="bttn bttn-table btn btn-primary"
+              (click)="openEdit(rowData, index)"><fa-icon icon="pencil-alt"></fa-icon>
+            </button>
+            <button *ngIf="!rowData.idOrganizzazioneCompetenze" placement="top" placement="top" 
+              container="body" class="bttn bttn-table btn btn-danger" (click)="deleteTerritorio(rowData, index)">
+              <fa-icon icon="trash"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length + 1">
+            <span style="text-align: center">{{'generic.norows' | translate}}</span>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  <!-- </div> -->
+  <br/>
+</form>
+<div class="ricercaPulsantieraContainer relative text-center inner-pulsantiera" style="border-bottom: 0px solid #bebebe; margin-top: 2em;">
+  <div class="pulsantiera clearfix">
+      <button class="btn bttn btn-primary" *ngIf="!isRegione" (click)="done()">{{'generic.salva'|translate}}</button>
+      <button class="btn bttn btn-primary" (click)="indietro()">{{'generic.indietro'|translate}}</button>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+COMMENT ON COLUMN destinazione_urbanistica_intervento.id_strum_urban_art38 IS 'non piu'' utilizzata';
+COMMENT ON COLUMN destinazione_urbanistica_intervento.id_strum_urban_art100 IS 'non piu'' utilizzata';

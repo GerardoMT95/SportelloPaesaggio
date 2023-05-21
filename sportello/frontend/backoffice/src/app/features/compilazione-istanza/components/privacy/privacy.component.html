@@ -1,0 +1,14 @@
+<div class="pt-4 pb-3 ml-3 mr-3" [formGroup]="mainForm">
+  <div class="text-center font-weight-bold">
+    <p>
+      {{ "PRIVACY_TAB.TITLE" | translate | uppercase }}
+    </p>
+  </div>
+  <div class="mt-5 d-flex font-weight-bold">
+    <app-checkbox-field formControlName="privacyAccettata"  class="checkbox-font-size mr-3" [isSingle]="true" name="privacyInformation">
+    </app-checkbox-field>
+    <span class="privacy-label">
+      {{ "PRIVACY_TAB.POLICY_MESSAGE_1" | translate | uppercase }} <a href="">{{ "PRIVACY_TAB.POLICY_MESSAGE_2" | translate | uppercase }}</a> {{ "PRIVACY_TAB.POLICY_MESSAGE_3" | translate | uppercase }}
+    </span>
+  </div>
+</div>

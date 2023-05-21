@@ -1,0 +1,77 @@
+<app-section-header [title]="'Rubrica ' + tipoRubrica | uppercase">
+</app-section-header>
+
+<form [formGroup]="form">
+    <div style="display: inline-block; width: 25%;">
+        <label for="">Denominazione</label>
+        <br>
+        <input type="text" pInputText formControlName="denominazione"
+            style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+    </div>
+    <div style="display: inline-block; margin-left: 20px; width: 25%;">
+        <label for="">Pec/Mail</label>
+        <br>
+        <input type="text" pInputText formControlName="mail"
+            style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+    </div>
+
+    <div style="display: inline-block; position: relative; left: 100px; margin-bottom: 50px;">
+        <button pButton type="button" label="Ricerca" icon="pi pi-search" (click)="ricerca()"
+            style="margin-right: 20px;"></button>
+        <button pButton type="button" label="Annulla" icon="pi pi-times" (click)="annulla('formRicerca')"></button>
+    </div>
+</form>
+
+<p-table [value]="enti" [style]="{'width': '70%'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Ente</th>
+            <th>Pec/Mail</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ente>
+        <tr>
+            <td>{{ente.denominazione}}</td>
+            <td>{{ente.mail}}</td>
+            <td>
+                <button *ngIf="tipoRubrica === 'ente'" pButton type="button" icon="pi pi-pencil" (click)="azione(ente.id, 'modifica')"
+                    style="border-radius: 100%; margin: 0 10px;"></button>
+                <button *ngIf="tipoRubrica === 'ente'" pButton type="button" icon="pi pi-trash" (click)="azione(ente.id, 'elimina')"
+                    style="border-radius: 100%; background-color: red; border-color: red; margin: 0 10px;"></button>
+                <button pButton type="button" icon="pi pi-plus" (click)="azione(ente.id, 'aggiungi')"
+                    style="border-radius: 100%; background-color: green; border-color: green; margin: 0 10px;"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="3" style="text-align:left">Nessun elemento disponibile.</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br><br>
+
+<div *ngIf="displayModifica">
+    <form [formGroup]="formModifica">
+        <div style="display: inline-block; width: 25%;">
+            <label for="">Denominazione</label>
+            <br>
+            <input type="text" pInputText formControlName="denominazione"
+                style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+        </div>
+        <div style="display: inline-block; margin-left: 20px; width: 25%;">
+            <label for="">Indirizzo Pec/Peo</label>
+            <br>
+            <input type="text" pInputText formControlName="mail"
+                style="width: 100%; border: 1px solid #ced4da; border-radius: 3px; height: 34px; padding: 5px 10px; font-size: 12px;" />
+        </div>
+
+        <div style="display: inline-block; position: relative; left: 100px; margin-bottom: 50px;">
+            <button pButton type="button" label="Aggiorna" (click)="aggiorna()" style="margin-right: 20px;"></button>
+            <button pButton type="button" label="Annulla" (click)="annulla('formModifica')" icon="pi pi-times"></button>
+        </div>
+    </form>
+    <br><br>
+</div>

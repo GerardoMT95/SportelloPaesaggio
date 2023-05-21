@@ -1,0 +1,24 @@
+.esri-view {height: 500px;background-color: #fcfcfc;}
+
+#baseMapList {position: absolute;top: 20px;right: 71px;padding: 4px 5px;z-index: 100;background-color: #fff;min-height: 60px;}
+#baseMapList button:after {display: none;}
+#baseMapList button img {display: block;width: 100%;}
+#baseMapList .dropdown-menu.show{width: 305px}
+#baseMapList .btn-trasparent {background-color: transparent;border: 0px;font-size: 0.8em;float: left;width: 100px;}
+.box {padding: 20px;background-color: #f5f5f5;margin: 20px;border-radius: 5px;}
+.box-border {padding: 20px;background-color: #fff;margin: 20px;border-radius: 5px;border: 1px solid #f5f5f5;}
+.boxTab {padding: 0 20px;background-color: #f5f5f5;}
+.boxTab ul {list-style: none;margin: 0;padding: 0;}
+.boxTab ul li {background-color: #fff;padding: 20px 20px;display: inline-block;border-top: 3px solid #bebebe;margin-bottom: -5px;margin-right: 10px;min-width: 100px;}
+
+
+.cf-error {border: 1px solid #F44336;margin: 15px;padding: 0 0 10px 0;color: initial;}
+.cf-error-info {color: #F44336;font-size: 0.9em;display: inline-block;position: relative;padding: 0 5px;background-color: #fff;top: -13px;margin-left: 10px;}
+
+label {
+    display: inline-block;
+    margin-bottom: .9rem;
+}
+
+
+

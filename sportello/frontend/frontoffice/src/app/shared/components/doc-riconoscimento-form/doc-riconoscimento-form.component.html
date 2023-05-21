@@ -1,0 +1,44 @@
+<ng-container [formGroup]="form">
+  <app-section-header [title]="'REQUESTER_TAB.APPROVAL_RECOGNITION_DOCUMENT' | translate"></app-section-header>
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+      <app-select-field [formControlName]="idTipo"
+        [label]="('REQUESTER_TAB.TIP' | translate | uppercase) + '*'" 
+        [options]="tipoDocumentoOptions"
+        [validation]="validation" 
+        [disableControl]="disable"
+        [errors]="form.get(idTipo).errors"></app-select-field>
+    </div>
+  </div>
+  <div class="row justify-content-md-center pt-3">
+    <div class="col-md-2">
+      <app-text-field [formControlName]="numero" [label]="('REQUESTER_TAB.NUMBER' | translate | uppercase) + '*'"
+        [validation]="validation" [errors]="form.get(numero).errors" 
+        [maxlength]="100"
+        [disableControl]="disable">
+      </app-text-field>
+    </div>
+    <div class="col-md-3">
+      <app-date-picker-field [formControlName]="dataRilascio"
+        [label]="('REQUESTER_TAB.RELEASED' | translate | titlecase) + '*'" [validation]="validation"
+        [errors]="form.get(dataRilascio).errors" [maxDate]="const.TODAY" [yearRange]="const.RANGE_10_TO_CURRENT"
+        [disableControl]="disable">
+      </app-date-picker-field>
+    </div>
+    <div class="col-md-4">
+      <app-text-field [formControlName]="enteRilascio" [maxlength]="100"
+        [label]="('REQUESTER_TAB.RELEASED_BY' | translate | titlecase) + '*'"
+        [validation]="validation"
+        [errors]="form.get(enteRilascio).errors"
+        [disableControl]="disable"></app-text-field>
+    </div>
+    <div class="col-md-3">
+      <app-date-picker-field [formControlName]="dataScadenza"
+        [label]="('REQUESTER_TAB.EXPIRY_DATE' | translate | titlecase) + '*'" [validation]="validation"
+        [errors]="form.get(dataScadenza).errors" [yearRange]="const.RANGE_CURRENT_YEAR_PLUS_10"
+        [minDate]="const.TODAY"
+        [disableControl]="disable">
+      </app-date-picker-field>
+    </div>
+  </div>
+</ng-container>

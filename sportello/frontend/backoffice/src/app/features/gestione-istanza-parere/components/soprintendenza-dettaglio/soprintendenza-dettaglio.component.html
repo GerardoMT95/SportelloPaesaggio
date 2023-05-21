@@ -1,0 +1,42 @@
+<div class="container-fluid mt-3 mb-3">
+  <app-section-header [title]="'DETAILS.ATTACHMENTS' | translate | uppercase"></app-section-header>
+  <form [formGroup]="form" class="mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field [label]="('SUPERINTENDENT_OPINION_TAB.PROTOCOL_NUMBER' | translate | uppercase)"
+          [id]="'numeroProtocollo'" [name]="'numeroProtocollo'" formControlName="numeroProtocollo"
+          [validation]="validation" [errors]="form.controls.numeroProtocollo.errors"></app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-text-field [label]="('SUPERINTENDENT_OPINION_TAB.SUPERINTENDENT_INSTRUCTOR' | translate | uppercase)"
+          [id]="'nominativoIstruttore'" [name]="'nominativoIstruttore'" formControlName="nominativoIstruttore"
+          [validation]="validation" [errors]="form.controls.nominativoIstruttore.errors">
+        </app-text-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-select-field [label]="('SUPERINTENDENT_OPINION_TAB.OUTCOME' | translate | uppercase) + '*'"
+          [options]="esitoList" formControlName="esitoParere" (change)="updateDettaglioField()" optionLabel="label"
+          placeholder="-- Seleziona esito --" optionLabel="description" [validation]="validation"
+          [errors]="form.controls.esitoParere.errors"></app-select-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-textarea-field [label]="('SUPERINTENDENT_OPINION_TAB.DETAILS' | translate | uppercase)"
+          id="dettaglioPrescrizione" name="dettaglioPrescrizione" formControlName="dettaglioPrescrizione"
+          [validation]="validation" [errors]="form.controls.dettaglioPrescrizione.errors">
+        </app-textarea-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-textarea-field [label]="'SUPERINTENDENT_OPINION_TAB.NOTE' | translate | uppercase" id="note" name="note"
+          formControlName="note"></app-textarea-field>
+      </div>
+    </div>
+  </form>
+</div>

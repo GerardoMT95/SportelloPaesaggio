@@ -1,0 +1,99 @@
+<app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+  [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+  [title]="alertData.title">
+</app-alert>
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <div *ngIf="!editing">
+      <ngb-accordion #acc="ngbAccordion" styleClass="ricerca full-width" destroyOnHide="false" [activeIds]="activeIds">
+        <ngb-panel id="add">
+          <ng-template ngbPanelTitle>
+            <span>{{'generic.ricerca'|translate}}</span>
+            <fa-icon *ngIf="acc.isExpanded('add')" icon="angle-double-up"></fa-icon>
+            <fa-icon *ngIf="!acc.isExpanded('add')" icon="angle-double-down"></fa-icon>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <app-form-search *ngIf="searchConfiguration" [configuration]="searchConfiguration" [nColumns]="3"
+              (onSearch)="setFiltri($event); ricerca()" [initData]="filterCache" (onReset)="reset($event)">
+            </app-form-search>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+
+      <div class="row journal-content-article">
+        <div class="text-left clearfix w100">
+          <hr class="divisore">
+          <div class="text-center">
+            {{'DEST.' + type | translate}}
+          </div>
+        </div>
+      </div>
+
+      <app-rows-number-handler [itemsTotal]="totalRecord" [totalRecords]="totalRecord" (change)="pagingChange($event)"
+            [page]="search.page" [customElement]="customElement">
+            <ng-template #customElement>
+                <div class="float-right containerBtnAggiuntivi dflex align-items-center mt-3">
+                    <div class="col text-right nop">
+                        <button type="button" (click)="openEdit()" class="btn bttn btn-primary">
+                          {{'Registra nuovo destinatario'|translate}}
+                        </button>
+                    </div>
+                </div>
+            </ng-template>
+        </app-rows-number-handler>
+      <div class="tableContainerCustom">
+        <p-table [value]="listEmail" [autoLayout]="true" [columns]="columns" [lazy]="true"
+        (onSort)="onSort($event)" [lazyLoadOnInit]="false">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th class="uppercase" *ngFor="let col of columns">
+                {{col.header}}
+              </th>
+              <th class="uppercase text-center" style="width: 8.5em"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+            <tr>
+              <td *ngFor="let col of columns">
+                <span *ngIf="col.field != 'pec'">{{rowData[col.field]}}</span>
+                <span *ngIf="col.field == 'pec'">{{rowData.pec ? 'PEC' : 'EMAIL'}}</span>
+              </td>
+              <!-- <td>{{rowData.email}}</td>
+              <td>{{rowData.pec ? 'PEC' : 'EMAIL'}}</td>
+              <td>{{rowData.denominazione}}</td>
+              <td *ngIf="filters != ['Provincia']">{{rowData.denominazioneEnte}}</td> -->
+              <td>
+                <button placement="top" placement="top" container="body" class="bttn bttn-table btn btn-primary"
+                  pTooltip="Modifica email" (click)="openEdit(rowData)"><fa-icon icon="pen"></fa-icon>
+                </button>
+                <button placement="top" placement="top" container="body" class="bttn bttn-table btn btn-danger"
+                  pTooltip="Elimina email" (click)="elimina(rowData)"><fa-icon icon="trash"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="columns.length + 1">
+                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="footer" let-columns>
+            <tr>
+              <td [attr.colspan]="columns.length + 1">
+                <ngb-pagination [collectionSize]="totalRecord" [maxSize]="10" [ellipses]="true" [boundaryLinks]="true"
+                  [pageSize]="search.limit" (pageChange)="pagingChange({page: $event, limit: search.limit})" [(page)]="search.page" aria-label="Default pagination">
+                </ngb-pagination>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div *ngIf="editing">
+      <app-form-editing-destinatario [organizzazioni]="options" [init]="editRecord" [isSbap]="isSbap"
+        (complete)="saveOrUpdate($event)" (close)="close()"></app-form-editing-destinatario>
+    </div>
+  </div>
+</div>

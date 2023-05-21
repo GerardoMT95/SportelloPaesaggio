@@ -1,0 +1,85 @@
+<div *ngIf="form">
+  <ng-container [ngSwitch]="switchOnDestinatario">
+    <ng-container *ngSwitchCase="false">
+      <app-trasmissione-provvedimento-finale-details *ngIf="form" [form]="form" 
+        [validation]="validation"> </app-trasmissione-provvedimento-finale-details>
+      <app-allegati-form [files]="allegati" [types]="types" (onUpload)="upload($event)" [header]="headers"
+        (onDownload)="download($event)" (onDelete)="delete($event)" [readonly]="disabled" [disabled]="disabled">
+      </app-allegati-form>
+      <div *ngIf="validation && (!allegati || allegati.length === 0)"
+        style="color: #dc3545; font-size: 11px; margin-top: 5px;">
+        {{"errors.required" | translate}}
+      </div>
+      <div class="text-center mt-5" *ngIf="!disabled">
+        <button type="button" class="bttn btn btn-primary" (click)="save()">
+          {{'BUTTONS.SAVE_BUTTON'|translate}}
+          <fa-icon icon="save"></fa-icon>
+        </button>
+        <button type="button" class="bttn btn btn-primary" (click)="cancel()">
+          {{'BUTTONS.CANCEL_BUTTON'|translate}}
+          <fa-icon icon="times"></fa-icon>
+        </button>
+        <button [disabled]="!dataValid" type="button" class="bttn btn btn-primary" (click)="continue()">
+          {{'BUTTONS.CONTINUE'|translate}}
+          <fa-icon icon="arrow-right"></fa-icon>
+        </button>
+        <!--<p-button label="{{ 'BUTTONS.SAVE_BUTTON' | translate }}" class="mx-1" type="button"
+          (click)="save()"></p-button>-->
+        <!--<p-button label="{{ 'BUTTONS.CANCEL_BUTTON' | translate }}" class="mx-1" type="button"
+          (click)="cancel()"></p-button>-->
+        <!--<p-button [disabled]="!dataValid" label="{{ 'BUTTONS.CONTINUE' | translate }}" class="mx-1" type="button" (click)="continue()"></p-button>-->
+      </div>
+      <div class="text-center mt-5" *ngIf="fascicolo.attivitaDaEspletare=='TRANSMITTED'">
+        <button type="button" class="bttn btn btn-primary" (click)="getRicevutaTrasmissione()">
+          {{'BUTTONS.DOWNLOAD_RICEVUTA_TRASMISSIONE'|translate}}
+          <fa-icon icon="download"></fa-icon>
+        </button>
+        <!--<p-button label="{{ 'BUTTONS.DOWNLOAD_RICEVUTA_TRASMISSIONE' | translate }}" class="mx-1" type="button" (click)="getRicevutaTrasmissione()"></p-button>-->
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="true">
+      <app-section-header [title]="'TRANSMISSION_FINAL_MEASURE_TAB.RECEPIENT_SECTION' | translate | uppercase">
+      </app-section-header>
+
+      <div style="margin-top: 1.2em; margin-bottom: 3em;">
+        <app-tabella-indirizzi [addresses]="destinatariFissi" [editable]="false" [paginator]="false"
+          [deletable]="false" [selectable]="false"></app-tabella-indirizzi>
+      </div>
+      <app-aggiungi-destinatario [addresses]="provvedimento.ulterioriDestinatari" titleAdresses="Notifica A" [collapsed]="true"
+        (onChangeType)="cambiaTipologia($event)" (onAdd)="addDestinatario($event)" (onRemove)="removeDestinatario($event)">
+      </app-aggiungi-destinatario>
+
+      <div style="border: 1px solid lightgrey; padding: 20px; margin-top: 20px;">
+        Visualizza l'anteprima del pdf generato
+        <button pButton type="button" icon="fa fa-download" (click)="generaPDF()" style="margin-left: 15px;"></button>
+      </div>
+
+      <div class="text-center mt-5" *ngIf="!disabled">
+        <button type="button" class="bttn btn btn-primary" (click)="saveDestinatari()">
+          {{'BUTTONS.SAVE_BUTTON'|translate}}
+          <fa-icon icon="save"></fa-icon>
+        </button>
+        <!--<p-button label="{{ 'BUTTONS.SAVE_BUTTON' | translate }}" class="mx-1" type="button"
+          (click)="saveDestinatari()"></p-button>-->
+          <button [hidden]="disableEdit()" type="button" class="bttn btn btn-primary" (click)="cancelDestinatari()">
+            {{'BUTTONS.CANCEL_BUTTON'|translate}}
+            <fa-icon icon="times"></fa-icon>
+          </button>
+        <!--<p-button [hidden]="disableEdit()" label="{{ 'BUTTONS.CANCEL_BUTTON' | translate }}" class="mx-1" type="button"
+          (click)="cancelDestinatari()"></p-button>-->
+          <button type="button" class="bttn btn btn-primary" (click)="back()">
+            {{'BUTTONS.BACK'|translate}}
+            <fa-icon icon="arrow-left"></fa-icon>
+          </button>
+        <!--<p-button label="{{ 'BUTTONS.BACK' | translate }}" class="mx-1" type="button" (click)="back()"></p-button>-->
+        <button type="button" class="bttn btn btn-primary" (click)="trasmetti()">
+          {{'BUTTONS.TRANSMIT'|translate}}
+          <fa-icon icon="paper-plane"></fa-icon>
+        </button>
+        <!--<p-button label="{{ 'BUTTONS.TRANSMIT' | translate }}" class="mx-1" type="button"
+          (click)="trasmetti()"></p-button>-->
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

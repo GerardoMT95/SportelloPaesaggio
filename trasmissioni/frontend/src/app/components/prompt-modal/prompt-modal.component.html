@@ -1,0 +1,28 @@
+<p-dialog [(visible)]="displayPrompt" (onHide)="close()" [resizable]="false" 
+[draggable]="false" [modal]="true">
+  <p-header>
+    {{'fascicolo.mailCompose.esitoTrasmTitle' | translate}}
+  </p-header>
+  <div class="display-elements">
+    <div class="float-left">
+      <i class="fa done fa-check style-success"></i>
+    </div>
+    <div class="float-left">
+      <p>
+      {{'fascicolo.mailCompose.trasmissioneOK' | translate}} <br><br><br>
+      <!-- {{'fascicolo.mailCompose.msgTrasmOk' | translate}} -->
+      </p>
+      <!-- <div>
+          <button type="button" (click)="downloadAttestatoRicezione()" class="text-left nop fakeLink allegatoIcon" >
+            <fa-icon class="icon" icon="file"></fa-icon>{{'fascicolo.mailCompose.attestatoRicezione'|translate}}
+          </button>
+       </div> -->
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <p-footer>
+    <div class="footer-style">
+         <button (click)="close()" type="button" class="bttn btn btn-primary" >{{ 'generic.ok' | translate }}</button>
+    </div>
+  </p-footer>
+</p-dialog>

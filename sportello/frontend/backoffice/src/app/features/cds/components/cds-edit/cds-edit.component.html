@@ -1,0 +1,394 @@
+<div class="ml-3 mr-3" *ngIf="cds">    
+    <app-section-header [title]="'CDS.LABEL.INFO' | translate | titlecase"></app-section-header>
+    <div class="row">
+        <div class="col-md-4">
+            <label>{{'CDS.LABEL.ID' | translate}}</label>
+            <input type="text" class="form-control" value="{{cds.id}}"  disabled="disabled">
+        </div>
+        <div class="col-md-4">
+            <label>{{'CDS.LABEL.RIFERIMENTO' | translate}}</label>
+            <input type="text" class="form-control" value="{{cds.riferimentoIstanza}}"  disabled="disabled">
+        </div>
+        <div class="col-md-4">
+            <label>{{'CDS.LABEL.STATO' | translate}}</label>
+            <input type="text" class="form-control" value="{{cds.stato}}"  disabled="disabled">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center pt20 pb20">
+            <button class="btn bttn btn-primary" (click)="goToConference()">
+                {{'CDS.BUTTON.GO_TO'|translate}}
+                <fa-icon icon="arrow-right"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="ml-3 mr-3">
+    <app-section-header [title]="'CDS.LABEL.SETTINGS' | translate | titlecase"></app-section-header>
+    <form class="text-left" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.TIPO' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-dropdown [options]="tipoList" 
+                            formControlName="tipo"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                *ngIf="!disable"
+                        ></p-dropdown>
+                        <input type="text" class="form-control" disabled="disabled" *ngIf="disable"
+                        value="{{form.get('tipo').value ? form.get('tipo').value.description : ''}}"
+                        >
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('tipo').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <app-text-field formControlName="orario"
+                        [label]="('CDS.LABEL.ORARIO' | translate) + '*'"
+                        [validation]="validation" 
+                        [errors]="form.get('orario').errors"
+                        [placeholder]="'HH:mm'"
+                    ></app-text-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.ATTIVITA' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-dropdown [options]="attivitaList" 
+                            formControlName="attivita"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                                    (onChange)="changeAttivita()"
+                                    *ngIf="!disable"
+                        ></p-dropdown>
+                        <input type="text" class="form-control" disabled="disabled" *ngIf="disable"
+                        value="{{form.get('attivita').value ? form.get('attivita').value.description: ''}}"
+                        >
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('attivita').errors" 
+                            [validation]="validation">
+                </app-input-error>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.AZIONE' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-dropdown [options]="azioneList" 
+                            formControlName="azione"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                *ngIf="!disable"
+                        ></p-dropdown>
+                        <input type="text" class="form-control" disabled="disabled" *ngIf="disable"
+                        value="{{form.get('azione').value ? form.get('azione').value.description : ''}}"
+                        >
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('azione').errors" 
+                            [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row" *ngIf="!comitato">
+            <div class="col-md-6">
+                <app-date-picker-field formControlName="termineRichiestaIntegrazione"
+                                        [yearRange]="MIN_YEAR+':'+MAX_YEAR"
+                                            [label]="('CDS.LABEL.TERMINE_RICHIESTA_INTEGRAZIONE' | translate )" 
+                                        [validation]="validation"
+                                            [errors]="form.get('termineRichiestaIntegrazione').errors"
+                                    [formControlName]="'termineRichiestaIntegrazione'"
+                ></app-date-picker-field>
+            </div>
+            <div class="col-md-6">
+                <app-date-picker-field formControlName="terminePareri"
+                                        [yearRange]="MIN_YEAR+':'+MAX_YEAR"
+                                            [label]="('CDS.LABEL.TERMINE_PARERI' | translate )" 
+                                        [validation]="validation"
+                                            [errors]="form.get('terminePareri').errors"
+                                    [formControlName]="'terminePareri'"
+                                            [minDate]="minDate"
+                ></app-date-picker-field>
+            </div>
+        </div>
+        <div class="row" *ngIf="!comitato">
+            <div class="col-md-6">
+                <app-date-picker-field formControlName="primaSessione"
+                                        [yearRange]="MIN_YEAR+':'+MAX_YEAR"
+                                            [label]="('CDS.LABEL.PRIMA_SESSIONE' | translate )" 
+                                        [validation]="validation"
+                                            [errors]="form.get('primaSessione').errors"
+                                    [formControlName]="'primaSessione'"
+                                            [disabled]="disable"
+                                            [minDate]="minDate"
+                ></app-date-picker-field>
+            </div>
+            <div class="col-md-6">
+                <app-date-picker-field formControlName="dataTermine"
+                                        [yearRange]="MIN_YEAR+':'+MAX_YEAR"
+                                            [label]="('CDS.LABEL.DATA_TERMINE' | translate )" 
+                                        [validation]="validation"
+                                            [errors]="form.get('dataTermine').errors"
+                                    [formControlName]="'dataTermine'"
+                                            [disabled]="disable"
+                                            [minDate]="minDate"
+                ></app-date-picker-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.PROVINCIA_PERTINENZA' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-autoComplete  [forceSelection]="true" 
+                                                appendTo="body" 
+                                        formControlName="provinciaPertinenza"
+                                                    field="description" 
+                                            [suggestions]="provinciaPertinenzaList" 
+                                                    class="form-control" 
+                                        (completeMethod)="ricercaProvinciaPertinenza($event)"
+                                            [multiple]="false"
+                                            [disabled]="disable"
+                                            (onSelect)="selezionaProvinciaPertinenza($event)"
+                                            (onUnselect)="deselezionaProvinciaPertinenza($event)"
+                        ></p-autoComplete>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('provinciaPertinenza').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.COMUNE_PERTINENZA' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-autoComplete  [forceSelection]="true" 
+                                                appendTo="body" 
+                                        formControlName="comunePertinenza"
+                                                    field="description" 
+                                            [suggestions]="comunePertinenzaList" 
+                                                    class="form-control" 
+                                        (completeMethod)="ricercaComunePertinenza($event)"
+                                            [multiple]="false"
+                                            [disabled]="disable || !enableComunePertinenza"
+                        ></p-autoComplete>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('comunePertinenza').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <app-text-field formControlName="indirizzoPertinenza"
+                                        [label]="('CDS.LABEL.INDIRIZZO_PERTINENZA' | translate) + '*'"
+                                [validation]="validation" 
+                                    [errors]="form.get('indirizzoPertinenza').errors"
+                                    [disabled]="disable"
+                ></app-text-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.TIPO' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-dropdown [options]="modalitaList" 
+                            formControlName="modalitaIncontro"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                                    (onChange)="changeModalita($event)"
+                        ></p-dropdown>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('modalitaIncontro').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row" *ngIf="enableFisica">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.PROVINCIA' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-autoComplete  [forceSelection]="true" 
+                                                appendTo="body" 
+                                        formControlName="provincia"
+                                                    field="description" 
+                                            [suggestions]="provinciaList" 
+                                                    class="form-control" 
+                                        (completeMethod)="ricercaProvincia($event)"
+                                            [multiple]="false"
+                                            [disabled]="disable"
+                                            (onSelect)="selezionaProvincia($event)"
+                                            (onUnselect)="deselezionaProvincia($event)"
+                        ></p-autoComplete>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('provincia').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.COMUNE' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <p-autoComplete  [forceSelection]="true" 
+                                                appendTo="body" 
+                                        formControlName="comune"
+                                                    field="description" 
+                                            [suggestions]="comuneList" 
+                                                    class="form-control" 
+                                        (completeMethod)="ricercaComune($event)"
+                                            [multiple]="false"
+                                            [disabled]="disable || !enableComune"
+                        ></p-autoComplete>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('comune').errors" 
+                            [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row" *ngIf="enableFisica">
+            <div class="col-md-6">
+                <app-text-field formControlName="indirizzo"
+                                        [label]="('CDS.LABEL.INDIRIZZO' | translate) + '*'"
+                                [validation]="validation" 
+                                    [errors]="form.get('indirizzo').errors"
+                                    [disabled]="disable"
+                ></app-text-field>
+            </div>
+            <div class="col-md-6">
+                <app-text-field formControlName="cap"
+                                        [label]="('CDS.LABEL.CAP' | translate) + '*'"
+                                [validation]="validation" 
+                                    [errors]="form.get('cap').errors"
+                                    [disabled]="disable"
+                ></app-text-field>
+            </div>
+        </div>
+        <div class="row" *ngIf="enableOnLine">
+            <div class="col-md-12">
+                <app-text-field formControlName="link"
+                                        [label]="('CDS.LABEL.LINK' | translate) + '*'"
+                                [validation]="validation" 
+                                    [errors]="form.get('link').errors"
+                                    [disabled]="disable"
+                ></app-text-field>
+            </div>
+        </div>
+        <div class="row" *ngIf="comitato">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.COMITATO' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <input type="text" class="form-control" disabled="disabled" *ngIf="disable"
+                        value="{{form.get('comitato').value ? form.get('comitato').value.description : ''}}"
+                        >
+                        <p-dropdown [options]="comitatoList"  *ngIf="!disable"
+                            formControlName="comitato"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                        ></p-dropdown>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('comitato').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row" *ngIf="!comitato">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.RESPONSABILE' | translate }} * <app-tooltip [message]="'CDS.RESPONSABILE_TOOLTIP'|translate" [isHtml]="true"></app-tooltip></label>
+                    <div class="input-group flex-nowrap" >
+                        <input type="text" class="form-control" disabled="disabled" *ngIf="disable"
+                        value="{{form.get('responsabile').value ? form.get('responsabile').value.description : ''}}"
+                        >
+                        <p-dropdown [options]="responsabiliList"  
+                        *ngIf="!disable"
+                            formControlName="responsabile"
+                                optionLabel="description"
+                                [disabled]="disable"
+                                [showClear]="true"
+                                [autoWidth]="false"
+                                class="dflex form-dropdown"
+                                [placeholder]="'generic.selezionaunavoce' | translate"
+                        ></p-dropdown>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('responsabile').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label>{{ 'CDS.LABEL.PARTECIPANTI' | translate }} *</label>
+                    <div class="input-group flex-nowrap" >
+                        <ul class="pl-2" *ngIf="disable && (settings && settings.partecipanti)">
+                            <li *ngFor="let par of settings.partecipanti">
+                                <span style="word-wrap:break-word">{{par.description}}</span><br />
+                            </li>
+                        </ul>
+                        <app-multiselect-field
+                        *ngIf="!disable"
+                        formControlName="funzionari"
+                        optionLabel="description"
+                        [disabled]="disable"
+                        [placeholder]="'generic.selezionaunavoce' | translate"
+                        [name]="'funzionari'"
+                        [options]="funzionariList"
+                        [dropdown]="true"
+                        [validation]="validation"
+                        class="form-dropdown"
+                        [style]="{'display': 'inline'}"
+                      >
+                      </app-multiselect-field>
+                    </div>
+                </div>
+                <app-input-error [errors]="form.get('funzionari').errors" 
+                                [validation]="validation">
+                </app-input-error>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="text-center">
+    <button *ngIf="form.valid && (settings && !settings.completed)" type="button" class="bttn btn btn-primary" (click)="avvia()" >{{'generic.avvia'|translate}}<fa-icon icon="save"></fa-icon></button>
+    <button *ngIf="settings && !settings.completed" type="button" class="bttn btn btn-primary" (click)="salva()" >{{'generic.salva'|translate}}<fa-icon icon="save"></fa-icon></button>
+    <button type="button" class="bttn btn btn-primary" (click)="back()">{{'generic.lista'|translate}}<fa-icon
+        icon="list"></fa-icon>
+    </button>
+</div>

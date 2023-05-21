@@ -1,0 +1,134 @@
+body .ui-table .ui-sortable-column.ui-state-highlight {
+	color: #000;
+	text-decoration: underline !important;
+}
+td .btn.btn-success {
+	border-radius: 50%;
+	color: #fff;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: 3px solid #fff;
+	background-color: #337533;
+}
+.btn.btn-edit {
+	border-radius: 50%;
+	color: #fff;
+	width: 30px;
+	height: 30px;
+	padding: 0px;
+	border: 3px solid #fff;
+	background-color: #007ad9;
+}
+.btn.btn-delete {
+	border-radius: 50%;
+	color: #fff;
+	width: 30px;
+	height: 30px;
+	padding: 0px;
+	border: 3px solid #fff;
+	background-color: #e80909;
+}
+.align-buttons {
+	text-align: left;
+}
+
+.ui-state-highlight {
+	color: #666 !important;
+  }
+  
+// .consultazione {
+// 	position: relative;
+// }
+// .consultazione:hover:before {
+// 	content: attr(data-tooltip);
+// 	position: absolute;
+// 	// left: 100%;
+// 	background: rgba(0, 0, 0, 0.54);
+// 	padding: 6px;
+// 	border-radius: 3px;
+// 	font-size: 0.7rem;
+// 	top: 20;
+// }
+// ::ng-deep .ui-table table {
+// 	table-layout: auto !important;
+// }
+.registration-status-color{
+	border-radius: 50%; 
+    padding: 3px 8px;
+    width: 24px;
+    height: 24px;
+	display: inline-block;
+	color:white;
+	font-weight: 500;
+	margin-left:0%;
+}
+
+/****************************** MEDIA QUERY  *********************************/
+
+// @media screen and (max-width: 575.98px) {
+
+// }
+@media all and (max-width: 767.98px) {
+	body {
+		background-color: red;
+	}
+	tr > td.table {
+		margin-bottom: 0 !important;
+	}
+
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		width: 100%;
+		display: block !important;
+	}
+
+	::ng-deep .ui-table-thead {
+		position: absolute !important;
+		top: -9999px !important;
+		left: -9999px !important;
+	}
+	thead tr.colored-header {
+		position: relative;
+		top: 0px;
+		left: 0px;
+		margin-bottom: 0;
+	}
+
+	tr {
+		margin: 0;
+	}
+
+	//tr:nth-child(odd) {
+		// background: #ccc;
+	//}
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		// border-bottom: 1px solid #eee;
+		position: relative;
+		// padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		// position: absolute;
+
+		/* Top/left values mimic padding */
+		// top: 0;
+		// left: 6px;
+		display: flex;
+		font-weight: 600;
+		padding-bottom: 1rem;
+
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		content: attr(data-label);
+	}
+}

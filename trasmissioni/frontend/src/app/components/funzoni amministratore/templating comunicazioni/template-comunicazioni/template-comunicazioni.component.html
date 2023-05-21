@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <!-- CONFIGURAZIONE TEMPLATE COMUNICAZIONI-->
+    <div class="portlet-content-container" [hidden]="dettaglio">
+        <app-alert [(visible)]="alertData.display" [extraData]="alertData.extraData" [type]="alertData.typ"
+            [hasConfirm]="alertData.isConfirm" (action)="callbackAlert($event)" [content]="alertData.content"
+            [title]="alertData.title" [modal]="false"></app-alert>
+        <div class="mtop20">
+            <!-- <div class="dflex align-items-center" style="padding-top: 1.5em; padding-bottom: .8em;">
+                <div class="col-auto nop">
+                    <div class="input-group paginazione">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">{{'generic.elementiPerPagina' | translate}}</div>
+                        </div>
+                        <p-dropdown class="dflex max100 no-min-width" (onChange)="changeRows($event.value)" 
+                            [(ngModel)]="rowsOnPage" [options]="pages" [autoWidth]="false"></p-dropdown>
+                    </div>
+                </div>
+                <div class="col-auto" *ngIf="totalRecords > 0">
+                    <p class="nom">{{'generic.da' | translate}} {{((rowsOnPage * page) - rowsOnPage) + 1}}
+                        {{'generic.a' | translate}}
+                        <span *ngIf="rowsOnPage * page<totalRecords">{{rowsOnPage * page}}</span><span
+                            *ngIf="rowsOnPage * page>=totalRecords">{{totalRecords}}</span>
+                        di {{itemsTotal}}</p>
+                </div>
+            </div> -->
+            <app-rows-number-handler [itemsTotal]="itemsTotal" [totalRecords]="totalRecords"
+                (change)="changeRows($event)"></app-rows-number-handler>
+            <div class="row tableContainer tableContainerCustom mbottom20">
+                <p-table [value]="data" [lazy]="true" [responsive]="true">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr style="background-color: gray!important;">
+                            <th style="width: 24%">
+                                {{'templateComunicazioni.label.nome' | translate}}
+                            </th>
+                            <th>
+                                {{'templateComunicazioni.label.descrizione' | translate}}
+                            </th>
+                            <th style="width: 100px"></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData>
+                        <tr>
+                            <td>{{ rowData.nome }}</td>
+                            <td>{{ rowData.descrizione }}</td>
+                            <td class="nowrap text-center">
+                                <div ngbTooltip="Modifica">
+                                    <button class="bttn bttn-table btn btn-primary"
+                                        (click)="openDettaglio(rowData)">
+                                        <fa-icon icon="edit"></fa-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage" let-columns>
+                        <tr>
+                            <td [attr.colspan]="3">
+                                <span style="text-align: center">{{'generic.norows' | translate}}</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="footer" let-columns="columns">
+                        <tr>
+                            <td [attr.colspan]="3">
+                                <ngb-pagination [collectionSize]="itemsTotal" [maxSize]="10" [ellipses]="true"
+                                    [boundaryLinks]="true" [pageSize]="rowsOnPage"
+                                    (pageChange)="pageChangedAction($event)" [(page)]="page"
+                                    aria-label="Default pagination"></ngb-pagination>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+    <app-dettaglio-template *ngIf="dettaglio" [dettaglio]="dettaglio" [destinatari]="addresses" 
+        (action)="onAction($event)" (reset)="reset($event)"></app-dettaglio-template>
+</div>

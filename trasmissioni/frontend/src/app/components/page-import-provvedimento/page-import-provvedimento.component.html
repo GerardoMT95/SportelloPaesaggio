@@ -1,0 +1,15 @@
+<div class="portlet-content-container" *ngIf="dettaglio.codice">
+  <div class="portlet-body">
+    <!--timeline e riepologo accordion-->
+    <app-timeline [data]="timeline" [dettaglioFascicolo]="dettaglio" 
+      [localizzazione]="dettaglio.localizzazione"
+      [stato]="stato" [codice]="dettaglio.codice"></app-timeline>
+    <app-import-provvedimento [idFascicolo]="dettaglio.id" 
+    (fineImport)="reloadFascicolo()"></app-import-provvedimento>
+    <div class="text-center inner-pulsantiera">
+      <button type="button" (click)="backToFascicolo()" 
+      class="bttn btn btn-primary">{{'generic.indietro'|translate}}
+        <fa-icon icon="arrow-left"></fa-icon>
+      </button>
+    </div>
+  </div>

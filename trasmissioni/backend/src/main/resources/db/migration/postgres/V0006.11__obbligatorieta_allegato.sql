@@ -1,0 +1,1 @@
+INSERT INTO allegato_obbligatorio ("type", "codice_tipo_procedimento") VALUES ('ELABORATI', 'ACCERT_COMPAT_PAES_DPR_31_2017');

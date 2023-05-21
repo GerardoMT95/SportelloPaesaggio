@@ -1,0 +1,30 @@
+<div style="margin-top: 1.2em;">
+    <!-- multiselect fascicoli -->
+    <div class="row">
+        <div class="col-12">
+            <app-multiselect-field [(ngModel)]="_selected" [filter]="true" label="Seleziona Istanze"
+                [options]="fascicoli|dropdown:'codicePraticaAppptr':'id'" placeholder="-- Seleziona fascicoli --">
+            </app-multiselect-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" style="padding:0;margin-bottom: .8em;">
+            <app-allegati-form [types]="types" [disabled]="!_selected || _selected.length === 0" [files]="docs"
+                [header]="fileTableHeaders" (onDelete)="delete($event)" (onDownload)="download($event)"
+                (onUpload)="onUpload($event)" (onCustomEvent)="showDetails($event)" [enableDelete]="true">
+            </app-allegati-form>
+        </div>
+    </div>
+    <div *ngIf="!disableButtons" class="row" style="margin-bottom: .8em;">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="d-flex flex-row-reverse" style="margin-right: .5em;">
+                <button pButton class="dialog-button" type="button" 
+                    (click)="concludiSeduta()" label="Concludi seduta"></button>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button class="dialog-button" type="button" pButton (click)="chiudi()"
+                    label="{{ 'generic.indietro' | translate }}"></button>
+            </div>
+        </div>
+    </div>
+</div>

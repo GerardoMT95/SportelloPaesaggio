@@ -1,0 +1,12 @@
+<div class="container-fluid nop mtop50">
+  <div class="portlet-content-container">
+    <p>{{'manuale.header'|translate}}</p>
+    <div class="text-center">
+      <div class="my-4" *ngFor="let manuale of listManuali">
+        <button type="button" class="btn btn-primary" (click)="download(manuale.label, manuale.url)">
+          {{manuale.label}}&nbsp;&nbsp;<fa-icon icon="file"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

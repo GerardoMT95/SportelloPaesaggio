@@ -1,0 +1,262 @@
+<div class="container-fluid nop mtop50" *ngIf="dettaglio">
+  <div class="">
+    <div class="legend nopt">
+      <div class="row journal-content-article">
+        <div class="text-left clearfix w100">
+          <hr class="divisore">
+          <div class="text-center">
+            {{'COMMUNICATIONS.COMMUNICATION_DETAIL' | translate}} <span class="dett">
+              <!-- <b>{{dettaglio.codiceComunicazione}} </b> --></span>
+          </div>
+        </div>
+      </div>
+      <div class="row journal-content-article medium-text paddingLeft40">
+        <div class="col-md-2 col-sm-6">
+          <label>{{'COMMUNICATIONS.SENDER' | translate}}:</label>
+          <p class="longText">{{dettaglio.corrispondenza.mittenteDenominazione}}</p>
+        </div>
+        <div class="col-md-2 col-sm-6">
+          <!--<label *ngIf="!dettaglio.pec">{{'COMMUNICATIONS.SENDER_EMAIL' | translate}}:</label>-->
+          <!--<label *ngIf="dettaglio.pec">{{'COMMUNICATIONS.SENDER_PEC' | translate}}:</label>-->
+          <label >{{'COMMUNICATIONS.SENDER_PEC' | translate}}:</label>
+          <p class="longText">{{dettaglio.corrispondenza.mittenteEmail}}</p>
+        </div>
+        <div class="col-md-2 col-sm-6">
+          <label>{{'COMMUNICATIONS.DATE' | translate}}:</label>
+          <p>{{dettaglio.corrispondenza.dataInvio | date: "dd/MM/yyyy"}}</p>
+        </div>
+        <div class="col-md-3 col-sm-6" *ngIf="!dettaglio.corrispondenza.protocollo"></div>
+        <div class="col-md-3 col-sm-6" *ngIf="dettaglio.corrispondenza.protocollo as protocollo">
+          <label>{{'COMMUNICATIONS.PROTOCOLLO' | translate}}:</label>
+          <p class="longText">
+            {{protocollo}} del {{dettaglio.corrispondenza.dataProtocollo| date: "dd/MM/yyyy"}}</p>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <div class="align-right">
+            <ul class="noStyle align-right">
+              <!--la nostra casella mittente è sempre pec...-->
+              <li class="round bdg icon paddingBottom15" [ngClass]="false?'disabledBdg':''">
+                <em class="fa fa-at big-text"></em>
+                <span class="big-text">Pec</span>
+              </li>
+              <li class="round bdg icon paddingBottom15" [ngClass]="true?'disabledBdg':''">
+                <em class="fa fa-envelope big-text"></em>
+                <span class="big-text">Email</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row journal-content-article medium-text paddingLeft40">
+      <div class="col-md-12 col-sm-12">
+        <label>{{'COMMUNICATIONS.OBJECT' | translate}}:</label>
+        <p>{{dettaglio.corrispondenza.oggetto}}</p>
+      </div>
+    </div>
+      <div class="row journal-content-article medium-text paddingLeft40">
+        <div class="col-12">
+            <p-panel [header]="'Testo: '" >
+            <p-scrollPanel [style]="{width: '100%', height: '100px'}">
+            <p [innerHTML]="dettaglio.corrispondenza.testo|safeHtml" ></p>
+            </p-scrollPanel>
+          </p-panel>
+        </div>
+      </div>
+      <!--<div class="row journal-content-article" style="padding-left: 54px!important">
+        <button class="bttn btn btn-primary" *ngIf="dettaglio.idCms"
+          (click)="downloadFromAlfresco(dettaglio.idCms,dettaglio.codiceComunicazione+'.eml')">
+          {{'COMMUNICATIONS.EML'|translate}} <em class="fa fa-download"></em>
+        </button>
+      </div>-->
+      <!--RICEVUTA DI ACCETTAZIONE ....-->
+      <div *ngIf="getRicevutaAccettazione(dettaglio) as ricevutaAccettazione">
+        <div class="row journal-content-article">
+          <div class="text-left clearfix w100">
+            <hr class="divisore">
+            <div class="text-center">
+              Ricevuta Di Accettazione
+            </div>
+          </div>
+        </div>
+        <div class="row journal-content-article" style="padding-left: 54px!important">
+          <button class="bttn btn btn-primary btn-success"
+            (click)="downloadRicevuta(ricevutaAccettazione.idCmsEml,dettaglio.corrispondenza.id+'_accettazione.eml')">
+            Eml Accettazione <em class="fa fa-download"></em>
+          </button>
+          <!--<button class="bttn btn btn-primary"
+            (click)="downloadFromAlfresco(ricevutaAccettazione.idCmsDatiCert,'daticert.xml')">
+            DatiCert<em class="fa fa-download"></em>
+          </button>
+          <button class="bttn btn btn-primary"
+            (click)="downloadFromAlfresco(ricevutaAccettazione.idCmsSmime,'smime.p7s')">
+            Smime<em class="fa fa-download"></em>
+          </button>-->
+        </div>
+      </div>
+      <!--LISTA ALLEGATI-->
+      <div *ngIf="dettaglio.allegatiInfo && dettaglio.allegatiInfo.length>0">
+        <div class="row journal-content-article">
+          <div class="text-left clearfix w100">
+            <hr class="divisore">
+            <div class="text-center">
+              {{'COMMUNICATIONS.ATTACHMENTS' | translate}}
+            </div>
+          </div>
+        </div>
+        <div class="tableContainer nomt mbottom15">
+          <table class="table table-hover table-striped nomb">
+            <thead>
+              <tr>
+                <th class="uppercase">
+                  {{'COMMUNICATIONS.ATTACHMENT_NAME' | translate}}
+                </th>
+                <th class="uppercase">
+                  {{'COMMUNICATIONS.ATTACHMENT_SIZE' | translate}}
+                </th>
+                <th class="uppercase">
+                  {{'TECHNICAL_DOCUMENTATION.HASH' | translate}}
+                </th>
+                <th class="text-center" style="width: 100px">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dettaglio.allegatiInfo">
+                <td>
+                  {{item.nome}}
+                </td>
+                <td>
+                  {{item.size|filesize}}
+                </td>
+                <td>
+                  {{item.checksum}}
+                </td>
+                <td class="text-center">
+                  <a style="padding-top: 1.4px" placement="top" container="body" class="bttn bttn-table btn btn-success"
+                    (click)="downloadFromAlfresco(item.id,item.nome)">
+                    <div ngbTooltip="Scarica Allegato">
+                      <em class="fa fa-download"></em>
+                    </div>
+                  </a>
+                </td>
+              </tr>
+              <tr *ngIf="!dettaglio.allegatiInfo || dettaglio.allegatiInfo.length==0" class="text-center no-items-columns">
+                <td colspan="100%">{{'generic.noRows'|translate}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <!--LISTA DESTINATARI-->
+      <div class="row journal-content-article">
+        <div class="text-left clearfix w100">
+          <hr class="divisore">
+          <div class="text-center">
+            {{'COMMUNICATIONS.RECIPIENTS' | translate}}
+          </div>
+        </div>
+      </div>
+      <!--<div class="col-auto nop paddingBottom15">
+        <div class="input-group paginazione">
+          <div class="input-group-prepend">
+            <div class="input-group-text">{{'generic.elementiPerPagina' | translate}}</div>
+          </div>
+          <p-dropdown class="dflex max100" [ngModel]="rowsOnPage" [options]="pages" [autoWidth]="false"></p-dropdown>
+        </div>
+      </div>-->
+      <p-dataView #dv [value]="dettaglio.destinatari" [paginator]="true" [rows]="rowsOnPage" paginatorPosition="bottom"
+        filterBy="brand" [sortField]="sortField" [sortOrder]="sortOrder" [rowsPerPageOptions]="[5,10,25]">
+        <p-header>
+          <div class="ui-helper-clearfix">
+            <!--LEGENDA-->
+            <div class="align-right">
+              <label class="marginRight6 vmiddle">Esito con Errore</label><span _ngcontent-c16=""
+                class="my-label label label-danger ng-star-inserted align-middle" placement="right">&nbsp;&nbsp;</span>
+              <label class="marginRight6 marginLeft15 vmiddle">Esito Positivo</label><span _ngcontent-c16=""
+                class="my-label label label-success ng-star-inserted align-middle" placement="right">&nbsp;&nbsp;</span>
+              <label
+                class="marginRight6  marginLeft15 vmiddle">{{'COMMUNICATIONS.SENT' | translate}}</label><span
+                _ngcontent-c16="" class="my-label label label-primary ng-star-inserted align-middle"
+                placement="right">&nbsp;&nbsp;</span>
+            </div>
+          </div>
+        </p-header>
+        <ng-template let-dest pTemplate="listItem">
+          <div style="padding: 1em;border-bottom: 1px solid #d9d9d9">
+            <div class="row journal-content-article paddingBottom15">
+              <div class="badge omino-destinatario paddingBottom15" [ngClass]="classBadge(dest)"
+                style="min-width: 300px; ;padding-left: 10px!important">
+                <div class="dflex">
+                  <div class="col-auto">
+                    <em class="fa fa-user" style="font-size: 1.6em!important;"></em>
+                  </div>
+                  <div class="col-auto" style="margin-top: -2px">
+                    <div class="row" style="margin-bottom: 6px" [ngClass]="dest.nome==''?'paddingTop10':''">
+                      <span style="font-size: 0.9em!important;">{{dest.nome}}</span>
+                    </div>
+                    <div class="row">
+                      <span style="font-size: 0.7em!important;">{{dest.email}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row journal-content-article paddingBottom15">
+              <div *ngIf="dest.ricevute && dest.ricevute.length>0; else dataInvio" class="col-md-2">
+                <label>{{'COMMUNICATIONS.DATA_RICEZIONE' | translate}}:</label>
+                <p>{{dest.ricevute[0].data | date : "dd/MM/yyyy HH:mm"}}</p>
+              </div>
+              <ng-template #dataInvio>
+                <div class="col-md-2">
+                  <label>Data invio:</label>
+                  <p>{{dettaglio.corrispondenza.dataInvio | date: "dd/MM/yyyy"}}</p>
+                </div>
+              </ng-template>
+              <div class="col-md-2">
+                <label>{{'COMMUNICATIONS.TIPO_DESTINATARIO' | translate}}:</label>
+                <p>{{dest.tipo}}</p>
+              </div>
+              <div *ngIf="dest.ricevute && dest.ricevute.length>0 " class="col-md-2">
+                <label>{{'COMMUNICATIONS.ERROR' | translate}}:</label>
+                <p *ngIf="dest.ricevute && dest.ricevute.length>0">{{dest.ricevute[0].errore}}</p>
+              </div>
+              <div *ngIf="dest.ricevute && dest.ricevute.length>0 " class="col-md-6">
+                <label>{{'COMMUNICATIONS.ERROR_DESCRIPTION' | translate}}:</label>
+                <p *ngIf="dest.ricevute && dest.ricevute.length>0">{{dest.ricevute[0].descrizioneErrore}}</p>
+              </div>
+            </div>
+            <div class="row paddingBottom15">
+              <div class="col-md-12">
+                <div class="align-right">
+                  <button *ngIf="getRicevutaErroreOconsegna(dest.ricevute) as ricevuta" class="bttn btn btn-primary"
+                    (click)="downloadRicevuta(ricevuta.idCmsEml,ricevuta.tipoRicevuta+'.eml')">
+                    {{'COMMUNICATIONS.EML'|translate}} <em class="fa fa-download"></em>
+                  </button>
+                  <!--<button *ngIf="!dettaglio.pec && dest.ricevute && dest.ricevute.length>0" class="bttn btn btn-primary"
+                    (click)="downloadRicevuta(dest.ricevute[0].idCmsEml,dest.ricevute[0].tipoRicevuta+'.eml')">
+                    {{'COMMUNICATIONS.EML'|translate}}<em class="fa fa-download"></em>
+                  </button>
+                  <button *ngIf="dettaglio.pec && dest.ricevute && dest.ricevute.length>0" class="bttn btn btn-primary"
+                    (click)="downloadRicevuta(dest.ricevute[0].idCmsDatiCert,'daticert.xml')">
+                    {{'COMMUNICATIONS.DATICERT'|translate}}<em class="fa fa-download"></em>
+                  </button>
+                  <button *ngIf="dettaglio.pec && dest.ricevute && dest.ricevute.length>0" class="bttn btn btn-primary"
+                    (click)="downloadRicevuta(dest.ricevute[0].idCmsSmime,'smime.p7s')">
+                    {{'COMMUNICATIONS.SMIME'|translate}}<em class="fa fa-download"></em>
+                  </button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </div>
+</div>
+<div class="text-center">
+  <button class="bttn btn btn-primary" (click)="back()">
+    {{'generic.chiudi'|translate}} <em class="fa fa-times"></em>
+  </button>
+</div>
+</div>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final utlizzo versione della libreria JasperReports5.5.1  -->
+<!-- 2020-09-14T15:27:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CommAvvioRegistrazione" pageWidth="595" pageHeight="841" columnWidth="437" leftMargin="83" rightMargin="75" topMargin="37" bottomMargin="22" uuid="e12aebd4-23eb-4cb1-97e2-e13a1b952e81">
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["jasper/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="protocollo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="238" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="30" width="430" height="30" uuid="cc9b0be2-8715-4622-a79c-792fcc44cbc9"/>
+				<textElement textAlignment="Center">
+					<font fontName="CustomArial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[File RTF che rappresenta il template della
+"LETTERA DI TRASMISSIONE ESITO VERIFICA"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="430" height="60" uuid="7af24086-37dd-46aa-9c12-c77200d0927d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Blocco per le eventuali informazioni dipendenti dallo specifico fascicolo in esame]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="140" height="30" uuid="7b625bf9-c53d-45f9-94f5-8fd016c81e4e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomArial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Blocco per le informazioni
+di protocollazione]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="140" y="80" width="100" height="30" uuid="abb9bcb3-ca28-4676-829f-d62d5adcc1d6">
+					<printWhenExpression><![CDATA[$F{protocollo}!=null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomArial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Protocollo n.\n" +$F{protocollo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

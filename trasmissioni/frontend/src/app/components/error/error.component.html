@@ -1,0 +1,15 @@
+<div class="container-fluid nop mtop50">
+  <h2 class="portlet-title-text portlet-title-editable">{{'generic.errore' | translate}}</h2>
+  <div class="portlet-content-container">
+    <div class="error-container text-center">
+      <fa-icon icon="exclamation-triangle"></fa-icon>
+      <span *ngIf="routeParams?.code">{{ routeParams?.code }}</span> {{'generic.error' | translate}}
+      <div *ngIf="routeParams?.error">
+        <h4>{{ routeParams?.error }}</h4>
+      </div>
+    </div>
+    <div class="text-center inner-pulsantiera">			
+      <button type="button" class="bttn btn btn-primary" (click)="back()" >{{'generic.gotohome' | translate}}<fa-icon icon="arrow-left"></fa-icon></button>
+    </div>
+  </div>
+</div>

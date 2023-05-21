@@ -1,0 +1,17 @@
+<form [formGroup]="mainForm.controls['parreriEAtti']">
+<div class="container-fluid">
+    <div class="mb-4 mt-4">
+            <p-panel [header]="'PARERI_E_ATI.ACTS_OF_ASSENT' | translate | uppercase">
+                <app-building-table [tableData]="this.fascicolo.schedaTecnica?.parreriEAtti?.attiInfo" [tableHeaders]="parreriTableHeaders" 
+                    [form]="parreriForm" [formArrayName]="'attiInfo'" [disabled]="true"></app-building-table>
+            </p-panel>
+    </div>
+
+    <div class="mb-4 mt-4">
+        <p-panel [header]="'PARERI_E_ATI.OPINIONS' | translate | uppercase"> 
+            <app-building-table [tableData]="this.fascicolo.schedaTecnica?.parreriEAtti?.parreriInfo" [tableHeaders]="parreriTableHeaders" 
+                [form]="parreriForm" [formArrayName]="'parreriInfo'" [disabled]="true"></app-building-table>
+        </p-panel>
+    </div>
+</div>
+</form>

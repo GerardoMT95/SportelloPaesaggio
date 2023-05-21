@@ -1,0 +1,29 @@
+.fieldset {
+  margin-top: 20px;
+
+  .fieldset-tab {
+    height: 25px;
+    width: 80px;
+    background-color: rgb(223, 223, 223);
+    position: relative;
+    bottom: 30px;
+    left: 30px;
+    font-size: 15px;
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+.ente-delegato {
+  width: 180px;
+}
+
+.tipo-procedimento {
+  width: 180px;
+}
+
+.oggetto {
+  width: 180px;
+}

@@ -1,0 +1,19 @@
+<p-dialog [(visible)]="visible" [styleClass]="type" (onShow)="onShow()" (onHide)="close()" 
+[modal]="modal" [draggable]="false" [width]="300" [resizable]="false">
+  <p-header [innerHTML]="title|translate"></p-header>
+  <div class="row nom">
+    <div class="col-auto nop">
+      <div class="icon" *ngIf="type!='none'">
+        <fa-icon [icon]="getIcon(type)"></fa-icon>
+      </div>
+    </div>
+    <div class="col-md" [innerHTML]="(content|translate) | safeHtml"></div>
+  </div>
+  <p-footer >
+    <div class="footer-style">
+      <!--class="btn btn-default button-style"-->
+    <button type="button" class="bttn btn btn-primary" *ngIf="hasConfirm" (click)="closeOk()">{{labelOk | translate}}</button>
+    <button type="button" class="bttn btn btn-primary" (click)="visible=false">{{labelChiudi | translate}}</button>
+  </div>
+  </p-footer>
+</p-dialog>
