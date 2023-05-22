@@ -1,21 +1,12 @@
-sonar.projectKey=GerardoMT95_SportelloPaesaggio
+sonar.projectKey=GerardoMT95_iuffi
 sonar.organization=gerardomt95
 
 # This is the name and version displayed in the SonarCloud UI.
-#sonar.projectName=SportelloPaesaggio
+#sonar.projectName=iuffi
 #sonar.projectVersion=1.0
 
 # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
-#sonar.sources=.
-
-# Encoding of the source code. Default is default system encoding
-#sonar.sourceEncoding=UTF-8
-
-
-
-
-# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
-sonar.sources=trasmissioni/frontend/src, trasmissioni/backend/src/main, sportello/frontend/frontoffice/src, sportello/frontend/backoffice/src, sportello/backend/src/main
+sonar.sources=iuffiauth/src/java, iuffimobile/src, iuffiweb/src
 #sonar.java.binaries=build
 sonar.java.binaries=.
 #sonar.java.libraries=*.jar
